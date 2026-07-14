@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OF4S — Logo &amp; Type</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="shared.css?v=12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { background: var(--of4s-paper-50); }
+
+    a { color: var(--of4s-navy-700); }
+    a:hover { color: var(--of4s-navy-500); }
+    em { font-style: normal; }
+
+    .opt-hero {
+      padding: 80px 80px 56px;
+      background: var(--of4s-navy-900);
+      color: var(--of4s-paper-50);
+    }
+    .opt-hero .eyebrow {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--of4s-navy-300);
+      margin-bottom: 20px;
+    }
+    .opt-hero h1 {
+      font-family: var(--of4s-font-sans);
+      font-weight: 600;
+      font-size: clamp(48px, 6vw, 84px);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin: 0 0 20px;
+    }
+    .opt-hero h1 em { color: var(--of4s-navy-300); }
+    .opt-hero p { font-size: 17px; color: var(--of4s-paper-200); max-width: 660px; margin: 0; line-height: 1.55; }
+
+    /* Versions & uses */
+    .versions {
+      padding: 72px 80px;
+      background: var(--of4s-paper-100);
+      border-bottom: var(--of4s-border-thin);
+    }
+    .versions > .code {
+      font-family: var(--of4s-font-mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--of4s-navy-600);
+      margin-bottom: 10px;
+    }
+    .versions > h2 {
+      font-family: var(--of4s-font-display);
+      font-weight: 700;
+      font-size: 34px;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px;
+      color: var(--of4s-stone-900);
+    }
+    .versions > p { font-size: 15px; line-height: 1.55; color: var(--of4s-stone-700); max-width: 620px; margin: 0 0 36px; }
+    .v-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+    .v-card {
+      background: white;
+      border: var(--of4s-border-thin);
+      border-radius: var(--of4s-radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .v-card.wide { grid-column: span 3; }
+    .v-card .cap {
+      font-family: var(--of4s-font-mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--of4s-stone-500);
+      padding: 12px 20px;
+      border-bottom: var(--of4s-border-thin);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .v-card .cap .use-for { color: var(--of4s-navy-600); }
+    .v-card .demo-area {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      padding: 40px 24px;
+      min-height: 150px;
+    }
+    .v-card .demo-area.dark { background: var(--of4s-navy-900); }
+    .versions .m5 { font-family: var(--of4s-font-display); font-weight: 700; }
+    .versions .m5 .of, .versions .m5 .four, .versions .m5 .s { font-size: 52px; font-weight: 700; }
+    .versions .m5.big .of, .versions .m5.big .four, .versions .m5.big .s { font-size: 64px; }
+    .lockup-h {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .lockup-h .rule { width: 1px; align-self: stretch; background: rgba(15,29,51,0.18); }
+    .demo-area.dark .lockup-h .rule { background: rgba(255,255,255,0.25); }
+    .lockup-h .fullname {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--of4s-stone-600);
+      line-height: 1.9;
+    }
+    .demo-area.dark .lockup-h .fullname { color: var(--of4s-paper-200); }
+    .fav {
+      width: 32px; height: 32px;
+      background: var(--of4s-navy-800);
+      color: var(--of4s-paper-50);
+      border-radius: 5px;
+      font-family: var(--of4s-font-display);
+      font-weight: 700; font-size: 11px;
+      letter-spacing: -0.03em; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .fav b { color: var(--of4s-navy-300); font-weight: 700; }
+    .fav.lg { width: 56px; height: 56px; font-size: 18px; border-radius: 9px; }
+
+    /* Candidate section */
+    .cand {
+      padding: 72px 80px;
+      border-bottom: var(--of4s-border-thin);
+    }
+    .cand-head {
+      display: grid;
+      grid-template-columns: 90px 1fr 280px;
+      gap: 40px;
+      margin-bottom: 40px;
+      align-items: baseline;
+    }
+    .cand-num {
+      font-family: var(--of4s-font-mono);
+      font-weight: 500;
+      font-size: 40px;
+      letter-spacing: -0.02em;
+      color: var(--of4s-navy-500);
+    }
+    .cand-meta .code {
+      font-family: var(--of4s-font-mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--of4s-navy-600);
+      margin-bottom: 10px;
+    }
+    .cand-meta h2 {
+      font-family: var(--of4s-font-sans);
+      font-weight: 600;
+      font-size: 34px;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin: 0 0 14px;
+      color: var(--of4s-stone-900);
+    }
+    .cand-meta p {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--of4s-stone-700);
+      margin: 0;
+      max-width: 540px;
+    }
+    .cand-spec { font-family: var(--of4s-font-mono); font-size: 11px; line-height: 1.7; color: var(--of4s-stone-600); }
+    .cand-spec .row { display: flex; justify-content: space-between; gap: 16px; padding: 6px 0; border-bottom: 1px dashed rgba(15,29,51,0.12); }
+    .cand-spec .row:last-child { border-bottom: 0; }
+    .cand-spec .l { color: var(--of4s-stone-500); letter-spacing: 0.12em; text-transform: uppercase; font-size: 9px; }
+    .cand-spec .v { color: var(--of4s-stone-900); text-align: right; }
+
+    .stages {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 16px;
+    }
+    .stage {
+      min-height: 220px;
+      padding: 40px 32px;
+      border-radius: var(--of4s-radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .stage .label {
+      position: absolute;
+      top: 12px; left: 12px;
+      font-family: var(--of4s-font-mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.5);
+      background: rgba(255,255,255,0.85);
+      padding: 4px 8px;
+      border-radius: 3px;
+    }
+    .stage.paper { background: var(--of4s-paper-100); }
+    .stage.navy  { background: var(--of4s-navy-900); }
+    .stage.navy .label { color: rgba(255,255,255,0.7); background: rgba(0,0,0,0.4); }
+
+    /* The locked mark — Option 5 anatomy; font swaps per candidate */
+    .m5 {
+      display: inline-flex; align-items: center; gap: 0;
+      color: var(--of4s-navy-800);
+    }
+    .m5 .of, .m5 .four, .m5 .s {
+      font-size: 68px;
+      letter-spacing: -0.03em;
+      line-height: 0.9;
+    }
+    .m5 .four { color: var(--of4s-navy-500); }
+    .m5 .full {
+      font-family: var(--of4s-font-mono);
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--of4s-stone-600);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      margin-left: 20px;
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+    }
+    .m5.on-dark { color: var(--of4s-paper-50); }
+    .m5.on-dark .four { color: var(--of4s-navy-300); }
+    .m5.on-dark .full { color: var(--of4s-paper-200); }
+
+    /* Display-type sample under each mark */
+    .type-sample {
+      margin-top: 16px;
+      background: white;
+      border: var(--of4s-border-thin);
+      border-radius: var(--of4s-radius-lg);
+      padding: 36px 32px;
+    }
+    .type-sample .eyebrow {
+      font-family: var(--of4s-font-mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--of4s-navy-600);
+      margin-bottom: 14px;
+    }
+    .type-sample .headline {
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+      color: var(--of4s-stone-900);
+      margin: 0 0 14px;
+      text-wrap: balance;
+    }
+    .type-sample .headline em { color: var(--of4s-navy-600); }
+    .type-sample .body {
+      font-family: var(--of4s-font-sans);
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--of4s-stone-700);
+      max-width: 560px;
+      margin: 0;
+    }
+    .type-sample .weights {
+      display: flex;
+      gap: 24px;
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px dashed rgba(15,29,51,0.12);
+      font-size: 18px;
+      color: var(--of4s-stone-700);
+      flex-wrap: wrap;
+    }
+    .type-sample .weights span small {
+      display: block;
+      font-family: var(--of4s-font-mono);
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: var(--of4s-stone-500);
+      margin-top: 2px;
+    }
+
+    /* Per-candidate font assignments */
+    .f-schib { font-family: 'Schibsted Grotesk', sans-serif; }
+    .m5.f-schib .of, .m5.f-schib .four, .m5.f-schib .s { font-weight: 700; }
+    .type-sample .headline.f-schib { font-weight: 700; }
+
+    /* Recommendation */
+    .recco {
+      padding: 72px 80px;
+      background: var(--of4s-navy-900);
+      color: var(--of4s-paper-100);
+    }
+    .recco h2 {
+      font-family: var(--of4s-font-sans);
+      font-weight: 600;
+      font-size: 44px;
+      letter-spacing: -0.02em;
+      margin: 0 0 20px;
+      color: var(--of4s-paper-50);
+    }
+    .recco h2 em { color: var(--of4s-navy-300); }
+    .recco p { font-size: 16px; line-height: 1.6; color: var(--of4s-paper-200); max-width: 680px; margin: 0; }
+
+    @media (max-width: 960px) {
+      .opt-hero, .cand, .recco, .versions { padding-left: 24px; padding-right: 24px; }
+      .v-grid { grid-template-columns: 1fr; }
+      .v-card.wide { grid-column: span 1; }
+      .cand-head { grid-template-columns: 1fr; gap: 16px; }
+      .stages { grid-template-columns: 1fr; }
+      .m5 .of, .m5 .four, .m5 .s { font-size: 48px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ds-shell">
+    <div id="sidebar"></div>
+
+    <main class="ds-main">
+
+      <section class="opt-hero" data-screen-label="Hero">
+        <div class="eyebrow">LOGO LOCKED · DISPLAY FONT — DECIDED: T2</div>
+        <h1>The mark is set.<br/>The voice is <em>Schibsted.</em></h1>
+        <p>The OF4S shorthand is the logo. Schibsted Grotesk is the display font for the mark and the whole system — headlines, decks, proposals, and the wordmark.</p>
+      </section>
+
+      <!-- VERSIONS & USES -->
+      <section class="versions" data-screen-label="Versions and uses">
+        <div class="code">THE MARK · VERSIONS &amp; USES</div>
+        <h2>One logo, five jobs</h2>
+        <p>Every sanctioned form of the mark. The primary shorthand covers most cases; the horizontal lockup is the wide version for letterheads, proposal covers, and web navs where the full company name has to appear; the tiles cover favicon, app, and avatar duty.</p>
+        <div class="v-grid">
+          <div class="v-card wide">
+            <div class="cap"><span>01 · HORIZONTAL LOCKUP</span><span class="use-for">LETTERHEAD · PROPOSAL COVER · WEB NAV</span></div>
+            <div class="demo-area">
+              <span class="lockup-h">
+                <span class="m5 big"><span class="of">OF</span><span class="four">4</span><span class="s">S</span></span>
+                <span class="rule"></span>
+                <span class="fullname">OFFICE FURNITURE<br />4 SALE</span>
+              </span>
+            </div>
+          </div>
+          <div class="v-card">
+            <div class="cap"><span>02 · PRIMARY MARK</span><span class="use-for">DEFAULT</span></div>
+            <div class="demo-area">
+              <span class="m5"><span class="of">OF</span><span class="four">4</span><span class="s">S</span></span>
+            </div>
+          </div>
+          <div class="v-card">
+            <div class="cap"><span>03 · ON NAVY</span><span class="use-for">DARK SURFACES</span></div>
+            <div class="demo-area dark">
+              <span class="m5 on-dark"><span class="of">OF</span><span class="four">4</span><span class="s">S</span></span>
+            </div>
+          </div>
+          <div class="v-card">
+            <div class="cap"><span>04 · CAPTIONED</span><span class="use-for">COVERS · POSTERS</span></div>
+            <div class="demo-area">
+              <span class="m5"><span class="of">OF</span><span class="four">4</span><span class="s">S</span><span class="full">OFFICEFURNITURE4SALE</span></span>
+            </div>
+          </div>
+          <div class="v-card">
+            <div class="cap"><span>05 · TILES</span><span class="use-for">FAVICON · APP · AVATAR</span></div>
+            <div class="demo-area">
+              <div class="fav">OF<b>4</b>S</div>
+              <div class="fav lg">OF<b>4</b>S</div>
+            </div>
+          </div>
+          <div class="v-card">
+            <div class="cap"><span>06 · TEXT MARK</span><span class="use-for">URL · EMAIL SIG</span></div>
+            <div class="demo-area" style="flex-direction: column; gap: 14px;">
+              <span style="font-family: var(--of4s-font-mono); font-size: 14px; color: var(--of4s-stone-700);">of<span style="color: var(--of4s-navy-600); font-weight: 600;">4</span>s.com</span>
+              <span style="font-family: var(--of4s-font-display); font-weight: 700; font-size: 17px; color: var(--of4s-navy-800); letter-spacing: -0.02em;">OF<span style="color: var(--of4s-navy-500);">4</span>S</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- T2 · SCHIBSTED GROTESK -->
+      <section class="cand" data-screen-label="T2 Schibsted Grotesk">
+        <div class="cand-head">
+          <div class="cand-num">T2</div>
+          <div class="cand-meta">
+            <div class="code">T2 · SCHIBSTED GROTESK · CHOSEN</div>
+            <h2>Editorial, sharp</h2>
+            <p>Built for news headlines — high contrast between tight display setting and open counters. Serious without being stiff; the closest sans equivalent to the editorial voice the serif used to carry.</p>
+          </div>
+          <div class="cand-spec">
+            <div class="row"><span class="l">Family</span><span class="v">Schibsted Grotesk 700</span></div>
+            <div class="row"><span class="l">Feel</span><span class="v">Editorial · assured</span></div>
+            <div class="row"><span class="l">Watch</span><span class="v">Less distinctive at small sizes</span></div>
+          </div>
+        </div>
+        <div class="stages">
+          <div class="stage paper"><span class="label">PAPER</span>
+            <span class="m5 f-schib"><span class="of">OF</span><span class="four">4</span><span class="s">S</span><span class="full">OFFICEFURNITURE4SALE</span></span>
+          </div>
+          <div class="stage navy"><span class="label">NAVY</span>
+            <span class="m5 f-schib on-dark"><span class="of">OF</span><span class="four">4</span><span class="s">S</span><span class="full">OFFICEFURNITURE4SALE</span></span>
+          </div>
+        </div>
+        <div class="type-sample">
+          <div class="eyebrow">AS THE DISPLAY FONT</div>
+          <h3 class="headline f-schib">The workplace, <em>made easy.</em></h3>
+          <p class="body">Body copy stays in Geist. Schibsted Grotesk takes over headlines, deck titles, and the wordmark.</p>
+          <div class="weights">
+            <span class="f-schib" style="font-weight: 400;">Regular<small>400</small></span>
+            <span class="f-schib" style="font-weight: 500;">Medium<small>500</small></span>
+            <span class="f-schib" style="font-weight: 700;">Bold<small>700</small></span>
+            <span class="f-schib" style="font-weight: 800;">Extrabold<small>800</small></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- RECOMMENDATION -->
+      <section class="recco" data-screen-label="Recommendation">
+        <h2>Decided: <em>T2 — Schibsted Grotesk.</em></h2>
+        <p>It keeps the editorial confidence the brand has always had and works hard as both a logo and a headline face. Rolled through tokens and every page — headlines, decks, proposals, and the wordmark all set in Schibsted Grotesk.</p>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="sidebar.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById('sidebar')).render(<DSSidebar current="logo-type" />);
+    ReactDOM.createRoot(document.getElementById('footer')).render(<DSFooter />);
+  </script>
+</body>
+</html>

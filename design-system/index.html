@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OF4S Design System — Overview</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="shared.css?v=12" />
+  <style>
+    /* Hero */
+    .hero {
+      padding: 96px 80px 80px;
+      background: var(--of4s-stone-900);
+      color: var(--of4s-paper-100);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -120px; bottom: -120px;
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, var(--of4s-navy-700), transparent 65%);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--of4s-navy-300);
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--of4s-font-display);
+      font-weight: 300;
+      font-size: clamp(72px, 9vw, 132px);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin: 0 0 28px;
+      color: var(--of4s-paper-50);
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--of4s-navy-300);
+      font-weight: 400;
+    }
+    .hero p {
+      font-size: 19px;
+      line-height: 1.55;
+      color: var(--of4s-paper-200);
+      max-width: 580px;
+      margin: 0;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 64px;
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      max-width: 720px;
+    }
+    .hero-meta .item .label {
+      font-family: var(--of4s-font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--of4s-stone-400);
+      margin-bottom: 8px;
+    }
+    .hero-meta .item .value {
+      font-size: 18px;
+      color: var(--of4s-paper-50);
+      font-family: var(--of4s-font-display);
+      font-weight: 400;
+    }
+
+    /* Pillars */
+    .pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      padding: 64px 80px;
+      background: var(--of4s-paper-100);
+      border-bottom: var(--of4s-border-thin);
+    }
+    .pillar {
+      background: white;
+      padding: 32px;
+      border-radius: var(--of4s-radius-lg);
+      border: var(--of4s-border-thin);
+    }
+    .pillar .num {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      color: var(--of4s-navy-600);
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+    .pillar h3 {
+      font-family: var(--of4s-font-display);
+      font-weight: 500;
+      font-size: 26px;
+      letter-spacing: -0.015em;
+      margin: 0 0 12px;
+      color: var(--of4s-stone-900);
+    }
+    .pillar p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--of4s-stone-600);
+      margin: 0;
+    }
+
+    /* Big nav grid */
+    .nav-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-top: var(--of4s-border-thin);
+    }
+    .nav-card {
+      padding: 48px;
+      border-right: var(--of4s-border-thin);
+      border-bottom: var(--of4s-border-thin);
+      background: var(--of4s-paper-50);
+      text-decoration: none;
+      color: inherit;
+      transition: background var(--of4s-dur-base) var(--of4s-ease);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 280px;
+      position: relative;
+    }
+    .nav-card:hover { background: white; }
+    .nav-card .num {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      color: var(--of4s-stone-500);
+      letter-spacing: 0.15em;
+    }
+    .nav-card h3 {
+      font-family: var(--of4s-font-display);
+      font-weight: 400;
+      font-size: 38px;
+      letter-spacing: -0.02em;
+      margin: auto 0 0;
+      color: var(--of4s-stone-900);
+    }
+    .nav-card p {
+      font-size: 14px;
+      color: var(--of4s-stone-600);
+      margin: 0;
+      max-width: 360px;
+    }
+    .nav-card .arrow {
+      position: absolute;
+      top: 48px; right: 48px;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--of4s-stone-400);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--of4s-stone-600);
+      transition: all var(--of4s-dur-base) var(--of4s-ease);
+    }
+    .nav-card:hover .arrow {
+      background: var(--of4s-navy-800);
+      border-color: var(--of4s-navy-800);
+      color: white;
+    }
+    .nav-card.dark {
+      background: var(--of4s-navy-800);
+      color: var(--of4s-paper-100);
+    }
+    .nav-card.dark h3 { color: var(--of4s-paper-50); }
+    .nav-card.dark p { color: var(--of4s-paper-200); }
+    .nav-card.dark .num { color: var(--of4s-navy-300); }
+    .nav-card.dark .arrow { border-color: rgba(255,255,255,0.3); color: var(--of4s-paper-100); }
+    .nav-card.dark:hover { background: var(--of4s-navy-900); }
+    .nav-card.dark:hover .arrow { background: var(--of4s-navy-300); border-color: var(--of4s-navy-300); color: var(--of4s-stone-900); }
+    .nav-card.brass { background: var(--of4s-navy-100); }
+    .nav-card.brass .num { color: var(--of4s-navy-800); }
+
+    /* Principles */
+    .principles {
+      padding: 80px;
+      background: var(--of4s-stone-900);
+      color: var(--of4s-paper-100);
+    }
+    .principles h2 {
+      font-family: var(--of4s-font-display);
+      font-weight: 300;
+      font-size: 56px;
+      letter-spacing: -0.02em;
+      margin: 0 0 48px;
+      color: var(--of4s-paper-50);
+      max-width: 720px;
+    }
+    .principles h2 em { font-style: normal; color: var(--of4s-navy-300); }
+    .principle-row {
+      display: grid;
+      grid-template-columns: 80px 220px 1fr;
+      gap: 32px;
+      padding: 32px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      align-items: baseline;
+    }
+    .principle-row .num {
+      font-family: var(--of4s-font-mono);
+      font-size: 12px;
+      color: var(--of4s-navy-300);
+      letter-spacing: 0.15em;
+    }
+    .principle-row h4 {
+      font-family: var(--of4s-font-display);
+      font-weight: 500;
+      font-size: 24px;
+      margin: 0;
+      color: var(--of4s-paper-50);
+    }
+    .principle-row p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--of4s-paper-200);
+      margin: 0;
+      max-width: 540px;
+    }
+  </style>
+</head>
+<body>
+  <div class="ds-shell">
+    <div id="sidebar"></div>
+
+    <main class="ds-main">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-eyebrow">Design System · v1.0 · <a href="directions.html" style="color: var(--of4s-navy-300); text-decoration: underline;">See the direction →</a></div>
+        <h1>The modern<br/>Florida workplace,<br/><em>made easy.</em></h1>
+        <p>A complete identity system for Office Furniture 4 Sale — built to position us as the local, tech-forward partner small businesses and procurement teams actually want to work with.</p>
+        <div class="hero-meta">
+          <div class="item">
+            <div class="label">Audience</div>
+            <div class="value">SMB owners, procurement</div>
+          </div>
+          <div class="item">
+            <div class="label">Tone</div>
+            <div class="value">Local, modern, easy</div>
+          </div>
+          <div class="item">
+            <div class="label">Edge</div>
+            <div class="value">Tech-forward process</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PILLARS -->
+      <section class="pillars">
+        <div class="pillar">
+          <div class="num">PILLAR / 01</div>
+          <h3>Local, not regional.</h3>
+          <p>We're rooted in Florida. The brand should feel personal and reachable — not a coastal mega-dealer dressed up to look national.</p>
+        </div>
+        <div class="pillar">
+          <div class="num">PILLAR / 02</div>
+          <h3>Modern, not minimal.</h3>
+          <p>Editorial typography, considered color, deliberate whitespace. Confidence without coldness — distinct from every other dealer's catalog look.</p>
+        </div>
+        <div class="pillar">
+          <div class="num">PILLAR / 03</div>
+          <h3>Easy is the product.</h3>
+          <p>We compete on process, not price. Visual language emphasizes clarity, momentum, and tools that the 40-year-old shops don't have.</p>
+        </div>
+      </section>
+
+      <!-- NAV GRID -->
+      <section class="nav-grid">
+        <a class="nav-card dark" href="logo-type.html">
+          <div class="num">01 — BRAND</div>
+          <p>The OF4S shorthand mark — construction, versions, favicon and small-size uses, and the Schibsted Grotesk type decision.</p>
+          <h3>Logo</h3>
+          <span class="arrow">→</span>
+        </a>
+        <a class="nav-card brass" href="color.html">
+          <div class="num">02 — FOUNDATION</div>
+          <p>Navy primary evolved, light-navy accents, paper neutrals, semantic system.</p>
+          <h3>Color</h3>
+          <span class="arrow">→</span>
+        </a>
+        <a class="nav-card" href="typography.html">
+          <div class="num">03 — FOUNDATION</div>
+          <p>Schibsted Grotesk display + Geist UI. Confident contemporary pairing built for presentations and product alike.</p>
+          <h3>Typography</h3>
+          <span class="arrow">→</span>
+        </a>
+        <a class="nav-card" href="iconography.html">
+          <div class="num">04 — FOUNDATION</div>
+          <p>Linear icon set with rounded joins. Sized 16/20/24 with consistent stroke.</p>
+          <h3>Iconography</h3>
+          <span class="arrow">→</span>
+        </a>
+        <a class="nav-card" href="imagery.html">
+          <div class="num">05 — FOUNDATION</div>
+          <p>Architectural install photography, product-forward catalog, and a duotone treatment for marketing.</p>
+          <h3>Imagery</h3>
+          <span class="arrow">→</span>
+        </a>
+        <a class="nav-card" href="components.html">
+          <div class="num">06 — COMPONENTS</div>
+          <p>Buttons, forms, cards, navigation, badges. Live, copy-pasteable.</p>
+          <h3>UI Library</h3>
+          <span class="arrow">→</span>
+        </a>
+        <a class="nav-card" href="presentation.html">
+          <div class="num">07 — TEMPLATES</div>
+          <p>Sales deck shell with cover, agenda, project case, comparison, and CTA layouts.</p>
+          <h3>Presentations</h3>
+          <span class="arrow">→</span>
+        </a>
+        <a class="nav-card" href="proposal.html">
+          <div class="num">08 — TEMPLATES</div>
+          <p>Branded quote and SOW document with pricing tables, terms, and signature block.</p>
+          <h3>Proposals</h3>
+          <span class="arrow">→</span>
+        </a>
+        <a class="nav-card" href="collateral.html">
+          <div class="num">09 — TEMPLATES</div>
+          <p>Business card, letterhead, and email signature.</p>
+          <h3>Collateral</h3>
+          <span class="arrow">→</span>
+        </a>
+        <a class="nav-card dark" href="social.html" style="grid-column: span 2;">
+          <div class="num">10 — TEMPLATES</div>
+          <p>LinkedIn / Instagram posts, vertical stories, and the homepage hero — a complete direction for the public-facing surfaces.</p>
+          <h3>Social &amp; web</h3>
+          <span class="arrow">→</span>
+        </a>
+      </section>
+
+      <!-- PRINCIPLES -->
+      <section class="principles">
+        <h2>Five principles that make every decision <em>easier.</em></h2>
+        <div class="principle-row">
+          <div class="num">P / 01</div>
+          <h4>Editorial over corporate.</h4>
+          <p>Confident typography and considered whitespace beat clip-art and stock corporate gradients. Always.</p>
+        </div>
+        <div class="principle-row">
+          <div class="num">P / 02</div>
+          <h4>Show real work.</h4>
+          <p>Photographs of completed installs out-perform any rendering or stock shot. If we don't have the photo yet, mark a placeholder — don't fake it.</p>
+        </div>
+        <div class="principle-row">
+          <div class="num">P / 03</div>
+          <h4>Navy is a frame, not a fill.</h4>
+          <p>Use deep navy for moments of weight — covers, callouts, footers — not as a default page background. Paper-toned neutrals are the canvas.</p>
+        </div>
+        <div class="principle-row">
+          <div class="num">P / 04</div>
+          <h4>The "4" is the mark.</h4>
+          <p>Our most recognizable letterform. It earns the role of monogram, favicon, social avatar, and visual punctuation.</p>
+        </div>
+        <div class="principle-row">
+          <div class="num">P / 05</div>
+          <h4>Less surface, more system.</h4>
+          <p>Reuse the same components everywhere — proposal tables, deck slides, web cards. The system compounds the more we use it.</p>
+        </div>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="sidebar.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById('sidebar')).render(<DSSidebar current="index" />);
+    ReactDOM.createRoot(document.getElementById('footer')).render(<DSFooter />);
+  </script>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OF4S Design System — Color</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="shared.css?v=12" />
+  <style>
+    .swatch-row {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 32px;
+      margin-bottom: 40px;
+      align-items: start;
+    }
+    .swatch-row > .meta h3 {
+      font-family: var(--of4s-font-display);
+      font-weight: 500;
+      font-size: 24px;
+      letter-spacing: -0.015em;
+      margin: 0 0 8px;
+    }
+    .swatch-row > .meta p {
+      font-size: 14px;
+      color: var(--of4s-stone-600);
+      line-height: 1.55;
+      margin: 0;
+    }
+    .swatch-strip {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 4px;
+    }
+    .swatch {
+      aspect-ratio: 1 / 1.1;
+      padding: 16px;
+      border-radius: var(--of4s-radius-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      position: relative;
+    }
+    .swatch .name { font-weight: 500; }
+    .swatch .hex { opacity: 0.7; font-size: 10px; }
+    .swatch .step {
+      position: absolute;
+      top: 12px; right: 12px;
+      font-size: 10px;
+      opacity: 0.6;
+    }
+    .swatch.dark { color: white; }
+    .swatch.light { color: var(--of4s-stone-900); }
+
+    .feature-swatch {
+      padding: 64px 48px;
+      border-radius: var(--of4s-radius-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 80px;
+      min-height: 320px;
+    }
+    .feature-swatch h3 {
+      font-family: var(--of4s-font-display);
+      font-weight: 400;
+      font-size: 36px;
+      letter-spacing: -0.02em;
+      margin: 0 0 8px;
+      line-height: 1.05;
+    }
+    .feature-swatch h3 em { font-style: normal; }
+    .feature-swatch .role {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+    .feature-swatch p { font-size: 14px; line-height: 1.5; opacity: 0.85; max-width: 380px; margin: 0; }
+    .feature-swatch .specs {
+      display: flex;
+      gap: 32px;
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      opacity: 0.7;
+      letter-spacing: 0.04em;
+    }
+    .feature-swatch .specs > div { display: flex; flex-direction: column; gap: 2px; }
+    .feature-swatch .specs .label { opacity: 0.6; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; }
+
+    .pair-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .pair {
+      padding: 32px;
+      border-radius: var(--of4s-radius-lg);
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .pair .head { font-family: var(--of4s-font-mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; }
+    .pair .demo {
+      font-family: var(--of4s-font-display);
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .pair .demo em { font-style: normal; }
+    .pair .ratio {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      opacity: 0.7;
+      letter-spacing: 0.05em;
+      display: flex;
+      gap: 12px;
+    }
+    .pair .ratio .pass { padding: 2px 6px; border-radius: 3px; background: rgba(255,255,255,0.18); }
+
+    .semantic-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .semantic {
+      background: white;
+      border: var(--of4s-border-thin);
+      border-radius: var(--of4s-radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .semantic .dot { width: 28px; height: 28px; border-radius: 50%; }
+    .semantic .name { font-family: var(--of4s-font-display); font-weight: 500; font-size: 18px; }
+    .semantic .hex { font-family: var(--of4s-font-mono); font-size: 11px; color: var(--of4s-stone-500); }
+    .semantic .desc { font-size: 13px; color: var(--of4s-stone-600); line-height: 1.5; }
+
+    .ratio-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: var(--of4s-border-thin);
+      border-radius: var(--of4s-radius-lg);
+      overflow: hidden;
+    }
+    .ratio-table th {
+      text-align: left;
+      padding: 16px 24px;
+      background: var(--of4s-paper-100);
+      font-family: var(--of4s-font-mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--of4s-stone-500);
+      font-weight: 500;
+    }
+    .ratio-table td {
+      padding: 16px 24px;
+      border-top: var(--of4s-border-thin);
+      font-size: 14px;
+      vertical-align: middle;
+    }
+    .ratio-table .swatch-pair {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ratio-table .chip {
+      width: 24px; height: 24px;
+      border-radius: 4px;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .ratio-table .pass { color: var(--of4s-success); font-family: var(--of4s-font-mono); }
+    .ratio-table .fail { color: var(--of4s-danger); font-family: var(--of4s-font-mono); }
+
+    /* Accent in use (from the decided A1 system) */
+    .acc-demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+    .acc-demo-card { background: white; border: var(--of4s-border-thin); border-radius: var(--of4s-radius-lg); overflow: hidden; }
+    .acc-demo-card .cap { font-family: var(--of4s-font-mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--of4s-stone-500); padding: 12px 20px; border-bottom: var(--of4s-border-thin); }
+    .acc-demo { padding: 32px 28px; }
+    .acc-demo.dark { background: var(--of4s-navy-900); }
+    .acc-demo .eyebrow2 { font-family: var(--of4s-font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--of4s-navy-600); margin-bottom: 12px; }
+    .acc-demo.dark .eyebrow2 { color: var(--of4s-navy-300); }
+    .acc-demo h4 { font-family: var(--of4s-font-display); font-weight: 700; font-size: 30px; letter-spacing: -0.02em; line-height: 1.1; color: var(--of4s-stone-900); margin: 0 0 10px; }
+    .acc-demo.dark h4 { color: var(--of4s-paper-50); }
+    .acc-demo h4 em { color: var(--of4s-navy-600); }
+    .acc-demo.dark h4 em { color: var(--of4s-navy-300); }
+    .acc-demo p { font-size: 14px; line-height: 1.55; color: var(--of4s-stone-700); margin: 0 0 14px; max-width: 400px; }
+    .acc-demo.dark p { color: var(--of4s-paper-200); }
+    .acc-demo .garnish { font-family: var(--of4s-font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--of4s-brass-700); margin: 0 0 18px; }
+    .acc-demo.dark .garnish { color: var(--of4s-brass-400); }
+    .acc-demo .btns { display: flex; gap: 12px; align-items: center; }
+    .acc-demo .b1 { font-family: var(--of4s-font-sans); font-size: 14px; font-weight: 500; padding: 12px 24px; border-radius: var(--of4s-radius-md); border: 0; cursor: pointer; white-space: nowrap; background: var(--of4s-navy-800); color: var(--of4s-paper-50); }
+    .acc-demo.dark .b1 { background: var(--of4s-paper-50); color: var(--of4s-navy-900); }
+    .acc-demo .b2 { font-family: var(--of4s-font-sans); font-size: 14px; font-weight: 500; background: none; border: 0; padding: 0; cursor: pointer; color: var(--of4s-navy-600); text-decoration: underline; text-underline-offset: 3px; }
+    .acc-demo.dark .b2 { color: var(--of4s-navy-300); }
+  </style>
+</head>
+<body>
+  <div class="ds-shell">
+    <div id="sidebar"></div>
+
+    <main class="ds-main">
+      <header class="ds-page-header">
+        <div class="ds-page-eyebrow">02 · Foundation</div>
+        <h1 class="ds-page-title">Color, with <em>warmth.</em></h1>
+        <p class="ds-page-lede">A deep navy that keeps our equity and adds editorial gravity. Lighter navy steps carry the accent work. Paper-toned neutrals instead of clinical white. Used together: confident, current, unmistakably us.</p>
+      </header>
+
+      <!-- FEATURE SWATCHES -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">2.1</span>
+          <h2 class="ds-section-title">Brand colors</h2>
+          <p class="ds-section-desc">Three colors do 90% of the work. Navy frames and focuses, paper breathes.</p>
+        </div>
+
+        <div class="grid-3" style="display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px;">
+          <div class="feature-swatch" style="background: var(--of4s-navy-800); color: var(--of4s-paper-50);">
+            <div>
+              <div class="role">Primary · 60%</div>
+              <h3 style="margin-top: 12px;">Harbor <em>Navy</em></h3>
+              <p style="margin-top: 12px;">Our equity color, refined. Used on covers, footers, primary buttons, and as the frame around moments of weight.</p>
+            </div>
+            <div class="specs">
+              <div><span class="label">Hex</span><span>#15273F</span></div>
+              <div><span class="label">RGB</span><span>21 · 39 · 63</span></div>
+              <div><span class="label">CMYK</span><span>92 · 77 · 50 · 60</span></div>
+              <div><span class="label">Pantone</span><span>2767 C</span></div>
+            </div>
+          </div>
+
+          <div class="feature-swatch" style="background: var(--of4s-navy-300); color: var(--of4s-stone-900);">
+            <div>
+              <div class="role">Accent · 30%</div>
+              <h3 style="margin-top: 12px;">Navy <em>Accent</em></h3>
+              <p style="margin-top: 12px;">Used to direct the eye. Italic display, the "4", numbered eyebrows, focus moments. Never as a fill behind body copy.</p>
+            </div>
+            <div class="specs">
+              <div><span class="label">Hex</span><span>#C9A474</span></div>
+              <div><span class="label">RGB</span><span>201 · 164 · 116</span></div>
+              <div><span class="label">CMYK</span><span>20 · 35 · 60 · 5</span></div>
+              <div><span class="label">Pantone</span><span>465 C</span></div>
+            </div>
+          </div>
+
+          <div class="feature-swatch" style="background: var(--of4s-paper-100); color: var(--of4s-stone-900); border: var(--of4s-border-thin);">
+            <div>
+              <div class="role">Canvas · 10%</div>
+              <h3 style="margin-top: 12px;">Paper <em>Warm</em></h3>
+              <p style="margin-top: 12px;">Default page background. Subtly warmer than #FFF — gives surfaces a printed-document feel that pure white can't.</p>
+            </div>
+            <div class="specs">
+              <div><span class="label">Hex</span><span>#F3EFE7</span></div>
+              <div><span class="label">RGB</span><span>243 · 239 · 231</span></div>
+              <div><span class="label">CMYK</span><span>3 · 4 · 9 · 0</span></div>
+              <div><span class="label">Pantone</span><span>9224 C</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCALES -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">2.2</span>
+          <h2 class="ds-section-title">Scales</h2>
+          <p class="ds-section-desc">Each color gets a 6-stop scale for hover states, dividers, surfaces, and depth.</p>
+        </div>
+
+        <div class="swatch-row">
+          <div class="meta">
+            <h3>Harbor navy</h3>
+            <p>Use 800 as primary. 950/900 for moments of maximum weight (footers, hero overlays). 700/600/500 for hovers, secondary surfaces, and quiet support text.</p>
+          </div>
+          <div class="swatch-strip">
+            <div class="swatch dark" style="background: #0a1628;"><span class="step">950</span><span></span><div><div class="name">Navy 950</div><div class="hex">#0A1628</div></div></div>
+            <div class="swatch dark" style="background: #0f1d33;"><span class="step">900</span><span></span><div><div class="name">Navy 900</div><div class="hex">#0F1D33</div></div></div>
+            <div class="swatch dark" style="background: #15273f;"><span class="step">800</span><span></span><div><div class="name">Navy 800</div><div class="hex">#15273F</div></div></div>
+            <div class="swatch dark" style="background: #1e3554;"><span class="step">700</span><span></span><div><div class="name">Navy 700</div><div class="hex">#1E3554</div></div></div>
+            <div class="swatch dark" style="background: #2d4a6e;"><span class="step">600</span><span></span><div><div class="name">Navy 600</div><div class="hex">#2D4A6E</div></div></div>
+            <div class="swatch dark" style="background: #466489;"><span class="step">500</span><span></span><div><div class="name">Navy 500</div><div class="hex">#466489</div></div></div>
+          </div>
+        </div>
+
+        <div class="swatch-row">
+          <div class="meta">
+            <h3>Navy accent scale</h3>
+            <p>300 is the workhorse accent on dark surfaces; 600 does the same work on light. 100 is a quiet brand-tinted background for callouts and email headers.</p>
+          </div>
+          <div class="swatch-strip">
+            <div class="swatch dark" style="background: #15273f;"><span class="step">800</span><span></span><div><div class="name">Navy 800</div><div class="hex">#15273F</div></div></div>
+            <div class="swatch dark" style="background: #2d4a6e;"><span class="step">600</span><span></span><div><div class="name">Navy 600</div><div class="hex">#2D4A6E</div></div></div>
+            <div class="swatch dark" style="background: #466489;"><span class="step">500</span><span></span><div><div class="name">Navy 500</div><div class="hex">#466489</div></div></div>
+            <div class="swatch light" style="background: #8fa9c7;"><span class="step">300</span><span></span><div><div class="name">Navy 300</div><div class="hex">#8FA9C7</div></div></div>
+            <div class="swatch light" style="background: #dde5ee;"><span class="step">100</span><span></span><div><div class="name">Navy 100</div><div class="hex">#DDE5EE</div></div></div>
+          </div>
+        </div>
+
+        <div class="swatch-row">
+          <div class="meta">
+            <h3>Brass <em>garnish</em></h3>
+            <p>Brass survives in one disciplined role: tiny mono details — ratings, stats, key numbers, an eyebrow tick. 700 on light, 400 on dark. Never structural: no eyebrows, headings, links, buttons, or fills.</p>
+          </div>
+          <div class="swatch-strip">
+            <div class="swatch dark" style="background: #8e6a30;"><span class="step">700</span><span></span><div><div class="name">Brass 700</div><div class="hex">#8E6A30</div></div></div>
+            <div class="swatch light" style="background: #c9a474;"><span class="step">400</span><span></span><div><div class="name">Brass 400</div><div class="hex">#C9A474</div></div></div>
+          </div>
+        </div>
+
+        <div class="acc-demo-grid">
+          <div class="acc-demo-card">
+            <div class="cap">ACCENT IN USE · ON LIGHT</div>
+            <div class="acc-demo">
+              <div class="eyebrow2">DELIVERY &amp; INSTALL</div>
+              <h4>Specified, delivered, <em>installed.</em></h4>
+              <p>One team from floor plan to final walkthrough — across all of Florida.</p>
+              <div class="garnish">4.9 rating · 2,400 installs · est. 2009</div>
+              <div class="btns"><button class="b1">Request a quote</button><button class="b2">See our process</button></div>
+            </div>
+          </div>
+          <div class="acc-demo-card">
+            <div class="cap">ACCENT IN USE · ON NAVY</div>
+            <div class="acc-demo dark">
+              <div class="eyebrow2">DELIVERY &amp; INSTALL</div>
+              <h4>Specified, delivered, <em>installed.</em></h4>
+              <p>One team from floor plan to final walkthrough — across all of Florida.</p>
+              <div class="garnish">4.9 rating · 2,400 installs · est. 2009</div>
+              <div class="btns"><button class="b1">Request a quote</button><button class="b2">See our process</button></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swatch-row">
+          <div class="meta">
+            <h3>Paper & stone</h3>
+            <p>Warm neutrals replace pure grays. Paper for backgrounds. Stone for text and dark surfaces. Together they keep everything feeling printed and considered.</p>
+          </div>
+          <div class="swatch-strip">
+            <div class="swatch light" style="background: #faf8f4; border: 1px solid rgba(0,0,0,0.05);"><span class="step">50</span><span></span><div><div class="name">Paper 50</div><div class="hex">#FAF8F4</div></div></div>
+            <div class="swatch light" style="background: #f3efe7;"><span class="step">100</span><span></span><div><div class="name">Paper 100</div><div class="hex">#F3EFE7</div></div></div>
+            <div class="swatch light" style="background: #e8e2d4;"><span class="step">200</span><span></span><div><div class="name">Paper 200</div><div class="hex">#E8E2D4</div></div></div>
+            <div class="swatch light" style="background: #a8a094;"><span class="step">400</span><span></span><div><div class="name">Stone 400</div><div class="hex">#A8A094</div></div></div>
+            <div class="swatch dark" style="background: #555047;"><span class="step">600</span><span></span><div><div class="name">Stone 600</div><div class="hex">#555047</div></div></div>
+            <div class="swatch dark" style="background: #1a1814;"><span class="step">900</span><span></span><div><div class="name">Stone 900</div><div class="hex">#1A1814</div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAIRINGS -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">2.3</span>
+          <h2 class="ds-section-title">Pairings that work</h2>
+          <p class="ds-section-desc">Approved foreground/background pairs for headlines and body. Each meets WCAG AA at 14px+.</p>
+        </div>
+
+        <div class="pair-grid">
+          <div class="pair" style="background: var(--of4s-navy-800); color: var(--of4s-paper-50);">
+            <div class="head">Navy 800 · Paper 50</div>
+            <div class="demo">Modern Florida workplaces, <em>made easy.</em></div>
+            <div class="ratio"><span>13.7 : 1</span><span class="pass">AAA</span></div>
+          </div>
+          <div class="pair" style="background: var(--of4s-paper-50); color: var(--of4s-navy-800); border: var(--of4s-border-thin);">
+            <div class="head">Paper 50 · Navy 800</div>
+            <div class="demo">Modern Florida workplaces, <em>made easy.</em></div>
+            <div class="ratio"><span style="color: var(--of4s-stone-500);">13.7 : 1</span><span class="pass" style="color: var(--of4s-success);">AAA</span></div>
+          </div>
+          <div class="pair" style="background: var(--of4s-stone-900); color: var(--of4s-navy-300);">
+            <div class="head">Stone 900 · Navy 300</div>
+            <div class="demo">For headlines that need <em>a lighter note.</em></div>
+            <div class="ratio"><span>6.9 : 1</span><span class="pass">AA</span></div>
+          </div>
+          <div class="pair" style="background: var(--of4s-navy-100); color: var(--of4s-navy-800);">
+            <div class="head">Navy 100 · Navy 800</div>
+            <div class="demo">For callouts and warm <em>highlights.</em></div>
+            <div class="ratio"><span style="color: var(--of4s-stone-500);">11.0 : 1</span><span class="pass" style="color: var(--of4s-success);">AAA</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEMANTIC -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">2.4</span>
+          <h2 class="ds-section-title">Semantic</h2>
+          <p class="ds-section-desc">For UI status — proposal status, order tracking, form validation. Tuned to the warm palette so they don't read like a generic admin theme.</p>
+        </div>
+
+        <div class="semantic-grid">
+          <div class="semantic">
+            <div class="dot" style="background: var(--of4s-success);"></div>
+            <div>
+              <div class="name">Success</div>
+              <div class="hex">#5A7A4F · sage</div>
+            </div>
+            <div class="desc">Order confirmed, install complete, proposal approved.</div>
+          </div>
+          <div class="semantic">
+            <div class="dot" style="background: var(--of4s-warning);"></div>
+            <div>
+              <div class="name">Warning</div>
+              <div class="hex">#B8895A · warning</div>
+            </div>
+            <div class="desc">Pending review, lead-time risk, partial stock.</div>
+          </div>
+          <div class="semantic">
+            <div class="dot" style="background: var(--of4s-danger);"></div>
+            <div>
+              <div class="name">Danger</div>
+              <div class="hex">#9C3A30 · clay</div>
+            </div>
+            <div class="desc">Backorder, expired quote, validation error.</div>
+          </div>
+          <div class="semantic">
+            <div class="dot" style="background: var(--of4s-info);"></div>
+            <div>
+              <div class="name">Info</div>
+              <div class="hex">#2D4A6E · navy-600</div>
+            </div>
+            <div class="desc">Status updates, tooltips, neutral notices.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- USAGE RATIO -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">2.5</span>
+          <h2 class="ds-section-title">The 60 / 30 / 10 rule</h2>
+          <p class="ds-section-desc">Keep the system feeling intentional by following the rough ratio across any single composition. The light-navy accent is a spice, not a sauce — and brass is a garnish measured in pinches.</p>
+        </div>
+
+        <div class="grid-3" style="display: grid; grid-template-columns: 6fr 3fr 1fr; gap: 4px; height: 120px; border-radius: var(--of4s-radius-lg); overflow: hidden;">
+          <div style="background: var(--of4s-paper-100); display: flex; align-items: flex-end; padding: 16px; font-family: var(--of4s-font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--of4s-stone-600);">
+            60% · PAPER & WHITE — backgrounds, surfaces, breathing room
+          </div>
+          <div style="background: var(--of4s-navy-800); display: flex; align-items: flex-end; padding: 16px; font-family: var(--of4s-font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--of4s-paper-200);">
+            30% · NAVY — type, frames, footers
+          </div>
+          <div style="background: var(--of4s-navy-300); display: flex; align-items: flex-end; padding: 16px; font-family: var(--of4s-font-mono); font-size: 10px; letter-spacing: 0.05em; color: var(--of4s-stone-900);">
+            10% ACCENT
+          </div>
+        </div>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="sidebar.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById('sidebar')).render(<DSSidebar current="color" />);
+    ReactDOM.createRoot(document.getElementById('footer')).render(<DSFooter />);
+  </script>
+</body>
+</html>

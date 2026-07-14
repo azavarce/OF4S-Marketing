@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OF4S Design System — Imagery</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="shared.css?v=12" />
+  <style>
+    /* Photography placeholders — striped SVG with monospace explainer */
+    .photo {
+      background: var(--of4s-paper-200);
+      border-radius: var(--of4s-radius-md);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: repeating-linear-gradient(
+        135deg,
+        rgba(21,39,63,0.04) 0,
+        rgba(21,39,63,0.04) 8px,
+        transparent 8px,
+        transparent 16px
+      );
+    }
+    .photo .label {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--of4s-stone-600);
+      text-align: center;
+      padding: 16px;
+      text-transform: uppercase;
+    }
+    .photo.duotone {
+      background-color: var(--of4s-navy-800);
+      background-image: repeating-linear-gradient(
+        135deg,
+        rgba(201,164,116,0.18) 0,
+        rgba(201,164,116,0.18) 8px,
+        transparent 8px,
+        transparent 16px
+      );
+    }
+    .photo.duotone .label { color: var(--of4s-navy-300); }
+
+    .cat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .cat {
+      background: white;
+      border: var(--of4s-border-thin);
+      border-radius: var(--of4s-radius-lg);
+      overflow: hidden;
+    }
+    .cat .photo { aspect-ratio: 4 / 3; border-radius: 0; }
+    .cat .body { padding: 32px; }
+    .cat h3 {
+      font-family: var(--of4s-font-display);
+      font-weight: 500;
+      font-size: 24px;
+      letter-spacing: -0.015em;
+      margin: 0 0 8px;
+    }
+    .cat .role {
+      font-family: var(--of4s-font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--of4s-navy-600);
+      margin-bottom: 16px;
+    }
+    .cat p { font-size: 14px; line-height: 1.6; color: var(--of4s-stone-600); margin: 0; }
+    .cat .when {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: var(--of4s-border-thin);
+      font-family: var(--of4s-font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--of4s-stone-500);
+    }
+
+    .moodboard {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 8px;
+      height: 480px;
+    }
+    .moodboard > div { border-radius: var(--of4s-radius-md); }
+    .moodboard .a { grid-row: span 2; }
+
+    .yes-no {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .yn {
+      background: white;
+      border: var(--of4s-border-thin);
+      border-radius: var(--of4s-radius-lg);
+      overflow: hidden;
+    }
+    .yn .photo { aspect-ratio: 16 / 10; border-radius: 0; }
+    .yn .row {
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .yn.yes .row { color: var(--of4s-success); }
+    .yn.no .row { color: #9c3a30; }
+    .yn .row .icon {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white;
+      font-weight: 600;
+    }
+    .yn.yes .icon { background: var(--of4s-success); }
+    .yn.no .icon { background: #9c3a30; }
+
+    .duotone-flow {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    .duotone-flow > div { aspect-ratio: 4/3; border-radius: var(--of4s-radius-md); }
+    .duotone-flow .arrow {
+      align-self: center;
+      font-family: var(--of4s-font-mono);
+      font-size: 24px;
+      color: var(--of4s-navy-600);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="ds-shell">
+    <div id="sidebar"></div>
+
+    <main class="ds-main">
+      <header class="ds-page-header">
+        <div class="ds-page-eyebrow">05 · Foundation</div>
+        <h1 class="ds-page-title">Show <em>real</em> work.</h1>
+        <p class="ds-page-lede">A two-track system: architectural install photography for proposals and presentations, plus product-forward catalog shots for web and spec sheets. Plus a duotone treatment that turns any image into a branded marketing asset.</p>
+      </header>
+
+      <!-- DROP-IN NOTE -->
+      <section class="ds-section">
+        <div class="ds-callout" style="display: flex; gap: 32px; align-items: center;">
+          <div style="font-family: var(--of4s-font-display); font-size: 64px; line-height: 1; color: var(--of4s-navy-300);">↑</div>
+          <div>
+            <h3 style="font-family: var(--of4s-font-display); font-weight: 500; font-size: 22px; margin: 0 0 8px; color: var(--of4s-paper-50);">All imagery shown is a placeholder.</h3>
+            <p style="margin: 0; color: var(--of4s-paper-200); font-size: 14px; max-width: 720px;">Striped SVGs mark where real photography goes. We should commission a half-day shoot covering 6–10 of your strongest installs, plus a clean catalog session for top-30 SKUs. Until then, every layout uses these placeholders so we never accidentally ship stock photos.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRACK A: INSTALLS -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">5.1</span>
+          <h2 class="ds-section-title">Track A — Architectural installs</h2>
+          <p class="ds-section-desc">Wide, considered shots of completed projects. Natural light, real people working (or visibly lived-in). These are the proof — they go on covers, in case studies, and as web heroes.</p>
+        </div>
+
+        <div class="cat-grid">
+          <div class="cat">
+            <div class="photo" style="aspect-ratio: 4/3;"><span class="label">Wide install · open workplace<br/>natural light · ~24mm · eye-level</span></div>
+            <div class="body">
+              <div class="role">HERO · COVER · WEB</div>
+              <h3>Wide architectural</h3>
+              <p>Whole-room shots showing scale and light. Composed with strong horizontal lines and visible context (windows, plants, real signage).</p>
+              <div class="when">USE FOR · DECK COVERS · WEBSITE HERO · CASE STUDY OPENERS</div>
+            </div>
+          </div>
+
+          <div class="cat">
+            <div class="photo" style="aspect-ratio: 4/3;"><span class="label">Detail · workspace vignette<br/>~50mm · shallow depth of field</span></div>
+            <div class="body">
+              <div class="role">SUPPORTING · DETAIL</div>
+              <h3>Detail vignettes</h3>
+              <p>Close crops on a desk corner, a chair detail, the texture of a finish. Adds richness alongside wide shots — never standalone.</p>
+              <div class="when">USE FOR · CASE STUDY MIDDLES · PROPOSAL ACCENTS</div>
+            </div>
+          </div>
+
+          <div class="cat">
+            <div class="photo" style="aspect-ratio: 4/3;"><span class="label">People at work<br/>candid · hands & shoulders</span></div>
+            <div class="body">
+              <div class="role">HUMAN MOMENT</div>
+              <h3>Candid people</h3>
+              <p>Hands typing, two people in conversation, someone leaning on a height-adjustable desk. Faces optional — focus on activity, not portraits.</p>
+              <div class="when">USE FOR · WEB · TESTIMONIALS · CULTURE PAGES</div>
+            </div>
+          </div>
+
+          <div class="cat">
+            <div class="photo" style="aspect-ratio: 4/3;"><span class="label">Empty before & after<br/>same camera position</span></div>
+            <div class="body">
+              <div class="role">PROCESS PROOF</div>
+              <h3>Before / after pairs</h3>
+              <p>Identical framing of a space before and after we install it. Powerful in proposals — turns the result into evidence.</p>
+              <div class="when">USE FOR · PROPOSALS · LINKEDIN POSTS</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRACK B: PRODUCT -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">5.2</span>
+          <h2 class="ds-section-title">Track B — Product catalog</h2>
+          <p class="ds-section-desc">Clean, neutral-background SKU shots. Less personality than installs, more clarity. Used on the website, in spec sheets, in line items on quotes.</p>
+        </div>
+
+        <div class="cat-grid">
+          <div class="cat">
+            <div class="photo" style="aspect-ratio: 4/3; background-color: var(--of4s-paper-100);"><span class="label">Single SKU · paper-100 background<br/>3/4 view · soft top light</span></div>
+            <div class="body">
+              <div class="role">CATALOG · QUOTE LINE ITEM</div>
+              <h3>Hero SKU shot</h3>
+              <p>One product, on warm paper background, with a 3/4 angle that shows depth. No cast shadows beyond the product itself.</p>
+            </div>
+          </div>
+
+          <div class="cat">
+            <div class="photo" style="aspect-ratio: 4/3; background-color: var(--of4s-paper-100);"><span class="label">Three-SKU lineup · same surface<br/>graphic spacing</span></div>
+            <div class="body">
+              <div class="role">FAMILY · CATEGORY PAGE</div>
+              <h3>Family lineup</h3>
+              <p>Three to five products in a row at consistent scale. Used on category pages and "shop the look" comparison spreads.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRACK C: DUOTONE -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">5.3</span>
+          <h2 class="ds-section-title">Track C — The duotone treatment</h2>
+          <p class="ds-section-desc">A signature marketing finish. Any photo, processed to a navy duotone, immediately reads as ours. Used sparingly: hero overlays, social posts, and section dividers in decks.</p>
+        </div>
+
+        <div class="duotone-flow" style="margin-bottom: 24px;">
+          <div class="photo"><span class="label">Original · full color</span></div>
+          <div class="arrow">→</div>
+          <div class="photo duotone"><span class="label">Duotone · navy 800 + navy 300</span></div>
+        </div>
+
+        <div class="ds-card" style="padding: 32px;">
+          <div class="ds-mono" style="margin-bottom: 16px;">RECIPE</div>
+          <ol style="margin: 0; padding-left: 20px; color: var(--of4s-stone-700); font-size: 14px; line-height: 1.7;">
+            <li>Start with a high-contrast B&amp;W version of the source photo.</li>
+            <li>Map shadows to <strong style="color: var(--of4s-navy-800);">Navy 800 (#15273F)</strong>.</li>
+            <li>Map highlights to <strong style="color: var(--of4s-navy-600);">Navy 300 (#8FA9C7)</strong>.</li>
+            <li>Keep highlights cool — the light navy should read airy, not gray.</li>
+            <li>Keep midtone contrast strong — duotones lose impact when flat.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- DO / DON'T -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">5.4</span>
+          <h2 class="ds-section-title">Yes / No</h2>
+          <p class="ds-section-desc">A quick sanity check before adding any photo to a deliverable.</p>
+        </div>
+
+        <div class="yes-no">
+          <div class="yn yes">
+            <div class="photo"><span class="label">Real install · 8am light · uncluttered</span></div>
+            <div class="row"><span class="icon">✓</span><span>Real spaces, your projects, natural light</span></div>
+          </div>
+          <div class="yn no">
+            <div class="photo" style="background-color: #f0e8da;"><span class="label">Stock-y handshake · forced smile</span></div>
+            <div class="row"><span class="icon">×</span><span>Generic stock with people pretending</span></div>
+          </div>
+          <div class="yn yes">
+            <div class="photo"><span class="label">Empty room before install · architectural</span></div>
+            <div class="row"><span class="icon">✓</span><span>Empty rooms — they imply potential</span></div>
+          </div>
+          <div class="yn no">
+            <div class="photo" style="background-color: #f0e8da;"><span class="label">Cluttered showroom · poor light</span></div>
+            <div class="row"><span class="icon">×</span><span>Cluttered showrooms or warehouse shots</span></div>
+          </div>
+          <div class="yn yes">
+            <div class="photo"><span class="label">Hands · keyboard · mug · tactile</span></div>
+            <div class="row"><span class="icon">✓</span><span>Detail crops that show texture</span></div>
+          </div>
+          <div class="yn no">
+            <div class="photo" style="background-color: #f0e8da;"><span class="label">Clip-art rendering · isometric</span></div>
+            <div class="row"><span class="icon">×</span><span>Cartoon illustrations or isometric clip-art</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPOSITION -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">5.5</span>
+          <h2 class="ds-section-title">Composition cheat-sheet</h2>
+          <p class="ds-section-desc">A few rules that make photography feel like ours regardless of who's behind the camera.</p>
+        </div>
+
+        <div class="grid-4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+          <div class="ds-card" style="padding: 24px;">
+            <div class="ds-mono" style="color: var(--of4s-navy-600); margin-bottom: 12px;">RULE 01</div>
+            <h4 style="font-family: var(--of4s-font-display); font-weight: 500; font-size: 18px; margin: 0 0 8px;">Eye-level, never god's-eye</h4>
+            <p style="font-size: 13px; color: var(--of4s-stone-600); margin: 0; line-height: 1.55;">Stand where a person stands. Avoid drone shots and ceiling-mounted angles unless documenting a ceiling.</p>
+          </div>
+          <div class="ds-card" style="padding: 24px;">
+            <div class="ds-mono" style="color: var(--of4s-navy-600); margin-bottom: 12px;">RULE 02</div>
+            <h4 style="font-family: var(--of4s-font-display); font-weight: 500; font-size: 18px; margin: 0 0 8px;">Morning or afternoon light</h4>
+            <p style="font-size: 13px; color: var(--of4s-stone-600); margin: 0; line-height: 1.55;">Schedule shoots for the first or last 2 hours of daylight. Florida overhead light flattens everything.</p>
+          </div>
+          <div class="ds-card" style="padding: 24px;">
+            <div class="ds-mono" style="color: var(--of4s-navy-600); margin-bottom: 12px;">RULE 03</div>
+            <h4 style="font-family: var(--of4s-font-display); font-weight: 500; font-size: 18px; margin: 0 0 8px;">One subject per frame</h4>
+            <p style="font-size: 13px; color: var(--of4s-stone-600); margin: 0; line-height: 1.55;">Wide install OR product detail OR a person. Don't try to show everything in one shot — that's catalog energy.</p>
+          </div>
+          <div class="ds-card" style="padding: 24px;">
+            <div class="ds-mono" style="color: var(--of4s-navy-600); margin-bottom: 12px;">RULE 04</div>
+            <h4 style="font-family: var(--of4s-font-display); font-weight: 500; font-size: 18px; margin: 0 0 8px;">Leave breathing room</h4>
+            <p style="font-size: 13px; color: var(--of4s-stone-600); margin: 0; line-height: 1.55;">Crop with type in mind. Heroes need a quiet third where the headline can land without overlay tricks.</p>
+          </div>
+        </div>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="sidebar.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById('sidebar')).render(<DSSidebar current="imagery" />);
+    ReactDOM.createRoot(document.getElementById('footer')).render(<DSFooter />);
+  </script>
+</body>
+</html>

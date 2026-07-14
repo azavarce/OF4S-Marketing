@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OF4S Design System — Proposals</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="shared.css?v=12" />
+  <style>
+    .doc-stage {
+      background: var(--of4s-paper-200);
+      padding: 64px;
+      border-radius: var(--of4s-radius-lg);
+      display: flex;
+      justify-content: center;
+    }
+    .page {
+      width: 816px;          /* US Letter at 96dpi */
+      min-height: 1056px;
+      background: white;
+      box-shadow: 0 12px 40px rgba(15,29,51,0.18);
+      padding: 64px 72px;
+      font-family: var(--of4s-font-sans);
+      color: var(--of4s-stone-900);
+      position: relative;
+    }
+    .page + .page { margin-top: 32px; }
+    .page .page-num {
+      position: absolute; bottom: 32px; right: 72px;
+      font-family: var(--of4s-font-mono); font-size: 10px; letter-spacing: 0.15em; color: var(--of4s-stone-500);
+    }
+    .page .page-brand {
+      position: absolute; bottom: 32px; left: 72px;
+      font-family: var(--of4s-font-display); font-weight: 700; font-size: 14px; color: var(--of4s-stone-700);
+    }
+    .page .page-brand .four { color: var(--of4s-navy-600); font-weight: 600; }
+
+    /* Cover */
+    .cover-band { background: var(--of4s-stone-900); color: var(--of4s-paper-50); margin: -64px -72px 48px; padding: 48px 72px 56px; }
+    .cover-band .row { display: flex; justify-content: space-between; align-items: flex-start; }
+    .cover-band .brand { font-family: var(--of4s-font-display); font-weight: 700; font-size: 28px; letter-spacing: -0.02em; }
+    .cover-band .brand .four { color: var(--of4s-navy-300); font-weight: 600; }
+    .cover-band .id { font-family: var(--of4s-font-mono); font-size: 11px; letter-spacing: 0.18em; color: var(--of4s-navy-300); text-transform: uppercase; text-align: right; }
+    .cover-band .eyebrow { font-family: var(--of4s-font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--of4s-navy-300); margin: 32px 0 12px; }
+    .cover-band h1 { font-family: var(--of4s-font-display); font-weight: 300; font-size: 56px; line-height: 1; letter-spacing: -0.025em; margin: 0 0 8px; color: var(--of4s-paper-50); max-width: 540px; }
+    .cover-band h1 em { font-style: normal; color: var(--of4s-navy-300); font-weight: 400; }
+
+    .meta-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+    .meta-grid .item { padding: 16px 0; border-top: 2px solid var(--of4s-stone-900); }
+    .meta-grid .label { font-family: var(--of4s-font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--of4s-stone-500); margin-bottom: 4px; }
+    .meta-grid .val { font-family: var(--of4s-font-display); font-size: 18px; font-weight: 500; }
+
+    .section-h { font-family: var(--of4s-font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--of4s-navy-600); margin: 0 0 8px; }
+    .section-t { font-family: var(--of4s-font-display); font-weight: 500; font-size: 28px; letter-spacing: -0.015em; margin: 0 0 20px; color: var(--of4s-stone-900); }
+    .section-p { font-size: 13px; line-height: 1.65; color: var(--of4s-stone-700); margin: 0 0 24px; }
+
+    /* Pricing table */
+    .price-table { width: 100%; border-collapse: collapse; }
+    .price-table th { text-align: left; padding: 10px 12px; background: var(--of4s-paper-100); font-family: var(--of4s-font-mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--of4s-stone-500); font-weight: 500; }
+    .price-table td { padding: 12px 12px; border-bottom: 1px solid rgba(15,29,51,0.08); font-size: 12px; vertical-align: top; }
+    .price-table .num { font-family: var(--of4s-font-mono); text-align: right; }
+    .price-table .item-name { font-family: var(--of4s-font-display); font-weight: 500; font-size: 13px; }
+    .price-table .vendor { font-size: 11px; color: var(--of4s-stone-500); margin-top: 2px; }
+    .price-table .sku { font-family: var(--of4s-font-mono); font-size: 10px; color: var(--of4s-stone-500); letter-spacing: 0.05em; }
+
+    .totals { margin-top: 16px; padding-top: 16px; border-top: 2px solid var(--of4s-stone-900); display: flex; flex-direction: column; gap: 8px; }
+    .totals .row { display: flex; justify-content: space-between; font-size: 13px; }
+    .totals .row.grand { border-top: 1px solid rgba(15,29,51,0.1); padding-top: 12px; margin-top: 8px; }
+    .totals .row.grand .label { font-family: var(--of4s-font-display); font-size: 18px; font-weight: 500; }
+    .totals .row.grand .val { font-family: var(--of4s-font-display); font-size: 24px; font-weight: 500; color: var(--of4s-navy-800); letter-spacing: -0.015em; }
+    .totals .num { font-family: var(--of4s-font-mono); }
+
+    .timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 24px 0; }
+    .timeline .step { padding: 16px 12px; border: 1px solid rgba(15,29,51,0.1); border-radius: 6px; }
+    .timeline .step.active { background: var(--of4s-navy-800); color: var(--of4s-paper-50); border-color: var(--of4s-navy-800); }
+    .timeline .step .lbl { font-family: var(--of4s-font-mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.7; }
+    .timeline .step .name { font-family: var(--of4s-font-display); font-size: 16px; font-weight: 500; margin-top: 4px; }
+    .timeline .step .when { font-size: 11px; opacity: 0.7; margin-top: 4px; }
+
+    .signature-block { margin-top: 40px; padding-top: 24px; border-top: 2px solid var(--of4s-stone-900); display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .sig { }
+    .sig .lbl { font-family: var(--of4s-font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--of4s-stone-500); margin-bottom: 24px; }
+    .sig .line { border-bottom: 1px solid var(--of4s-stone-900); height: 36px; }
+    .sig .name { font-size: 12px; margin-top: 8px; color: var(--of4s-stone-700); }
+
+    .terms { font-size: 11px; line-height: 1.6; color: var(--of4s-stone-600); margin-top: 24px; }
+    .terms strong { color: var(--of4s-stone-900); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="ds-shell">
+    <div id="sidebar"></div>
+
+    <main class="ds-main">
+      <header class="ds-page-header">
+        <div class="ds-page-eyebrow">08 · Templates</div>
+        <h1 class="ds-page-title">Proposals & <em>quotes.</em></h1>
+        <p class="ds-page-lede">A two-page document template covering quote, scope, timeline, and signature. Same brand system as the deck — same components, just paginated. PDF-ready.</p>
+      </header>
+
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">8.1</span>
+          <h2 class="ds-section-title">The proposal</h2>
+          <p class="ds-section-desc">US Letter, 96 DPI. Page 1 anchors the deal — page 2 itemizes and signs.</p>
+        </div>
+
+        <div class="scroll-hint scroll-hint--paper-200">
+        <div class="doc-stage">
+          <div>
+            <!-- PAGE 1 -->
+            <div class="page">
+              <div class="cover-band">
+                <div class="row">
+                  <span class="brand">OF<span class="four">4</span>S</span>
+                  <div class="id">QUOTE · 2026-0184<br/>VALID THRU MAY 24, 2026</div>
+                </div>
+                <div class="eyebrow">PROJECT PROPOSAL · MIRAMAR HQ</div>
+                <h1>A workplace, <em>made easy.</em></h1>
+              </div>
+
+              <div class="meta-grid">
+                <div class="item"><div class="label">PREPARED FOR</div><div class="val">Acme Logistics, Inc.</div></div>
+                <div class="item"><div class="label">CONTACT</div><div class="val">Sarah Chen, Operations</div></div>
+                <div class="item"><div class="label">PROJECT</div><div class="val">14,000 sq ft HQ buildout</div></div>
+              </div>
+
+              <div class="section-h">SCOPE · WHAT'S INCLUDED</div>
+              <h2 class="section-t">142 seats. 8 conference rooms. Two phone booths.</h2>
+              <p class="section-p">A complete furniture package for Acme's new Miramar headquarters. Includes specification, sourcing, white-glove delivery, professional installation, and 30-day post-install support. Pricing reflects current MillerKnoll, Steelcase, and Framery dealer terms with our standard 5% small-business discount applied.</p>
+
+              <div class="section-h">TIMELINE · 9 WEEKS</div>
+              <div class="timeline">
+                <div class="step"><div class="lbl">WEEK 1</div><div class="name">Discover</div><div class="when">Walk-through &amp; spec</div></div>
+                <div class="step active"><div class="lbl">WEEK 2</div><div class="name">Approve</div><div class="when">This document</div></div>
+                <div class="step"><div class="lbl">WEEK 3–6</div><div class="name">Manufacture</div><div class="when">Vendor production</div></div>
+                <div class="step"><div class="lbl">WEEK 7</div><div class="name">Stage</div><div class="when">Receive at warehouse</div></div>
+                <div class="step"><div class="lbl">WEEK 8–9</div><div class="name">Install</div><div class="when">On-site, 3 days</div></div>
+              </div>
+
+              <p class="section-p"><strong style="color: var(--of4s-stone-900);">Lead times are guaranteed</strong> — if any line item slips beyond the schedule above, we cover the rental cost of comparable replacements until your furniture arrives.</p>
+
+              <div class="page-brand">OF<span class="four">4</span>S · 954 555 0142</div>
+              <div class="page-num">1 / 2 · Quote 2026-0184</div>
+            </div>
+
+            <!-- PAGE 2 -->
+            <div class="page">
+              <div class="section-h">PRICING · ITEMIZED</div>
+              <h2 class="section-t">Line items.</h2>
+
+              <table class="price-table">
+                <thead>
+                  <tr>
+                    <th>SKU</th>
+                    <th>Item</th>
+                    <th class="num">Qty</th>
+                    <th class="num">Unit</th>
+                    <th class="num">Subtotal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="sku">0042-PINE-WHT</span></td>
+                    <td><div class="item-name">Aeris height-adjustable desk</div><div class="vendor">Steelcase · 60×30 · white oak</div></td>
+                    <td class="num">142</td>
+                    <td class="num">$1,284.00</td>
+                    <td class="num">$182,328.00</td>
+                  </tr>
+                  <tr>
+                    <td><span class="sku">0118-LEAF-BLK</span></td>
+                    <td><div class="item-name">Leaf task chair</div><div class="vendor">Herman Miller · black mesh</div></td>
+                    <td class="num">142</td>
+                    <td class="num">$849.00</td>
+                    <td class="num">$120,558.00</td>
+                  </tr>
+                  <tr>
+                    <td><span class="sku">0331-MEET-OAK</span></td>
+                    <td><div class="item-name">Meridian conference table · 8-seat</div><div class="vendor">Geiger · oak top, walnut base</div></td>
+                    <td class="num">8</td>
+                    <td class="num">$3,150.00</td>
+                    <td class="num">$25,200.00</td>
+                  </tr>
+                  <tr>
+                    <td><span class="sku">0207-COVE-NVY</span></td>
+                    <td><div class="item-name">Cove acoustic phone booth</div><div class="vendor">Framery · single occupant</div></td>
+                    <td class="num">2</td>
+                    <td class="num">$6,400.00</td>
+                    <td class="num">$12,800.00</td>
+                  </tr>
+                  <tr>
+                    <td><span class="sku">0540-STORE-WHT</span></td>
+                    <td><div class="item-name">Lateral storage credenza</div><div class="vendor">Steelcase · 36" · white</div></td>
+                    <td class="num">14</td>
+                    <td class="num">$985.00</td>
+                    <td class="num">$13,790.00</td>
+                  </tr>
+                  <tr>
+                    <td><span class="sku">SVC-WG</span></td>
+                    <td><div class="item-name">White-glove install · 3 days</div><div class="vendor">OF4S install team · evenings &amp; weekend</div></td>
+                    <td class="num">1</td>
+                    <td class="num">$18,400.00</td>
+                    <td class="num">$18,400.00</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="totals">
+                <div class="row"><span class="label">Subtotal</span><span class="val num">$373,076.00</span></div>
+                <div class="row" style="color: var(--of4s-success);"><span class="label">Small-business discount (5%)</span><span class="val num">−$18,653.80</span></div>
+                <div class="row"><span class="label">Sales tax (FL 7%)</span><span class="val num">$24,789.55</span></div>
+                <div class="row grand"><span class="label">Total · payable in 3 milestones</span><span class="val num">$379,211.75</span></div>
+              </div>
+
+              <div class="signature-block">
+                <div class="sig">
+                  <div class="lbl">CLIENT · ACME LOGISTICS</div>
+                  <div class="line"></div>
+                  <div class="name">Sarah Chen · Director of Operations</div>
+                </div>
+                <div class="sig">
+                  <div class="lbl">OF4S · ACCOUNT MANAGER</div>
+                  <div class="line"></div>
+                  <div class="name">[Your name] · Project Lead</div>
+                </div>
+              </div>
+
+              <div class="terms">
+                <strong>Terms.</strong> Quote valid 30 days. 50% deposit on signature, 25% at delivery, 25% net-30 post install. Lead times guaranteed per page 1. Returns accepted within 14 days of install for any reason. Full warranty terms at officefurniture4sale.com/warranty.
+              </div>
+
+              <div class="page-brand">OF<span class="four">4</span>S · 954 555 0142</div>
+              <div class="page-num">2 / 2 · Quote 2026-0184</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="sidebar.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById('sidebar')).render(<DSSidebar current="proposal" />);
+    ReactDOM.createRoot(document.getElementById('footer')).render(<DSFooter />);
+  </script>
+  <script src="scroll-hint.js?v=2"></script>
+</body>
+</html>

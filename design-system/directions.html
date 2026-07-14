@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OF4S — Direction</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="shared.css?v=12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ------------ LAYOUT ------------ */
+    .dir-hero {
+      padding: 96px 80px 64px;
+      background: var(--of4s-stone-900);
+      color: var(--of4s-paper-50);
+    }
+    .dir-hero .eyebrow {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--of4s-navy-300);
+      margin-bottom: 24px;
+    }
+    .dir-hero h1 {
+      font-family: var(--of4s-font-display);
+      font-weight: 300;
+      font-size: clamp(56px, 7vw, 108px);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin: 0 0 24px;
+    }
+    .dir-hero h1 em { font-style: normal; color: var(--of4s-navy-300); font-weight: 400; }
+    .dir-hero p {
+      font-size: 18px;
+      line-height: 1.55;
+      color: var(--of4s-paper-200);
+      max-width: 640px;
+      margin: 0;
+    }
+
+    /* Jump nav */
+    .jump-nav {
+      display: flex; gap: 0;
+      position: sticky; top: 0; z-index: 20;
+      background: var(--of4s-paper-50);
+      border-bottom: var(--of4s-border-thin);
+    }
+    .jump-nav a {
+      flex: 1;
+      padding: 20px 32px;
+      text-decoration: none;
+      color: var(--of4s-stone-700);
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border-right: var(--of4s-border-thin);
+      transition: background 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .jump-nav a:last-child { border-right: none; }
+    .jump-nav a:hover { background: var(--of4s-paper-100); }
+    .jump-nav a .name {
+      font-family: var(--of4s-font-display);
+      font-size: 18px;
+      letter-spacing: -0.015em;
+      text-transform: none;
+      color: var(--of4s-stone-900);
+      font-weight: 500;
+    }
+
+    /* Direction section ------------ */
+    .direction {
+      padding: 96px 80px;
+      border-bottom: var(--of4s-border-thin);
+    }
+    .direction-head {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+      margin-bottom: 64px;
+      padding-bottom: 32px;
+      border-bottom: var(--of4s-border-thin);
+    }
+    .direction-head .letter {
+      font-family: var(--of4s-font-display);
+      font-weight: 300;
+      font-size: 180px;
+      line-height: 0.85;
+      letter-spacing: -0.05em;
+      color: var(--of4s-stone-900);
+    }
+    .direction-head .letter em { font-style: normal; }
+    .direction-head .meta .code {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--of4s-navy-600);
+      margin-bottom: 12px;
+    }
+    .direction-head .meta h2 {
+      font-family: var(--of4s-font-display);
+      font-weight: 400;
+      font-size: 56px;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin: 0 0 24px;
+      color: var(--of4s-stone-900);
+    }
+    .direction-head .meta h2 em { font-style: normal; }
+    .direction-head .meta .lede {
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--of4s-stone-700);
+      max-width: 640px;
+      margin: 0 0 32px;
+    }
+    .attr-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(15,29,51,0.1);
+    }
+    .attr-grid .attr .lbl {
+      font-family: var(--of4s-font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--of4s-stone-500);
+      margin-bottom: 6px;
+    }
+    .attr-grid .attr .val {
+      font-size: 15px;
+      color: var(--of4s-stone-900);
+      line-height: 1.4;
+    }
+
+    /* Surface stage ------------ */
+    .surfaces {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+    }
+    .surface {
+      border-radius: var(--of4s-radius-lg);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(15,29,51,0.08);
+      container-type: inline-size;
+    }
+    .surface-label {
+      position: absolute; top: 10px; right: 10px;
+      font-family: var(--of4s-font-mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.9);
+      padding: 3px 7px;
+      border-radius: 3px;
+      color: var(--of4s-stone-700);
+      z-index: 3;
+      backdrop-filter: blur(4px);
+      pointer-events: none;
+    }
+    .surface.hero-card { grid-column: span 2; aspect-ratio: auto; min-height: 520px; }
+    .logo-card, .palette-card, .type-card { min-height: 340px; padding: 48px; display: flex; flex-direction: column; justify-content: space-between; }
+    .slide-card { aspect-ratio: 16/9; min-height: 320px; }
+    @media (max-width: 720px) {
+      .slide-card { aspect-ratio: auto; min-height: 380px; }
+    }
+    .social-card { aspect-ratio: 1/1; }
+    .card-card { aspect-ratio: 1.75/1; }
+
+    /* Slide thumb scaler */
+    .slide-scaler { position: absolute; inset: 0; transform-origin: top left; }
+
+    /* ============================================================== */
+    /* DIRECTION A — Editorial Modern (existing) ==================== */
+    /* ============================================================== */
+
+    .A-logo { background: var(--of4s-stone-900); color: var(--of4s-paper-50); }
+    .A-logo .big {
+      font-family: 'Schibsted Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: clamp(28px, 12cqi, 72px);
+      letter-spacing: -0.025em;
+      line-height: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+    .A-logo .big em { font-style: normal; font-weight: 400; }
+    .A-logo .big .four { color: var(--of4s-navy-300); font-weight: 600; }
+    .A-logo .caption {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: var(--of4s-navy-300);
+      text-transform: uppercase;
+    }
+
+    .A-palette { background: var(--of4s-paper-50); padding: 0; display: flex; }
+    .A-palette .chip { flex: 1; padding: 32px 24px; display: flex; flex-direction: column; justify-content: flex-end; font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.12em; }
+    .A-palette .chip .n { font-family: 'Schibsted Grotesk', sans-serif; font-size: 22px; margin-bottom: 4px; letter-spacing: -0.01em; }
+
+    .A-type { background: var(--of4s-paper-100); }
+    .A-type .display { font-family: 'Schibsted Grotesk', sans-serif; font-weight: 400; font-size: 72px; line-height: 0.95; letter-spacing: -0.025em; color: var(--of4s-stone-900); }
+    .A-type .display em { font-style: normal; color: var(--of4s-navy-600); }
+    .A-type .pair {
+      display: flex; gap: 32px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(15,29,51,0.1);
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--of4s-stone-600);
+    }
+
+    .A-slide { background: var(--of4s-stone-900); color: var(--of4s-paper-50); padding: clamp(24px, 6cqi, 64px); display: flex; flex-direction: column; justify-content: space-between; }
+    .A-slide .eyebrow { font-family: 'Geist Mono', monospace; font-size: clamp(10px, 1.6cqi, 13px); letter-spacing: 0.22em; text-transform: uppercase; color: var(--of4s-navy-300); }
+    .A-slide h3 { font-family: 'Schibsted Grotesk', sans-serif; font-weight: 300; font-size: clamp(28px, 9.5cqi, 82px); line-height: 0.95; letter-spacing: -0.03em; margin: 0; }
+    .A-slide h3 em { font-style: normal; color: var(--of4s-navy-300); font-weight: 400; }
+    .A-slide .footer { display: flex; justify-content: space-between; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--of4s-stone-400); }
+
+    .A-social { background: var(--of4s-paper-100); padding: 40px; display: flex; flex-direction: column; justify-content: space-between; color: var(--of4s-stone-900); }
+    .A-social .eyebrow { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--of4s-navy-600); }
+    .A-social .num { font-family: 'Schibsted Grotesk', sans-serif; font-weight: 300; font-size: 180px; line-height: 0.85; letter-spacing: -0.04em; }
+    .A-social .num em { font-style: normal; color: var(--of4s-navy-600); font-weight: 400; }
+    .A-social .cap { font-family: 'Schibsted Grotesk', sans-serif; font-size: 22px; line-height: 1.2; max-width: 300px; letter-spacing: -0.015em; }
+    .A-social .brand { font-family: 'Schibsted Grotesk', sans-serif; font-weight: 500; font-size: 14px; letter-spacing: -0.015em; }
+    .A-social .brand .four { color: var(--of4s-navy-600); font-weight: 600; }
+
+    .A-card { background: var(--of4s-stone-900); color: var(--of4s-paper-50); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; }
+    .A-card .brand { font-family: 'Schibsted Grotesk', sans-serif; font-weight: 500; font-size: clamp(13px, 3.5cqi, 18px); letter-spacing: -0.02em; line-height: 1.05; display: flex; flex-wrap: wrap; align-items: baseline; }
+    .A-card .brand em { font-style: normal; }
+    .A-card .brand .four { color: var(--of4s-navy-300); font-weight: 600; }
+    .A-card .tag { font-family: 'Geist Mono', monospace; font-size: 9px; letter-spacing: 0.22em; color: var(--of4s-navy-300); text-transform: uppercase; margin-top: 4px; }
+    .A-card .name { font-family: 'Schibsted Grotesk', sans-serif; font-size: clamp(15px, 4cqi, 20px); }
+    .A-card .role { font-size: clamp(9px, 2.2cqi, 11px); color: var(--of4s-paper-200); margin-top: 2px; }
+    .A-card .contact { font-family: 'Geist Mono', monospace; font-size: clamp(8px, 2cqi, 10px); letter-spacing: 0.12em; color: var(--of4s-navy-300); margin-top: 6px; text-transform: uppercase; }
+
+    .A-hero { background: var(--of4s-paper-50); padding: 56px 64px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 64px; align-items: end; position: relative; min-height: 520px; }
+    .A-hero .nav { position: absolute; top: 24px; left: 64px; right: 64px; display: flex; justify-content: space-between; align-items: center; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--of4s-stone-700); }
+    .A-hero .nav .brand { font-family: 'Schibsted Grotesk', sans-serif; font-size: 22px; letter-spacing: -0.02em; text-transform: none; }
+    .A-hero .nav .brand .four { color: var(--of4s-navy-600); font-weight: 600; }
+    .A-hero .nav .links { display: flex; gap: 32px; }
+    .A-hero h2 { font-family: 'Schibsted Grotesk', sans-serif; font-weight: 300; font-size: 96px; line-height: 0.92; letter-spacing: -0.035em; margin: 0; color: var(--of4s-stone-900); }
+    .A-hero h2 em { font-style: normal; color: var(--of4s-navy-600); font-weight: 400; }
+    .A-hero .eyebrow { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--of4s-navy-600); margin-bottom: 20px; }
+    .A-hero .body p { font-size: 15px; line-height: 1.6; color: var(--of4s-stone-700); margin: 0 0 24px; max-width: 320px; }
+    .A-hero .cta { display: inline-block; background: var(--of4s-stone-900); color: var(--of4s-paper-50); padding: 12px 22px; border-radius: 999px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+
+  </style>
+</head>
+<body>
+  <div class="ds-shell">
+    <div id="sidebar"></div>
+
+    <main class="ds-main">
+      <section class="dir-hero">
+        <div class="eyebrow">DIRECTION A · DECIDED</div>
+        <h1>Direction A:<br/><em>Editorial Modern.</em></h1>
+        <p>Direction A — Editorial Modern — is the chosen identity system. Kept here as the reference for how the brand shows up across the surfaces that matter most.</p>
+      </section>
+
+      <nav class="jump-nav">
+        <a href="#dir-a"><span>A</span><span class="name">Editorial Modern</span></a>
+      </nav>
+
+      <!-- ============================================================== -->
+      <!-- DIRECTION A                                                      -->
+      <!-- ============================================================== -->
+      <section class="direction" id="dir-a">
+        <div class="direction-head">
+          <div class="letter">A<em>.</em></div>
+          <div class="meta">
+            <div class="code">DIRECTION · 01 / 03 · EDITORIAL MODERN</div>
+            <h2>A workplace, <em>made easy.</em></h2>
+            <p class="lede">The confident magazine-editorial direction. Serif display type does the emotional work; mono captions and generous whitespace keep it from ever feeling stuffy. Positions OF4S as a premium, design-literate partner — the kind of dealer that could sit next to MillerKnoll's own marketing.</p>
+            <div class="attr-grid">
+              <div class="attr"><div class="lbl">TYPEFACES</div><div class="val">Fraunces · Geist · Geist Mono</div></div>
+              <div class="attr"><div class="lbl">CORE COLORS</div><div class="val">Navy #15273F · Accent #8FA9C7 · Paper cream</div></div>
+              <div class="attr"><div class="lbl">VOICE</div><div class="val">Confident, warm, magazine-like</div></div>
+              <div class="attr"><div class="lbl">COMPETES WITH</div><div class="val">Design-forward national dealers</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="surfaces">
+          <div class="surface A-hero hero-card">
+            <span class="surface-label">01 — HOMEPAGE HERO</span>
+            <div class="nav">
+              <span class="brand">OF<span class="four">4</span>S</span>
+              <span class="links"><span>Process</span><span>Projects</span><span>Showroom</span></span>
+              <span>Get a quote</span>
+            </div>
+            <div>
+              <div class="eyebrow">SOUTH FLORIDA · SINCE 2008</div>
+              <h2>A workplace,<br/><em>made easy.</em></h2>
+            </div>
+            <div class="body">
+              <p>We spec, source, and install furniture for offices that don't have time to become furniture experts. Itemized quote in 24 hours.</p>
+              <span class="cta">Start a project →</span>
+            </div>
+          </div>
+
+          <div class="surface A-logo logo-card">
+            <span class="surface-label">02 — LOGO</span>
+            <div class="caption">THE WORDMARK</div>
+            <div class="big">OF<span class="four">4</span>S</div>
+            <div class="caption">SOUTH FLORIDA · SINCE 2008</div>
+          </div>
+
+          <div class="surface A-type type-card">
+            <span class="surface-label">03 — TYPOGRAPHY</span>
+            <div class="display">The workplace,<br/><em>made easy.</em></div>
+            <div class="pair"><span>FRAUNCES · DISPLAY</span><span style="color: var(--of4s-navy-600);">GEIST · UI</span><span>GEIST MONO · CAPTION</span></div>
+          </div>
+
+          <div class="surface A-palette palette-card" style="padding: 0;">
+            <span class="surface-label">04 — PALETTE</span>
+            <div class="chip" style="background: var(--of4s-stone-900); color: var(--of4s-paper-50);"><div><div class="n">Stone</div><div>#1A1814</div></div></div>
+            <div class="chip" style="background: var(--of4s-navy-800); color: white;"><div><div class="n">Navy</div><div>#15273F</div></div></div>
+            <div class="chip" style="background: var(--of4s-navy-300); color: var(--of4s-stone-900);"><div><div class="n">Accent</div><div>#8FA9C7</div></div></div>
+            <div class="chip" style="background: var(--of4s-paper-100); color: var(--of4s-stone-900);"><div><div class="n">Paper</div><div>#F3EFE7</div></div></div>
+          </div>
+
+          <div class="surface A-slide slide-card">
+            <span class="surface-label">05 — DECK COVER</span>
+            <div class="eyebrow">PROPOSAL · ACME LOGISTICS</div>
+            <div>
+              <h3>142 seats.<br/><em>9 weeks.</em><br/>Delivered.</h3>
+            </div>
+            <div class="footer"><span>APRIL 24, 2026</span><span>OFFICE FURNITURE 4 SALE</span></div>
+          </div>
+
+          <div class="surface A-social social-card">
+            <span class="surface-label">06 — SOCIAL POST</span>
+            <div>
+              <div class="eyebrow">PROOF · NUMBERS</div>
+              <div class="num"><em>9</em>wks</div>
+            </div>
+            <div class="cap">Median project from walk-through to install complete.</div>
+            <div class="brand">OF<span class="four">4</span>S</div>
+          </div>
+
+          <div class="surface A-card card-card">
+            <span class="surface-label" style="color: var(--of4s-paper-200); background: rgba(0,0,0,0.4);">07 — BUSINESS CARD</span>
+            <div>
+              <div class="brand">OF<span class="four">4</span>S</div>
+              <div class="tag">SOUTH FLORIDA · SINCE 2008</div>
+            </div>
+            <div>
+              <div class="name">Sarah Morales</div>
+              <div class="role">Project Lead · Specifications</div>
+              <div class="contact">954 · 555 · 0142 · SARAH@OF4S.COM</div>
+            </div>
+          </div>
+
+          <div class="surface card-card" style="background: var(--of4s-navy-100); color: var(--of4s-stone-900); padding: 32px; display: flex; flex-direction: column; justify-content: space-between;">
+            <span class="surface-label">08 — CORE MESSAGE</span>
+            <div style="font-family: 'Schibsted Grotesk', sans-serif; font-weight: 300; font-size: 44px; line-height: 1; letter-spacing: -0.025em;">
+              Local. Modern.<br/><em style="font-style: normal; color: var(--of4s-navy-600);">Easy.</em>
+            </div>
+            <div style="font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--of4s-navy-600);">THE THREE-WORD BRIEF</div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <div id="footer"></div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="sidebar.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById('sidebar')).render(<DSSidebar current="directions" />);
+    ReactDOM.createRoot(document.getElementById('footer')).render(<DSFooter />);
+  </script>
+</body>
+</html>

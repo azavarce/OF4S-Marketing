@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OF4S Design System — Typography</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="shared.css?v=12" />
+  <style>
+    .specimen-card {
+      background: white;
+      border: var(--of4s-border-thin);
+      border-radius: var(--of4s-radius-lg);
+      overflow: hidden;
+    }
+    .specimen-card .head {
+      background: var(--of4s-paper-100);
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: var(--of4s-border-thin);
+    }
+    .specimen-card .head h3 {
+      font-family: var(--of4s-font-display);
+      font-weight: 500;
+      font-size: 22px;
+      letter-spacing: -0.015em;
+      margin: 0;
+    }
+    .specimen-card .head .role {
+      font-family: var(--of4s-font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--of4s-navy-600);
+    }
+    .specimen-card .body { padding: 48px 32px; }
+    .specimen-card .alphabet {
+      font-family: var(--of4s-font-display);
+      font-size: 48px;
+      letter-spacing: -0.02em;
+      color: var(--of4s-stone-900);
+      line-height: 1.05;
+      word-break: break-word;
+    }
+    .specimen-card.sans .alphabet {
+      font-family: var(--of4s-font-sans);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+    .specimen-card.mono .alphabet {
+      font-family: var(--of4s-font-mono);
+      font-size: 36px;
+    }
+    .specimen-card .weights {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: var(--of4s-border-thin);
+    }
+    .specimen-card .weights .row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 32px;
+      align-items: baseline;
+    }
+    .specimen-card .weights .label {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--of4s-stone-500);
+    }
+    .specimen-card .weights .demo {
+      font-size: 24px;
+      font-family: var(--of4s-font-display);
+      letter-spacing: -0.015em;
+    }
+    .specimen-card.sans .weights .demo { font-family: var(--of4s-font-sans); }
+
+    /* Display scale */
+    .scale-row {
+      display: grid;
+      grid-template-columns: 80px 100px 1fr;
+      gap: 32px;
+      padding: 24px 0;
+      border-top: var(--of4s-border-thin);
+      align-items: baseline;
+    }
+    .scale-row:first-of-type { border-top: 0; }
+    .scale-row .token {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--of4s-stone-500);
+    }
+    .scale-row .px {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      color: var(--of4s-navy-600);
+      letter-spacing: 0.05em;
+    }
+    .scale-row .demo {
+      font-family: var(--of4s-font-display);
+      color: var(--of4s-stone-900);
+      letter-spacing: -0.025em;
+      line-height: 1;
+    }
+
+    /* Pairing demos */
+    .pair-demo {
+      background: var(--of4s-paper-100);
+      border-radius: var(--of4s-radius-lg);
+      padding: 64px;
+    }
+    .pair-demo .eyebrow {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--of4s-navy-600);
+      margin-bottom: 16px;
+    }
+    .pair-demo h2 {
+      font-family: var(--of4s-font-display);
+      font-weight: 400;
+      font-size: 64px;
+      letter-spacing: -0.025em;
+      line-height: 1;
+      margin: 0 0 24px;
+      color: var(--of4s-stone-900);
+    }
+    .pair-demo h2 em { font-style: normal; }
+    .pair-demo .lede {
+      font-family: var(--of4s-font-sans);
+      font-size: 18px;
+      line-height: 1.55;
+      color: var(--of4s-stone-600);
+      max-width: 580px;
+      margin: 0 0 32px;
+    }
+    .pair-demo .body {
+      font-family: var(--of4s-font-sans);
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--of4s-stone-700);
+      max-width: 580px;
+    }
+    .pair-demo .meta {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      color: var(--of4s-stone-500);
+      letter-spacing: 0.1em;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: var(--of4s-border-thin);
+    }
+
+    /* Reasoning */
+    .reasoning-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .reason {
+      background: white;
+      border: var(--of4s-border-thin);
+      border-radius: var(--of4s-radius-lg);
+      padding: 32px;
+    }
+    .reason h4 {
+      font-family: var(--of4s-font-display);
+      font-weight: 500;
+      font-size: 22px;
+      letter-spacing: -0.015em;
+      margin: 0 0 12px;
+    }
+    .reason p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--of4s-stone-600);
+      margin: 0;
+    }
+    .reason .num {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      color: var(--of4s-navy-600);
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+
+    /* Usage */
+    .usage-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: var(--of4s-border-thin);
+      border-radius: var(--of4s-radius-lg);
+      overflow: hidden;
+    }
+    .usage-table th, .usage-table td {
+      padding: 14px 24px;
+      text-align: left;
+      border-top: var(--of4s-border-thin);
+    }
+    .usage-table th {
+      background: var(--of4s-paper-100);
+      font-family: var(--of4s-font-mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--of4s-stone-500);
+      font-weight: 500;
+      border-top: 0;
+    }
+    .usage-table td .name {
+      font-family: var(--of4s-font-display);
+      font-weight: 500;
+      font-size: 16px;
+    }
+    .usage-table td .meta {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      color: var(--of4s-stone-500);
+    }
+  </style>
+</head>
+<body>
+  <div class="ds-shell">
+    <div id="sidebar"></div>
+
+    <main class="ds-main">
+      <header class="ds-page-header">
+        <div class="ds-page-eyebrow">03 · Foundation</div>
+        <h1 class="ds-page-title">Editorial weight, <em>working clarity.</em></h1>
+        <p class="ds-page-lede">Two families. Schibsted Grotesk — a characterful grotesk — for headlines, hero copy, and the wordmark itself. Geist — a clean grotesque — for everything else: UI, body, captions, tables. Together they look unmistakably designed without trying too hard.</p>
+      </header>
+
+      <!-- WHY -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">3.1</span>
+          <h2 class="ds-section-title">Why this pairing</h2>
+          <p class="ds-section-desc">Editorial > Corporate. Most dealers default to Arial / Helvetica / Inter. We pick a serif that gives presentations gravity and a sans that quietly does the work.</p>
+        </div>
+
+        <div class="reasoning-grid">
+          <div class="reason">
+            <div class="num">REASON / 01</div>
+            <h4>It separates us from the catalog look.</h4>
+            <p>JC White, Pradere, and Office Furniture Warehouse all live in geometric sans-serif land. A modern serif headline immediately reads premium and considered without resorting to luxury-brand cliché.</p>
+          </div>
+          <div class="reason">
+            <div class="num">REASON / 02</div>
+            <h4>The accent word gives the brand a voice.</h4>
+            <p>One word per headline, set in accent navy — the emotional bit ("<em>made easy</em>"). The brand already lives in the wordmark; the accent word carries it into every layout.</p>
+          </div>
+          <div class="reason">
+            <div class="num">REASON / 03</div>
+            <h4>Geist is built for screens.</h4>
+            <p>Open apertures, generous spacing, and a wide weight range mean it stays sharp at 12px on a quote PDF and at 96px on a hero. We don't need a separate UI font.</p>
+          </div>
+          <div class="reason">
+            <div class="num">REASON / 04</div>
+            <h4>Free, open, and on Google Fonts.</h4>
+            <p>Both families are open-source and licensed for commercial use without fees. Easy to embed on the website and into PowerPoint/Keynote/Google Slides without licensing friction.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SPECIMENS -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">3.2</span>
+          <h2 class="ds-section-title">Specimens</h2>
+          <p class="ds-section-desc">The complete character of each family.</p>
+        </div>
+
+        <div style="display: grid; gap: 16px;">
+          <div class="specimen-card">
+            <div class="head">
+              <h3>Schibsted Grotesk</h3>
+              <span class="role">Display · Headlines · Wordmark</span>
+            </div>
+            <div class="body">
+              <div class="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>abcdefghijklmnopqrstuvwxyz<br/>0 1 2 3 4 5 6 7 8 9 &amp; ? ! ' " — / @</div>
+              <div class="weights">
+                <div class="row"><span class="label">Light · 300</span><span class="demo" style="font-weight: 300;">Modern Florida workplaces</span></div>
+                <div class="row"><span class="label">Regular · 400</span><span class="demo" style="font-weight: 400;">Modern Florida workplaces</span></div>
+                <div class="row"><span class="label">Medium · 500</span><span class="demo" style="font-weight: 500;">Modern Florida workplaces</span></div>
+                <div class="row"><span class="label">Semibold · 600</span><span class="demo" style="font-weight: 600;">Modern Florida workplaces</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="specimen-card sans">
+            <div class="head">
+              <h3>Geist</h3>
+              <span class="role">UI · Body · Captions · Tables</span>
+            </div>
+            <div class="body">
+              <div class="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>abcdefghijklmnopqrstuvwxyz<br/>0 1 2 3 4 5 6 7 8 9 &amp; ? ! ' " — / @</div>
+              <div class="weights">
+                <div class="row"><span class="label">Regular · 400</span><span class="demo" style="font-weight: 400;">A complete proposal in 48 hours.</span></div>
+                <div class="row"><span class="label">Medium · 500</span><span class="demo" style="font-weight: 500;">A complete proposal in 48 hours.</span></div>
+                <div class="row"><span class="label">Semibold · 600</span><span class="demo" style="font-weight: 600;">A complete proposal in 48 hours.</span></div>
+                <div class="row"><span class="label">Bold · 700</span><span class="demo" style="font-weight: 700;">A complete proposal in 48 hours.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="specimen-card mono">
+            <div class="head">
+              <h3>Geist Mono</h3>
+              <span class="role">Eyebrows · Specs · Numbers</span>
+            </div>
+            <div class="body">
+              <div class="alphabet">ABCDEF abcdef 0123456789<br/>SKU 04-22 · QUOTE #2026-184</div>
+              <div class="weights">
+                <div class="row"><span class="label">Regular · 400</span><span class="demo" style="font-family: var(--of4s-font-mono); letter-spacing: 0.1em;">SKU · 0042-PINE-WHT</span></div>
+                <div class="row"><span class="label">Medium · 500</span><span class="demo" style="font-family: var(--of4s-font-mono); letter-spacing: 0.1em; font-weight: 500;">QUOTE · 2026-0184</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TYPE SCALE -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">3.3</span>
+          <h2 class="ds-section-title">Type scale</h2>
+          <p class="ds-section-desc">Eight steps from caption to billboard. Ratios shift from 1.25 (body) to 1.4 (display) so headlines feel proportionally bigger than they are.</p>
+        </div>
+
+        <div class="ds-card" style="padding: 24px 32px;">
+          <div class="scale-row">
+            <span class="token">7XL</span><span class="px">112 / 0.95</span>
+            <span class="demo" style="font-size: 112px; font-weight: 300;">Easy.</span>
+          </div>
+          <div class="scale-row">
+            <span class="token">6XL</span><span class="px">84 / 1.0</span>
+            <span class="demo" style="font-size: 84px;">Made <em style="font-style: normal;">easy.</em></span>
+          </div>
+          <div class="scale-row">
+            <span class="token">5XL</span><span class="px">64 / 1.05</span>
+            <span class="demo" style="font-size: 64px;">Modern Florida workplaces</span>
+          </div>
+          <div class="scale-row">
+            <span class="token">4XL</span><span class="px">48 / 1.1</span>
+            <span class="demo" style="font-size: 48px;">A proposal in 48 hours</span>
+          </div>
+          <div class="scale-row">
+            <span class="token">3XL</span><span class="px">36 / 1.2</span>
+            <span class="demo" style="font-size: 36px; font-weight: 500;">Section heading</span>
+          </div>
+          <div class="scale-row">
+            <span class="token">2XL</span><span class="px">28 / 1.3</span>
+            <span class="demo" style="font-size: 28px; font-weight: 500;">Sub-heading</span>
+          </div>
+          <div class="scale-row">
+            <span class="token">XL</span><span class="px">22 / 1.4</span>
+            <span class="demo" style="font-family: var(--of4s-font-sans); font-size: 22px; letter-spacing: 0; font-weight: 500;">Lede paragraph</span>
+          </div>
+          <div class="scale-row">
+            <span class="token">LG</span><span class="px">18 / 1.55</span>
+            <span class="demo" style="font-family: var(--of4s-font-sans); font-size: 18px; letter-spacing: 0;">Body large — running text in proposals</span>
+          </div>
+          <div class="scale-row">
+            <span class="token">BASE</span><span class="px">16 / 1.6</span>
+            <span class="demo" style="font-family: var(--of4s-font-sans); font-size: 16px; letter-spacing: 0;">Body — UI default, contracts, web</span>
+          </div>
+          <div class="scale-row">
+            <span class="token">SM</span><span class="px">14 / 1.55</span>
+            <span class="demo" style="font-family: var(--of4s-font-sans); font-size: 14px; letter-spacing: 0;">Small — captions, table cells, footnotes</span>
+          </div>
+          <div class="scale-row">
+            <span class="token">XS</span><span class="px">12 / 1.5</span>
+            <span class="demo" style="font-family: var(--of4s-font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--of4s-stone-500);">EYEBROW · LABEL · TIMESTAMP</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAIRING DEMO -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">3.4</span>
+          <h2 class="ds-section-title">In context</h2>
+          <p class="ds-section-desc">A complete piece showing how the families work together. Display sets the mood; sans does the reading.</p>
+        </div>
+
+        <div class="pair-demo">
+          <div class="eyebrow">CASE STUDY · 2026 · MIRAMAR</div>
+          <h2>A 14,000 sq ft buildout, <em>specified, ordered, and installed</em> in nine weeks.</h2>
+          <p class="lede">When a fast-growing logistics firm needed to be in their new Miramar HQ before Q2, the legacy dealers quoted a 16-week lead. We delivered in 9.</p>
+          <div class="body">
+            We started with a Friday afternoon walk-through and a Monday morning quote. By Wednesday the client had digital renderings of every workspace, configurable in real time. Six weeks later the trucks rolled in. The project came in 4% under budget — and the team moved into a space that actually felt like theirs, not a catalog spread.
+          </div>
+          <div class="meta">SCHIBSTED 64 / 1.0 · GEIST 18 / 1.55 · GEIST 15 / 1.65</div>
+        </div>
+      </section>
+
+      <!-- USAGE TABLE -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">3.5</span>
+          <h2 class="ds-section-title">When to use what</h2>
+          <p class="ds-section-desc">A quick rulebook to keep type usage consistent across decks, docs, web, and email.</p>
+        </div>
+
+        <table class="usage-table">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Family</th>
+              <th>Weight</th>
+              <th>Style</th>
+              <th>Token</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><div class="name">Hero / cover headline</div></td><td>Schibsted</td><td>Light · Regular</td><td>Roman</td><td><span class="meta">7XL · 6XL · 5XL</span></td></tr>
+            <tr><td><div class="name">Section heading</div></td><td>Schibsted</td><td>Medium</td><td>Roman, sentence case</td><td><span class="meta">3XL · 2XL</span></td></tr>
+            <tr><td><div class="name">Lede / intro paragraph</div></td><td>Geist</td><td>Regular</td><td>Roman</td><td><span class="meta">XL · LG</span></td></tr>
+            <tr><td><div class="name">Body</div></td><td>Geist</td><td>Regular</td><td>Roman</td><td><span class="meta">BASE · LG</span></td></tr>
+            <tr><td><div class="name">UI labels / button text</div></td><td>Geist</td><td>Medium · Semibold</td><td>Sentence case</td><td><span class="meta">SM · BASE</span></td></tr>
+            <tr><td><div class="name">Eyebrow / data labels</div></td><td>Geist Mono</td><td>Regular · Medium</td><td>UPPERCASE, tracked +0.1em</td><td><span class="meta">XS · SM</span></td></tr>
+            <tr><td><div class="name">SKUs · prices · timestamps</div></td><td>Geist Mono</td><td>Regular</td><td>Tabular figures on</td><td><span class="meta">SM · BASE</span></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="sidebar.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById('sidebar')).render(<DSSidebar current="type" />);
+    ReactDOM.createRoot(document.getElementById('footer')).render(<DSFooter />);
+  </script>
+</body>
+</html>

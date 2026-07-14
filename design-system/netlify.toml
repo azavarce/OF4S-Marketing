@@ -1,0 +1,89 @@
+# Netlify configuration for OF4S Design System
+# Drag-and-drop deploy: zip this entire folder, drop on app.netlify.com/drop
+# Or connect a Git repo — Netlify will use these settings.
+
+[build]
+  publish = "."
+
+# Pretty URLs: /color  ->  /color.html
+[[redirects]]
+  from = "/color"
+  to = "/color.html"
+  status = 200
+
+[[redirects]]
+  from = "/typography"
+  to = "/typography.html"
+  status = 200
+
+[[redirects]]
+  from = "/iconography"
+  to = "/iconography.html"
+  status = 200
+
+[[redirects]]
+  from = "/imagery"
+  to = "/imagery.html"
+  status = 200
+
+[[redirects]]
+  from = "/components"
+  to = "/components.html"
+  status = 200
+
+[[redirects]]
+  from = "/presentation"
+  to = "/presentation.html"
+  status = 200
+
+[[redirects]]
+  from = "/proposal"
+  to = "/proposal.html"
+  status = 200
+
+[[redirects]]
+  from = "/collateral"
+  to = "/collateral.html"
+  status = 200
+
+[[redirects]]
+  from = "/social"
+  to = "/social.html"
+  status = 200
+
+[[redirects]]
+  from = "/logo"
+  to = "/logo-type.html"
+  status = 200
+
+[[redirects]]
+  from = "/logo.html"
+  to = "/logo-type.html"
+  status = 301
+
+[[redirects]]
+  from = "/logo-options"
+  to = "/logo-type.html"
+  status = 200
+
+[[redirects]]
+  from = "/logos"
+  to = "/logo-type.html"
+  status = 200
+
+[[redirects]]
+  from = "/directions"
+  to = "/directions.html"
+  status = 200
+
+# Cache static assets aggressively
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/*.jsx"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+    Content-Type = "text/babel; charset=utf-8"

@@ -1,0 +1,115 @@
+/* OF4S Design System — Core tokens
+ * v1.0 — Modern Florida workplace partner
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ───────────── Color: Primary (Navy equity, evolved) ───────────── */
+  --of4s-navy-950: #0a1628;
+  --of4s-navy-900: #0f1d33;
+  --of4s-navy-800: #15273f;   /* Primary brand navy — slightly cooler than current */
+  --of4s-navy-700: #1e3554;
+  --of4s-navy-600: #2d4a6e;
+  --of4s-navy-500: #466489;
+  --of4s-navy-300: #8fa9c7;   /* Accent on dark surfaces (replaces brass-400) */
+  --of4s-navy-100: #dde5ee;   /* Pale navy tint for chips/badges (replaces brass-100) */
+
+  /* ───────────── Color: Accent (Warm brass) — DEPRECATED, retired 2026-07. Use navy scale. ───────────── */
+  --of4s-brass-900: #6e4f1f;
+  --of4s-brass-700: #8e6a30;
+  --of4s-brass-500: #b8895a;
+  --of4s-brass-400: #c9a474;
+  --of4s-brass-300: #d9bd95;
+  --of4s-brass-100: #f0e6d4;
+
+  /* ───────────── Color: Neutrals (warm paper) ───────────── */
+  --of4s-paper-50:  #faf8f4;   /* Page background */
+  --of4s-paper-100: #f3efe7;
+  --of4s-paper-200: #e8e2d4;
+  --of4s-paper-300: #d6cfbe;
+  --of4s-stone-400: #a8a094;
+  --of4s-stone-500: #7a7468;
+  --of4s-stone-600: #555047;
+  --of4s-stone-700: #3a362f;
+  --of4s-stone-900: #1a1814;
+
+  /* ───────────── Color: Semantic ───────────── */
+  --of4s-success: #5a7a4f;
+  --of4s-warning: #b8895a;
+  --of4s-danger:  #9c3a30;
+  --of4s-info:    #2d4a6e;
+
+  /* ───────────── Type ───────────── */
+  --of4s-font-display: 'Schibsted Grotesk', 'Geist', sans-serif;
+  --of4s-font-sans:    'Geist', -apple-system, system-ui, sans-serif;
+  --of4s-font-mono:    'Geist Mono', 'SF Mono', Menlo, monospace;
+
+  /* Type scale (modular, 1.25 ratio at body, larger ratio at display) */
+  --of4s-text-xs:   12px;
+  --of4s-text-sm:   14px;
+  --of4s-text-base: 16px;
+  --of4s-text-lg:   18px;
+  --of4s-text-xl:   22px;
+  --of4s-text-2xl:  28px;
+  --of4s-text-3xl:  36px;
+  --of4s-text-4xl:  48px;
+  --of4s-text-5xl:  64px;
+  --of4s-text-6xl:  84px;
+  --of4s-text-7xl:  112px;
+
+  /* ───────────── Spacing ───────────── */
+  --of4s-space-1: 4px;
+  --of4s-space-2: 8px;
+  --of4s-space-3: 12px;
+  --of4s-space-4: 16px;
+  --of4s-space-5: 24px;
+  --of4s-space-6: 32px;
+  --of4s-space-7: 48px;
+  --of4s-space-8: 64px;
+  --of4s-space-9: 96px;
+  --of4s-space-10: 128px;
+
+  /* ───────────── Radii ───────────── */
+  --of4s-radius-sm: 2px;
+  --of4s-radius-md: 4px;
+  --of4s-radius-lg: 8px;
+  --of4s-radius-xl: 14px;
+  --of4s-radius-pill: 999px;
+
+  /* ───────────── Shadows ───────────── */
+  --of4s-shadow-sm: 0 1px 2px rgba(15, 29, 51, 0.06), 0 1px 1px rgba(15, 29, 51, 0.04);
+  --of4s-shadow-md: 0 4px 12px rgba(15, 29, 51, 0.08), 0 2px 4px rgba(15, 29, 51, 0.04);
+  --of4s-shadow-lg: 0 18px 40px rgba(15, 29, 51, 0.12), 0 4px 12px rgba(15, 29, 51, 0.06);
+  --of4s-shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  /* ───────────── Borders ───────────── */
+  --of4s-border-thin:   1px solid rgba(15, 29, 51, 0.1);
+  --of4s-border-medium: 1px solid rgba(15, 29, 51, 0.18);
+  --of4s-border-strong: 1px solid rgba(15, 29, 51, 0.32);
+
+  /* ───────────── Motion ───────────── */
+  --of4s-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --of4s-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --of4s-dur-fast: 150ms;
+  --of4s-dur-base: 240ms;
+  --of4s-dur-slow: 400ms;
+}
+
+/* Base ───────────── */
+html, body {
+  background: var(--of4s-paper-50);
+  color: var(--of4s-stone-900);
+  font-family: var(--of4s-font-sans);
+  font-size: var(--of4s-text-base);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+
+::selection {
+  background: var(--of4s-navy-800);
+  color: var(--of4s-paper-50);
+}

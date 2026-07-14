@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OF4S Design System — Presentations</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="shared.css?v=12" />
+  <style>
+    .slide-thumb {
+      aspect-ratio: 16 / 9;
+      border-radius: var(--of4s-radius-md);
+      overflow: hidden;
+      position: relative;
+      border: var(--of4s-border-thin);
+      background: white;
+    }
+    .slide-thumb .scaler {
+      width: 1920px;
+      height: 1080px;
+      transform-origin: top left;
+      position: absolute;
+      inset: 0;
+    }
+    .slide-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .slide-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 12px;
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--of4s-stone-500);
+    }
+
+    /* SLIDE shared */
+    .s {
+      width: 1920px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      font-family: var(--of4s-font-sans);
+    }
+    .s-page {
+      position: absolute; bottom: 56px; left: 80px;
+      font-family: var(--of4s-font-mono);
+      font-size: 18px;
+      letter-spacing: 0.18em;
+      color: var(--of4s-stone-500);
+    }
+    .s-brand {
+      position: absolute; bottom: 56px; right: 80px;
+      font-family: var(--of4s-font-display);
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+    .s-brand .four { color: var(--of4s-navy-500); font-weight: 600; }
+
+    /* COVER */
+    .s-cover {
+      background: var(--of4s-stone-900);
+      color: var(--of4s-paper-50);
+      padding: 96px 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .s-cover .eyebrow {
+      font-family: var(--of4s-font-mono);
+      font-size: 22px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--of4s-navy-300);
+    }
+    .s-cover h1 {
+      font-family: var(--of4s-font-display);
+      font-weight: 300;
+      font-size: 200px;
+      line-height: 0.92;
+      letter-spacing: -0.035em;
+      margin: 0;
+      color: var(--of4s-paper-50);
+    }
+    .s-cover h1 em { font-style: normal; color: var(--of4s-navy-300); font-weight: 400; }
+    .s-cover .meta-row {
+      display: flex; gap: 96px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+    .s-cover .meta-row .label {
+      font-family: var(--of4s-font-mono);
+      font-size: 16px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--of4s-stone-400);
+      margin-bottom: 12px;
+    }
+    .s-cover .meta-row .val {
+      font-family: var(--of4s-font-display);
+      font-size: 32px;
+      color: var(--of4s-paper-50);
+    }
+    .s-cover .brand-corner {
+      position: absolute; top: 96px; right: 120px;
+      font-family: var(--of4s-font-display); font-size: 36px; color: var(--of4s-paper-50);
+      display: flex; align-items: baseline; gap: 8px;
+    }
+    .s-cover .brand-corner .four { color: var(--of4s-navy-300); font-weight: 600; }
+
+    /* AGENDA */
+    .s-agenda {
+      background: var(--of4s-paper-100);
+      padding: 96px 120px;
+    }
+    .s-agenda .eyebrow {
+      font-family: var(--of4s-font-mono);
+      font-size: 18px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--of4s-navy-600);
+      margin-bottom: 32px;
+    }
+    .s-agenda h2 {
+      font-family: var(--of4s-font-display);
+      font-weight: 400;
+      font-size: 96px;
+      line-height: 0.95;
+      letter-spacing: -0.025em;
+      margin: 0 0 80px;
+      color: var(--of4s-stone-900);
+      max-width: 1200px;
+    }
+    .s-agenda h2 em { font-style: normal; }
+    .s-agenda ol {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .s-agenda li {
+      display: grid;
+      grid-template-columns: 80px 1fr 200px;
+      align-items: baseline;
+      padding: 28px 0;
+      border-top: 1px solid rgba(15,29,51,0.15);
+      gap: 32px;
+    }
+    .s-agenda li .num { font-family: var(--of4s-font-mono); font-size: 18px; color: var(--of4s-navy-600); letter-spacing: 0.1em; }
+    .s-agenda li .title { font-family: var(--of4s-font-display); font-size: 44px; font-weight: 500; letter-spacing: -0.02em; color: var(--of4s-stone-900); }
+    .s-agenda li .who { font-family: var(--of4s-font-mono); font-size: 16px; color: var(--of4s-stone-500); letter-spacing: 0.08em; text-align: right; text-transform: uppercase; }
+
+    /* SECTION DIVIDER */
+    .s-divider {
+      background: var(--of4s-navy-800);
+      color: var(--of4s-paper-50);
+      padding: 96px 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .s-divider .num {
+      font-family: var(--of4s-font-mono);
+      font-size: 32px;
+      letter-spacing: 0.18em;
+      color: var(--of4s-navy-300);
+      margin-bottom: 32px;
+    }
+    .s-divider h2 {
+      font-family: var(--of4s-font-display);
+      font-weight: 300;
+      font-size: 240px;
+      line-height: 0.9;
+      letter-spacing: -0.035em;
+      margin: 0;
+      max-width: 1400px;
+    }
+    .s-divider h2 em { font-style: normal; color: var(--of4s-navy-300); font-weight: 400; }
+
+    /* CASE STUDY */
+    .s-case {
+      background: var(--of4s-paper-50);
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+    }
+    .s-case .img {
+      background: var(--of4s-paper-200);
+      background-image: repeating-linear-gradient(135deg, rgba(21,39,63,0.05) 0, rgba(21,39,63,0.05) 16px, transparent 16px, transparent 32px);
+      display: flex; align-items: flex-end; padding: 48px;
+      font-family: var(--of4s-font-mono);
+      font-size: 18px; color: var(--of4s-stone-600); letter-spacing: 0.1em;
+    }
+    .s-case .body { padding: 96px 96px 96px 80px; display: flex; flex-direction: column; justify-content: center; }
+    .s-case .eyebrow { font-family: var(--of4s-font-mono); font-size: 18px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--of4s-navy-600); margin-bottom: 32px; }
+    .s-case h2 { font-family: var(--of4s-font-display); font-weight: 400; font-size: 80px; line-height: 1.0; letter-spacing: -0.025em; margin: 0 0 32px; color: var(--of4s-stone-900); }
+    .s-case h2 em { font-style: normal; }
+    .s-case p { font-size: 26px; line-height: 1.5; color: var(--of4s-stone-700); margin: 0 0 48px; }
+    .s-case .stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; padding-top: 32px; border-top: 1px solid rgba(15,29,51,0.15); }
+    .s-case .stats .lbl { font-family: var(--of4s-font-mono); font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--of4s-stone-500); margin-bottom: 8px; }
+    .s-case .stats .val { font-family: var(--of4s-font-display); font-size: 56px; letter-spacing: -0.02em; line-height: 1; }
+    .s-case .stats .val em { font-style: normal; color: var(--of4s-navy-600); }
+
+    /* COMPARISON */
+    .s-compare {
+      background: var(--of4s-paper-50);
+      padding: 96px 120px;
+    }
+    .s-compare .eyebrow { font-family: var(--of4s-font-mono); font-size: 18px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--of4s-navy-600); margin-bottom: 32px; }
+    .s-compare h2 { font-family: var(--of4s-font-display); font-weight: 400; font-size: 80px; line-height: 0.95; letter-spacing: -0.025em; margin: 0 0 64px; color: var(--of4s-stone-900); }
+    .s-compare h2 em { font-style: normal; }
+    .s-compare .cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+    .s-compare .col { padding: 56px 40px; border-radius: 12px; min-height: 480px; }
+    .s-compare .col.them { background: white; border: 1px solid rgba(15,29,51,0.1); }
+    .s-compare .col.us { background: var(--of4s-navy-800); color: var(--of4s-paper-50); }
+    .s-compare .col h3 { font-family: var(--of4s-font-display); font-weight: 500; font-size: 36px; margin: 0 0 8px; letter-spacing: -0.02em; }
+    .s-compare .col .sub { font-family: var(--of4s-font-mono); font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--of4s-stone-500); margin-bottom: 32px; }
+    .s-compare .col.us .sub { color: var(--of4s-navy-300); }
+    .s-compare .col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; }
+    .s-compare .col li { font-size: 22px; line-height: 1.45; padding-left: 32px; position: relative; color: var(--of4s-stone-700); }
+    .s-compare .col li::before { content: '·'; position: absolute; left: 12px; font-size: 32px; line-height: 1; color: var(--of4s-stone-400); }
+    .s-compare .col.us li { color: var(--of4s-paper-200); }
+    .s-compare .col.us li::before { color: var(--of4s-navy-300); content: '→'; font-size: 18px; line-height: 1.5; }
+
+    /* CTA */
+    .s-cta {
+      background: var(--of4s-stone-900);
+      color: var(--of4s-paper-50);
+      padding: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    .s-cta::after {
+      content: ''; position: absolute; right: -200px; top: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, var(--of4s-navy-700), transparent 65%);
+      opacity: 0.5; pointer-events: none;
+    }
+    .s-cta h2 { font-family: var(--of4s-font-display); font-weight: 300; font-size: 200px; line-height: 0.92; letter-spacing: -0.035em; margin: 0 0 48px; max-width: 1500px; position: relative; }
+    .s-cta h2 em { font-style: normal; color: var(--of4s-navy-300); font-weight: 400; }
+    .s-cta .sub { font-size: 32px; color: var(--of4s-paper-200); max-width: 1100px; margin: 0; line-height: 1.4; position: relative; }
+    .s-cta .row { margin-top: 80px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.15); display: flex; justify-content: space-between; align-items: baseline; position: relative; }
+    .s-cta .row .lbl { font-family: var(--of4s-font-mono); font-size: 18px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--of4s-navy-300); }
+    .s-cta .row .val { font-family: var(--of4s-font-display); font-size: 36px; color: var(--of4s-paper-50); }
+  </style>
+</head>
+<body>
+  <div class="ds-shell">
+    <div id="sidebar"></div>
+
+    <main class="ds-main">
+      <header class="ds-page-header">
+        <div class="ds-page-eyebrow">07 · Templates</div>
+        <h1 class="ds-page-title">Sales <em>presentations.</em></h1>
+        <p class="ds-page-lede">A 16:9 deck system in five core layouts: cover, agenda, section divider, case study, comparison, and CTA. Drop in your project copy and photography — the brand carries itself.</p>
+      </header>
+
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">7.1</span>
+          <h2 class="ds-section-title">Layouts</h2>
+          <p class="ds-section-desc">Each slide is rendered at full 1920×1080 fidelity then scaled to fit. These are the templates — copy them into Keynote / Google Slides / PowerPoint, or use the HTML deck directly.</p>
+        </div>
+
+        <div class="slide-grid">
+          <!-- COVER -->
+          <div>
+            <div class="slide-thumb">
+              <div class="scaler" id="scaler-cover">
+                <div class="s s-cover">
+                  <div class="brand-corner">OF<span class="four">4</span>S</div>
+                  <div>
+                    <div class="eyebrow">PROPOSAL · MIRAMAR · SPRING 2026</div>
+                  </div>
+                  <h1>A workplace,<br/><em>made easy.</em></h1>
+                  <div class="meta-row">
+                    <div><div class="label">Prepared for</div><div class="val">Acme Logistics</div></div>
+                    <div><div class="label">Project</div><div class="val">14,000 sq ft HQ</div></div>
+                    <div><div class="label">Date</div><div class="val">April 24, 2026</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-meta"><span>01 · Cover</span><span>Stone 900 + navy accent</span></div>
+          </div>
+
+          <!-- AGENDA -->
+          <div>
+            <div class="slide-thumb">
+              <div class="scaler" id="scaler-agenda">
+                <div class="s s-agenda">
+                  <div class="eyebrow">AGENDA · ~30 MIN</div>
+                  <h2>What we'll <em>cover</em>.</h2>
+                  <ol>
+                    <li><span class="num">01</span><span class="title">Where we are today</span><span class="who">5 MIN · DM</span></li>
+                    <li><span class="num">02</span><span class="title">The Easy Process</span><span class="who">10 MIN · TEAM</span></li>
+                    <li><span class="num">03</span><span class="title">Pricing & lead times</span><span class="who">8 MIN · DM</span></li>
+                    <li><span class="num">04</span><span class="title">Q & A and next steps</span><span class="who">5 MIN · ALL</span></li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+            <div class="slide-meta"><span>02 · Agenda</span><span>Paper + display serif</span></div>
+          </div>
+
+          <!-- DIVIDER -->
+          <div>
+            <div class="slide-thumb">
+              <div class="scaler" id="scaler-divider">
+                <div class="s s-divider">
+                  <div class="num">SECTION 02</div>
+                  <h2>The <em>Easy</em><br/>Process.</h2>
+                </div>
+                <div class="s-page" style="color: var(--of4s-paper-200);">07 / 24</div>
+                <div class="s-brand" style="color: var(--of4s-paper-50);">OF<span class="four" style="color: var(--of4s-navy-300);">4</span>S</div>
+              </div>
+            </div>
+            <div class="slide-meta"><span>03 · Section divider</span><span>Navy 800 statement</span></div>
+          </div>
+
+          <!-- CASE -->
+          <div>
+            <div class="slide-thumb">
+              <div class="scaler" id="scaler-case">
+                <div class="s s-case">
+                  <div class="img">PROJECT · MIRAMAR HQ · WIDE INSTALL</div>
+                  <div class="body">
+                    <div class="eyebrow">CASE STUDY · 2026</div>
+                    <h2>14,000 sq ft, <em>specified, ordered, installed</em> in 9 weeks.</h2>
+                    <p>Legacy dealers quoted 16. We delivered in 9, came in 4% under budget, and the team moved into a space that actually feels like theirs.</p>
+                    <div class="stats">
+                      <div><div class="lbl">SEATS</div><div class="val">142</div></div>
+                      <div><div class="lbl">TIMELINE</div><div class="val"><em>9</em>wks</div></div>
+                      <div><div class="lbl">VS BUDGET</div><div class="val"><em>−4%</em></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-meta"><span>04 · Case study</span><span>50/50 image + content</span></div>
+          </div>
+
+          <!-- COMPARISON -->
+          <div>
+            <div class="slide-thumb">
+              <div class="scaler" id="scaler-compare">
+                <div class="s s-compare">
+                  <div class="eyebrow">PROCESS · A QUICK COMPARISON</div>
+                  <h2>The same project, <em>three ways.</em></h2>
+                  <div class="cols">
+                    <div class="col them">
+                      <h3>Big-box online</h3>
+                      <div class="sub">Buy it yourself</div>
+                      <ul>
+                        <li>You spec, you order</li>
+                        <li>You assemble or hire</li>
+                        <li>2–6 week shipping</li>
+                        <li>Returns are your problem</li>
+                      </ul>
+                    </div>
+                    <div class="col them">
+                      <h3>Legacy dealer</h3>
+                      <div class="sub">40-year-old playbook</div>
+                      <ul>
+                        <li>Multi-week quotes</li>
+                        <li>Showroom-driven specs</li>
+                        <li>14–18 week lead</li>
+                        <li>Sales rep is your portal</li>
+                      </ul>
+                    </div>
+                    <div class="col us">
+                      <h3>OF4S</h3>
+                      <div class="sub">Easy Process</div>
+                      <ul>
+                        <li>24-hour itemized quote</li>
+                        <li>Live digital plans &amp; renderings</li>
+                        <li>6–9 week typical lead</li>
+                        <li>Project portal, real-time</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-meta"><span>05 · Comparison</span><span>3-column with hero</span></div>
+          </div>
+
+          <!-- CTA -->
+          <div>
+            <div class="slide-thumb">
+              <div class="scaler" id="scaler-cta">
+                <div class="s s-cta">
+                  <h2>Let's start with a <em>walkthrough.</em></h2>
+                  <p class="sub">A 30-minute walk-through of your space gets you a complete itemized quote within 24 hours. No obligation, no follow-up sales pressure.</p>
+                  <div class="row">
+                    <div><div class="lbl">CALL · TEXT</div><div class="val">+1 954 555 0142</div></div>
+                    <div><div class="lbl">WEB</div><div class="val">officefurniture4sale.com</div></div>
+                    <div><div class="lbl">EMAIL</div><div class="val">hello@of4s.com</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-meta"><span>06 · CTA / Close</span><span>Stone 900 with display</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">7.2</span>
+          <h2 class="ds-section-title">Composition rules</h2>
+          <p class="ds-section-desc">Apply across every slide for a consistent rhythm.</p>
+        </div>
+        <div class="grid-4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+          <div class="ds-card" style="padding: 24px;"><div class="ds-mono" style="color: var(--of4s-navy-600); margin-bottom: 12px;">RULE 01</div><h4 style="font-family: var(--of4s-font-display); font-weight: 500; font-size: 18px; margin: 0 0 8px;">120px outer margin</h4><p style="font-size: 13px; color: var(--of4s-stone-600); margin: 0;">Generous whitespace separates us from busy catalog decks.</p></div>
+          <div class="ds-card" style="padding: 24px;"><div class="ds-mono" style="color: var(--of4s-navy-600); margin-bottom: 12px;">RULE 02</div><h4 style="font-family: var(--of4s-font-display); font-weight: 500; font-size: 18px; margin: 0 0 8px;">One headline per slide</h4><p style="font-size: 13px; color: var(--of4s-stone-600); margin: 0;">Display type carries the emotional weight. Body type fills detail when needed.</p></div>
+          <div class="ds-card" style="padding: 24px;"><div class="ds-mono" style="color: var(--of4s-navy-600); margin-bottom: 12px;">RULE 03</div><h4 style="font-family: var(--of4s-font-display); font-weight: 500; font-size: 18px; margin: 0 0 8px;">Mono eyebrows always</h4><p style="font-size: 13px; color: var(--of4s-stone-600); margin: 0;">Every slide opens with a Geist Mono eyebrow at +0.22em tracking.</p></div>
+          <div class="ds-card" style="padding: 24px;"><div class="ds-mono" style="color: var(--of4s-navy-600); margin-bottom: 12px;">RULE 04</div><h4 style="font-family: var(--of4s-font-display); font-weight: 500; font-size: 18px; margin: 0 0 8px;">Italic = emotion</h4><p style="font-size: 13px; color: var(--of4s-stone-600); margin: 0;">Reserve italic Fraunces for the line that should land. Don't italicize whole headlines.</p></div>
+        </div>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="sidebar.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById('sidebar')).render(<DSSidebar current="presentation" />);
+    ReactDOM.createRoot(document.getElementById('footer')).render(<DSFooter />);
+  </script>
+  <script>
+    // Scale the 1920x1080 slides to fit their containers
+    function scaleSlides() {
+      document.querySelectorAll('.slide-thumb').forEach(thumb => {
+        const scaler = thumb.querySelector('.scaler');
+        if (!scaler) return;
+        const w = thumb.clientWidth;
+        const scale = w / 1920;
+        scaler.style.transform = `scale(${scale})`;
+        scaler.style.width = '1920px';
+        scaler.style.height = '1080px';
+        thumb.style.height = (1080 * scale) + 'px';
+      });
+    }
+    window.addEventListener('load', scaleSlides);
+    window.addEventListener('resize', scaleSlides);
+  </script>
+</body>
+</html>

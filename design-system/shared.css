@@ -1,0 +1,891 @@
+/* OF4S Design System — shared layout chrome for all pages */
+
+.ds-shell {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+}
+
+.ds-sidebar {
+  background: var(--of4s-stone-900);
+  color: var(--of4s-paper-100);
+  padding: 32px 24px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+.ds-sidebar-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.ds-sidebar-brand .mark {
+  font-family: var(--of4s-font-display);
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  color: var(--of4s-paper-50);
+}
+.ds-sidebar-brand .label {
+  font-family: var(--of4s-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--of4s-navy-300);
+}
+
+.ds-nav-section {
+  margin-bottom: 28px;
+}
+.ds-nav-section h4 {
+  font-family: var(--of4s-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--of4s-stone-400);
+  margin: 0 0 12px;
+  padding-left: 12px;
+}
+
+.ds-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--of4s-paper-200);
+  text-decoration: none;
+  border-radius: var(--of4s-radius-md);
+  transition: background var(--of4s-dur-fast) var(--of4s-ease);
+}
+.ds-nav-link:hover {
+  background: rgba(255,255,255,0.04);
+  color: var(--of4s-paper-50);
+}
+.ds-nav-link.active {
+  background: var(--of4s-navy-800);
+  color: var(--of4s-paper-50);
+}
+.ds-nav-link .num {
+  font-family: var(--of4s-font-mono);
+  font-size: 11px;
+  color: var(--of4s-stone-500);
+}
+
+.ds-main {
+  background: var(--of4s-paper-50);
+  min-width: 0;
+}
+
+.ds-page-header {
+  padding: 80px 80px 64px;
+  border-bottom: var(--of4s-border-thin);
+  background: var(--of4s-paper-100);
+}
+.ds-page-eyebrow {
+  font-family: var(--of4s-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--of4s-navy-600);
+  margin-bottom: 16px;
+}
+.ds-page-title {
+  font-family: var(--of4s-font-display);
+  font-weight: 400;
+  font-size: clamp(48px, 7vw, 84px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--of4s-stone-900);
+  margin: 0 0 20px;
+}
+.ds-page-title em {
+  font-style: normal;
+  color: var(--of4s-navy-800);
+}
+.ds-page-lede {
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--of4s-stone-600);
+  max-width: 620px;
+  margin: 0;
+}
+
+.ds-section {
+  padding: 64px 80px;
+  border-bottom: var(--of4s-border-thin);
+}
+.ds-section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.ds-section-num {
+  font-family: var(--of4s-font-mono);
+  font-size: 12px;
+  color: var(--of4s-stone-500);
+  letter-spacing: 0.1em;
+}
+.ds-section-title {
+  font-family: var(--of4s-font-display);
+  font-weight: 500;
+  font-size: 32px;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--of4s-stone-900);
+}
+.ds-section-desc {
+  color: var(--of4s-stone-600);
+  max-width: 640px;
+  margin: 0 0 0 auto;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Footer */
+.ds-footer {
+  padding: 48px 80px;
+  background: var(--of4s-stone-900);
+  color: var(--of4s-stone-400);
+  font-family: var(--of4s-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+}
+.ds-footer .acc { color: var(--of4s-navy-300); }
+
+/* Cards / chrome reusable */
+.ds-card {
+  background: white;
+  border: var(--of4s-border-thin);
+  border-radius: var(--of4s-radius-lg);
+  overflow: hidden;
+}
+
+.ds-callout {
+  background: var(--of4s-navy-800);
+  color: var(--of4s-paper-100);
+  border-radius: var(--of4s-radius-lg);
+  padding: 32px;
+}
+.ds-callout strong { color: var(--of4s-navy-300); font-weight: 500; }
+
+/* Code-y label */
+.ds-mono {
+  font-family: var(--of4s-font-mono);
+  font-size: 11px;
+  color: var(--of4s-stone-500);
+  letter-spacing: 0.04em;
+}
+
+/* Buttons in nav */
+.ds-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--of4s-radius-pill);
+  background: var(--of4s-navy-100);
+  color: var(--of4s-navy-800);
+  font-family: var(--of4s-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ============================================================== */
+/* MOBILE TOP BAR + DRAWER                                        */
+/* ============================================================== */
+.ds-topbar {
+  display: none;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: var(--of4s-stone-900);
+  color: var(--of4s-paper-50);
+  padding: 14px 20px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.ds-topbar .brand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.ds-topbar .brand .mark {
+  font-family: var(--of4s-font-display);
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--of4s-paper-50);
+}
+.ds-topbar .brand .label {
+  font-family: var(--of4s-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--of4s-navy-300);
+}
+.ds-burger {
+  appearance: none;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--of4s-paper-50);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--of4s-radius-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+.ds-burger svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.6; fill: none; stroke-linecap: round; }
+
+.ds-scrim {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15,29,51,0.55);
+  z-index: 95;
+  opacity: 0;
+  transition: opacity var(--of4s-dur-base) var(--of4s-ease);
+}
+.ds-scrim.open { display: block; opacity: 1; }
+
+/* ============================================================== */
+/* RESPONSIVE — TABLET / MOBILE                                   */
+/* ============================================================== */
+@media (max-width: 960px) {
+  /* ---- App shell ---- */
+  .ds-shell { grid-template-columns: 1fr; min-width: 0; }
+  .ds-main { min-width: 0; overflow-x: hidden; }
+  .ds-topbar { display: flex; }
+
+  .ds-sidebar {
+    position: fixed; top: 0; left: 0;
+    width: 84vw; max-width: 320px;
+    height: 100vh; z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    padding: 24px 20px;
+  }
+  .ds-sidebar.open { transform: translateX(0); }
+
+  /* ---- Page chrome ---- */
+  .ds-page-header { padding: 36px 20px 28px; }
+  .ds-section { padding: 36px 20px; }
+  .ds-section-head { flex-direction: column; gap: 8px; margin-bottom: 24px; align-items: flex-start; }
+  .ds-section-desc { margin-left: 0; max-width: none; }
+  .ds-footer {
+    padding: 24px 20px;
+    flex-direction: column;
+    gap: 8px; text-align: left;
+    align-items: flex-start;
+  }
+
+  /* ---- INDEX (home) ---- */
+  .hero { padding: 56px 20px 48px !important; }
+  .hero h1 { font-size: clamp(40px, 11vw, 64px) !important; }
+  .hero-meta {
+    flex-direction: column;
+    gap: 16px !important;
+    margin-top: 32px !important;
+    padding-top: 24px !important;
+  }
+  .pillars { grid-template-columns: 1fr !important; padding: 32px 20px !important; gap: 12px !important; }
+  .pillar { padding: 20px !important; }
+  .nav-grid { grid-template-columns: 1fr !important; }
+  .nav-card, .nav-card[style*="span"] {
+    padding: 28px 20px !important;
+    min-height: 0 !important;
+    grid-column: auto !important;
+    border-right: 0 !important;
+    border-bottom: var(--of4s-border-thin);
+  }
+  .nav-card .arrow { top: 24px !important; right: 20px !important; width: 36px !important; height: 36px !important; }
+  .nav-card h3 { font-size: 28px !important; }
+  .principles { padding: 40px 20px !important; }
+  .principles h2 { font-size: 32px !important; margin-bottom: 24px !important; }
+  .principle-row { grid-template-columns: 1fr !important; gap: 6px !important; padding: 20px 0 !important; }
+
+  /* ---- DIRECTIONS ---- */
+  .dir-hero { padding: 48px 20px 32px !important; }
+  .dir-hero h1 { font-size: clamp(36px, 11vw, 64px) !important; }
+  .dir-hero p { font-size: 15px !important; }
+
+  .jump-nav { overflow-x: auto; -webkit-overflow-scrolling: touch; gap: 8px !important; padding: 12px 16px !important; }
+  .jump-nav a {
+    flex: 0 0 auto !important;
+    min-width: 130px;
+    padding: 12px 16px !important;
+    font-size: 9px !important;
+  }
+  .jump-nav a .name { font-size: 13px !important; }
+
+  .direction { padding: 40px 20px !important; }
+  .direction-head {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    margin-bottom: 28px !important;
+    padding-bottom: 24px !important;
+  }
+  .direction-head .letter { font-size: 80px !important; line-height: 0.85 !important; }
+  .direction-head .meta h2 { font-size: 28px !important; }
+  .direction-head .meta .lede { font-size: 14px !important; }
+  .attr-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+
+  /* Surfaces grid → 1 col, surfaces themselves: aspect-ratio off,
+     room at top so the absolute label doesn't overlap content. */
+  .surfaces { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .surface { aspect-ratio: auto !important; min-height: 0 !important; }
+  .surface.hero-card { grid-column: auto !important; min-height: 0 !important; }
+  /* Padding-top room for the absolute "07 — BUSINESS CARD" label */
+  .surface.logo-card,
+  .surface.palette-card,
+  .surface.type-card,
+  .surface.slide-card,
+  .surface.social-card,
+  .surface.card-card { padding-top: 48px !important; }
+  .logo-card, .palette-card, .type-card { min-height: 220px !important; padding: 48px 24px 24px !important; }
+  .slide-card { aspect-ratio: 16/9 !important; min-height: 0 !important; padding-top: 48px !important; }
+  .card-card { aspect-ratio: auto !important; min-height: 220px !important; padding: 48px 24px 24px !important; }
+  .social-card { aspect-ratio: 1/1 !important; }
+
+  /* The hero-card surfaces use their own grid — collapse */
+  .A-hero, .B-hero, .C-hero {
+    grid-template-columns: 1fr !important;
+    padding: 24px !important;
+    gap: 24px !important;
+    min-height: 0 !important;
+  }
+  /* The inner .body grids (B-hero, C-hero) — collapse + reset padding */
+  .B-hero .body, .C-hero .body, .A-hero .body {
+    grid-template-columns: 1fr !important;
+    padding: 32px 24px !important;
+    gap: 24px !important;
+  }
+  /* On mobile, take the nav out of absolute positioning so it doesn't overlap
+     the eyebrow / headline below. */
+  .B-hero .nav, .C-hero .nav, .A-hero .nav {
+    position: static !important;
+    top: auto !important; left: auto !important; right: auto !important;
+    margin-bottom: 16px !important;
+    padding: 0 !important;
+    flex-wrap: wrap; gap: 8px !important;
+    font-size: 9px !important;
+  }
+  .B-hero .nav .links, .C-hero .nav .links, .A-hero .nav .links { display: none !important; }
+  .B-hero h2, .C-hero h2, .A-hero h2 { font-size: clamp(32px, 9vw, 56px) !important; line-height: 0.95 !important; }
+  .B-hero .specs { font-size: 9px !important; padding: 16px !important; }
+  .B-hero .specs .v { font-size: 13px !important; }
+
+  /* Slide cards (deck covers) — these are 16:9 cramped on mobile.
+     Make them taller (auto height) so content isn't cut off. */
+  .B-slide, .C-slide, .A-slide {
+    aspect-ratio: auto !important;
+    min-height: 340px !important;
+    padding: 28px 20px !important;
+  }
+  .A-slide h2, .A-slide h3 { font-size: clamp(28px, 8vw, 44px) !important; line-height: 0.95 !important; }
+  .B-slide h3 { font-size: clamp(28px, 9vw, 48px) !important; line-height: 0.95 !important; }
+  .B-slide .spec { grid-template-columns: 1fr 1fr 1fr !important; gap: 8px !important; }
+  .B-slide .spec .val { font-size: 14px !important; }
+  .B-slide .corner { right: 16px !important; top: 12px !important; font-size: 8px !important; }
+  .C-slide h3 { font-size: clamp(28px, 9vw, 48px) !important; line-height: 1 !important; }
+  .C-slide .sign { font-size: 10px !important; }
+  .C-slide .sign .brand { font-size: 14px !important; }
+
+  /* Social cards (1:1 IG-style) — internals were sized for 600px+ */
+  .A-social, .B-social, .C-social { padding: 20px !important; }
+  .A-social .num { font-size: clamp(72px, 22vw, 130px) !important; }
+  .A-social .cap { font-size: 14px !important; }
+  .B-social h3 { font-size: clamp(22px, 7vw, 32px) !important; }
+  .B-social .foot { font-size: 8px !important; }
+  .B-social .foot .brand { font-size: 12px !important; }
+  .C-social h3 { font-size: clamp(22px, 7vw, 32px) !important; }
+  .C-social .ornament { font-size: 48px !important; top: 16px !important; right: 20px !important; }
+  .C-social .brand { font-size: 13px !important; }
+
+  /* Journal compare table — collapse to stacked cards per direction */
+  .compare { padding: 40px 20px !important; }
+  .compare h2 { font-size: 32px !important; }
+  .compare .lede { font-size: 14px !important; margin-bottom: 24px !important; }
+  .compare table,
+  .compare thead,
+  .compare tbody,
+  .compare tr,
+  .compare th,
+  .compare td { display: block !important; width: 100% !important; }
+  .compare thead { display: none !important; }
+  .compare tbody tr {
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+  }
+  .compare tbody td {
+    border: none !important;
+    padding: 6px 0 !important;
+    font-size: 13px !important;
+  }
+  .compare tbody td[data-dir]::before {
+    content: attr(data-dir) " — ";
+    font-family: var(--of4s-font-mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    color: var(--of4s-navy-300);
+    margin-right: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    min-width: 28px;
+  }
+  .compare tbody td.label {
+    color: var(--of4s-navy-300) !important;
+    font-size: 9px !important;
+    padding-top: 12px !important;
+  }
+  .compare tbody td.label:first-child { padding-top: 0 !important; }
+  .B-slide .spec .val { font-size: 16px !important; }
+  .B-slide .corner { font-size: 8px !important; right: 16px !important; top: 14px !important; max-width: 60%; text-align: right; }
+  .C-slide h3 { font-size: clamp(28px, 9vw, 48px) !important; line-height: 1 !important; }
+
+  /* Social posts in B/C — same fixes as A */
+  .B-social, .C-social, .A-social { padding: 28px 20px !important; }
+  .B-social h3, .C-social h3, .A-social h2 { font-size: clamp(26px, 8vw, 40px) !important; line-height: 1.1 !important; }
+
+  /* Direction C — the "From the Journal" surface has a contrast issue.
+     The .C-social uses the sage-deep background; ensure label readable. */
+  .C-social .ornament { font-size: 56px !important; top: 16px !important; right: 20px !important; }
+
+  /* Surface typography scale-down */
+  .A-logo .big, .C-logo .big { font-size: clamp(28px, 9vw, 56px) !important; line-height: 1 !important; word-break: break-word; }
+  .B-logo .big { font-size: clamp(28px, 9vw, 48px) !important; }
+  .A-type .display, .B-type .display, .C-type .display { font-size: clamp(28px, 8vw, 48px) !important; }
+  .A-social .num, .B-social .num, .C-social .num { font-size: clamp(72px, 22vw, 140px) !important; }
+
+  /* Palette cards (chip stacks) */
+  .A-palette, .B-palette, .C-palette { min-height: 320px !important; }
+
+  /* ---- LOGO OPTIONS ---- */
+  .opt-hero { padding: 40px 20px 32px !important; }
+  .opt-hero h1 { font-size: clamp(36px, 10vw, 56px) !important; }
+  .opt-hero p { font-size: 14px !important; }
+  .opt { padding: 40px 20px !important; }
+  .recco { padding: 40px 20px !important; }
+  .recco h2 { font-size: clamp(28px, 8vw, 44px) !important; }
+  .recco p { font-size: 14px !important; }
+  .opt-head {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    margin-bottom: 28px !important;
+  }
+  .opt-head .num,
+  .opt-head .letter { font-size: 64px !important; }
+  .stages,
+  .three-stage,
+  .compare-stages,
+  .options-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .stage { padding: 24px 16px !important; min-height: 0 !important; }
+  .uses { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+  .recco .picks { grid-template-columns: 1fr !important; }
+
+  /* Logo internals — scale down so they don't overflow stage cards */
+  /* Option 2 — mark + wordmark */
+  .L2 { gap: 12px !important; min-width: 0; }
+  .L2 .mark { width: 56px !important; height: 56px !important; font-size: 42px !important; }
+  .L2 .name { min-width: 0; flex: 1; }
+  .L2 .name .row1 { font-size: clamp(18px, 5.5vw, 26px) !important; word-break: break-word; }
+  .L2 .name .row2 { font-size: 9px !important; letter-spacing: 0.18em !important; }
+
+  /* Option 3 — Grotesk technical, was 56px */
+  .L3 { font-size: clamp(22px, 9vw, 48px) !important; }
+  .L3 .tag { font-size: 9px !important; }
+
+  /* Option 4 — circle badge — keep aspect, just shrink */
+  .L4 { width: 180px !important; height: 180px !important; }
+  .L4 .four-big { font-size: clamp(72px, 22vw, 110px) !important; }
+  .L4 .arc-top, .L4 .arc-bot { font-size: 8px !important; letter-spacing: 0.18em !important; }
+
+  /* Option 5 — abbrev OF4S, was 76px each char */
+  .L5 .of, .L5 .four, .L5 .s { font-size: clamp(48px, 16vw, 76px) !important; }
+  .L5 .full { font-size: 9px !important; }
+
+  /* mini-* sizes inside .uses cells: keep tight so they fit */
+  .mini-1 { font-size: 18px !important; }
+  .mini-2 .mark { width: 28px !important; height: 28px !important; font-size: 22px !important; }
+  .mini-2 .name .row1 { font-size: 12px !important; }
+  .mini-2 .name .row2 { font-size: 8px !important; }
+  .mini-3 { font-size: 18px !important; }
+  .mini-4 { width: 56px !important; height: 56px !important; }
+  .mini-4 .four-big { font-size: 30px !important; }
+  .mini-5 .of, .mini-5 .four, .mini-5 .s { font-size: 26px !important; }
+
+  /* ---- PRESENTATION ---- */
+  .slide-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+
+  /* ---- SOCIAL ---- */
+  .browser { max-width: 100% !important; }
+  .browser .nav { padding: 14px 16px !important; flex-wrap: wrap; gap: 8px !important; }
+  .browser .nav .links { display: none !important; }
+  .browser .body,
+  .browser .body[style] {
+    grid-template-columns: 1fr !important;
+    padding: 32px 20px !important;
+    gap: 24px !important;
+  }
+  .browser .trust {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: flex-start !important;
+    padding: 16px 20px !important;
+  }
+  .browser .trust .logos { flex-wrap: wrap; gap: 14px !important; }
+  .browser .hero h1, .browser h1 { font-size: clamp(32px, 9vw, 56px) !important; }
+  .hero-stat { padding: 28px 20px !important; }
+  .hero-stat .num { font-size: clamp(56px, 18vw, 96px) !important; }
+
+  /* Square social posts: scale corner-brand smaller and stop it
+     from positioning outside the card */
+  .social {
+    width: min(420px, 100%) !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1;
+    padding: 36px 28px !important;
+  }
+  .social .corner-brand {
+    bottom: 16px !important; left: 20px !important;
+    font-size: 13px !important;
+  }
+  .social .corner-tag {
+    top: 16px !important; right: 20px !important;
+    font-size: 9px !important;
+  }
+  .social.stat .num { font-size: clamp(96px, 32vw, 180px) !important; }
+  .social.quote h2 { font-size: clamp(22px, 7vw, 36px) !important; }
+  .social.project h2 { font-size: clamp(22px, 7vw, 36px) !important; }
+  .social.quote { padding: 56px 28px !important; }
+  /* Project card: corner-brand sits at bottom-left, so leave space below meta */
+  .social.project { padding-bottom: 80px !important; }
+  .social.project .meta { gap: 18px !important; flex-wrap: wrap; }
+  .social.project .meta .val { font-size: 15px !important; }
+  .social.project .corner-brand { bottom: 18px !important; }
+  /* Stat card: caption can collide with corner-brand on mobile */
+  .social.stat { padding-bottom: 72px !important; }
+  /* Also: web-hero CTA buttons need real button styling on mobile (spans don't inherit) */
+  .browser .hero .btn-primary,
+  .browser .hero .btn-secondary {
+    display: inline-block !important;
+    padding: 12px 18px !important;
+    font-size: 10px !important;
+  }
+  .browser .hero .actions { flex-wrap: wrap; gap: 10px !important; }
+
+  /* Stories — wrap to multi-row instead of horizontal scroll-bleed */
+  .stories, .story-stage { flex-wrap: wrap; gap: 16px !important; justify-content: center; }
+  .story-frame { width: min(240px, 70vw) !important; height: calc(min(240px, 70vw) * 16 / 9) !important; }
+
+  /* Generic stage wrappers */
+  .stage { flex-wrap: wrap; gap: 16px !important; }
+
+  /* ---- PROPOSAL ---- */
+  /* Letter-sized pages (816×1056) won't fit on mobile.
+     Use `zoom` to shrink-to-fit while preserving normal layout flow.
+     Falls back gracefully (full size with horizontal scroll) where
+     unsupported. */
+  .doc-stage {
+    padding: 12px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    -webkit-mask-image: none;
+    container-type: inline-size;
+  }
+  .doc-stage > div { width: 816px; max-width: 100%; }
+  .page {
+    /* zoom collapses the layout box too, so we get correct flow. */
+    zoom: calc((100cqw - 24px) / 816);
+  }
+
+  /* Letterhead artifact in collateral — fits via stage container */
+  .lh, .email-sig, .bc { flex-shrink: 0; }
+  /* The .stage wrappers in collateral need to allow scrolling and
+     anchor scaled children to top-left. */
+  .stage:has(> .lh, > .bc, > .email-sig, > div > .lh, > div > .bc, > div > .email-sig) {
+    padding: 16px !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    container-type: inline-size;
+  }
+  /* Letterhead — 612×792 page, scale to fit */
+  .lh { zoom: calc((100cqw - 32px) / 612); }
+  /* Business cards — 336×192, just keep them on one column-flowing flex */
+  .bc { width: 100% !important; max-width: 336px; height: auto !important; aspect-ratio: 336 / 192; }
+  /* Email signature — width is fluid; cap and tighten */
+  .email-sig { width: 100% !important; max-width: 100% !important; padding: 16px !important; }
+  .email-sig .row { gap: 12px !important; }
+  .email-sig .mark { width: 44px !important; height: 44px !important; font-size: 32px !important; }
+  .email-sig .name { font-size: 16px !important; }
+  .email-sig .links { flex-wrap: wrap; gap: 8px !important; font-size: 9px !important; }
+
+  /* ---- COLOR ---- */
+  .swatch-row { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .swatch-strip { grid-template-columns: repeat(3, 1fr) !important; }
+  .pair-grid { grid-template-columns: 1fr !important; }
+  .semantic-grid { grid-template-columns: 1fr 1fr !important; }
+  .ratio-table { font-size: 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; display: block; max-width: 100%; }
+
+  /* ---- TYPOGRAPHY ---- */
+  .specimen-card .head { flex-direction: column !important; align-items: flex-start !important; gap: 6px !important; padding: 18px 20px !important; }
+  .specimen-card .head h3 { font-size: clamp(28px, 8vw, 40px) !important; }
+  .specimen-card .body { padding: 24px 20px !important; }
+  .specimen-card .weights .row { grid-template-columns: 1fr !important; gap: 6px !important; }
+  .scale-row { grid-template-columns: 56px 1fr !important; gap: 12px !important; }
+  .scale-row .scale-vals, .scale-row .vals { grid-column: span 2; }
+  .reasoning-grid { grid-template-columns: 1fr !important; }
+
+  /* ---- COMPONENTS ---- */
+  .lab-row { grid-template-columns: 1fr !important; gap: 16px !important; }
+
+  /* 6.6 — top nav: hide nav links + CTA, show hamburger */
+  .nav-demo header {
+    padding: 14px 16px !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+  }
+  .nav-demo .brand { font-size: 16px !important; }
+  .nav-demo nav { display: none !important; }
+  .nav-demo header .btn { display: none !important; }
+  .nav-demo header::after {
+    content: '';
+    width: 22px; height: 14px;
+    margin-left: auto;
+    background-image: linear-gradient(currentColor 0 0), linear-gradient(currentColor 0 0), linear-gradient(currentColor 0 0);
+    background-size: 22px 2px;
+    background-position: top left, center left, bottom left;
+    background-repeat: no-repeat;
+    color: var(--of4s-navy-800);
+  }
+
+  /* 6.6 — tabs: scroll horizontally */
+  .tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab { flex-shrink: 0; white-space: nowrap; }
+
+  /* 6.6 — stepper: scroll horizontally */
+  .stepper {
+    overflow-x: auto;
+    flex-wrap: nowrap !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .stepper::-webkit-scrollbar { display: none; }
+  .stepper .step { flex-shrink: 0; white-space: nowrap; }
+
+  /* 6.7 — table: wrap in scrollable container via display:block */
+  .data-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Generic horizontal scroll wrapper used for the table */
+  .scroll-x {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    position: relative;
+  }
+  .scroll-x::-webkit-scrollbar { display: none; }
+  .scroll-x .data-table { display: table; min-width: 640px; white-space: normal; overflow: visible; }
+
+  /* Scroll-affordance: a non-scrolling wrapper that overlays a right-edge fade
+     above its scrolling child. Use as <div class="scroll-hint"><scrolling-el/></div>.
+     The fade sits on the wrapper (which never scrolls) so it stays put while
+     the inner content scrolls horizontally underneath it. */
+  .scroll-hint {
+    position: relative;
+    isolation: isolate;
+  }
+  .scroll-hint::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 44px;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(255,255,255,0), var(--of4s-paper-50, #faf8f4) 70%);
+    z-index: 5;
+    border-radius: 0 var(--of4s-radius-lg, 12px) var(--of4s-radius-lg, 12px) 0;
+    opacity: 0;
+  }
+  .scroll-hint[data-overflow]::after { opacity: 1; }
+  .scroll-hint[data-overflow][data-at-end]::after { opacity: 0; }
+
+  /* A brass chevron tick that sits over the fade for clearer "scroll →" cue. */
+  .scroll-hint::before {
+    content: '›';
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    width: 22px;
+    height: 22px;
+    transform: translateY(-50%);
+    background: var(--of4s-navy-300, #8fa9c7);
+    color: var(--of4s-navy-800, #1a2840);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--of4s-font-display, 'Schibsted Grotesk', sans-serif);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+    padding-bottom: 2px;
+    z-index: 6;
+    pointer-events: none;
+    opacity: 0;
+    box-shadow: 0 1px 4px rgba(26,40,64,0.18);
+  }
+  .scroll-hint[data-overflow]::before { opacity: 1; }
+  .scroll-hint[data-overflow][data-at-end]::before { opacity: 0; }
+  /* When the scroll-hint wraps a white card or sits inside one, fade to white. */
+  .ds-card .scroll-hint::after,
+  .ds-card.scroll-hint::after {
+    background: linear-gradient(to right, rgba(250,248,244,0), var(--of4s-paper-100, #f0ebe1) 70%);
+  }
+  /* Proposal doc-stage and collateral letterhead/bc/email-sig stages use paper-200
+     as their background; match that so the fade reads as the surface, not a tint.
+     Use an explicit modifier class instead of :has() — some parsers silently drop
+     the rule when :has() is combined with a pseudo-element. */
+  .scroll-hint.scroll-hint--paper-200::after {
+    background: linear-gradient(to right, rgba(241,236,224,0), var(--of4s-paper-200, #ebe5d4) 70%);
+  }
+  .scroll-hint > .swipe-cue {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--of4s-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--of4s-stone-500);
+    margin-bottom: 8px;
+  }
+  .scroll-hint > .swipe-cue::after {
+    content: '↔';
+    font-size: 14px;
+    color: var(--of4s-navy-600);
+  }
+
+  /* ---- ICONOGRAPHY ---- */
+  .icon-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 4px !important; }
+  .icon-cell { padding: 14px 8px !important; }
+  .icon-cell .name { font-size: 9px !important; word-break: break-word; text-align: center; }
+
+  /* 4.1 drawing system — was 1fr 1fr */
+  .style-spec {
+    grid-template-columns: 1fr !important;
+    padding: 24px !important;
+    gap: 24px !important;
+  }
+  .style-demo { padding: 20px !important; min-height: 160px !important; }
+  .style-demo svg { width: 88px !important; height: 88px !important; }
+  .rules li { grid-template-columns: 28px 1fr !important; gap: 12px !important; }
+  .style-block { grid-template-columns: 1fr !important; padding: 24px !important; gap: 20px !important; }
+  .sizes-row { flex-wrap: wrap; gap: 16px !important; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* ---- IMAGERY ---- */
+  .cat-grid, .yes-no, .duotone-flow { grid-template-columns: 1fr !important; }
+  .duotone-flow .arrow { transform: rotate(90deg); padding: 8px 0 !important; font-size: 20px !important; }
+  .duotone-flow > .arrow { aspect-ratio: auto !important; }
+  .moodboard { grid-template-columns: 1fr 1fr !important; grid-template-rows: auto !important; }
+
+  /* ---- COLLATERAL ---- */
+  /* (handled in main mobile block above) */
+
+  /* ---- Generic helpers ---- */
+  .row-2, .row-3, .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .scroll-frame, .scroll-x {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Inline-styled "grid-template-columns: ..." we can't selector-target —
+     last-resort defensive rules for known section-block shapes */
+  [style*="grid-template-columns: repeat(3"],
+  [style*="grid-template-columns: repeat(4"],
+  [style*="grid-template-columns: 1fr 1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Tables inside design pages */
+  .price-table, .price-table thead, .price-table tbody, .price-table tr, .price-table th, .price-table td {
+    font-size: 11px !important;
+  }
+  .price-table th, .price-table td { padding: 8px 6px !important; }
+
+  /* Surface labels — keep absolute positioning but tighten */
+  .surface-label {
+    font-size: 9px !important;
+    padding: 3px 6px !important;
+    max-width: calc(100% - 24px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 600px) {
+  .ds-page-title { font-size: clamp(32px, 11vw, 52px); }
+  .ds-page-lede { font-size: 16px; }
+  .ds-section-title { font-size: 26px; }
+
+  .nav-card { padding: 24px 18px !important; }
+  .nav-card h3 { font-size: 26px !important; }
+
+  .direction-head .letter { font-size: 72px !important; }
+  .direction-head .meta h2 { font-size: 24px !important; }
+  .attr-grid { grid-template-columns: 1fr !important; }
+
+  .logo-card, .palette-card, .type-card { padding: 44px 20px 20px !important; }
+  .jump-nav a { min-width: 110px; padding: 10px 12px !important; }
+  .jump-nav a .name { font-size: 12px !important; }
+
+  .icon-grid { grid-template-columns: repeat(3, 1fr) !important; }
+}
+
+/* Italics are banned system-wide (2026-07). em carries the navy accent instead.
+   ONE exception: testimonials / quotes may use italics — wrap them in
+   blockquote, .testimonial, or .quote. */
+em, i { font-style: normal; }
+blockquote em, blockquote i, .testimonial em, .testimonial i, .quote em, .quote i,
+blockquote.testimonial, .testimonial, .quote { font-style: italic; }

@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OF4S Design System — Social & Web</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="shared.css?v=4" />
+  <style>
+    .stage {
+      background: var(--of4s-paper-200);
+      padding: 48px;
+      border-radius: var(--of4s-radius-lg);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+    }
+
+    /* SOCIAL ---------------------------------------------------- */
+    .social {
+      width: 540px; height: 540px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      font-family: var(--of4s-font-sans);
+      box-shadow: 0 12px 32px rgba(15,29,51,0.18);
+    }
+    .social .corner-brand {
+      position: absolute; bottom: 28px; left: 32px;
+      font-family: var(--of4s-font-display); font-weight: 500; font-size: 18px; letter-spacing: -0.015em;
+      z-index: 2;
+    }
+    .social .corner-brand .four { font-weight: 600; }
+    .social .corner-tag {
+      position: absolute; top: 28px; right: 32px;
+      font-family: var(--of4s-font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    }
+
+    /* Quote post (dark) */
+    .social.quote { background: var(--of4s-stone-900); color: var(--of4s-paper-50); padding: 64px 48px; display: flex; flex-direction: column; justify-content: center; }
+    .social.quote .corner-brand .four { color: var(--of4s-navy-300); }
+    .social.quote .corner-tag { color: var(--of4s-navy-300); }
+    .social.quote .mark { font-family: var(--of4s-font-display); font-weight: 300; font-size: 80px; line-height: 0.5; color: var(--of4s-navy-300); margin-bottom: 8px; }
+    .social.quote h2 { font-family: var(--of4s-font-display); font-weight: 400; font-size: 44px; line-height: 1.1; letter-spacing: -0.02em; margin: 0; max-width: 440px; }
+    .social.quote h2 em { font-style: normal; color: var(--of4s-navy-300); }
+    .social.quote .attr { font-family: var(--of4s-font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--of4s-stone-400); margin-top: 32px; }
+
+    /* Stat post (paper) */
+    .social.stat { background: var(--of4s-paper-100); color: var(--of4s-stone-900); padding: 48px 48px 88px; display: flex; flex-direction: column; justify-content: space-between; }
+    .social.stat .corner-brand .four { color: var(--of4s-navy-600); }
+    .social.stat .corner-tag { color: var(--of4s-navy-600); }
+    .social.stat .eyebrow { font-family: var(--of4s-font-mono); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--of4s-navy-600); margin-bottom: 16px; }
+    .social.stat .num { font-family: var(--of4s-font-display); font-weight: 300; font-size: 240px; letter-spacing: -0.04em; line-height: 0.85; color: var(--of4s-stone-900); }
+    .social.stat .num em { font-style: normal; color: var(--of4s-navy-600); font-weight: 400; }
+    .social.stat .caption { font-family: var(--of4s-font-display); font-size: 26px; line-height: 1.2; letter-spacing: -0.015em; max-width: 360px; }
+
+    /* Project showcase */
+    .social.project {
+      background: var(--of4s-paper-200);
+      background-image: repeating-linear-gradient(135deg, rgba(21,39,63,0.05) 0, rgba(21,39,63,0.05) 24px, transparent 24px, transparent 48px);
+      color: var(--of4s-stone-900);
+      padding: 48px 48px 120px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .social.project::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(15,29,51,0.85), rgba(15,29,51,0) 55%);
+    }
+    .social.project > *:not(.corner-brand):not(.corner-tag) { position: relative; z-index: 1; }
+    .social.project .corner-brand { color: var(--of4s-paper-50); bottom: 32px; z-index: 2; }
+    .social.project .corner-brand .four { color: var(--of4s-navy-300); }
+    .social.project .corner-tag { color: var(--of4s-navy-300); }
+    .social.project .eyebrow { font-family: var(--of4s-font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--of4s-navy-300); margin-bottom: 12px; }
+    .social.project h2 { font-family: var(--of4s-font-display); font-weight: 400; font-size: 40px; line-height: 1.05; letter-spacing: -0.025em; margin: 0; color: var(--of4s-paper-50); max-width: 420px; }
+    .social.project h2 em { font-style: normal; }
+    .social.project .meta { display: flex; gap: 28px; margin-top: 20px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.2); color: var(--of4s-paper-100); }
+    .social.project .meta .lbl { font-family: var(--of4s-font-mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--of4s-paper-300); margin-bottom: 2px; }
+    .social.project .meta .val { font-family: var(--of4s-font-display); font-size: 18px; }
+
+    /* Story 1080x1920 → scaled */
+    .story-frame { width: 270px; height: 480px; border-radius: 24px; overflow: hidden; box-shadow: 0 16px 40px rgba(15,29,51,0.22); position: relative; background: var(--of4s-stone-900); color: var(--of4s-paper-50); padding: 40px 28px; display: flex; flex-direction: column; justify-content: space-between; font-family: var(--of4s-font-sans); }
+    .story-frame .top { font-family: var(--of4s-font-mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--of4s-navy-300); }
+    .story-frame h2 { font-family: var(--of4s-font-display); font-weight: 400; font-size: 36px; line-height: 1.05; letter-spacing: -0.02em; margin: 0; }
+    .story-frame h2 em { font-style: normal; color: var(--of4s-navy-300); }
+    .story-frame .cta { background: var(--of4s-navy-300); color: var(--of4s-stone-900); padding: 12px 16px; border-radius: 999px; font-family: var(--of4s-font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; text-align: center; font-weight: 500; }
+
+    /* WEB HERO ---------------------------------------------------- */
+    .browser {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(15,29,51,0.22);
+      width: 100%;
+      max-width: 1280px;
+    }
+    .browser .chrome {
+      background: var(--of4s-paper-200);
+      padding: 12px 16px;
+      display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid rgba(15,29,51,0.08);
+    }
+    .browser .chrome .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .browser .chrome .dot.r { background: #f46c5e; }
+    .browser .chrome .dot.y { background: #f5bd4f; }
+    .browser .chrome .dot.g { background: #5fc66d; }
+    .browser .chrome .url { margin-left: 12px; flex: 1; background: white; border-radius: 6px; padding: 6px 12px; font-family: var(--of4s-font-mono); font-size: 11px; color: var(--of4s-stone-600); }
+
+    .hero {
+      background: var(--of4s-paper-50);
+      position: relative;
+    }
+    .hero .nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 56px; border-bottom: 1px solid rgba(15,29,51,0.06); }
+    .hero .nav .brand { font-family: var(--of4s-font-display); font-weight: 500; font-size: 24px; letter-spacing: -0.02em; }
+    .hero .nav .brand .four { color: var(--of4s-navy-600); font-weight: 600; }
+    .hero .nav .links { display: flex; gap: 40px; font-family: var(--of4s-font-mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--of4s-stone-700); }
+    .hero .nav .cta { background: var(--of4s-stone-900); color: var(--of4s-paper-50); padding: 10px 20px; border-radius: 999px; font-family: var(--of4s-font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; }
+
+    .hero .body { padding: 96px 56px 64px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end; }
+    .hero .eyebrow { font-family: var(--of4s-font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--of4s-navy-600); margin-bottom: 20px; }
+    .hero h1 {
+      font-family: var(--of4s-font-display);
+      font-weight: 300;
+      font-size: 96px;
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+      margin: 0;
+      color: var(--of4s-stone-900);
+    }
+    .hero h1 em { font-style: normal; color: var(--of4s-navy-600); font-weight: 400; }
+    .hero .lede { font-size: 17px; line-height: 1.55; color: var(--of4s-stone-700); margin: 0 0 28px; max-width: 380px; }
+    .hero .actions { display: flex; gap: 12px; }
+    .hero .btn-primary { background: var(--of4s-stone-900); color: var(--of4s-paper-50); padding: 14px 24px; border-radius: 999px; font-family: var(--of4s-font-mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; }
+    .hero .btn-secondary { background: transparent; color: var(--of4s-stone-900); padding: 14px 0; font-family: var(--of4s-font-mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; border-bottom: 1px solid var(--of4s-stone-900); }
+
+    .hero .trust { padding: 32px 56px; border-top: 1px solid rgba(15,29,51,0.08); display: flex; justify-content: space-between; align-items: center; font-family: var(--of4s-font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--of4s-stone-500); }
+    .hero .trust .logos { display: flex; gap: 32px; color: var(--of4s-stone-700); font-family: var(--of4s-font-display); font-size: 16px; font-style: normal; letter-spacing: -0.01em; }
+
+    .hero-stat { background: var(--of4s-stone-900); color: var(--of4s-paper-50); padding: 40px 32px; border-radius: 12px; }
+    .hero-stat .num { font-family: var(--of4s-font-display); font-weight: 300; font-size: 96px; line-height: 0.85; letter-spacing: -0.035em; }
+    .hero-stat .num em { font-style: normal; color: var(--of4s-navy-300); font-weight: 400; }
+    .hero-stat .caption { font-size: 14px; color: var(--of4s-paper-200); margin-top: 16px; line-height: 1.5; }
+    .hero-stat .lbl { font-family: var(--of4s-font-mono); font-size: 10px; letter-spacing: 0.22em; color: var(--of4s-navy-300); text-transform: uppercase; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+  <div class="ds-shell">
+    <div id="sidebar"></div>
+
+    <main class="ds-main">
+      <header class="ds-page-header">
+        <div class="ds-page-eyebrow">10 · Templates</div>
+        <h1 class="ds-page-title">Social & <em>web.</em></h1>
+        <p class="ds-page-lede">Where the brand meets daylight. Three social formats — quote, stat, project — plus a feed story and the homepage hero. The "4" is the asset that has to survive at every size.</p>
+      </header>
+
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">10.1</span>
+          <h2 class="ds-section-title">Social posts (1:1)</h2>
+          <p class="ds-section-desc">1080×1080. Use one shape per post — quote, stat, or project. Resist the temptation to cram all three.</p>
+        </div>
+        <div class="stage">
+          <div class="social quote">
+            <div class="mark">"</div>
+            <h2>The cheapest chair you'll ever own is the <em>second</em> one.</h2>
+            <div class="attr">— EVERY OPS LEAD WHO BOUGHT FROM AMAZON FIRST</div>
+            <div class="corner-brand">OF<span class="four">4</span>S</div>
+            <div class="corner-tag">FIELD NOTE · 014</div>
+          </div>
+
+          <div class="social stat">
+            <div>
+              <div class="eyebrow">2025 IN REVIEW</div>
+              <div class="num"><em>9</em>wks</div>
+            </div>
+            <div class="caption">Median project from walk-through to <em style="color: var(--of4s-navy-600); font-style: normal;">install complete.</em></div>
+            <div class="corner-brand">OF<span class="four">4</span>S</div>
+            <div class="corner-tag">PROOF · NUMBERS</div>
+          </div>
+
+          <div class="social project">
+            <div>
+              <div class="eyebrow">JUST FINISHED</div>
+              <h2>Acme HQ.<br/><em>14,000 sq ft.</em></h2>
+              <div class="meta">
+                <div><div class="lbl">SEATS</div><div class="val">142</div></div>
+                <div><div class="lbl">LOCATION</div><div class="val">Miramar</div></div>
+                <div><div class="lbl">WEEKS</div><div class="val">9</div></div>
+              </div>
+            </div>
+            <div class="corner-brand">OF<span class="four">4</span>S</div>
+            <div class="corner-tag">PROJECT · 047</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">10.2</span>
+          <h2 class="ds-section-title">Stories & vertical (9:16)</h2>
+          <p class="ds-section-desc">Short, blunt, branded. CTA pill stays on-screen the whole time.</p>
+        </div>
+        <div class="stage">
+          <div class="story-frame">
+            <div class="top">CASE STUDY · 047</div>
+            <h2>14,000 sq ft.<br/>9 weeks.<br/><em>4% under budget.</em></h2>
+            <div class="cta">Tap for the proposal →</div>
+          </div>
+          <div class="story-frame" style="background: var(--of4s-paper-100); color: var(--of4s-stone-900);">
+            <div class="top" style="color: var(--of4s-navy-600);">SHOWROOM · POMPANO</div>
+            <h2>Sit in <em style="color: var(--of4s-navy-600);">forty</em> task chairs in one afternoon.</h2>
+            <div class="cta">Book a visit →</div>
+          </div>
+          <div class="story-frame" style="background: var(--of4s-navy-800);">
+            <div class="top">FIELD NOTE</div>
+            <h2>Most office furniture is <em>fine.</em><br/>Most office furniture <em>buying</em> is awful.</h2>
+            <div class="cta">Learn the easy way →</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">10.3</span>
+          <h2 class="ds-section-title">Web hero</h2>
+          <p class="ds-section-desc">Top of officefurniture4sale.com. Loads fast, says one thing, gives one action.</p>
+        </div>
+        <div class="stage" style="padding: 48px 32px;">
+          <div class="browser">
+            <div class="chrome">
+              <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+              <div class="url">officefurniture4sale.com</div>
+            </div>
+            <div class="hero">
+              <div class="nav">
+                <div class="brand">OF<span class="four">4</span>S</div>
+                <div class="links">
+                  <span>Process</span><span>Projects</span><span>Showroom</span><span>About</span>
+                </div>
+                <div class="cta">Get a quote</div>
+              </div>
+              <div class="body">
+                <div>
+                  <div class="eyebrow">SOUTH FLORIDA · SINCE 2008</div>
+                  <h1>A workplace, <em>made easy.</em></h1>
+                </div>
+                <div>
+                  <p class="lede">We spec, source, and install furniture for offices that don't have time to become furniture experts. Itemized quote in 24 hours, install in 9 weeks median.</p>
+                  <div class="actions">
+                    <span class="btn-primary">Start a project →</span>
+                    <span class="btn-secondary">See recent work</span>
+                  </div>
+                </div>
+              </div>
+              <div class="trust">
+                <span>Trusted by ops teams at</span>
+                <div class="logos"><span>Acme Logistics</span><span>Banyan Health</span><span>Surfside Studios</span><span>Coastal Tax</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">10.4</span>
+          <h2 class="ds-section-title">Hero variant — proof-led</h2>
+          <p class="ds-section-desc">When the audience is skeptical (RFP-driven buyers, larger orgs), lead with numbers instead of voice.</p>
+        </div>
+        <div class="stage" style="padding: 48px 32px;">
+          <div class="browser">
+            <div class="chrome">
+              <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+              <div class="url">officefurniture4sale.com / for-operations</div>
+            </div>
+            <div class="hero">
+              <div class="nav">
+                <div class="brand">OF<span class="four">4</span>S</div>
+                <div class="links"><span>Process</span><span>Projects</span><span>Showroom</span><span>About</span></div>
+                <div class="cta">Get a quote</div>
+              </div>
+              <div class="body" style="grid-template-columns: 1.4fr 1fr;">
+                <div>
+                  <div class="eyebrow">FOR OPERATIONS LEADS</div>
+                  <h1 style="font-size: 80px;">9 weeks. <em>4% under.</em><br/>No phone tag.</h1>
+                  <p class="lede" style="margin-top: 28px;">The math operations leads actually want from a furniture vendor. We'll send a complete itemized quote within 24 hours of a 30-minute walk-through.</p>
+                  <div class="actions">
+                    <span class="btn-primary">Book the walk-through →</span>
+                    <span class="btn-secondary">Read 8 case studies</span>
+                  </div>
+                </div>
+                <div class="hero-stat">
+                  <div class="lbl">2025 PROJECTS · 47 INSTALLED</div>
+                  <div class="num">94<em>%</em></div>
+                  <div class="caption">delivered on or below the budget set in the original proposal — across every project larger than 20 seats.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="sidebar.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById('sidebar')).render(<DSSidebar current="social" />);
+    ReactDOM.createRoot(document.getElementById('footer')).render(<DSFooter />);
+  </script>
+</body>
+</html>

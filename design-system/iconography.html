@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OF4S Design System — Iconography</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="shared.css?v=12" />
+  <style>
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1px;
+      background: var(--of4s-paper-200);
+      border: var(--of4s-border-thin);
+      border-radius: var(--of4s-radius-lg);
+      overflow: hidden;
+    }
+    .icon-cell {
+      background: white;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      transition: background var(--of4s-dur-fast) var(--of4s-ease);
+    }
+    .icon-cell:hover { background: var(--of4s-paper-100); }
+    .icon-cell svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--of4s-stone-900);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+    .icon-cell .name {
+      font-family: var(--of4s-font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--of4s-stone-500);
+      text-align: center;
+    }
+
+    .style-spec {
+      background: white;
+      border: var(--of4s-border-thin);
+      border-radius: var(--of4s-radius-lg);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .style-demo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      background: var(--of4s-paper-100);
+      border-radius: var(--of4s-radius-lg);
+      min-height: 240px;
+    }
+    .style-demo svg { width: 120px; height: 120px; stroke: var(--of4s-navy-800); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+    .grid-overlay-svg {
+      position: relative;
+    }
+    .grid-overlay-svg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(184,137,90,0.18) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(184,137,90,0.18) 1px, transparent 1px);
+      background-size: 12px 12px;
+      pointer-events: none;
+    }
+
+    .rules ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .rules li {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 16px;
+      align-items: baseline;
+    }
+    .rules .num {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      color: var(--of4s-navy-600);
+      letter-spacing: 0.1em;
+    }
+    .rules h4 {
+      font-family: var(--of4s-font-display);
+      font-weight: 500;
+      font-size: 17px;
+      margin: 0 0 4px;
+    }
+    .rules p {
+      font-size: 14px;
+      color: var(--of4s-stone-600);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .sizes-row {
+      display: flex;
+      gap: 32px;
+      align-items: flex-end;
+      padding: 32px;
+      background: white;
+      border: var(--of4s-border-thin);
+      border-radius: var(--of4s-radius-lg);
+    }
+    .size-block { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .size-block .label {
+      font-family: var(--of4s-font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--of4s-stone-500);
+    }
+    .size-block svg {
+      stroke: var(--of4s-navy-800);
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .category-head {
+      font-family: var(--of4s-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--of4s-navy-600);
+      margin: 32px 0 12px;
+    }
+    .category-head:first-of-type { margin-top: 0; }
+  </style>
+</head>
+<body>
+  <div class="ds-shell">
+    <div id="sidebar"></div>
+
+    <main class="ds-main">
+      <header class="ds-page-header">
+        <div class="ds-page-eyebrow">04 · Foundation</div>
+        <h1 class="ds-page-title">Icons that <em>get out of the way.</em></h1>
+        <p class="ds-page-lede">A linear icon set built on a 24px grid with rounded joins. Drawn at 1.5px stroke for clarity at small sizes. Same family across web, decks, proposals, and process diagrams — never mix and match.</p>
+      </header>
+
+      <!-- STYLE -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">4.1</span>
+          <h2 class="ds-section-title">The drawing system</h2>
+          <p class="ds-section-desc">Every icon is built on a 24×24 grid with a 2px outer keyline. Strokes round at every junction. Counters are open. Shapes geometric, never decorative.</p>
+        </div>
+
+        <div class="style-spec">
+          <div class="style-demo grid-overlay-svg">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="6" width="18" height="13" rx="1.5"/>
+              <path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/>
+              <path d="M3 12h18"/>
+              <path d="M11 11v2"/>
+            </svg>
+          </div>
+          <div class="rules">
+            <ul>
+              <li><span class="num">01</span><div><h4>24×24 grid, 2px keyline</h4><p>All icons fit a 20×20 visual area inside a 24×24 box, leaving 2px breathing room on every side.</p></div></li>
+              <li><span class="num">02</span><div><h4>1.5px stroke at native size</h4><p>Stroke scales with size: 1px at 16, 1.5px at 20–24, 2px at 32+.</p></div></li>
+              <li><span class="num">03</span><div><h4>Round caps and joins</h4><p>Rounded line endings keep the family feeling humanist — not hard or industrial.</p></div></li>
+              <li><span class="num">04</span><div><h4>Open counters, no fills</h4><p>Strokes describe shape; we never fill except for indicator dots and selected states.</p></div></li>
+              <li><span class="num">05</span><div><h4>Geometric, not illustrative</h4><p>If an idea needs a literal drawing, use photography. Icons are signs, not pictures.</p></div></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SIZES -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">4.2</span>
+          <h2 class="ds-section-title">Sizes</h2>
+          <p class="ds-section-desc">Three working sizes cover every surface. Use 16 inline with body, 20 in buttons, 24 standalone.</p>
+        </div>
+
+        <div class="sizes-row">
+          <div class="size-block">
+            <svg width="16" height="16" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="1.5"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M3 12h18"/></svg>
+            <span class="label">16 / inline</span>
+          </div>
+          <div class="size-block">
+            <svg width="20" height="20" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="1.5"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M3 12h18"/></svg>
+            <span class="label">20 / button</span>
+          </div>
+          <div class="size-block">
+            <svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="1.5"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M3 12h18"/></svg>
+            <span class="label">24 / standalone</span>
+          </div>
+          <div class="size-block">
+            <svg width="32" height="32" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="1.5"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M3 12h18"/></svg>
+            <span class="label">32 / feature</span>
+          </div>
+          <div class="size-block">
+            <svg width="48" height="48" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="1.5"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M3 12h18"/></svg>
+            <span class="label">48 / hero</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIBRARY -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">4.3</span>
+          <h2 class="ds-section-title">Starter library</h2>
+          <p class="ds-section-desc">A first cut of icons relevant to our business — products, process, and UI. Expand from this set when needed; keep the system intact.</p>
+        </div>
+
+        <div class="category-head">PRODUCT — what we sell</div>
+        <div class="icon-grid">
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="9" rx="1"/><path d="M6 9V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/><path d="M7 18v2"/><path d="M17 18v2"/></svg><span class="name">desk</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M7 14h10v6H7z"/><path d="M9 14V8a3 3 0 0 1 6 0v6"/><path d="M9 11h6"/></svg><span class="name">task-chair</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="11" rx="1"/><path d="M3 12h18"/><path d="M8 6v11"/></svg><span class="name">storage</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 11h18"/><path d="M11 5v14"/></svg><span class="name">workstation</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-7h6v7"/></svg><span class="name">private-office</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span class="name">lead-time</span></div>
+
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M3 14V8h18v6"/><path d="M3 14l2 5h14l2-5"/><path d="M8 8V5h8v3"/></svg><span class="name">conference</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="11" rx="1"/><path d="M7 8V6h10v2"/><path d="M3 13h18"/></svg><span class="name">reception</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="13" rx="1"/><path d="M8 10h8"/><path d="M8 14h5"/></svg><span class="name">whiteboard</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M5 19V9l7-5 7 5v10"/><path d="M5 19h14"/><path d="M10 19v-5h4v5"/></svg><span class="name">phone-booth</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg><span class="name">capacity</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M4 8h16l-2 12H6z"/><path d="M8 8V5a4 4 0 0 1 8 0v3"/></svg><span class="name">accessory</span></div>
+        </div>
+
+        <div class="category-head">PROCESS — how we work</div>
+        <div class="icon-grid">
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg><span class="name">discover</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5z"/><path d="M9 12h6"/><path d="M9 16h6"/></svg><span class="name">specify</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M3 7h12l4 4v6H3z"/><circle cx="7" cy="17" r="2"/><circle cx="16" cy="17" r="2"/></svg><span class="name">deliver</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span class="name">install</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M5 12a7 7 0 1 1 14 0v6H5z"/><path d="M9 12v6"/><path d="M15 12v6"/></svg><span class="name">space-plan</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="1"/><path d="M8 10h2"/><path d="M14 10h2"/><path d="M8 14h8"/></svg><span class="name">render</span></div>
+
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 8h14"/><path d="M5 16h14"/></svg><span class="name">budget</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="1"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M4 11h16"/></svg><span class="name">timeline</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M4 17V7l8-4 8 4v10l-8 4z"/><path d="M4 7l8 4 8-4"/><path d="M12 11v10"/></svg><span class="name">warehouse</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M6 4v16"/><path d="M6 4h11l-3 4 3 4H6"/></svg><span class="name">project</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span class="name">fast-quote</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg><span class="name">next</span></div>
+        </div>
+
+        <div class="category-head">UI — interface</div>
+        <div class="icon-grid">
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg><span class="name">menu</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="m6 6 12 12"/><path d="m18 6-12 12"/></svg><span class="name">close</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg><span class="name">search</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg><span class="name">chevron-down</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></svg><span class="name">add</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg><span class="name">remove</span></div>
+
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg><span class="name">check</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16" r=".5" fill="currentColor"/></svg><span class="name">alert</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M4 8h16v11H4z"/><path d="M4 8l8 6 8-6"/></svg><span class="name">email</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M5 5h11l3 3v11H5z"/><path d="M9 5v6h6V5"/></svg><span class="name">save</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M12 4v12"/><path d="m7 11 5 5 5-5"/><path d="M5 20h14"/></svg><span class="name">download</span></div>
+          <div class="icon-cell"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M3 12c2.5-5 6-7 9-7s6.5 2 9 7c-2.5 5-6 7-9 7s-6.5-2-9-7z"/></svg><span class="name">view</span></div>
+        </div>
+      </section>
+
+      <!-- DON'TS -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">4.4</span>
+          <h2 class="ds-section-title">Don'ts</h2>
+          <p class="ds-section-desc">Don't mix in icons from other libraries. Don't fill our outline icons. Don't put icons inside circles unless it's a feature avatar.</p>
+        </div>
+
+        <div class="grid-4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+          <div style="background: var(--of4s-paper-100); border: var(--of4s-border-thin); border-radius: 6px; padding: 32px; display: flex; flex-direction: column; align-items: center; gap: 12px; position: relative;">
+            <div style="position: absolute; top: 8px; left: 8px; width: 18px; height: 18px; border-radius: 50%; background: #9c3a30; color: white; display: flex; align-items: center; justify-content: center; font-size: 12px;">×</div>
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="var(--of4s-navy-800)" stroke="none"><rect x="3" y="6" width="18" height="13" rx="1.5"/></svg>
+            <span class="ds-mono" style="font-size: 9px;">Don't fill our icons</span>
+          </div>
+          <div style="background: var(--of4s-paper-100); border: var(--of4s-border-thin); border-radius: 6px; padding: 32px; display: flex; flex-direction: column; align-items: center; gap: 12px; position: relative;">
+            <div style="position: absolute; top: 8px; left: 8px; width: 18px; height: 18px; border-radius: 50%; background: #9c3a30; color: white; display: flex; align-items: center; justify-content: center; font-size: 12px;">×</div>
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--of4s-navy-800)" stroke-width="3" stroke-linecap="square"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+            <span class="ds-mono" style="font-size: 9px;">Don't bump up stroke</span>
+          </div>
+          <div style="background: var(--of4s-paper-100); border: var(--of4s-border-thin); border-radius: 6px; padding: 32px; display: flex; flex-direction: column; align-items: center; gap: 12px; position: relative;">
+            <div style="position: absolute; top: 8px; left: 8px; width: 18px; height: 18px; border-radius: 50%; background: #9c3a30; color: white; display: flex; align-items: center; justify-content: center; font-size: 12px;">×</div>
+            <span style="font-size: 32px;">📋</span>
+            <span class="ds-mono" style="font-size: 9px;">Don't use emoji</span>
+          </div>
+          <div style="background: var(--of4s-paper-100); border: var(--of4s-border-thin); border-radius: 6px; padding: 32px; display: flex; flex-direction: column; align-items: center; gap: 12px; position: relative;">
+            <div style="position: absolute; top: 8px; left: 8px; width: 18px; height: 18px; border-radius: 50%; background: #9c3a30; color: white; display: flex; align-items: center; justify-content: center; font-size: 12px;">×</div>
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--of4s-navy-800)" stroke-width="1.5"><circle cx="12" cy="12" r="11" fill="var(--of4s-navy-100)"/><path d="M5 12l5 5L20 6"/></svg>
+            <span class="ds-mono" style="font-size: 9px;">Don't add backgrounds</span>
+          </div>
+        </div>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="sidebar.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById('sidebar')).render(<DSSidebar current="iconography" />);
+    ReactDOM.createRoot(document.getElementById('footer')).render(<DSFooter />);
+  </script>
+</body>
+</html>

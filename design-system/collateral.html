@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OF4S Design System — Collateral</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="shared.css?v=12" />
+  <style>
+    .stage {
+      background: var(--of4s-paper-200);
+      padding: 64px;
+      border-radius: var(--of4s-radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    /* Business cards (3.5 x 2 in @ 96dpi → 336x192) */
+    .bc {
+      width: 336px; height: 192px;
+      border-radius: 6px;
+      box-shadow: 0 12px 32px rgba(15,29,51,0.18);
+      padding: 20px 22px;
+      font-family: var(--of4s-font-sans);
+      position: relative;
+      overflow: hidden;
+    }
+    .bc.front-dark { background: var(--of4s-stone-900); color: var(--of4s-paper-50); display: flex; flex-direction: column; justify-content: space-between; }
+    .bc.front-dark .brand { font-family: var(--of4s-font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; line-height: 1; }
+    .bc.front-dark .brand .four { color: var(--of4s-navy-300); font-weight: 600; }
+    .bc.front-dark .tagline { font-family: var(--of4s-font-mono); font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--of4s-navy-300); margin-top: 6px; }
+    .bc.front-dark .name { font-family: var(--of4s-font-display); font-weight: 500; font-size: 20px; letter-spacing: -0.015em; }
+    .bc.front-dark .role { font-size: 11px; color: var(--of4s-paper-200); margin-top: 2px; }
+    .bc.front-dark .footer { font-family: var(--of4s-font-mono); font-size: 8px; letter-spacing: 0.15em; color: var(--of4s-stone-400); }
+
+    .bc.back-mark { background: var(--of4s-navy-300); color: var(--of4s-stone-900); display: flex; align-items: center; justify-content: center; }
+    .bc.back-mark .four-mark { font-family: var(--of4s-font-display); font-weight: 700; font-size: 76px; letter-spacing: -0.03em; color: var(--of4s-stone-900); line-height: 1; }
+    .bc.back-mark .corner { position: absolute; top: 16px; left: 16px; font-family: var(--of4s-font-mono); font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; }
+    .bc.back-mark .corner-r { position: absolute; bottom: 16px; right: 16px; font-family: var(--of4s-font-mono); font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; }
+
+    .bc.front-light { background: var(--of4s-paper-50); color: var(--of4s-stone-900); display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(15,29,51,0.08); }
+    .bc.front-light .brand { font-family: var(--of4s-font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; line-height: 1; }
+    .bc.front-light .brand .four { color: var(--of4s-navy-600); font-weight: 600; }
+    .bc.front-light .tagline { font-family: var(--of4s-font-mono); font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--of4s-navy-600); margin-top: 6px; }
+    .bc.front-light .name { font-family: var(--of4s-font-display); font-weight: 500; font-size: 20px; letter-spacing: -0.015em; }
+    .bc.front-light .role { font-size: 11px; color: var(--of4s-stone-600); margin-top: 2px; }
+    .bc.front-light .footer { font-family: var(--of4s-font-mono); font-size: 8px; letter-spacing: 0.15em; color: var(--of4s-stone-500); }
+
+    /* Letterhead */
+    .lh {
+      width: 612px; height: 792px;
+      background: white;
+      box-shadow: 0 12px 32px rgba(15,29,51,0.18);
+      padding: 56px;
+      font-family: var(--of4s-font-sans);
+      position: relative;
+    }
+    .lh .header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--of4s-stone-900);
+      margin-bottom: 32px;
+    }
+    .lh .brand { font-family: var(--of4s-font-display); font-weight: 700; font-size: 24px; letter-spacing: -0.02em; }
+    .lh .brand .four { color: var(--of4s-navy-600); font-weight: 600; }
+    .lh .contact { font-family: var(--of4s-font-mono); font-size: 9px; letter-spacing: 0.1em; color: var(--of4s-stone-600); text-align: right; line-height: 1.6; }
+    .lh .date { font-family: var(--of4s-font-mono); font-size: 10px; letter-spacing: 0.15em; color: var(--of4s-stone-500); margin-bottom: 32px; }
+    .lh h1 { font-family: var(--of4s-font-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 0 0 16px; }
+    .lh h1 em { font-style: normal; }
+    .lh p { font-size: 12px; line-height: 1.7; color: var(--of4s-stone-700); margin: 0 0 12px; }
+    .lh .footer { position: absolute; bottom: 32px; left: 56px; right: 56px; padding-top: 16px; border-top: 1px solid rgba(15,29,51,0.1); display: flex; justify-content: space-between; font-family: var(--of4s-font-mono); font-size: 8px; letter-spacing: 0.15em; color: var(--of4s-stone-500); text-transform: uppercase; }
+
+    /* Email signature */
+    .email-sig {
+      background: white;
+      border: 1px solid rgba(15,29,51,0.08);
+      border-radius: 8px;
+      padding: 24px;
+      max-width: 480px;
+      font-family: var(--of4s-font-sans);
+    }
+    .email-sig .row { display: flex; gap: 16px; align-items: flex-start; }
+    .email-sig .mark {
+      width: 56px; height: 56px;
+      background: var(--of4s-navy-800);
+      color: var(--of4s-paper-50);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--of4s-font-display); font-weight: 700; font-size: 17px; letter-spacing: -0.02em;
+      flex-shrink: 0;
+    }
+    .email-sig .name { font-family: var(--of4s-font-display); font-weight: 500; font-size: 18px; letter-spacing: -0.015em; color: var(--of4s-stone-900); }
+    .email-sig .role { font-size: 12px; color: var(--of4s-stone-600); margin-top: 2px; }
+    .email-sig .brand { font-family: var(--of4s-font-display); font-weight: 700; font-size: 14px; margin-top: 8px; }
+    .email-sig .brand .four { color: var(--of4s-navy-600); font-weight: 600; }
+    .email-sig .links { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(15,29,51,0.08); display: flex; gap: 16px; font-family: var(--of4s-font-mono); font-size: 10px; letter-spacing: 0.1em; color: var(--of4s-stone-600); }
+    .email-sig .links span { color: var(--of4s-navy-600); }
+  </style>
+</head>
+<body>
+  <div class="ds-shell">
+    <div id="sidebar"></div>
+
+    <main class="ds-main">
+      <header class="ds-page-header">
+        <div class="ds-page-eyebrow">09 · Templates</div>
+        <h1 class="ds-page-title">Print & email <em>collateral.</em></h1>
+        <p class="ds-page-lede">Business cards, letterhead, and email signature. Same brand, different surfaces.</p>
+      </header>
+
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">9.1</span>
+          <h2 class="ds-section-title">Business cards</h2>
+          <p class="ds-section-desc">3.5×2", duplex print. Front: dark with personal info. Back: navy accent with the "4" mark.</p>
+        </div>
+        <div class="stage">
+          <div class="bc front-dark">
+            <div>
+              <div class="brand">OF<span class="four">4</span>S</div>
+              <div class="tagline">SOUTH FLORIDA · SINCE 2008</div>
+            </div>
+            <div>
+              <div class="name">[Your Name]</div>
+              <div class="role">Project Lead · Specifications</div>
+            </div>
+            <div class="footer">954 · 555 · 0142 &nbsp;·&nbsp; YOU@OF4S.COM</div>
+          </div>
+          <div class="bc back-mark">
+            <span class="corner">OF4S</span>
+            <div class="four-mark">OF<span style="color: var(--of4s-navy-800);">4</span>S</div>
+            <span class="corner-r">EST 2008</span>
+          </div>
+          <div class="bc front-light">
+            <div>
+              <div class="brand">OF<span class="four">4</span>S</div>
+              <div class="tagline">SOUTH FLORIDA · SINCE 2008</div>
+            </div>
+            <div>
+              <div class="name">[Your Name]</div>
+              <div class="role">Project Lead · Specifications</div>
+            </div>
+            <div class="footer">954 · 555 · 0142 &nbsp;·&nbsp; YOU@OF4S.COM</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">9.2</span>
+          <h2 class="ds-section-title">Letterhead</h2>
+          <p class="ds-section-desc">US Letter, single page. The 2px navy rule under the header is the only flourish — type does the rest.</p>
+        </div>
+        <div class="scroll-hint scroll-hint--paper-200">
+        <div class="stage">
+          <div class="lh">
+            <div class="header">
+              <div>
+                <div class="brand">OF<span class="four">4</span>S</div>
+              </div>
+              <div class="contact">
+                3700 NW 25TH AVE · POMPANO BEACH, FL<br/>
+                954 · 555 · 0142<br/>
+                OFFICEFURNITURE4SALE.COM
+              </div>
+            </div>
+            <div class="date">APRIL 24, 2026</div>
+            <h1>Welcome to <em>the easy way</em><br/>to furnish a workplace.</h1>
+            <p>Sarah,</p>
+            <p>Thank you for the walk-through yesterday. Attached is a complete itemized proposal for the Miramar headquarters — 142 seats, 8 conference rooms, two phone booths, plus white-glove install across three days the week of June 8.</p>
+            <p>The full quote came in 4% under your stated budget, and we've guaranteed lead times across every line. If anything slips, we cover the rental cost of comparable replacements until your furniture arrives.</p>
+            <p>Take a look when you have a few quiet minutes. I'm happy to walk through any line item — text or call any time.</p>
+            <p style="margin-top: 24px;">— [Your name]<br/><span style="font-family: var(--of4s-font-mono); font-size: 10px; color: var(--of4s-stone-500); letter-spacing: 0.1em;">PROJECT LEAD · OF4S</span></p>
+
+            <div class="footer">
+              <span>OF4S · OFFICE FURNITURE 4 SALE</span>
+              <span>QUOTE 2026-0184</span>
+              <span>1 / 1</span>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">9.3</span>
+          <h2 class="ds-section-title">Email signature</h2>
+          <p class="ds-section-desc">Keep it small. The "4" mark stands in for the logo so it loads instantly.</p>
+        </div>
+        <div class="stage" style="background: var(--of4s-paper-100);">
+          <div class="email-sig">
+            <div class="row">
+              <div class="mark">OF<span style="color: var(--of4s-navy-300);">4</span>S</div>
+              <div>
+                <div class="name">[Your Name]</div>
+                <div class="role">Project Lead · Specifications</div>
+                <div class="brand">OF<span class="four">4</span>S</div>
+              </div>
+            </div>
+            <div class="links">
+              <span>954 · 555 · 0142</span>
+              <span>YOU@OF4S.COM</span>
+              <span>OFFICEFURNITURE4SALE.COM</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="sidebar.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById('sidebar')).render(<DSSidebar current="collateral" />);
+    ReactDOM.createRoot(document.getElementById('footer')).render(<DSFooter />);
+  </script>
+  <script src="scroll-hint.js?v=2"></script>
+</body>
+</html>

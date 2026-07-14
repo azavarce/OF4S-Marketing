@@ -1,0 +1,292 @@
+<link rel="stylesheet" href="/web/content/35837/of4s-blog-v3.css">
+<!-- ============================================================================
+     OF4S BLOG v3 TEMPLATE skeleton. Fill every [BRACKETED] value with real facts
+     and swap every image placeholder for an attachment you uploaded to THIS Odoo.
+     Keep the .of4s-blog wrapper, the <link> (skin = CSS attachment 35837), AND the
+     <style> block below (it powers the partner-logo strip).
+
+     STANDARD ANATOMY — build ALL of these, in this order:
+       1  Standfirst
+       2  Client logo (110px, readable)
+       3  Snapshot (4 fixed fields)
+       4  Credibility strip (FIXED 4.7/20+/25M+)
+       5  Salesperson-at-work of4s-wide  ← FIRST photo readers see
+       6  Discovery
+       7  Design & layout planning  (text + 3D autoplay video + optional 2D plan)
+       8  What we helped design & furnish  (head+intro → partner-logo strip → galleries)
+       9  Render-vs-installed of4s-pair  ← signature OF4S element
+      10  The installation (gallery)
+      11  The final results (+ optional quote band)
+      12  Project stats  13  CTA (FIXED)
+
+     COVER / BANNER: set the post's Cover image (Odoo post settings) to a strong
+     LANDSCAPE hero photo that reads well BOTH as the blog-list thumbnail AND as the
+     wide banner at the top of the opened post. Avoid portrait / awkward-crop shots.
+
+     IMAGES: default = filename-labeled placeholders (see ANATOMY.md). Each figure
+     below keeps its structure but shows a visible "REPLACE WITH IMAGE" box naming
+     the exact Drive filename + intended caption. Swap a box for a real
+     <img src="/web/image/<id>"> only if that photo was actually uploaded to Odoo.
+
+     GLOBAL RULES (see ANATOMY.md):
+     - ZERO <h1> — the post title is the page H1; start sections at <h2>.
+     - Exactly ONE upright-navy <em> accent word per <h2>.
+     - Italics ONLY inside <blockquote>. Owned /web/image only.
+     - .of4s-sec wraps ONLY the eyebrow + <h2>. Body <p>/<ul>, figures, galleries,
+       pairs, bands, video and stat strips are SIBLINGS — direct children of .of4s-blog.
+       Do NOT nest them in .of4s-sec.
+     ============================================================================ -->
+<div class="of4s-blog">
+
+<!-- STYLE: partner-logo strip (homepage grayscale→hover-color treatment). Keep this
+     block ONCE, near the top. It rides inside the post content and survives the blog
+     sanitizer — do not move it to a shared view or CSS attachment. -->
+<style>
+.of4s-blog .of4s-partners{display:flex;justify-content:center;align-items:center;gap:40px;flex-wrap:wrap;margin-top:16px}
+.of4s-blog .of4s-partners img{height:40px;width:auto;object-fit:contain;filter:grayscale(1);opacity:0.75;transition:filter .2s ease,opacity .2s ease}
+.of4s-blog .of4s-partners img:hover{filter:grayscale(0);opacity:1}
+</style>
+
+<!-- 1 · STANDFIRST -->
+<div class="of4s-standfirst">
+  <p class="of4s-eyebrow">Project story · [Type, e.g. Law firm] · [City, ST]</p>
+  <p class="of4s-lede">[2–3 confident, warm sentences: who the client is, what they set out to build, and OF4S's role — design + furnish + install.]</p>
+</div>
+
+<!-- 2 · CLIENT LOGO (optional — delete if no clean logo). Final size depends on the
+     company's logo, but it MUST be large enough to READ: max-height:110px, width:auto. -->
+<div style="text-align:center;margin:0 auto 2.5em;">
+  <span class="of4s-imgslot" style="display:inline-block;border:2px dashed #b0b7c3;border-radius:10px;padding:1em 1.4em;text-align:center;background:#f4f6f9;color:#3a4353;font-family:Arial,Helvetica,sans-serif;line-height:1.4;">
+    <span style="display:block;font-weight:700;letter-spacing:.06em;font-size:.85em;">⬆ REPLACE WITH IMAGE</span>
+    <span style="display:block;font-size:1.15em;font-weight:700;margin-top:.35em;">[LOGO-FILENAME]</span>
+    <span style="display:block;font-size:.85em;margin-top:.25em;">Slot: Client logo · size to read (~110px tall)</span>
+  </span>
+</div>
+
+<!-- 3 · SNAPSHOT — keep these 4 fields EXACTLY, in this order -->
+<dl class="of4s-snapshot">
+  <div><dt>Client</dt><dd>[Client name]</dd></div>
+  <div><dt>Type</dt><dd>[Industry/sector, e.g. Law firm]</dd></div>
+  <div><dt>Spaces</dt><dd>[Spaces furnished, comma list]</dd></div>
+  <div><dt>Furniture Partners</dt><dd>[Manufacturers, e.g. AIS, Global, Narbutas]</dd></div>
+</dl>
+
+<!-- 4 · CREDIBILITY STRIP — FIXED. Do NOT edit these numbers. -->
+<div class="of4s-stats">
+  <div><h3>4.7</h3><p>Google rating</p></div>
+  <div><h3>20+</h3><p>Years in business</p></div>
+  <div><h3>25M+</h3><p>Sq ft furnished</p></div>
+</div>
+
+<!-- 5 · SALESPERSON-AT-WORK — the FIRST content photo readers see. MUST be a real
+     photo of the OF4S salesperson/designer working on THIS project (on-site, at the CET
+     screen, walking the space with the client), NOT a finished room. Full-width. -->
+<figure class="of4s-wide">
+  <span class="of4s-imgslot" style="display:block;border:2px dashed #b0b7c3;border-radius:10px;padding:1.6em 1em;text-align:center;background:#f4f6f9;color:#3a4353;font-family:Arial,Helvetica,sans-serif;line-height:1.4;">
+    <span style="display:block;font-weight:700;letter-spacing:.06em;font-size:.85em;">⬆ REPLACE WITH IMAGE</span>
+    <span style="display:block;font-size:1.15em;font-weight:700;margin-top:.35em;">[SALESPERSON-AT-WORK-FILENAME]</span>
+    <span style="display:block;font-size:.85em;margin-top:.25em;">Slot: Salesperson/designer at work · FIRST photo</span>
+    <span style="display:block;font-size:.8em;margin-top:.25em;color:#6b7480;">Caption: On-site with the client · [Salesperson name]</span>
+  </span>
+  <figcaption>On-site with the client · [Salesperson / designer name]</figcaption>
+</figure>
+
+<!-- 6 · DISCOVERY -->
+<div class="of4s-sec">
+  <p class="of4s-eyebrow">Discovery</p>
+  <h2>[Heading with one <em>accent</em> word]</h2>
+</div>
+<p>[What the client had and needed; who we sat down with; the cultural and operational requirements uncovered.]</p>
+<p>[Optional second paragraph: departments, headcount, growth plans, the brief.]</p>
+
+<!-- 7 · DESIGN & LAYOUT PLANNING. Text + the project's 3D walkthrough VIDEO as an
+     autoplay background (muted, looping, no controls) + an OPTIONAL 2D plan image. -->
+<div class="of4s-sec">
+  <p class="of4s-eyebrow">Design &amp; layout planning</p>
+  <h2>[Heading with one <em>accent</em> word]</h2>
+</div>
+<p>[How the plan came together: CET Designer, real-time iteration, feedback into layouts.]</p>
+<!-- 3D PROJECT VIDEO: paste the project's Vimeo VIDEO ID (numbers only) in place of
+     [VIMEO_ID]. Plays automatically, muted, looping, no controls — same as the SFDN
+     post. Delete this block if there is no 3D video. -->
+<div class="of4s-wide" style="aspect-ratio: 16 / 9;"><iframe src="//player.vimeo.com/video/[VIMEO_ID]?autoplay=1&amp;muted=1&amp;autopause=0&amp;controls=0&amp;loop=1" style="width:100%;height:100%;border:0;border-radius:8px;" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
+<!-- Optional 2D floor plan (delete if not available). -->
+<figure class="of4s-wide">
+  <span class="of4s-imgslot" style="display:block;border:2px dashed #b0b7c3;border-radius:10px;padding:1.6em 1em;text-align:center;background:#f4f6f9;color:#3a4353;font-family:Arial,Helvetica,sans-serif;line-height:1.4;">
+    <span style="display:block;font-weight:700;letter-spacing:.06em;font-size:.85em;">⬆ REPLACE WITH IMAGE</span>
+    <span style="display:block;font-size:1.15em;font-weight:700;margin-top:.35em;">[2D-PLAN-FILENAME]</span>
+    <span style="display:block;font-size:.85em;margin-top:.25em;">Slot: 2D floor plan (optional)</span>
+  </span>
+  <figcaption>The 2D plan</figcaption>
+</figure>
+
+<!-- 8 · WHAT WE HELPED DESIGN & FURNISH. Intro → PARTNER-LOGO STRIP → gallery. -->
+<div class="of4s-sec">
+  <p class="of4s-eyebrow">What we helped design &amp; furnish</p>
+  <h2>[Heading with one <em>accent</em> word]</h2>
+</div>
+<p>[Turnkey scope: the spaces furnished and how one consistent palette tied them together.]</p>
+<ul>
+  <li>[Space one]</li>
+  <li>[Space two]</li>
+  <li>[Space three]</li>
+</ul>
+<!-- FURNITURE-PARTNER LOGO STRIP: use ONLY the manufacturers actually used on THIS
+     project. These are the HOMEPAGE grayscale logos (color on hover) — the standard.
+     Do NOT use white-background logo versions. Available:
+       AIS /web/image/6446 · Global /web/image/6448 · Narbutas /web/image/6447 ·
+       Enwork /web/image/6449 · Corp Design /web/image/6451 · SitOnIt /web/image/6439 ·
+       9to5 /web/image/6450 · OM Seating /web/image/6452 · COE /web/image/6453 ·
+       OFGO /web/image/6454 · Byrne /web/image/6455 · School Specialty /web/image/6456 -->
+<div style="text-align:center;margin:2.5em auto;">
+  <p class="of4s-eyebrow" style="text-align:center;">Furniture partners on this project</p>
+  <div class="of4s-partners">
+    <img src="/web/image/6446" alt="AIS">
+    <img src="/web/image/6448" alt="Global Furniture Group">
+    <img src="/web/image/6447" alt="Narbutas">
+    <img src="/web/image/6449" alt="Enwork">
+    <img src="/web/image/6451" alt="Corp Design">
+    <img src="/web/image/6452" alt="OM Seating">
+  </div>
+</div>
+<div class="of4s-gallery">
+  <figure>
+    <span class="of4s-imgslot" style="display:block;border:2px dashed #b0b7c3;border-radius:10px;padding:1.6em 1em;text-align:center;background:#f4f6f9;color:#3a4353;font-family:Arial,Helvetica,sans-serif;line-height:1.4;">
+      <span style="display:block;font-weight:700;letter-spacing:.06em;font-size:.85em;">⬆ REPLACE WITH IMAGE</span>
+      <span style="display:block;font-size:1.15em;font-weight:700;margin-top:.35em;">[FURNISHED-SPACE-FILENAME-1]</span>
+      <span style="display:block;font-size:.85em;margin-top:.25em;">Slot: Furnished space</span>
+    </span>
+    <figcaption>[Space caption]</figcaption>
+  </figure>
+  <figure>
+    <span class="of4s-imgslot" style="display:block;border:2px dashed #b0b7c3;border-radius:10px;padding:1.6em 1em;text-align:center;background:#f4f6f9;color:#3a4353;font-family:Arial,Helvetica,sans-serif;line-height:1.4;">
+      <span style="display:block;font-weight:700;letter-spacing:.06em;font-size:.85em;">⬆ REPLACE WITH IMAGE</span>
+      <span style="display:block;font-size:1.15em;font-weight:700;margin-top:.35em;">[FURNISHED-SPACE-FILENAME-2]</span>
+      <span style="display:block;font-size:.85em;margin-top:.25em;">Slot: Furnished space</span>
+    </span>
+    <figcaption>[Space caption]</figcaption>
+  </figure>
+  <figure>
+    <span class="of4s-imgslot" style="display:block;border:2px dashed #b0b7c3;border-radius:10px;padding:1.6em 1em;text-align:center;background:#f4f6f9;color:#3a4353;font-family:Arial,Helvetica,sans-serif;line-height:1.4;">
+      <span style="display:block;font-weight:700;letter-spacing:.06em;font-size:.85em;">⬆ REPLACE WITH IMAGE</span>
+      <span style="display:block;font-size:1.15em;font-weight:700;margin-top:.35em;">[FURNISHED-SPACE-FILENAME-3]</span>
+      <span style="display:block;font-size:.85em;margin-top:.25em;">Slot: Furnished space</span>
+    </span>
+    <figcaption>[Space caption]</figcaption>
+  </figure>
+</div>
+
+<!-- 9 · RENDER-vs-INSTALLED — a SIGNATURE OF4S element. Whenever you have a 3D render
+     AND a photo of that SAME area already installed, pair them here: render on the left,
+     the finished reality on the right. Keep both captions exactly as below. Omit only if
+     there is no render + matching installed photo. -->
+<div class="of4s-pair">
+  <figure>
+    <span class="of4s-imgslot" style="display:block;border:2px dashed #b0b7c3;border-radius:10px;padding:1.6em 1em;text-align:center;background:#f4f6f9;color:#3a4353;font-family:Arial,Helvetica,sans-serif;line-height:1.4;">
+      <span style="display:block;font-weight:700;letter-spacing:.06em;font-size:.85em;">⬆ REPLACE WITH IMAGE</span>
+      <span style="display:block;font-size:1.15em;font-weight:700;margin-top:.35em;">[RENDER-FILENAME]</span>
+      <span style="display:block;font-size:.85em;margin-top:.25em;">Slot: 3D render (same area as the installed shot)</span>
+    </span>
+    <figcaption>The 3D render</figcaption>
+  </figure>
+  <figure>
+    <span class="of4s-imgslot" style="display:block;border:2px dashed #b0b7c3;border-radius:10px;padding:1.6em 1em;text-align:center;background:#f4f6f9;color:#3a4353;font-family:Arial,Helvetica,sans-serif;line-height:1.4;">
+      <span style="display:block;font-weight:700;letter-spacing:.06em;font-size:.85em;">⬆ REPLACE WITH IMAGE</span>
+      <span style="display:block;font-size:1.15em;font-weight:700;margin-top:.35em;">[INSTALLED-SAME-AREA-FILENAME]</span>
+      <span style="display:block;font-size:.85em;margin-top:.25em;">Slot: The same area installed</span>
+    </span>
+    <figcaption>The finished space</figcaption>
+  </figure>
+</div>
+
+<!-- 10 · THE INSTALLATION -->
+<div class="of4s-sec">
+  <p class="of4s-eyebrow">The installation</p>
+  <h2>[Heading with one <em>accent</em> word]</h2>
+</div>
+<p>[Our in-house team: delivery, placement to the approved plan, on schedule, minimal disruption.]</p>
+<div class="of4s-gallery">
+  <figure>
+    <span class="of4s-imgslot" style="display:block;border:2px dashed #b0b7c3;border-radius:10px;padding:1.6em 1em;text-align:center;background:#f4f6f9;color:#3a4353;font-family:Arial,Helvetica,sans-serif;line-height:1.4;">
+      <span style="display:block;font-weight:700;letter-spacing:.06em;font-size:.85em;">⬆ REPLACE WITH IMAGE</span>
+      <span style="display:block;font-size:1.15em;font-weight:700;margin-top:.35em;">[INSTALL-FILENAME-1]</span>
+      <span style="display:block;font-size:.85em;margin-top:.25em;">Slot: Installation</span>
+    </span>
+    <figcaption>[Install caption]</figcaption>
+  </figure>
+  <figure>
+    <span class="of4s-imgslot" style="display:block;border:2px dashed #b0b7c3;border-radius:10px;padding:1.6em 1em;text-align:center;background:#f4f6f9;color:#3a4353;font-family:Arial,Helvetica,sans-serif;line-height:1.4;">
+      <span style="display:block;font-weight:700;letter-spacing:.06em;font-size:.85em;">⬆ REPLACE WITH IMAGE</span>
+      <span style="display:block;font-size:1.15em;font-weight:700;margin-top:.35em;">[INSTALL-FILENAME-2]</span>
+      <span style="display:block;font-size:.85em;margin-top:.25em;">Slot: Installation</span>
+    </span>
+    <figcaption>[Install caption]</figcaption>
+  </figure>
+  <figure>
+    <span class="of4s-imgslot" style="display:block;border:2px dashed #b0b7c3;border-radius:10px;padding:1.6em 1em;text-align:center;background:#f4f6f9;color:#3a4353;font-family:Arial,Helvetica,sans-serif;line-height:1.4;">
+      <span style="display:block;font-weight:700;letter-spacing:.06em;font-size:.85em;">⬆ REPLACE WITH IMAGE</span>
+      <span style="display:block;font-size:1.15em;font-weight:700;margin-top:.35em;">[INSTALL-FILENAME-3]</span>
+      <span style="display:block;font-size:.85em;margin-top:.25em;">Slot: Installation</span>
+    </span>
+    <figcaption>[Install caption]</figcaption>
+  </figure>
+</div>
+
+<!-- 11 · THE FINAL RESULTS. Gallery of the finished space. of4s-band quote is OPTIONAL
+     — use a real client/team line or delete it. -->
+<div class="of4s-sec">
+  <p class="of4s-eyebrow">The final results</p>
+  <h2>[Heading with one <em>accent</em> word]</h2>
+</div>
+<p>[The finished office: what it reflects about the client's culture, how it works and feels now, the outcome delivered. Close on the result.]</p>
+<div class="of4s-gallery">
+  <figure>
+    <span class="of4s-imgslot" style="display:block;border:2px dashed #b0b7c3;border-radius:10px;padding:1.6em 1em;text-align:center;background:#f4f6f9;color:#3a4353;font-family:Arial,Helvetica,sans-serif;line-height:1.4;">
+      <span style="display:block;font-weight:700;letter-spacing:.06em;font-size:.85em;">⬆ REPLACE WITH IMAGE</span>
+      <span style="display:block;font-size:1.15em;font-weight:700;margin-top:.35em;">[FINAL-RESULT-FILENAME-1]</span>
+      <span style="display:block;font-size:.85em;margin-top:.25em;">Slot: Final result</span>
+    </span>
+    <figcaption>[Result caption]</figcaption>
+  </figure>
+  <figure>
+    <span class="of4s-imgslot" style="display:block;border:2px dashed #b0b7c3;border-radius:10px;padding:1.6em 1em;text-align:center;background:#f4f6f9;color:#3a4353;font-family:Arial,Helvetica,sans-serif;line-height:1.4;">
+      <span style="display:block;font-weight:700;letter-spacing:.06em;font-size:.85em;">⬆ REPLACE WITH IMAGE</span>
+      <span style="display:block;font-size:1.15em;font-weight:700;margin-top:.35em;">[FINAL-RESULT-FILENAME-2]</span>
+      <span style="display:block;font-size:.85em;margin-top:.25em;">Slot: Final result</span>
+    </span>
+    <figcaption>[Result caption]</figcaption>
+  </figure>
+  <figure>
+    <span class="of4s-imgslot" style="display:block;border:2px dashed #b0b7c3;border-radius:10px;padding:1.6em 1em;text-align:center;background:#f4f6f9;color:#3a4353;font-family:Arial,Helvetica,sans-serif;line-height:1.4;">
+      <span style="display:block;font-weight:700;letter-spacing:.06em;font-size:.85em;">⬆ REPLACE WITH IMAGE</span>
+      <span style="display:block;font-size:1.15em;font-weight:700;margin-top:.35em;">[FINAL-RESULT-FILENAME-3]</span>
+      <span style="display:block;font-size:.85em;margin-top:.25em;">Slot: Final result</span>
+    </span>
+    <figcaption>[Result caption]</figcaption>
+  </figure>
+</div>
+<div class="of4s-band">
+  <p class="of4s-eyebrow">[label, e.g. In their words]</p>
+  <blockquote>[A real client or team quote.]</blockquote>
+  <p class="of4s-band-attr">[Name, Title, Client]</p>
+</div>
+
+<!-- 12 · PROJECT STATS STRIP. Lead time = "Weeks, order to install". Real numbers only. -->
+<div class="of4s-stats">
+  <div><h3>[15,000]</h3><p>Square feet</p></div>
+  <div><h3>[10]</h3><p>Weeks, order to install</p></div>
+  <div><h3>[84]</h3><p>Workstations</p></div>
+</div>
+
+<!-- 13 · END-OF-POST CTA — FIXED & REQUIRED. Keep copy, link, and tel verbatim. -->
+<div class="of4s-blog-cta">
+  <p class="of4s-eyebrow">Start your project</p>
+  <h2>Ready to plan <em>your</em> office?</h2>
+  <p>Tell us about your space. We call back, usually within the hour, and a free 3D plan of your office follows.</p>
+  <div class="of4s-cta-actions">
+    <a class="of4s-cta-btn" href="/request-a-free-quote">Request a Free Quote</a>
+    <a class="of4s-cta-tel" href="tel:+13058893364">(305) 889-3364</a>
+  </div>
+</div>
+
+</div>

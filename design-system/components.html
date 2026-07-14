@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OF4S Design System — Components</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="shared.css?v=7" />
+  <style>
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--of4s-font-sans);
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1;
+      padding: 12px 20px;
+      border-radius: var(--of4s-radius-md);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all var(--of4s-dur-fast) var(--of4s-ease);
+      letter-spacing: 0.01em;
+    }
+    .btn-primary { background: var(--of4s-navy-800); color: var(--of4s-paper-50); }
+    .btn-primary:hover { background: var(--of4s-navy-900); }
+    .btn-secondary { background: white; color: var(--of4s-navy-800); border-color: var(--of4s-stone-400); }
+    .btn-secondary:hover { background: var(--of4s-paper-100); border-color: var(--of4s-stone-600); }
+    .btn-ghost { background: transparent; color: var(--of4s-navy-800); padding: 12px 8px; }
+    .btn-ghost:hover { color: var(--of4s-navy-600); }
+    .btn-accent { background: var(--of4s-navy-300); color: var(--of4s-stone-900); }
+    .btn-accent:hover { background: var(--of4s-navy-500); }
+    .btn-danger { background: var(--of4s-danger); color: white; }
+    .btn-sm { padding: 8px 14px; font-size: 13px; }
+    .btn-lg { padding: 16px 28px; font-size: 16px; }
+    .btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Inputs */
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field-label {
+      font-family: var(--of4s-font-mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--of4s-stone-600);
+    }
+    .input, .select, .textarea {
+      font-family: var(--of4s-font-sans);
+      font-size: 14px;
+      padding: 12px 14px;
+      border: 1px solid var(--of4s-paper-300);
+      border-radius: var(--of4s-radius-md);
+      background: white;
+      color: var(--of4s-stone-900);
+      transition: border-color var(--of4s-dur-fast) var(--of4s-ease), box-shadow var(--of4s-dur-fast) var(--of4s-ease);
+    }
+    .input:focus, .select:focus, .textarea:focus {
+      outline: none;
+      border-color: var(--of4s-navy-800);
+      box-shadow: 0 0 0 3px rgba(21,39,63,0.08);
+    }
+    .input.error { border-color: var(--of4s-danger); }
+    .input::placeholder { color: var(--of4s-stone-400); }
+    .help { font-size: 12px; color: var(--of4s-stone-500); }
+    .help.error { color: var(--of4s-danger); }
+
+    /* Card */
+    .product-card {
+      background: white;
+      border: var(--of4s-border-thin);
+      border-radius: var(--of4s-radius-lg);
+      overflow: hidden;
+      transition: box-shadow var(--of4s-dur-base) var(--of4s-ease), transform var(--of4s-dur-base) var(--of4s-ease);
+    }
+    .product-card:hover { box-shadow: var(--of4s-shadow-lg); transform: translateY(-2px); }
+    .product-card .photo {
+      aspect-ratio: 4/3;
+      background: var(--of4s-paper-100);
+      background-image: repeating-linear-gradient(135deg, rgba(21,39,63,0.05) 0, rgba(21,39,63,0.05) 8px, transparent 8px, transparent 16px);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--of4s-font-mono); font-size: 10px; color: var(--of4s-stone-500); letter-spacing: 0.1em;
+    }
+    .product-card .body { padding: 20px; }
+    .product-card .meta { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+    .product-card .sku { font-family: var(--of4s-font-mono); font-size: 11px; color: var(--of4s-stone-500); letter-spacing: 0.08em; }
+    .product-card .name { font-family: var(--of4s-font-display); font-weight: 500; font-size: 18px; letter-spacing: -0.01em; margin: 0 0 4px; color: var(--of4s-stone-900); }
+    .product-card .vendor { font-size: 13px; color: var(--of4s-stone-600); margin: 0 0 16px; }
+    .product-card .price-row { display: flex; justify-content: space-between; align-items: baseline; padding-top: 16px; border-top: var(--of4s-border-thin); }
+    .product-card .price { font-family: var(--of4s-font-display); font-weight: 500; font-size: 22px; letter-spacing: -0.015em; color: var(--of4s-stone-900); }
+    .product-card .price .sub { font-family: var(--of4s-font-sans); font-size: 12px; color: var(--of4s-stone-500); margin-left: 4px; font-weight: 400; }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--of4s-radius-pill);
+      font-family: var(--of4s-font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .badge .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+    .badge.in-stock { background: rgba(90,122,79,0.12); color: var(--of4s-success); }
+    .badge.lead-time { background: rgba(184,137,90,0.18); color: var(--of4s-navy-800); }
+    .badge.backorder { background: rgba(156,58,48,0.12); color: var(--of4s-danger); }
+    .badge.new { background: var(--of4s-navy-800); color: var(--of4s-paper-50); }
+    .badge.partner { background: var(--of4s-navy-100); color: var(--of4s-navy-800); }
+
+    /* Stat card */
+    .stat-card {
+      background: var(--of4s-navy-800);
+      color: var(--of4s-paper-50);
+      border-radius: var(--of4s-radius-lg);
+      padding: 32px;
+    }
+    .stat-card .label {
+      font-family: var(--of4s-font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--of4s-navy-300);
+      margin-bottom: 16px;
+    }
+    .stat-card .value {
+      font-family: var(--of4s-font-display);
+      font-weight: 300;
+      font-size: 64px;
+      letter-spacing: -0.025em;
+      line-height: 0.95;
+      color: var(--of4s-paper-50);
+    }
+    .stat-card .value em { font-style: normal; color: var(--of4s-navy-300); font-weight: 400; }
+    .stat-card .desc { font-size: 13px; color: var(--of4s-paper-200); margin-top: 12px; max-width: 240px; line-height: 1.55; }
+
+    /* Section */
+    .lab-row {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 32px;
+      padding: 32px 0;
+      border-top: var(--of4s-border-thin);
+      align-items: start;
+    }
+    .lab-row:first-of-type { border-top: 0; }
+    .lab-row .meta h3 { font-family: var(--of4s-font-display); font-weight: 500; font-size: 18px; margin: 0 0 6px; }
+    .lab-row .meta p { font-size: 13px; color: var(--of4s-stone-600); margin: 0; line-height: 1.55; }
+    .lab-row .demo {
+      background: var(--of4s-paper-100);
+      border-radius: var(--of4s-radius-lg);
+      padding: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+    .lab-row .demo.dark { background: var(--of4s-stone-900); }
+
+    /* Nav demo */
+    .nav-demo {
+      background: var(--of4s-paper-50);
+      border: var(--of4s-border-thin);
+      border-radius: var(--of4s-radius-lg);
+      padding: 0;
+      overflow: hidden;
+    }
+    .nav-demo header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      border-bottom: var(--of4s-border-thin);
+      background: white;
+    }
+    .nav-demo nav {
+      display: flex;
+      gap: 28px;
+    }
+    .nav-demo nav a {
+      font-family: var(--of4s-font-sans);
+      font-size: 14px;
+      color: var(--of4s-stone-700);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-demo nav a.active { color: var(--of4s-navy-800); border-bottom-color: var(--of4s-navy-300); }
+    .nav-demo .brand { font-family: var(--of4s-font-display); font-weight: 500; font-size: 22px; letter-spacing: -0.02em; }
+    .nav-demo .brand .four { color: var(--of4s-navy-500); font-weight: 600; }
+
+    /* Table */
+    .data-table { width: 100%; border-collapse: collapse; background: white; border: var(--of4s-border-thin); border-radius: var(--of4s-radius-lg); overflow: hidden; }
+    .data-table th { padding: 14px 20px; text-align: left; font-family: var(--of4s-font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--of4s-stone-500); background: var(--of4s-paper-100); border-bottom: var(--of4s-border-thin); font-weight: 500; }
+    .data-table td { padding: 14px 20px; border-top: var(--of4s-border-thin); font-size: 14px; }
+    .data-table tbody tr:hover { background: var(--of4s-paper-50); }
+    .data-table .num { font-family: var(--of4s-font-mono); }
+
+    /* Form composition */
+    .form-card {
+      background: white;
+      border: var(--of4s-border-thin);
+      border-radius: var(--of4s-radius-lg);
+      padding: 32px;
+      max-width: 540px;
+    }
+    .form-card h3 { font-family: var(--of4s-font-display); font-weight: 500; font-size: 22px; margin: 0 0 6px; }
+    .form-card .lede { font-size: 14px; color: var(--of4s-stone-600); margin: 0 0 24px; }
+    .form-row { display: flex; flex-direction: column; gap: 16px; margin-bottom: 16px; }
+    .form-actions { display: flex; gap: 12px; margin-top: 24px; padding-top: 24px; border-top: var(--of4s-border-thin); }
+
+    /* Status row */
+    .status-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Tab */
+    .tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: var(--of4s-border-thin);
+    }
+    .tabs .tab {
+      padding: 14px 20px;
+      font-family: var(--of4s-font-sans);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--of4s-stone-600);
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      margin-bottom: -1px;
+    }
+    .tabs .tab.active { color: var(--of4s-navy-800); border-bottom-color: var(--of4s-navy-300); }
+
+    /* Stepper */
+    .stepper {
+      display: flex;
+      gap: 0;
+      align-items: center;
+    }
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px;
+      flex: 1;
+      position: relative;
+    }
+    .step .num {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--of4s-font-mono); font-size: 11px; font-weight: 500;
+      background: var(--of4s-paper-200); color: var(--of4s-stone-600);
+      flex-shrink: 0;
+    }
+    .step.complete .num { background: var(--of4s-success); color: white; }
+    .step.current .num { background: var(--of4s-navy-800); color: white; }
+    .step .label { display: flex; flex-direction: column; gap: 2px; }
+    .step .label .top { font-family: var(--of4s-font-mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--of4s-stone-500); }
+    .step .label .bot { font-size: 14px; color: var(--of4s-stone-900); font-weight: 500; }
+    .step::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--of4s-paper-300);
+      margin-left: 16px;
+    }
+    .step:last-child::after { display: none; }
+  </style>
+</head>
+<body>
+  <div class="ds-shell">
+    <div id="sidebar"></div>
+
+    <main class="ds-main">
+      <header class="ds-page-header">
+        <div class="ds-page-eyebrow">06 · Components</div>
+        <h1 class="ds-page-title">A working <em>UI library.</em></h1>
+        <p class="ds-page-lede">The components below power the website, the proposal portal, the project tracker, and any future product. Built on the tokens — every color, radius, and font scale comes from the system.</p>
+      </header>
+
+      <!-- BUTTONS -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">6.1</span>
+          <h2 class="ds-section-title">Buttons</h2>
+          <p class="ds-section-desc">Five intents. Three sizes. Always sentence case. Primary is navy — the navy accent is reserved for the moment we want extra emphasis (e.g. "Get a quote").</p>
+        </div>
+
+        <div class="lab-row">
+          <div class="meta"><h3>Intents</h3><p>Primary, secondary, ghost, accent, danger.</p></div>
+          <div class="demo">
+            <button class="btn btn-primary">Get a quote</button>
+            <button class="btn btn-secondary">Browse catalog</button>
+            <button class="btn btn-ghost">Learn more →</button>
+            <button class="btn btn-accent">Start your project</button>
+            <button class="btn btn-danger">Cancel order</button>
+          </div>
+        </div>
+        <div class="lab-row">
+          <div class="meta"><h3>With icons</h3><p>16px icon, 8px gap. Icon leads when describing an action.</p></div>
+          <div class="demo">
+            <button class="btn btn-primary"><svg viewBox="0 0 24 24"><path d="M12 4v12"/><path d="m7 11 5 5 5-5"/><path d="M5 20h14"/></svg>Download spec</button>
+            <button class="btn btn-secondary"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>Continue</button>
+            <button class="btn btn-accent"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Get a 24-hour quote</button>
+          </div>
+        </div>
+        <div class="lab-row">
+          <div class="meta"><h3>Sizes</h3><p>SM for table actions, base for forms, LG for hero CTAs.</p></div>
+          <div class="demo">
+            <button class="btn btn-primary btn-sm">Small</button>
+            <button class="btn btn-primary">Default</button>
+            <button class="btn btn-primary btn-lg">Large</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMS -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">6.2</span>
+          <h2 class="ds-section-title">Forms</h2>
+          <p class="ds-section-desc">Mono labels, generous height, clear focus state. Used for quote requests, project intake, and the proposal portal.</p>
+        </div>
+
+        <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div class="form-card">
+            <h3>Start a project</h3>
+            <p class="lede">Tell us a little. We'll send a quote within 24 hours.</p>
+            <div class="form-row">
+              <div class="field">
+                <label class="field-label">Company</label>
+                <input class="input" placeholder="Acme Logistics" />
+              </div>
+              <div class="field">
+                <label class="field-label">Project type</label>
+                <select class="select">
+                  <option>New office buildout</option>
+                  <option>Refresh / addition</option>
+                  <option>Single workstation</option>
+                </select>
+              </div>
+              <div class="field">
+                <label class="field-label">Approximate seats</label>
+                <input class="input" placeholder="e.g. 24" />
+                <span class="help">Round up — we'll confirm later.</span>
+              </div>
+              <div class="field">
+                <label class="field-label">Email</label>
+                <input class="input error" value="not-an-email" />
+                <span class="help error">Please enter a valid email address.</span>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="btn btn-primary">Send request</button>
+              <button class="btn btn-ghost">Save draft</button>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div class="ds-card" style="padding: 24px;">
+              <div class="ds-mono" style="margin-bottom: 12px;">CHECKBOX & RADIO</div>
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <label style="display: flex; align-items: center; gap: 10px; font-size: 14px; cursor: pointer;">
+                  <span style="width: 18px; height: 18px; border: 1.5px solid var(--of4s-navy-800); border-radius: 4px; background: var(--of4s-navy-800); display: flex; align-items: center; justify-content: center;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>
+                  Include white-glove install
+                </label>
+                <label style="display: flex; align-items: center; gap: 10px; font-size: 14px; cursor: pointer;">
+                  <span style="width: 18px; height: 18px; border: 1.5px solid var(--of4s-paper-300); border-radius: 4px;"></span>
+                  Add 5-year extended warranty
+                </label>
+                <hr style="border: none; border-top: var(--of4s-border-thin); margin: 4px 0;" />
+                <label style="display: flex; align-items: center; gap: 10px; font-size: 14px; cursor: pointer;">
+                  <span style="width: 18px; height: 18px; border: 1.5px solid var(--of4s-navy-800); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><span style="width: 10px; height: 10px; border-radius: 50%; background: var(--of4s-navy-800);"></span></span>
+                  Net 30 terms
+                </label>
+                <label style="display: flex; align-items: center; gap: 10px; font-size: 14px; cursor: pointer;">
+                  <span style="width: 18px; height: 18px; border: 1.5px solid var(--of4s-paper-300); border-radius: 50%;"></span>
+                  Pay on delivery
+                </label>
+              </div>
+            </div>
+
+            <div class="ds-card" style="padding: 24px;">
+              <div class="ds-mono" style="margin-bottom: 12px;">TOGGLE</div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 14px;">Show partner SKUs only</span>
+                <span style="width: 40px; height: 22px; background: var(--of4s-navy-800); border-radius: 999px; position: relative; display: inline-block;"><span style="position: absolute; top: 2px; right: 2px; width: 18px; height: 18px; background: white; border-radius: 50%;"></span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BADGES -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">6.3</span>
+          <h2 class="ds-section-title">Badges & status</h2>
+          <p class="ds-section-desc">Used on product cards, in proposals, and in the project tracker. Always paired with semantic color.</p>
+        </div>
+
+        <div class="status-row">
+          <span class="badge in-stock"><span class="dot"></span>In stock</span>
+          <span class="badge lead-time"><span class="dot"></span>4-week lead</span>
+          <span class="badge backorder"><span class="dot"></span>Backorder</span>
+          <span class="badge new">New</span>
+          <span class="badge partner">MillerKnoll Partner</span>
+        </div>
+      </section>
+
+      <!-- CARDS -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">6.4</span>
+          <h2 class="ds-section-title">Product cards</h2>
+          <p class="ds-section-desc">Catalog tile used on the website, in proposal line items, and on category landing pages.</p>
+        </div>
+
+        <div class="grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+          <div class="product-card">
+            <div class="photo">PRODUCT · 4/3 PHOTO</div>
+            <div class="body">
+              <div class="meta">
+                <span class="sku">SKU · 0042-PINE-WHT</span>
+                <span class="badge in-stock"><span class="dot"></span>In stock</span>
+              </div>
+              <h4 class="name">Aeris height-adjustable desk</h4>
+              <p class="vendor">Steelcase · 60×30 · white oak</p>
+              <div class="price-row">
+                <span class="price">$1,284<span class="sub">/ea</span></span>
+                <button class="btn btn-secondary btn-sm">Add to quote</button>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="photo">PRODUCT · 4/3 PHOTO</div>
+            <div class="body">
+              <div class="meta">
+                <span class="sku">SKU · 0118-LEAF-BLK</span>
+                <span class="badge lead-time"><span class="dot"></span>4-week</span>
+              </div>
+              <h4 class="name">Leaf task chair</h4>
+              <p class="vendor">Herman Miller · black mesh</p>
+              <div class="price-row">
+                <span class="price">$849<span class="sub">/ea</span></span>
+                <button class="btn btn-secondary btn-sm">Add to quote</button>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="photo">PRODUCT · 4/3 PHOTO</div>
+            <div class="body">
+              <div class="meta">
+                <span class="sku">SKU · 0207-COVE-NVY</span>
+                <span class="badge new">New</span>
+              </div>
+              <h4 class="name">Cove acoustic phone booth</h4>
+              <p class="vendor">Framery · single occupant</p>
+              <div class="price-row">
+                <span class="price">$6,400<span class="sub">/ea</span></span>
+                <button class="btn btn-secondary btn-sm">Add to quote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STAT CARDS -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">6.5</span>
+          <h2 class="ds-section-title">Stat cards</h2>
+          <p class="ds-section-desc">For decks and case studies. The italic emphasis is the brand voice in numerical form.</p>
+        </div>
+
+        <div class="grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+          <div class="stat-card">
+            <div class="label">SPEED · TYPICAL</div>
+            <div class="value">24<em>hrs</em></div>
+            <div class="desc">From walkthrough to itemized quote — the legacy dealers take a week.</div>
+          </div>
+          <div class="stat-card">
+            <div class="label">DELIVERED · 2025</div>
+            <div class="value">142<em>projects</em></div>
+            <div class="desc">South Florida small-and-mid buildouts, shipped on time.</div>
+          </div>
+          <div class="stat-card">
+            <div class="label">UNDER BUDGET</div>
+            <div class="value"><em>4%</em> avg</div>
+            <div class="desc">Average savings vs. original budget across last year's installs.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NAV / TABS / STEPPER -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">6.6</span>
+          <h2 class="ds-section-title">Navigation</h2>
+          <p class="ds-section-desc">Top nav, tabs, and the project stepper that powers our portal.</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="nav-demo">
+            <header>
+              <span class="brand">Office<span>Furniture</span><span class="four">4</span><span>Sale</span></span>
+              <nav>
+                <a href="#" class="active">Catalog</a>
+                <a href="#">Projects</a>
+                <a href="#">Process</a>
+                <a href="#">About</a>
+              </nav>
+              <button class="btn btn-primary btn-sm">Get a quote</button>
+            </header>
+          </div>
+
+          <div class="ds-card" style="padding: 0 24px;">
+            <div class="scroll-hint">
+            <div class="tabs">
+              <div class="tab active">Quote</div>
+              <div class="tab">Specifications</div>
+              <div class="tab">Lead time</div>
+              <div class="tab">Documents</div>
+            </div>
+            </div>
+          </div>
+
+          <div class="ds-card" style="padding: 16px;">
+            <div class="scroll-hint">
+            <div class="stepper">
+              <div class="step complete">
+                <span class="num">✓</span>
+                <span class="label"><span class="top">STEP 1</span><span class="bot">Discover</span></span>
+              </div>
+              <div class="step complete">
+                <span class="num">✓</span>
+                <span class="label"><span class="top">STEP 2</span><span class="bot">Specify</span></span>
+              </div>
+              <div class="step current">
+                <span class="num">3</span>
+                <span class="label"><span class="top">STEP 3</span><span class="bot">Approve</span></span>
+              </div>
+              <div class="step">
+                <span class="num">4</span>
+                <span class="label"><span class="top">STEP 4</span><span class="bot">Deliver</span></span>
+              </div>
+              <div class="step">
+                <span class="num">5</span>
+                <span class="label"><span class="top">STEP 5</span><span class="bot">Install</span></span>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TABLE -->
+      <section class="ds-section">
+        <div class="ds-section-head">
+          <span class="ds-section-num">6.7</span>
+          <h2 class="ds-section-title">Tables</h2>
+          <p class="ds-section-desc">For quote line items, project trackers, and the back-office. Mono headers, tabular figures, hover row.</p>
+        </div>
+
+        <div class="scroll-hint">
+        <div class="scroll-x">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>SKU</th>
+              <th>Item</th>
+              <th>Qty</th>
+              <th>Unit</th>
+              <th>Lead</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">0042-PINE-WHT</td>
+              <td>Aeris height-adjustable desk · oak</td>
+              <td class="num">24</td>
+              <td class="num">$1,284.00</td>
+              <td><span class="badge in-stock"><span class="dot"></span>Stock</span></td>
+              <td class="num">$30,816.00</td>
+            </tr>
+            <tr>
+              <td class="num">0118-LEAF-BLK</td>
+              <td>Leaf task chair · black mesh</td>
+              <td class="num">28</td>
+              <td class="num">$849.00</td>
+              <td><span class="badge lead-time"><span class="dot"></span>4-wk</span></td>
+              <td class="num">$23,772.00</td>
+            </tr>
+            <tr>
+              <td class="num">0207-COVE-NVY</td>
+              <td>Cove acoustic phone booth</td>
+              <td class="num">2</td>
+              <td class="num">$6,400.00</td>
+              <td><span class="badge in-stock"><span class="dot"></span>Stock</span></td>
+              <td class="num">$12,800.00</td>
+            </tr>
+            <tr>
+              <td class="num">0331-MEET-OAK</td>
+              <td>Meridian meeting table · 8-seat</td>
+              <td class="num">2</td>
+              <td class="num">$3,150.00</td>
+              <td><span class="badge lead-time"><span class="dot"></span>2-wk</span></td>
+              <td class="num">$6,300.00</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        </div>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="sidebar.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById('sidebar')).render(<DSSidebar current="components" />);
+    ReactDOM.createRoot(document.getElementById('footer')).render(<DSFooter />);
+  </script>
+  <script src="scroll-hint.js?v=2"></script>
+</body>
+</html>
