@@ -31,13 +31,13 @@
   .hero { position: relative; height: 424px; overflow: hidden; background: var(--navy-900); }
   .hero img {
     position: absolute; inset: 0; width: 100%; height: 100%;
-    object-fit: cover; object-position: 50% 34%;
+    object-fit: cover; object-position: 50% 42%;
   }
   /* navy brand gradient: bright top (faces), deep navy bottom (headline zone) + top scrim for logo */
   .hero .scrim {
     position: absolute; inset: 0;
     background:
-      linear-gradient(to bottom, rgba(10,22,40,0.66) 0%, rgba(10,22,40,0.12) 15%, rgba(10,22,40,0) 25%),
+      linear-gradient(to bottom, rgba(10,22,40,0.82) 0%, rgba(10,22,40,0.5) 9%, rgba(10,22,40,0.14) 18%, rgba(10,22,40,0) 27%),
       linear-gradient(to top, rgba(10,22,40,0.98) 0%, rgba(10,22,40,0.95) 19%, rgba(15,39,63,0.85) 37%, rgba(15,39,63,0.5) 57%, rgba(15,39,63,0.14) 100%);
   }
   .hero .topbar {
@@ -50,9 +50,10 @@
   .mark { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.03em;
           line-height: 0.9; color: var(--paper-50); font-size: 38px; display: inline-flex; }
   .mark .four { color: var(--navy-300); }
-  .lockup .rule { width: 1px; align-self: stretch; background: rgba(255,255,255,0.32); }
+  .lockup .rule { width: 1px; align-self: stretch; background: rgba(255,255,255,0.5); }
   .lockup .fullname { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.26em;
-          text-transform: uppercase; color: var(--paper-200); line-height: 1.7; }
+          text-transform: uppercase; color: var(--paper-50); line-height: 1.7;
+          text-shadow: 0 1px 8px rgba(10,22,40,0.75); }
   .topbar .url { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
           text-transform: uppercase; color: var(--navy-300); }
 
@@ -82,12 +83,13 @@
     background: var(--navy-950); color: var(--paper-50);
     display: flex; align-items: stretch;
   }
-  .infobar .cell { flex: 1; padding: 13px 56px; display: flex; flex-direction: column; gap: 3px; }
+  .infobar .cell { flex: 1; padding: 17px 56px; display: flex; flex-direction: column; gap: 5px; }
   .infobar .cell + .cell { border-left: 1px solid rgba(255,255,255,0.12); padding-left: 26px; }
   .infobar .cell:first-child { padding-left: 56px; }
-  .infobar .l { font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.2em;
+  .infobar .l { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em;
           text-transform: uppercase; color: var(--navy-300); }
-  .infobar .v { font-family: var(--font-sans); font-weight: 600; font-size: 15px; letter-spacing: -0.01em; }
+  .infobar .v { font-family: var(--font-sans); font-weight: 600; font-size: 20px; letter-spacing: -0.015em; line-height: 1; }
+  .infobar .cell.comp .v { color: var(--navy-300); font-size: 22px; }
 
   /* ============================= BODY ============================= */
   .body { flex: 1; padding: 26px 56px 0; display: flex; flex-direction: column; gap: 17px; }
@@ -168,7 +170,7 @@
     <div class="infobar">
       <div class="cell"><span class="l">Location</span><span class="v">South Florida</span></div>
       <div class="cell"><span class="l">Job Type</span><span class="v">Full-Time</span></div>
-      <div class="cell"><span class="l">Total Compensation</span><span class="v">$100K+</span></div>
+      <div class="cell comp"><span class="l">Total Compensation</span><span class="v">$100K+</span></div>
     </div>
 
     <!-- BODY -->
