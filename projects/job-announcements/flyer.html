@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="assets/fonts/fonts.css" />
+<style>
+  /* ---- OF4S v3 tokens (exact values from design-system/tokens.css) ---- */
+  :root {
+    --navy-950:#0a1628; --navy-900:#0f1d33; --navy-800:#15273f; --navy-700:#1e3554;
+    --navy-600:#2d4a6e; --navy-500:#466489; --navy-300:#8fa9c7; --navy-100:#dde5ee;
+    --paper-50:#faf8f4; --paper-100:#f3efe7; --paper-200:#e8e2d4; --paper-300:#d6cfbe;
+    --stone-400:#a8a094; --stone-500:#7a7468; --stone-600:#555047; --stone-700:#3a362f; --stone-900:#1a1814;
+    --font-display:'Schibsted Grotesk','Geist',sans-serif;
+    --font-sans:'Geist',-apple-system,system-ui,sans-serif;
+    --font-mono:'Geist Mono','SF Mono',Menlo,monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #ffffff; }
+  em { font-style: normal; } /* brand rule: accent word is color, never italic */
+
+  /* 8.5in x 11in at 96dpi = 816 x 1056 px. Rendered at 300 DPI via deviceScaleFactor. */
+  .page {
+    width: 816px; height: 1056px;
+    background: var(--paper-50); color: var(--stone-900);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    display: flex; flex-direction: column; overflow: hidden; position: relative;
+  }
+
+  /* ============================= HERO (photo + overlay) ============================= */
+  .hero { position: relative; height: 424px; overflow: hidden; background: var(--navy-900); }
+  .hero img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: 50% 34%;
+  }
+  /* navy brand gradient: bright top (faces), deep navy bottom (headline zone) + top scrim for logo */
+  .hero .scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(10,22,40,0.66) 0%, rgba(10,22,40,0.12) 15%, rgba(10,22,40,0) 25%),
+      linear-gradient(to top, rgba(10,22,40,0.98) 0%, rgba(10,22,40,0.95) 19%, rgba(15,39,63,0.85) 37%, rgba(15,39,63,0.5) 57%, rgba(15,39,63,0.14) 100%);
+  }
+  .hero .topbar {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 2;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 26px 56px;
+  }
+  /* Horizontal lockup on dark (design-system logo-type.html) */
+  .lockup { display: inline-flex; align-items: center; gap: 15px; }
+  .mark { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.03em;
+          line-height: 0.9; color: var(--paper-50); font-size: 38px; display: inline-flex; }
+  .mark .four { color: var(--navy-300); }
+  .lockup .rule { width: 1px; align-self: stretch; background: rgba(255,255,255,0.32); }
+  .lockup .fullname { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.26em;
+          text-transform: uppercase; color: var(--paper-200); line-height: 1.7; }
+  .topbar .url { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+          text-transform: uppercase; color: var(--navy-300); }
+
+  .hero .headline {
+    position: absolute; left: 56px; right: 56px; bottom: 30px; z-index: 2; color: var(--paper-50);
+  }
+  .hero .kick {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: #bcd0e4; margin-bottom: 12px; text-shadow: 0 1px 10px rgba(10,22,40,0.9);
+    display: inline-flex; align-items: center; gap: 12px;
+  }
+  .hero .kick::before { content: ""; width: 26px; height: 2px; background: var(--navy-300); }
+  .hero h1 {
+    font-family: var(--font-display); font-weight: 800; font-size: 92px; line-height: 0.9;
+    letter-spacing: -0.035em; text-transform: uppercase; margin-bottom: 16px;
+    text-shadow: 0 2px 24px rgba(10,22,40,0.45);
+  }
+  .hero .role {
+    display: inline-flex; align-items: baseline; gap: 0;
+    font-family: var(--font-display); font-weight: 600; font-size: 30px; letter-spacing: -0.02em;
+    color: var(--paper-50);
+  }
+  .hero .role em { color: var(--navy-300); }
+
+  /* ============================= INFO BAR ============================= */
+  .infobar {
+    background: var(--navy-950); color: var(--paper-50);
+    display: flex; align-items: stretch;
+  }
+  .infobar .cell { flex: 1; padding: 13px 56px; display: flex; flex-direction: column; gap: 3px; }
+  .infobar .cell + .cell { border-left: 1px solid rgba(255,255,255,0.12); padding-left: 26px; }
+  .infobar .cell:first-child { padding-left: 56px; }
+  .infobar .l { font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.2em;
+          text-transform: uppercase; color: var(--navy-300); }
+  .infobar .v { font-family: var(--font-sans); font-weight: 600; font-size: 15px; letter-spacing: -0.01em; }
+
+  /* ============================= BODY ============================= */
+  .body { flex: 1; padding: 26px 56px 0; display: flex; flex-direction: column; gap: 17px; }
+  .section .eyebrow {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-600); margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
+  }
+  .section .eyebrow::after { content: ""; flex: 1; height: 1px; background: rgba(15,29,51,0.10); }
+  .section p { font-size: 14px; line-height: 1.55; color: var(--stone-700); max-width: 680px; }
+
+  ul.dutylist { list-style: none; column-count: 2; column-gap: 36px; }
+  ul.dutylist li { break-inside: avoid; position: relative; padding-left: 18px;
+                   margin-bottom: 9px; font-size: 12.5px; line-height: 1.38; color: var(--stone-700); }
+  ul.dutylist li:last-child { margin-bottom: 0; }
+  ul.dutylist li::before { content: ""; position: absolute; left: 0; top: 6px;
+                   width: 6px; height: 6px; background: var(--navy-500); border-radius: 1px; }
+
+  .duo { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 20px; align-items: stretch; }
+  .qual .eyebrow { color: var(--navy-600); }
+  .qual .big { font-family: var(--font-display); font-weight: 700; font-size: 30px;
+               letter-spacing: -0.02em; color: var(--stone-900); line-height: 1.05; }
+  .qual .sub { font-size: 12.5px; line-height: 1.45; color: var(--stone-600); margin-top: 6px; }
+
+  .comp-callout { background: var(--navy-100); border: 1px solid rgba(45,74,110,0.22);
+                  border-radius: 8px; padding: 15px 20px; }
+  .comp-callout .eyebrow { color: var(--navy-700); margin-bottom: 9px; }
+  .comp-callout .eyebrow::after { background: rgba(45,74,110,0.20); }
+  .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; }
+  .comp-grid .item { font-size: 11.5px; line-height: 1.32; color: var(--navy-800);
+                     position: relative; padding-left: 15px; }
+  .comp-grid .item::before { content: ""; position: absolute; left: 0; top: 5px;
+                     width: 5px; height: 5px; background: var(--navy-500); border-radius: 999px; }
+  .comp-grid .item b { font-weight: 600; }
+
+  /* ============================= CTA ============================= */
+  .cta { margin-top: auto; background: var(--navy-900); color: var(--paper-50);
+         padding: 24px 56px 20px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .cta .lead .eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em;
+          text-transform: uppercase; color: var(--navy-300); margin-bottom: 8px; }
+  .cta .lead h2 { font-family: var(--font-display); font-weight: 700; font-size: 29px;
+          letter-spacing: -0.02em; line-height: 1.05; color: var(--paper-50); }
+  .cta .lead h2 em { color: var(--navy-300); }
+  .cta .action { text-align: right; flex-shrink: 0; }
+  .cta .action .apply { display: inline-block; font-family: var(--font-mono); font-size: 13.5px; font-weight: 500;
+          color: var(--navy-900); background: var(--paper-50); padding: 12px 18px; border-radius: 6px; white-space: nowrap; }
+  .cta .action .apply b { color: var(--navy-700); }
+  .cta .action .site { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+          text-transform: uppercase; color: var(--navy-300); margin-top: 9px; }
+
+  .note { background: var(--navy-950); color: var(--paper-200); padding: 9px 56px;
+          font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.05em; line-height: 1.5; }
+  .note b { color: var(--paper-50); font-weight: 500; }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- HERO -->
+    <section class="hero">
+      <img src="assets/img/hero-networking.jpg" alt="Two professional women networking across a table in a bright office" />
+      <div class="scrim"></div>
+      <div class="topbar">
+        <span class="lockup">
+          <span class="mark"><span class="of">OF</span><span class="four">4</span><span class="s">S</span></span>
+          <span class="rule"></span>
+          <span class="fullname">OFFICE FURNITURE<br />4 SALE</span>
+        </span>
+        <span class="url">OfficeFurniture4Sale.com</span>
+      </div>
+      <div class="headline">
+        <div class="kick">Now Hiring · Join Our Team</div>
+        <h1>We're Hiring</h1>
+        <div class="role">Business Development&nbsp;<em>Manager</em></div>
+      </div>
+    </section>
+
+    <!-- INFO BAR -->
+    <div class="infobar">
+      <div class="cell"><span class="l">Location</span><span class="v">South Florida</span></div>
+      <div class="cell"><span class="l">Job Type</span><span class="v">Full-Time</span></div>
+      <div class="cell"><span class="l">Total Compensation</span><span class="v">$100K+</span></div>
+    </div>
+
+    <!-- BODY -->
+    <div class="body">
+
+      <section class="section">
+        <div class="eyebrow">About the Role</div>
+        <p>Join a growing company and build relationships across South Florida's commercial market.
+        This is a rewarding opportunity for a driven relationship-builder — one where strong
+        performance is matched by strong rewards, with uncapped commissions, a full benefits
+        package, and the tools to close.</p>
+      </section>
+
+      <section class="section">
+        <div class="eyebrow">Key Responsibilities</div>
+        <ul class="dutylist">
+          <li>Identify and pursue new business through prospecting, networking, referrals, and strategic outreach.</li>
+          <li>Build relationships with key strategic referral partners.</li>
+          <li>Generate qualified leads and maintain an active sales pipeline.</li>
+          <li>Conduct client meetings, presentations, and site visits.</li>
+          <li>Leverage online tools to source new opportunities.</li>
+          <li>Represent OF4S at industry events, trade shows, and networking functions.</li>
+          <li>Provide regular sales forecasts and activity reports.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <div class="duo">
+          <div class="qual">
+            <div class="eyebrow">Qualifications</div>
+            <div class="big">3–5 years</div>
+            <div class="sub">in sales and business development.</div>
+          </div>
+          <div class="comp-callout">
+            <div class="eyebrow">Compensation Highlights</div>
+            <div class="comp-grid">
+              <div class="item"><b>$100K+</b> total comp (base + commissions)</div>
+              <div class="item">Full benefits package</div>
+              <div class="item">Car allowance</div>
+              <div class="item">Phone expenses covered</div>
+              <div class="item">Company card — client lunches &amp; gifts</div>
+              <div class="item">Uncapped commission upside</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="lead">
+        <div class="eyebrow">How to Apply</div>
+        <h2>Ready to grow with <em>us?</em></h2>
+      </div>
+      <div class="action">
+        <span class="apply">Email your resume → <b>ACG@OfficeFurniture4Sale.com</b></span>
+        <div class="site">OfficeFurniture4Sale.com</div>
+      </div>
+    </section>
+
+    <div class="note"><b>Please note:</b> This role requires reporting to the office once per week to update management on progress.</div>
+
+  </div>
+</body>
+</html>
