@@ -15,6 +15,16 @@ the real project facts and images. Copy the markup verbatim and fill only the
    the `<em>` upright and navy (it is NOT italic here). Pick one meaningful word
    per heading and wrap only that word.
 3. **Italics only inside `<blockquote>`.** Nowhere else.
+3a. **Bold a few key phrases in every body paragraph and bullet list**, `<strong>`
+   only — never `<u>`, never italics for emphasis. In each `<p>` or `<li>`, wrap
+   the one phrase that carries the fact or benefit (a number, a capability, a
+   timeframe) — e.g. `<li><strong>Sizing the open workstation floor</strong> for
+   the current team, with room to add seats as it grows</li>` or `<p>...gave them
+   room to weigh in <strong>before a single piece was ordered</strong>.</p>`.
+   Roughly one bolded phrase per sentence/bullet — enough to make the section
+   skimmable, not so much that bolding stops meaning anything. Apply this to
+   EVERY text-heavy section (Discovery, Design & layout planning, What we helped
+   design & furnish, The installation, The final results), not just Discovery.
 4. **Images: filename-labeled placeholders by default.** Uploading photos to
    Odoo is heavy and unreliable, so the DEFAULT build puts a visible, self-
    explanatory placeholder at every image slot (see "Image slots" below). Only
@@ -91,13 +101,21 @@ is swapping each named placeholder for its photo.
 4. Credibility strip (FIXED — 4.7 / 20+ / 25M+)
 5. **Salesperson-at-work `of4s-wide` — the FIRST content photo**
 6. Discovery
-7. Design & layout planning (text + **3D autoplay video** + optional 2D plan)
-8. What we helped design & furnish (head + intro → **partner-logo strip** → gallery)
-9. **Render-vs-installed `of4s-pair`** — signature OF4S element
-10. The installation (gallery)
-11. The final results (gallery + optional quote band)
-12. Project stats strip
-13. CTA (FIXED)
+7. Design & layout planning (text + **optional 2D/3D plan `of4s-pair`, ABOVE the
+   video** + **3D autoplay video**)
+8. What we helped design & furnish (head + intro + space list)
+9. **Render-vs-installed `of4s-pair`** — signature OF4S element, directly under
+   the closing sentence of §8
+10. (Optional) per-space mini-sections/galleries — see "Breaking out per-space
+    galleries" below
+11. The installation (gallery)
+12. **Delivery-summary band** (`of4s-band`, factual, one line) — right before
+    The final results
+13. The final results (gallery + optional quote band)
+14. Project stats strip
+15. **Furniture-partner logo strip** — at the very end, after the stats, right
+    before the CTA
+16. CTA (FIXED)
 
 ---
 
@@ -204,13 +222,15 @@ room. Full-width `of4s-wide`. The caption names them.
 
 ## 7 · Design & layout planning
 
-Text on how the plan came together (CET Designer, real-time iteration), then the
-project's **3D walkthrough VIDEO** as an autoplay background (muted, looping, no
-controls — same as the South Florida Donor Network post), then an OPTIONAL 2D
-floor-plan image.
+Text on how the plan came together (CET Designer, real-time iteration), then —
+if you have BOTH a 2D floor plan AND a 3D plan/layout render — an `of4s-pair`
+showing them side by side, **ABOVE** the video, then the project's **3D
+walkthrough VIDEO** as an autoplay background (muted, looping, no controls —
+same as the South Florida Donor Network post).
 
 Paste the project's Vimeo **VIDEO ID (numbers only)** in place of `[VIMEO_ID]`.
-Delete the video block if there is no 3D video.
+Delete the video block if there is no 3D video. If there's only a 2D plan (no
+matching 3D plan), use a single `of4s-wide` figure for it instead of a pair.
 
 ```html
 <div class="of4s-sec">
@@ -218,34 +238,41 @@ Delete the video block if there is no 3D video.
   <h2>[Heading with one <em>accent</em> word]</h2>
 </div>
 <p>[How the plan came together: CET Designer, real-time iteration, how feedback turned into layouts.]</p>
+<div class="of4s-pair">
+  <figure><img src="[/web/image/…]" alt="[Client] 2D floor plan"><figcaption>The 2D plan</figcaption></figure>
+  <figure><img src="[/web/image/…]" alt="[Client] 3D plan"><figcaption>The 3D plan</figcaption></figure>
+</div>
 <div class="of4s-wide" style="aspect-ratio: 16 / 9;"><iframe src="//player.vimeo.com/video/[VIMEO_ID]?autoplay=1&amp;muted=1&amp;autopause=0&amp;controls=0&amp;loop=1" style="width:100%;height:100%;border:0;border-radius:8px;" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
-<figure class="of4s-wide">
-  <img src="[/web/image/…]" alt="[Client] 2D floor plan">
-  <figcaption>The 2D plan</figcaption>
-</figure>
 ```
 
 > Note: the `[VIMEO_ID]` placeholder's square brackets get URL-encoded by Odoo's
 > sanitizer (`%5BVIMEO_ID%5D`) — harmless. A real numeric ID has no brackets, so
 > the stored URL stays clean.
 
+### If the client's video lives on YouTube instead of Vimeo
+
+Some projects only have a YouTube video. Use this iframe pattern instead — the
+query string minimizes YouTube's on-page branding (no controls/related
+videos/keyboard, muted autoplay loop):
+
+```html
+<div class="of4s-wide" style="aspect-ratio: 16 / 9;"><iframe src="https://www.youtube.com/embed/[YOUTUBE_ID]?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=[YOUTUBE_ID]&amp;modestbranding=1&amp;rel=0&amp;iv_load_policy=3&amp;fs=0&amp;disablekb=1&amp;playsinline=1" style="width:100%;height:100%;border:0;border-radius:8px;" frameborder="0" allow="autoplay" allowfullscreen="allowfullscreen"></iframe></div>
+```
+
+`playlist=[YOUTUBE_ID]` (same ID repeated) is required for `loop=1` to work on a
+single video. **Keep the source video's true aspect ratio** — don't force a crop
+to 16:9 if the source is natively 4:3 or another ratio; check with the YouTube
+oEmbed API (`https://www.youtube.com/oembed?url=...&format=json`) if unsure, and
+set `aspect-ratio` on the wrapper to match rather than cropping content off.
+
 ## 8 · What we helped design & furnish
 
-Body paragraph (optionally a `<ul>` of spaces), then the **partner-logo strip**
-(right after the intro, BEFORE the galleries), then a gallery of furnished spaces.
-
-Use ONLY the manufacturers actually used on THIS project. These are the HOMEPAGE
-grayscale logos (color on hover) — the standard. **Do NOT use white-background
-logo versions.** Available assets:
-
-| Manufacturer | src | Manufacturer | src |
-|---|---|---|---|
-| AIS | `/web/image/6446` | OM Seating | `/web/image/6452` |
-| Global Furniture Group | `/web/image/6448` | COE | `/web/image/6453` |
-| Narbutas | `/web/image/6447` | OFGO | `/web/image/6454` |
-| Enwork | `/web/image/6449` | Byrne | `/web/image/6455` |
-| Corp Design | `/web/image/6451` | School Specialty | `/web/image/6456` |
-| SitOnIt | `/web/image/6439` | 9to5 | `/web/image/6450` |
+Body paragraph (optionally a `<ul>` of spaces) closing on a summary sentence
+(e.g. "The result is an office with one shared identity from the lobby to the
+last conference room."). The **furniture-partner logo strip does NOT go here**
+— it now goes at the very end of the post, after the project stats and right
+before the CTA (see §15). This section is just the intro text; the
+render-vs-installed pair (§9) comes immediately after it.
 
 ```html
 <div class="of4s-sec">
@@ -258,28 +285,16 @@ logo versions.** Available assets:
   <li>[Space two]</li>
   <li>[Space three]</li>
 </ul>
-<div style="text-align:center;margin:2.5em auto;">
-  <p class="of4s-eyebrow" style="text-align:center;">Furniture partners on this project</p>
-  <div class="of4s-partners">
-    <img src="/web/image/6446" alt="AIS">
-    <img src="/web/image/6448" alt="Global Furniture Group">
-    <img src="/web/image/6447" alt="Narbutas">
-    <!-- …only the manufacturers used on THIS project… -->
-  </div>
-</div>
-<div class="of4s-gallery">
-  <figure><img src="[/web/image/…]" alt="[alt]"><figcaption>[caption]</figcaption></figure>
-  <figure><img src="[/web/image/…]" alt="[alt]"><figcaption>[caption]</figcaption></figure>
-  <figure><img src="[/web/image/…]" alt="[alt]"><figcaption>[caption]</figcaption></figure>
-</div>
+<p>[Closing summary sentence for this section.]</p>
 ```
 
 ## 9 · Render-vs-installed pair — SIGNATURE OF4S element
 
 Whenever you have a **3D render AND a photo of that SAME area already installed**,
 pair them here: render on the left, the finished reality on the right. This is a
-signature OF4S move — Andres loves it. Keep both captions exactly as below. Omit
-only if there is no render + matching installed photo.
+signature OF4S move — Andres loves it. Keep both captions exactly as below. Place
+it **directly after §8's closing sentence** — before any per-space galleries.
+Omit only if there is no render + matching installed photo.
 
 ```html
 <div class="of4s-pair">
@@ -287,6 +302,20 @@ only if there is no render + matching installed photo.
   <figure><img src="[/web/image/…]" alt="[Client] the same space installed"><figcaption>The finished space</figcaption></figure>
 </div>
 ```
+
+### Breaking out per-space galleries (optional, for projects with many photos)
+
+When there are enough categorized photos to justify it, instead of one combined
+gallery under §8, give each named space its own mini `of4s-sec` (eyebrow + `<h2>`
+with one `<em>` accent word) + gallery, right after the render-vs-installed pair
+— e.g. Collaborative area, Lounge, Executive offices, Open workstations, Private
+offices, Conference rooms, Lobby.
+
+**Order them so two visually-similar spaces never sit back to back** — e.g. put
+Collaborative area before Lounge (not after) if their photos read similarly, so
+the reader isn't looking at two near-identical rooms in a row. Use judgment on
+which spaces "read similarly" per project; when unsure, ask the marketing
+manager which order she'd prefer.
 
 ## 10 · The installation
 
@@ -305,10 +334,30 @@ Body paragraph + install gallery.
 </div>
 ```
 
+## 11a · Delivery-summary band — RECOMMENDED, right before Final Results
+
+A short, one-line **factual** summary of the delivery outcome, in a blue
+`of4s-band`, placed right before "The final results" heading — e.g. "Both
+floors delivered on time, fully furnished and ready for the team and their
+clients." This is DIFFERENT from the client-quote band in §11 (below): this one
+is written by you from verified project facts (schedule, phasing, readiness),
+never a real quote, and never invented numbers not already given. Add it to
+every post — it's now the standard, not optional. Omit only if you don't have
+enough verified facts to summarize honestly.
+
+```html
+<div class="of4s-band">
+  <p class="of4s-eyebrow">The result</p>
+  <blockquote>[One factual sentence: delivered on schedule / through phased installation / ready for the team from day one — using only verified facts already in the post.]</blockquote>
+</div>
+```
+
 ## 11 · The final results
 
-Body paragraph + a gallery of the finished space. The dark `of4s-band` quote is
-OPTIONAL — use a real client or team line, or omit the band entirely.
+Body paragraph + a gallery of the finished space. The dark `of4s-band` CLIENT
+QUOTE at the end is OPTIONAL — use a real client or team line, or omit the band
+entirely. (This is separate from the delivery-summary band in §11a above, which
+now precedes this section by default.)
 
 ```html
 <div class="of4s-sec">
@@ -339,6 +388,34 @@ notes — do not invent.
   <div><h3>[15,000]</h3><p>Square feet</p></div>
   <div><h3>[10]</h3><p>Weeks, order to install</p></div>
   <div><h3>[84]</h3><p>Workstations</p></div>
+</div>
+```
+
+## 12a · Furniture-partner logo strip — end of post, before CTA
+
+Place the partner-logo strip here, at the very end (after the stats, right
+before the CTA) — NOT earlier in the post. Use ONLY the manufacturers actually
+used on THIS project. These are the HOMEPAGE grayscale logos (color on hover) —
+the standard. **Do NOT use white-background logo versions.** Available assets:
+
+| Manufacturer | src | Manufacturer | src |
+|---|---|---|---|
+| AIS | `/web/image/6446` | OM Seating | `/web/image/6452` |
+| Global Furniture Group | `/web/image/6448` | COE | `/web/image/6453` |
+| Narbutas | `/web/image/6447` | OFGO | `/web/image/6454` |
+| Enwork | `/web/image/6449` | Byrne | `/web/image/6455` |
+| Corp Design | `/web/image/6451` | School Specialty | `/web/image/6456` |
+| SitOnIt | `/web/image/6439` | 9to5 | `/web/image/6450` |
+
+```html
+<div style="text-align:center;margin:2.5em auto;">
+  <p class="of4s-eyebrow" style="text-align:center;">Furniture partners on this project</p>
+  <div class="of4s-partners">
+    <img src="/web/image/6446" alt="AIS">
+    <img src="/web/image/6448" alt="Global Furniture Group">
+    <img src="/web/image/6447" alt="Narbutas">
+    <!-- …only the manufacturers used on THIS project… -->
+  </div>
 </div>
 ```
 
@@ -379,13 +456,14 @@ as-is. "within the hour" is canon.
 | Cover / banner | Odoo post setting | LANDSCAPE hero; reads as list thumbnail AND top banner. Not in content HTML. |
 | Client logo | logo block | Optional, centered, ~110px tall — big enough to READ. |
 | Salesperson at work | `of4s-wide` (§5) | FIRST content photo. Person working on THIS project, NOT a room. Caption names them. |
-| 3D project video | `of4s-wide` iframe (§7) | Autoplay background Vimeo, ID only, muted/looping/no controls. |
-| 2D plan | `of4s-wide` (§7) | Optional. |
-| Furniture partners | `of4s-partners` strip (§8) | Homepage grayscale logos; ONLY manufacturers used on this project; never white-bg versions. |
-| Furnished-space photos | `of4s-gallery` (§8) | Renders and/or installed shots. |
-| Render vs installed | `of4s-pair` (§9) | SIGNATURE element: same area, render + the finished reality. |
+| 3D project video | `of4s-wide` iframe (§7) | Autoplay background, muted/looping/no controls. Vimeo by default (ID only); use the YouTube pattern in §7 if that's where the client's video lives, keeping its true aspect ratio. |
+| 2D + 3D plan | `of4s-pair` (§7) | Optional, ABOVE the video. Single `of4s-wide` if only a 2D plan exists. |
+| Render vs installed | `of4s-pair` (§9) | SIGNATURE element: same area, render + the finished reality. Directly after §8's closing sentence. |
+| Furnished-space photos | `of4s-gallery` (§8/§9 breakout) | Renders and/or installed shots; break into per-space mini-sections for projects with many photos — order so similar-looking spaces aren't adjacent. |
 | Installation photos | `of4s-gallery` (§10) | The install in progress. |
+| Delivery-summary band | `of4s-band` (§11a) | One factual line, before Final Results. Standard, not optional. |
 | Final-result photos | `of4s-gallery` (§11) | The finished space. |
+| Furniture partners | `of4s-partners` strip (§12a) | Homepage grayscale logos; ONLY manufacturers used on this project; never white-bg versions. At the END of the post, right before the CTA. |
 
 If a slot has no suitable photo, omit that figure gracefully (or ask the user).
 Never leave a broken/empty `<img>`.

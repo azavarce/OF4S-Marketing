@@ -80,6 +80,13 @@ Every section should end on a sentence that summarizes its outcome.
 7. **One navy `<em>` accent word per `<h2>`.** Pick the single most meaningful
    word in the heading and wrap only it. (This is a visual accent, not italics —
    see ANATOMY.md.)
+7a. **Bold a couple of key phrases per paragraph and bullet, `<strong>` only**
+   (never underline). Pick the phrase carrying the fact — a number, capability,
+   or timeframe — not a whole clause: e.g. "gave them room to weigh in
+   **before a single piece was ordered**," not "gave them **room to weigh in
+   before a single piece was ordered, and helped keep things on track**." One
+   bolded phrase per sentence/bullet is the right density — see ANATOMY.md
+   Global rules 3a.
 8. **Never invent facts.** Only write what is in her notes. If a detail is
    missing (a number, a material, a quote), leave it out or ask her — do not
    fabricate a statistic, a manufacturer, a quote, or a person's name.

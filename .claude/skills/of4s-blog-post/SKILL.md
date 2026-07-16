@@ -256,11 +256,20 @@ Using `VOICE.md`, write the copy from her bullet notes:
 Follow `ANATOMY.md` and `template.html` exactly. Build the components in order:
 
 standfirst → [logo, 110px] → snapshot (4 fixed fields) → credibility strip
-(FIXED) → **salesperson-at-work `of4s-wide` (FIRST photo)** → Discovery → Design &
-layout planning (body + **3D autoplay video** + optional 2D-plan image) → What we
-helped design & furnish (body → **partner-logo strip** → gallery) →
-**render-vs-installed `of4s-pair`** → The installation (gallery) → The final
-results (gallery + optional quote band) → project stats strip → CTA (FIXED).
+(FIXED) → **salesperson-at-work `of4s-wide` (FIRST photo)** → Discovery →
+Design & layout planning (body → **optional 2D/3D plan `of4s-pair`, ABOVE the
+video** → **3D autoplay video**) → What we helped design & furnish (body,
+closing on a summary sentence) → **render-vs-installed `of4s-pair`**
+(immediately after that sentence) → optional per-space mini-galleries (ordered
+so similar-looking spaces aren't adjacent) → The installation (gallery) →
+**delivery-summary band** (factual, one line — standard now, not optional) →
+The final results (gallery + optional client-quote band) → project stats strip
+→ **partner-logo strip** (moved here, at the END, right before the CTA) → CTA
+(FIXED).
+
+Every body paragraph and bullet list gets a few key phrases wrapped in
+`<strong>` (never `<u>`) — one per sentence/bullet is plenty. See ANATOMY.md
+§Global rules 3a for the pattern and VOICE.md for how it interacts with tone.
 
 Wrap in the stylesheet link + `.of4s-blog` div, and keep the partner-strip
 `<style>` block ONCE near the top (verbatim from ANATOMY.md):
@@ -333,6 +342,71 @@ uses), and tell her:
 
 Paste the **image checklist** from Step 3 into the hand-off so she has the
 slot → filename → caption list right there.
+
+---
+
+## Revising an existing draft
+
+She will often come back with rounds of edits after seeing a draft in Odoo
+(reorder sections, bold key phrases, move the partner strip, add a photo, etc).
+As of this writing the Odoo connection only has **create + read** access — no
+`write`/`update` tool exists yet, and it should NOT be asked to self-escalate.
+That means **every revision creates a brand-new `blog.post` record**; you can
+never edit id N in place. Follow this exact loop each time:
+
+1. **Fetch the CURRENT live content fresh** — `run_readonly_query` a plain
+   `select content->>'en_US' as c from blog_post where id=<latest>`. Never reuse
+   content from earlier in the conversation/memory: she may have edited directly
+   in Odoo (uploaded photos, tweaked text) since you last touched it, and Odoo's
+   own image-processing can also rewrite `<img>` markup after the fact.
+2. **Transcribe it into a scratch file exactly as returned**, then immediately
+   verify the transcription before touching it: find the position of
+   `<div class="of4s-blog">` in both the DB string (via
+   `position('<div class="of4s-blog">' in content->>'en_US')`) and your local
+   file, slice both from that point forward, and compare
+   `md5(substring(content->>'en_US' from <pos>))` against a local md5 of the same
+   slice. A perfect match confirms the copy is byte-exact before you edit it. If
+   they don't match, bisect with `md5(substring(... from <pos> for N))` at
+   shrinking `N` to find exactly where they diverge, rather than eyeballing 30KB
+   of HTML.
+3. **Apply the requested changes** as a small Python script doing targeted
+   `.replace(old, new, 1)` calls, each with an `assert old in data` (and
+   `assert data.count(old) == 1` where uniqueness matters) BEFORE the replace, so
+   a missing/duplicated anchor fails loudly instead of silently corrupting the
+   post.
+4. **Read the built file in full** and visually confirm it before creating
+   anything in Odoo.
+5. **Create the new `blog.post` record** with `is_published: false`, same
+   `blog_id`, same title (unless she's changing it).
+6. **Verify the new record** the same way as step 2 (position + tail-md5 against
+   your local file), accounting for a possible harmless off-by-a-few-chars
+   leading-whitespace difference before `<div class="of4s-blog">` — align on
+   that marker, don't chase whitespace before it.
+7. Tell her the new draft id/URL and remind her: once she confirms it looks
+   right, she can delete the superseded older draft(s) in Odoo herself — you
+   don't have delete access.
+
+**Images:** never re-upload a base64 image in one shot if it's more than a
+couple KB — a single mistyped byte silently corrupts the PNG. Shrink first
+(resize / `Image.quantize`) until the upload is small enough to verify with a
+SHA1 checksum against `ir_attachment.checksum` after every attempt; retry
+smaller if it doesn't match. Use ONLY the OF4S homepage grayscale partner logos
+(color on hover) — never white-background logo versions.
+
+**If she asks for write/update access so this doesn't require a new draft each
+time:** this is a permission you cannot grant yourself — it's an Odoo/connector
+configuration change outside this repo. Tell her plainly that two things would
+need to change, both owned by whoever manages the Claude↔Odoo connection
+(Andres per CLAUDE.md): (a) the Odoo user/API key this connection authenticates
+as needs the **Write** access right on `blog.post` (Settings → Technical →
+Security → Access Rights in Odoo), and (b) the MCP connector itself needs an
+`odoo_write`/`odoo_update` tool added — right now it only exposes
+create/read/read-only-SQL, so even with Write rights on the Odoo side there is
+no tool call that performs an update. Also flag if the connector's `odoo_create`
+tool has been broadened to cover unrelated models (sales orders, invoices,
+customers, products) — this skill only ever needs `blog.post` (and optionally
+`ir.attachment` for image uploads); broader create access should be turned back
+off to keep to CLAUDE.md's least-privilege rule (no accounting-Odoo access).
 
 ---
 
