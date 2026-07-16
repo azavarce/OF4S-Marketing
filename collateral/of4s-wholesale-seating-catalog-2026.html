@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OF4S 2026 Wholesale Seating Catalog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@300..800&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================================
+     OF4S Wholesale Seating Catalog — 2026 Edition
+     Built on the OF4S v3 Design System (Schibsted Grotesk / Geist /
+     Geist Mono; navy structural accent; brass garnish only).
+     This is the PREVIEW build: image slots show their target
+     filename so it doubles as the rename guide.
+     ============================================================ */
+
+  :root {
+    --navy-950: #0a1628;
+    --navy-900: #0f1d33;
+    --navy-800: #15273f;
+    --navy-700: #1e3554;
+    --navy-600: #2d4a6e;
+    --navy-500: #466489;
+    --navy-300: #8fa9c7;
+    --navy-100: #dde5ee;
+
+    /* Brass — garnish ONLY (tiny mono proof lines). Never eyebrows, headings, links, buttons, fills. */
+    --brass-900: #6e4f1f;
+    --brass-700: #8e6a30;
+    --brass-500: #b8895a;
+    --brass-400: #c9a474;
+    --brass-300: #d9bd95;
+    --brass-100: #f0e6d4;
+
+    --paper-50:  #faf8f4;
+    --paper-100: #f3efe7;
+    --paper-200: #e8e2d4;
+    --paper-300: #d6cfbe;
+    --stone-400: #a8a094;
+    --stone-500: #7a7468;
+    --stone-600: #555047;
+    --stone-700: #3a362f;
+    --stone-900: #1a1814;
+
+    --font-display: 'Schibsted Grotesk', 'Geist', sans-serif;
+    --font-sans: 'Geist', -apple-system, system-ui, 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'Geist Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+    --page-pad: 64px 72px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  em, i { font-style: normal; }
+  ::selection { background: var(--navy-800); color: var(--paper-50); }
+
+  .catalog-backdrop {
+    background: var(--paper-200);
+    padding: 40px 16px 64px;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+  }
+  @media (prefers-color-scheme: dark) {
+    .catalog-backdrop { background: var(--navy-950); }
+  }
+  :root[data-theme="light"] .catalog-backdrop { background: var(--paper-200); }
+  :root[data-theme="dark"] .catalog-backdrop { background: var(--navy-950); }
+
+  .catalog-note {
+    max-width: 816px; margin: 0 auto 28px; padding: 14px 18px;
+    background: var(--paper-50); border-left: 3px solid var(--navy-300);
+    border-radius: 4px;
+    font-family: var(--font-mono); font-size: 11px; line-height: 1.6;
+    letter-spacing: 0.02em; color: var(--stone-600);
+  }
+  .catalog-note strong { color: var(--stone-900); }
+
+  /* ---- The letter page ---- */
+  .page {
+    width: 816px; min-height: 1056px;
+    background: #fff; color: var(--stone-900);
+    margin: 0 auto 28px; padding: var(--page-pad);
+    position: relative; overflow: hidden;
+    box-shadow: 0 14px 44px rgba(15,29,51,0.20);
+    font-family: var(--font-sans);
+  }
+  .page-num {
+    position: absolute; bottom: 34px; right: 72px;
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.16em; color: var(--stone-500);
+  }
+  .page-brand {
+    position: absolute; bottom: 32px; left: 72px;
+  }
+
+  /* ---- Logo — OF4S shorthand (locked, design-system/logo-type.html) ---- */
+  .logo { display: inline-flex; align-items: center; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.03em; line-height: 0.9; color: var(--navy-800); }
+  .logo .four { color: var(--navy-500); }
+  .logo.on-dark { color: var(--paper-50); }
+  .logo.on-dark .four { color: var(--navy-300); }
+
+  /* Horizontal lockup: mark + rule + stacked mono caption — letterhead / cover use */
+  .lockup-h { display: inline-flex; align-items: center; gap: 18px; }
+  .lockup-h .rule { width: 1px; align-self: stretch; background: rgba(15,29,51,0.18); }
+  .lockup-h.on-dark .rule { background: rgba(255,255,255,0.25); }
+  .lockup-h .fullname { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--stone-600); line-height: 1.9; }
+  .lockup-h.on-dark .fullname { color: var(--paper-200); }
+
+  /* ---- Shared type ---- */
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--navy-600); margin: 0 0 10px;
+  }
+  .sec-title {
+    font-family: var(--font-display); font-weight: 500; font-size: 30px;
+    letter-spacing: -0.015em; margin: 0 0 6px; color: var(--stone-900);
+    text-wrap: balance;
+  }
+  .rule { height: 2px; background: var(--stone-900); border: 0; margin: 0 0 26px; }
+  .rule-thin { height: 1px; background: rgba(26,24,20,0.14); border: 0; margin: 18px 0; }
+  p.body { font-size: 13px; line-height: 1.66; color: var(--stone-700); margin: 0 0 14px; max-width: 62ch; }
+
+  /* Brass garnish — the ONE sanctioned brass use: tiny mono proof lines only */
+  .garnish { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass-700); }
+  .garnish.on-dark { color: var(--brass-400); }
+
+  /* ============ PAGE 1 — COVER ============ */
+  .cover { background: var(--navy-900); color: var(--paper-50); padding: 0; overflow: hidden; }
+  .cover .inner { position: relative; height: 1056px; padding: 64px 72px; display: flex; flex-direction: column; }
+  .cover .topbar { display: flex; justify-content: space-between; align-items: flex-start; }
+  .cover .est { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--navy-300); text-align: right; text-transform: uppercase; line-height: 1.8; }
+  .cover .hero-img {
+    position: absolute; right: 40px; top: 210px; width: 520px; height: 560px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cover .hero-img::after {
+    content: attr(data-file); font-family: var(--font-mono); font-size: 12px;
+    color: rgba(143,169,199,0.45); letter-spacing: 0.1em;
+    border: 1px dashed rgba(143,169,199,0.35); border-radius: 8px;
+    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  }
+  .cover .hero-img img { max-width: 100%; max-height: 100%; position: relative; }
+  .cover .duo { position: absolute; right: 44px; top: 104px; width: 604px; height: 656px; display: flex; align-items: center; justify-content: center; }
+  .cover .duo img { object-fit: contain; max-width: 100%; max-height: 100%; }
+  .cover .title-block { margin-top: auto; }
+  .cover .kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--navy-300); margin-bottom: 18px; }
+  .cover h1 { font-family: var(--font-display); font-weight: 300; font-size: 76px; line-height: 0.98; letter-spacing: -0.03em; margin: 0; color: var(--paper-50); max-width: 620px; text-wrap: balance; }
+  .cover h1 em { color: var(--navy-300); font-weight: 400; }
+  .cover .edition { display: flex; gap: 40px; margin-top: 34px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.28); }
+  .cover .edition .cell .l { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-300); }
+  .cover .edition .cell .v { font-family: var(--font-display); font-size: 18px; margin-top: 4px; color: var(--paper-100); }
+  .cover .band { position: absolute; left: 0; top: 0; width: 8px; height: 100%; background: var(--navy-300); }
+
+  /* ============ PAGE 2 — CONTENTS ============ */
+  .toc-list { list-style: none; margin: 0; padding: 0; }
+  .toc-list li { display: flex; align-items: baseline; gap: 12px; padding: 13px 0; border-bottom: 1px solid rgba(26,24,20,0.1); }
+  .toc-list .n { font-family: var(--font-mono); font-size: 11px; color: var(--navy-600); width: 30px; letter-spacing: 0.08em; }
+  .toc-list .t { font-family: var(--font-display); font-size: 18px; font-weight: 500; color: var(--stone-900); }
+  .toc-list .dots { flex: 1; border-bottom: 1px dotted rgba(26,24,20,0.25); transform: translateY(-4px); }
+  .toc-list .pg { font-family: var(--font-mono); font-size: 12px; color: var(--stone-500); font-variant-numeric: tabular-nums; }
+  .about { margin-top: 40px; padding: 28px 30px; background: var(--paper-100); border-radius: 8px; }
+  .about h3 { font-family: var(--font-display); font-size: 20px; font-weight: 500; margin: 0 0 10px; color: var(--stone-900); }
+  .about p { font-size: 13px; line-height: 1.66; color: var(--stone-600); margin: 0 0 10px; }
+  .about .tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--navy-600); margin-top: 8px; }
+
+  /* ============ PRODUCT PAGES ============ */
+  .prod-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6px; }
+  .prod-head .idx { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; color: var(--navy-600); text-transform: uppercase; }
+
+  /* Chair image frame (placeholder shows target filename) */
+  .chair-frame {
+    background: var(--paper-100); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .chair-frame::after {
+    content: attr(data-file); position: absolute;
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em;
+    color: var(--stone-400);
+    border: 1px dashed var(--paper-300); border-radius: 8px;
+    inset: 14px; display: flex; align-items: center; justify-content: center; text-align: center;
+  }
+  .chair-frame img { max-width: 86%; max-height: 86%; position: relative; z-index: 1; }
+
+  /* Hero product (Sidon) */
+  .hero-prod { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: stretch; }
+  .hero-prod .chair-frame { min-height: 640px; }
+  .hero-prod .spec .name { font-family: var(--font-display); font-weight: 500; font-size: 46px; letter-spacing: -0.02em; line-height: 1; margin: 14px 0 2px; }
+  .hero-prod .spec .tagline { font-size: 13px; color: var(--stone-500); margin: 0 0 22px; }
+  .price-line { display: flex; align-items: baseline; gap: 10px; margin: 20px 0 6px; }
+  .price-line .lp { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--stone-500); }
+  .price-line .amt { font-family: var(--font-display); font-weight: 500; font-size: 32px; color: var(--navy-800); letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+  .sku { font-family: var(--font-mono); font-size: 11px; color: var(--stone-600); letter-spacing: 0.04em; margin: 6px 0 0; }
+  .sku .k { color: var(--stone-400); }
+  .swatches { display: flex; gap: 10px; margin: 22px 0 4px; flex-wrap: wrap; }
+  .swatch { display: flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; color: var(--stone-600); text-transform: uppercase; }
+  .swatch .dot { width: 15px; height: 15px; border-radius: 50%; border: 1px solid rgba(26,24,20,0.18); }
+  .feat { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+  .feat li { position: relative; padding-left: 20px; font-size: 12.5px; color: var(--stone-700); line-height: 1.5; }
+  .feat li::before { content: ''; position: absolute; left: 0; top: 7px; width: 8px; height: 8px; background: var(--navy-600); border-radius: 2px; }
+
+  /* Collection grid (3-up / 2-up) */
+  .collection { display: grid; gap: 26px; margin-top: 4px; }
+  .collection.three { grid-template-columns: repeat(3, 1fr); }
+  .collection.two { grid-template-columns: repeat(2, 1fr); }
+  .card .chair-frame { height: 300px; margin-bottom: 16px; }
+  .collection.two .card .chair-frame { height: 320px; }
+  .card .cname { font-family: var(--font-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; margin: 0 0 2px; }
+  .card .camt { font-family: var(--font-display); font-size: 22px; color: var(--navy-800); margin: 4px 0 6px; font-variant-numeric: tabular-nums; }
+  .card .csku { font-family: var(--font-mono); font-size: 10px; color: var(--stone-500); letter-spacing: 0.03em; line-height: 1.5; }
+  .card .cswatch { display: flex; gap: 6px; margin-top: 10px; }
+  .card .cswatch .dot { width: 13px; height: 13px; border-radius: 50%; border: 1px solid rgba(26,24,20,0.18); }
+  .collection-feat { margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(26,24,20,0.12); display: flex; gap: 30px; flex-wrap: wrap; }
+  .collection-feat .cf { display: flex; align-items: center; gap: 9px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone-600); }
+  .collection-feat .cf b { color: var(--navy-700); font-weight: 600; }
+  .tbc { font-family: var(--font-mono); font-size: 10px; color: var(--navy-800); background: var(--navy-100); padding: 2px 7px; border-radius: 3px; letter-spacing: 0.05em; }
+
+  /* ---- Gallery / colorway strips ---- */
+  .gallery { display: flex; gap: 12px; margin-top: 20px; }
+  .gallery .g { flex: 1; min-width: 0; }
+  .gallery .g .frame { background: var(--paper-100); border-radius: 8px; height: 132px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .gallery .g .frame img { max-width: 84%; max-height: 84%; }
+  .gallery .g .cap { font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone-500); text-align: center; margin-top: 7px; }
+  .colorway { margin-top: 24px; }
+  .cw-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--navy-600); margin-bottom: 2px; }
+
+  /* ============ INFO PAGES (programs / warranty / terms / care) ============ */
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 6px; }
+  .info-card { background: var(--paper-100); border-radius: 8px; padding: 22px 24px; }
+  .info-card.full { grid-column: 1 / -1; }
+  .info-card h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--navy-600); margin: 0 0 10px; }
+  .info-card p, .info-card li { font-size: 12px; line-height: 1.6; color: var(--stone-700); }
+  .info-card p { margin: 0 0 8px; }
+  .info-card ul { margin: 0; padding-left: 16px; display: flex; flex-direction: column; gap: 6px; }
+  .info-card .big { font-family: var(--font-display); font-size: 30px; color: var(--navy-800); font-weight: 500; }
+  .info-card .cond { font-size: 11px; color: var(--stone-500); }
+
+  .warranty-terms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 8px 0 24px; }
+  .warranty-terms .wt { padding: 20px; border: 1px solid rgba(26,24,20,0.12); border-radius: 8px; text-align: center; }
+  .warranty-terms .wt .yrs { font-family: var(--font-display); font-size: 44px; font-weight: 500; color: var(--stone-900); line-height: 1; }
+  .warranty-terms .wt .for { font-size: 11px; color: var(--stone-600); margin-top: 8px; line-height: 1.4; }
+
+  .terms-cols { column-count: 2; column-gap: 32px; }
+  .terms-block { break-inside: avoid; margin-bottom: 16px; }
+  .terms-block h5 { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy-600); margin: 0 0 5px; }
+  .terms-block p { font-size: 10.5px; line-height: 1.55; color: var(--stone-600); margin: 0; }
+  .terms-block.flag p { color: var(--stone-900); font-weight: 500; }
+
+  .care-list { list-style: none; margin: 6px 0 0; padding: 0; column-count: 2; column-gap: 34px; }
+  .care-list li { break-inside: avoid; position: relative; padding-left: 22px; margin-bottom: 14px; font-size: 12px; line-height: 1.55; color: var(--stone-700); }
+  .care-list li::before { content: counter(care, decimal-leading-zero); counter-increment: care; position: absolute; left: 0; top: 0; font-family: var(--font-mono); font-size: 10px; color: var(--navy-600); }
+  .care-list { counter-reset: care; }
+
+  /* ============ RMA FORM ============ */
+  .rma-grp { margin-bottom: 20px; }
+  .rma-grp .glabel { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--navy-600); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+  .rma-grp .glabel::after { content: ''; flex: 1; height: 1px; background: rgba(26,24,20,0.12); }
+  .rma-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+  .rma-field { display: flex; flex-direction: column; gap: 6px; }
+  .rma-field.wide { grid-column: 1 / -1; }
+  .rma-field .fl { font-size: 11px; color: var(--stone-600); }
+  .rma-field .fb { height: 30px; border-bottom: 1px solid var(--stone-400); }
+  .rma-field .fb.tall { height: 60px; }
+  .rma-check { display: flex; gap: 20px; flex-wrap: wrap; }
+  .rma-check .c { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--stone-700); }
+  .rma-check .box { width: 13px; height: 13px; border: 1px solid var(--stone-400); border-radius: 2px; }
+  .rma-top { display: flex; justify-content: space-between; gap: 20px; background: var(--navy-900); color: var(--paper-50); padding: 18px 24px; border-radius: 8px; margin-bottom: 22px; }
+  .rma-top .rl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-300); }
+  .rma-top .rfill { border-bottom: 1px solid rgba(255,255,255,0.35); min-width: 120px; height: 20px; }
+  .rma-note { font-size: 10.5px; line-height: 1.55; color: var(--stone-500); margin-top: 8px; }
+
+  /* ============ BACK COVER ============ */
+  .back { background: var(--navy-900); color: var(--paper-50); padding: 0; }
+  .back .inner { height: 1056px; padding: 72px; display: flex; flex-direction: column; }
+  .back .parent { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-300); margin-top: 8px; }
+  .back .contact { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .back .cblock .l { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-300); margin-bottom: 8px; }
+  .back .cblock .v { font-size: 14px; line-height: 1.6; color: var(--paper-100); }
+  .back .tagline { font-family: var(--font-display); font-weight: 400; font-size: 26px; color: var(--navy-300); margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.28); text-wrap: balance; }
+  .back .garnish { margin-top: 16px; }
+
+  @media (max-width: 900px) {
+    .page { width: 100%; min-height: 0; padding: 36px 28px; }
+    .catalog-backdrop { padding: 20px 12px 40px; overflow-x: hidden; }
+    .cover .inner { padding: 40px 26px; }
+    .cover .topbar { flex-direction: column; gap: 14px; }
+    .cover .est { text-align: left; }
+    .cover .edition { flex-wrap: wrap; gap: 20px; }
+    .back .inner { padding: 40px 28px; }
+    .back .contact { grid-template-columns: 1fr; gap: 22px; }
+    .warranty-terms { grid-template-columns: 1fr; }
+    .gallery { flex-wrap: wrap; }
+    .gallery .g { flex: 1 1 42%; }
+    .cover .inner, .back .inner { height: auto; }
+    .cover .hero-img { position: static; width: 100%; height: 320px; margin: 24px 0; }
+    .cover .duo { position: static; width: 100%; height: 340px; margin: 20px 0; }
+    .cover .duo img { max-height: 96%; }
+    .cover h1 { font-size: 48px; }
+    .hero-prod { grid-template-columns: 1fr; }
+    .hero-prod .chair-frame { min-height: 360px; }
+    .collection.three, .collection.two, .info-grid, .rma-fields { grid-template-columns: 1fr; }
+    .terms-cols, .care-list { column-count: 1; }
+    .page-num, .page-brand { position: static; margin-top: 20px; }
+    .lockup-h { flex-wrap: wrap; gap: 12px; }
+  }
+
+  /* ============ PRINT ============ */
+  @page { size: letter; margin: 0; }
+  @media print {
+    .catalog-backdrop { background: #fff; padding: 0; }
+    .catalog-note { display: none; }
+    .page { box-shadow: none; margin: 0; height: 1056px; overflow: hidden; page-break-after: always; }
+    .page:last-child { page-break-after: auto; }
+  }
+  /* final build: hide placeholder slot labels so transparent PNGs show cleanly */
+  .chair-frame::after, .cover .hero-img::after { content: none !important; border: none !important; }
+</style>
+</head>
+<body>
+<div class="catalog-backdrop">
+
+  <!-- ============ PAGE 1 · COVER ============ -->
+  <section class="page cover">
+    <div class="inner">
+      <div class="band"></div>
+      <div class="topbar">
+        <span class="lockup-h on-dark">
+          <span class="logo on-dark" style="font-size:40px;">OF<span class="four">4</span>S</span>
+          <span class="rule"></span>
+          <span class="fullname">OFFICE FURNITURE<br/>4 SALE</span>
+        </span>
+        <div class="est">Trade &amp; Wholesale<br/>Program · 2026</div>
+      </div>
+      <div class="duo">
+        <img class="solo" src="stella%20dg%20w%20hr%202.png" alt="Sidon executive chair" onerror="this.style.display='none'"/>
+      </div>
+      <div class="title-block">
+        <div class="kicker">Seating Trade Catalog</div>
+        <h1>Contract seating, <em>dealer-direct.</em></h1>
+        <div class="edition">
+          <div class="cell"><div class="l">Edition</div><div class="v">2026</div></div>
+          <div class="cell"><div class="l">Program</div><div class="v">Wholesale / Trade</div></div>
+          <div class="cell"><div class="l">Origin</div><div class="v">Import Collection</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 2 · CONTENTS ============ -->
+  <section class="page">
+    <p class="eyebrow">2026 Edition</p>
+    <h2 class="sec-title">Contents</h2>
+    <hr class="rule"/>
+    <ul class="toc-list">
+      <li><span class="n">01</span><span class="t">Sidon — Executive High-Back</span><span class="dots"></span><span class="pg">03</span></li>
+      <li><span class="n">02</span><span class="t">Aley Collection — Visitor · Mid · High</span><span class="dots"></span><span class="pg">04</span></li>
+      <li><span class="n">03</span><span class="t">Calico Collection — Task · Visitor · All-Gray</span><span class="dots"></span><span class="pg">05</span></li>
+      <li><span class="n">04</span><span class="t">Gibran Collection — Stack · Armless Stack</span><span class="dots"></span><span class="pg">06</span></li>
+      <li><span class="n">05</span><span class="t">Ordering &amp; Delivery Programs</span><span class="dots"></span><span class="pg">07</span></li>
+      <li><span class="n">06</span><span class="t">Warranty</span><span class="dots"></span><span class="pg">08</span></li>
+      <li><span class="n">07</span><span class="t">Terms &amp; Conditions</span><span class="dots"></span><span class="pg">09</span></li>
+      <li><span class="n">08</span><span class="t">Care &amp; Maintenance</span><span class="dots"></span><span class="pg">10</span></li>
+      <li><span class="n">09</span><span class="t">RMA Form</span><span class="dots"></span><span class="pg">11</span></li>
+    </ul>
+    <div class="about">
+      <h3>Furnishing the entrepreneurial spirit since 2005.</h3>
+      <p>The OF4S import seating collection is available dealer-direct through our wholesale program. Every model is held or produced for the trade and shipped from our South Florida distribution center, with local delivery, will-call, and national freight options.</p>
+      <p>Orders are accepted from approved OF4S dealers via email. See ordering procedure and terms inside.</p>
+      <div class="tag">A The Outlet Center of Florida Company</div>
+    </div>
+    <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
+    <div class="page-num">02 · Seating Trade Catalog 2026</div>
+  </section>
+
+  <!-- ============ PAGE 3 · SIDON ============ -->
+  <section class="page">
+    <div class="prod-head">
+      <span class="idx">01 · Executive Seating</span>
+    </div>
+    <hr class="rule"/>
+    <div class="hero-prod">
+      <div class="chair-frame" style="min-height:460px" data-file="stella jb w hr.png"><img src="stella%20jb%20w%20hr.png" alt="Sidon executive high-back, black, front" onerror="this.style.display='none'"/></div>
+      <div class="spec">
+        <p class="eyebrow" style="margin-bottom:4px;">Sidon</p>
+        <div class="name">Sidon</div>
+        <p class="tagline">Executive high-back mesh task chair</p>
+        <div class="price-line"><span class="amt">$625.00</span><span class="lp">List</span></div>
+        <p class="sku"><span class="k">SKU</span> &nbsp;O-SIDON-HR-&lt;BLK&gt;, &lt;DGY&gt;</p>
+        <div class="swatches">
+          <span class="swatch"><span class="dot" style="background:#1a1814;"></span>Black · BLK</span>
+          <span class="swatch"><span class="dot" style="background:#555047;"></span>Dark Grey · DGY</span>
+        </div>
+        <ul class="feat">
+          <li>Executive high-back profile with integrated headrest.</li>
+          <li>Ergonomic mesh back for all-day support.</li>
+          <li>Built for the eight-hour, single-shift workday.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gallery">
+      <div class="g"><div class="frame"><img src="stella%20dg%20w%20hr%203.png" alt="Sidon dark grey, front" onerror="this.style.display='none'"/></div><div class="cap">Dark Grey · Front</div></div>
+      <div class="g"><div class="frame"><img src="Stella%20DG%20W%20HR.png" alt="Sidon dark grey, angle" onerror="this.style.display='none'"/></div><div class="cap">Dark Grey · Angle</div></div>
+      <div class="g"><div class="frame"><img src="stella%20dg%20w%20hr%202.png" alt="Sidon dark grey, side" onerror="this.style.display='none'"/></div><div class="cap">Dark Grey · Side</div></div>
+    </div>
+    <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
+    <div class="page-num">03 · Sidon</div>
+  </section>
+
+  <!-- ============ PAGE 4 · ALEY COLLECTION ============ -->
+  <section class="page">
+    <div class="prod-head"><span class="idx">02 · Task &amp; Visitor Seating</span></div>
+    <hr class="rule"/>
+    <p class="eyebrow" style="margin-bottom:4px;">The Aley Collection</p>
+    <h2 class="sec-title">Aley</h2>
+    <p class="body">One chassis, three back heights — a visitor chair and matching mid- and high-back task chairs. Four upholstery colors across the family.</p>
+    <div class="collection three">
+      <div class="card">
+        <div class="chair-frame" data-file="Realbiz v blk.png"><img src="Realbiz%20v%20blk.png" alt="Aley Visitor, black" onerror="this.style.display='none'"/></div>
+        <div class="cname">Aley Visitor</div>
+        <div class="camt">$380.19</div>
+        <div class="csku">O-ALEY-V-&lt;BLK&gt;<br/>&lt;GRY&gt; &lt;NVY&gt; &lt;TAU&gt;</div>
+        <div class="cswatch"><span class="dot" style="background:#1a1814;"></span><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#15273f;"></span><span class="dot" style="background:#b8a58c;"></span></div>
+      </div>
+      <div class="card">
+        <div class="chair-frame" data-file="Realbiz mb blk.png"><img src="Realbiz%20mb%20blk.png" alt="Aley Mid-Back, black" onerror="this.style.display='none'"/></div>
+        <div class="cname">Aley Mid-Back</div>
+        <div class="camt">$397.27</div>
+        <div class="csku">O-ALEY-M-&lt;BLK&gt;<br/>&lt;GRY&gt; &lt;NVY&gt; &lt;TAU&gt;</div>
+        <div class="cswatch"><span class="dot" style="background:#1a1814;"></span><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#15273f;"></span><span class="dot" style="background:#b8a58c;"></span></div>
+      </div>
+      <div class="card">
+        <div class="chair-frame" data-file="Realbiz hb blk.png"><img src="Realbiz%20hb%20blk.png" alt="Aley High-Back, black" onerror="this.style.display='none'"/></div>
+        <div class="cname">Aley High-Back</div>
+        <div class="camt">$471.64</div>
+        <div class="csku">O-ALEY-H-&lt;BLK&gt;<br/>&lt;GRY&gt; &lt;NVY&gt; &lt;TAU&gt;</div>
+        <div class="cswatch"><span class="dot" style="background:#1a1814;"></span><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#15273f;"></span><span class="dot" style="background:#b8a58c;"></span></div>
+      </div>
+    </div>
+    <div class="colorway">
+      <div class="cw-label">Available in four colors — shown in high-back</div>
+      <div class="gallery">
+        <div class="g"><div class="frame"><img src="Realbiz%20hb%20blk.png" alt="Aley high-back black" onerror="this.style.display='none'"/></div><div class="cap">Black</div></div>
+        <div class="g"><div class="frame"><img src="Realbiz%20hb%20gry.png" alt="Aley high-back grey" onerror="this.style.display='none'"/></div><div class="cap">Grey</div></div>
+        <div class="g"><div class="frame"><img src="Realbiz%20hb%20nvy.png" alt="Aley high-back navy" onerror="this.style.display='none'"/></div><div class="cap">Navy</div></div>
+        <div class="g"><div class="frame"><img src="Realbiz%20hb%20tau.png" alt="Aley high-back taupe" onerror="this.style.display='none'"/></div><div class="cap">Taupe</div></div>
+      </div>
+    </div>
+    <div class="collection-feat">
+      <span class="cf"><b>4</b> upholstery colors</span>
+      <span class="cf">Black · Grey · Navy · Taupe</span>
+      <span class="cf">Visitor · Mid · High back</span>
+    </div>
+    <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
+    <div class="page-num">04 · Aley Collection</div>
+  </section>
+
+  <!-- ============ PAGE 5 · CALICO COLLECTION ============ -->
+  <section class="page">
+    <div class="prod-head"><span class="idx">03 · Mesh Task &amp; Visitor Seating</span></div>
+    <hr class="rule"/>
+    <p class="eyebrow" style="margin-bottom:4px;">The Calico Collection</p>
+    <h2 class="sec-title">Calico</h2>
+    <p class="body">Ultra-strong nylon mesh back seating in task and visitor formats, with an all-gray upgrade option.</p>
+    <div class="collection three">
+      <div class="card">
+        <div class="chair-frame" data-file="haley 2 gry.png"><img src="haley%202%20gry.png" alt="Calico Task, grey mesh" onerror="this.style.display='none'"/></div>
+        <div class="cname">Calico Task</div>
+        <div class="camt">$218.75</div>
+        <div class="csku">O-CL2023T-&lt;GRY&gt;, &lt;BLK&gt;</div>
+        <div class="cswatch"><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#1a1814;"></span></div>
+      </div>
+      <div class="card">
+        <div class="chair-frame" data-file="haley 2 v blk.png"><img src="haley%202%20v%20blk.png" alt="Calico Visitor, black" onerror="this.style.display='none'"/></div>
+        <div class="cname">Calico Visitor</div>
+        <div class="camt">$218.75</div>
+        <div class="csku">O-CL2023V-&lt;GRY&gt;, &lt;BLK&gt;</div>
+        <div class="cswatch"><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#1a1814;"></span></div>
+      </div>
+      <div class="card">
+        <div class="chair-frame" data-file="HALEY II ERGONOMIC MESH TASK CHAIR gry.png"><img src="HALEY%20II%20ERGONOMIC%20MESH%20TASK%20CHAIR%20gry.png" alt="Calico Task All-Gray, ergonomic mesh" onerror="this.style.display='none'"/></div>
+        <div class="cname">Calico Task — All Gray</div>
+        <div class="camt">$246.25</div>
+        <div class="csku">O-CL2023T-AG</div>
+        <div class="cswatch"><span class="dot" style="background:#a8a094;"></span></div>
+      </div>
+    </div>
+    <div class="colorway">
+      <div class="cw-label">Also available — in grey and black</div>
+      <div class="gallery">
+        <div class="g"><div class="frame"><img src="haley%202%20.png" alt="Calico Task, black" onerror="this.style.display='none'"/></div><div class="cap">Task · Black</div></div>
+        <div class="g"><div class="frame"><img src="haley%202%20v%20gry.png" alt="Calico Visitor, grey" onerror="this.style.display='none'"/></div><div class="cap">Visitor · Grey</div></div>
+      </div>
+    </div>
+    <div class="collection-feat">
+      <span class="cf"><b>Ultra-strong</b> nylon mesh back rest</span>
+      <span class="cf">Task · Visitor · All-Gray</span>
+    </div>
+    <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
+    <div class="page-num">05 · Calico Collection</div>
+  </section>
+
+  <!-- ============ PAGE 6 · GIBRAN COLLECTION ============ -->
+  <section class="page">
+    <div class="prod-head"><span class="idx">04 · Stackable Seating</span></div>
+    <hr class="rule"/>
+    <p class="eyebrow" style="margin-bottom:4px;">The Gibran Collection</p>
+    <h2 class="sec-title">Gibran</h2>
+    <p class="body">Fully welded, stackable frames for high-density and multipurpose rooms — offered with and without arms.</p>
+    <div class="collection two">
+      <div class="card">
+        <div class="chair-frame" data-file="weston blk.png"><img src="weston%20blk.png" alt="Gibran Stack Chair" onerror="this.style.display='none'"/></div>
+        <div class="cname">Gibran Stack Chair</div>
+        <div class="camt">$201.39</div>
+        <div class="csku">O-GIBRAN-&lt;BLK&gt;, &lt;GRY&gt;, &lt;BLU&gt;,<br/>&lt;GRN&gt;, &lt;RED&gt;, &lt;ORA&gt;</div>
+        <div class="cswatch"><span class="dot" style="background:#1a1814;"></span><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#5b8fc7;"></span><span class="dot" style="background:#7a9a4f;"></span><span class="dot" style="background:#9c3a30;"></span><span class="dot" style="background:#d08a3e;"></span></div>
+      </div>
+      <div class="card">
+        <div class="chair-frame" data-file="Weston blk armless 2.png"><img src="Weston%20blk%20armless%202.png" alt="Gibran Armless Stack Chair" onerror="this.style.display='none'"/></div>
+        <div class="cname">Gibran Armless Stack Chair</div>
+        <div class="camt">$185.92</div>
+        <div class="csku">O-GIBRAN-V-&lt;BLK&gt;</div>
+        <div class="cswatch"><span class="dot" style="background:#1a1814;"></span></div>
+      </div>
+    </div>
+    <div class="colorway">
+      <div class="cw-label">Gibran Stack — six seat colors</div>
+      <div class="gallery">
+        <div class="g"><div class="frame"><img src="weston%20blk.png" alt="Gibran black" onerror="this.style.display='none'"/></div><div class="cap">Black</div></div>
+        <div class="g"><div class="frame"><img src="Weston%20gry.png" alt="Gibran grey" onerror="this.style.display='none'"/></div><div class="cap">Grey</div></div>
+        <div class="g"><div class="frame"><img src="weston%20blu.png" alt="Gibran blue" onerror="this.style.display='none'"/></div><div class="cap">Blue</div></div>
+        <div class="g"><div class="frame"><img src="weston%20grn.png" alt="Gibran green" onerror="this.style.display='none'"/></div><div class="cap">Green</div></div>
+        <div class="g"><div class="frame"><img src="weston%20red.png" alt="Gibran red" onerror="this.style.display='none'"/></div><div class="cap">Red</div></div>
+        <div class="g"><div class="frame"><img src="weston%20ora%20.png" alt="Gibran orange" onerror="this.style.display='none'"/></div><div class="cap">Orange</div></div>
+      </div>
+    </div>
+    <div class="collection-feat">
+      <span class="cf"><b>Fully welded</b> frame construction</span>
+      <span class="cf"><b>Stackable</b> up to eight</span>
+      <span class="cf"><b>Ultra-strong</b> nylon mesh back rest</span>
+    </div>
+    <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
+    <div class="page-num">06 · Gibran Collection</div>
+  </section>
+
+  <!-- ============ PAGE 7 · PROGRAMS ============ -->
+  <section class="page">
+    <p class="eyebrow">05 · Logistics</p>
+    <h2 class="sec-title">Ordering &amp; delivery programs</h2>
+    <hr class="rule"/>
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>Local Delivery — Tri-County</h4>
+        <p class="big">Free</p>
+        <p>Free local delivery (Miami-Dade, Broward &amp; Palm Beach) for all orders exceeding <strong>$500 net</strong>.</p>
+        <p class="cond">Orders under $500 net: $50.00 delivery service.</p>
+      </div>
+      <div class="info-card">
+        <h4>Will-Call</h4>
+        <p>1790 West 8th Avenue, Hialeah, FL 33010.</p>
+        <p>Monday–Friday, 9:30 AM – 5:00 PM EST. Orders available for pick-up within 24 hours of order acknowledgement.</p>
+      </div>
+      <div class="info-card">
+        <h4>Local Assembly Service</h4>
+        <p class="big">$13.00<span style="font-size:13px;color:var(--stone-500);"> / unit</span></p>
+        <p>Optional assembly for tri-county deliveries.</p>
+      </div>
+      <div class="info-card">
+        <h4>National Shipping</h4>
+        <p>All shipping outside the local tri-county delivery zone is quoted to the client prior to order acknowledgement.</p>
+      </div>
+      <div class="info-card full">
+        <h4>Special Order / Container Program</h4>
+        <p>A 50% non-refundable deposit is required to enter your order into production. Minimum quantities apply — please call for details. Products ship to any destination within the continental United States in approximately <strong>45–60 days</strong>.</p>
+      </div>
+      <div class="info-card full">
+        <h4>Ordering Procedure</h4>
+        <p>The first 5 orders are pre-paid. An approved credit application is required to open an OF4S wholesale account and establish credit terms. Orders are accepted only from approved OF4S dealers, by email to <strong>BO@officefurniture4sale.com</strong>. OF4S does not accept verbal purchase orders or revisions.</p>
+      </div>
+    </div>
+    <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
+    <div class="page-num">07 · Programs</div>
+  </section>
+
+  <!-- ============ PAGE 8 · WARRANTY ============ -->
+  <section class="page">
+    <p class="eyebrow">06 · Coverage</p>
+    <h2 class="sec-title">Seating warranty</h2>
+    <hr class="rule"/>
+    <p class="body">OF4S warrants its products to be free from defects in material and workmanship under normal use and care. This warranty is made only to the original end user, for the following periods from the original date of purchase:</p>
+    <div class="warranty-terms">
+      <div class="wt"><div class="yrs">5</div><div class="for">Years — non-moving parts</div></div>
+      <div class="wt"><div class="yrs">3</div><div class="for">Years — mechanisms, gas cylinders &amp; other moving parts</div></div>
+      <div class="wt"><div class="yrs">3</div><div class="for">Years — upholstery materials &amp; foam</div></div>
+    </div>
+    <div class="info-card full" style="background:var(--paper-100);">
+      <h4>Conditions</h4>
+      <p>Based on an eight-hour, single-shift workday for users weighing up to 250 lbs, or as otherwise noted. OF4S will, at its discretion, replace or repair any product defective in materials or workmanship given normal use and care. Variation of wood, leather or other natural materials is not considered a defect.</p>
+      <p>This warranty does not cover damage caused by transportation; costs of transportation or labor; or normal wear and tear, negligence, abuse, accident or misuse. It does not apply if the chair has been altered, repaired, refurbished or re-upholstered by the purchaser, and is void if products are used for rental purposes.</p>
+      <p style="margin:0;"><strong>All warranty claims:</strong> BO@officefurniture4sale.com — original invoice #, a detailed description of the issue, and a digital photo are required at the time the claim is filed.</p>
+    </div>
+    <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
+    <div class="page-num">08 · Warranty</div>
+  </section>
+
+  <!-- ============ PAGE 9 · TERMS ============ -->
+  <section class="page">
+    <p class="eyebrow">07 · The Fine Print</p>
+    <h2 class="sec-title">Terms &amp; conditions</h2>
+    <hr class="rule"/>
+    <div class="terms-cols">
+      <div class="terms-block"><h5>Order Acknowledgement</h5><p>OF4S sends acknowledgements on all orders. Please review carefully and advise us immediately of any discrepancies. The order acknowledgement is the final agreement between OF4S and the customer, superseding all previous communication regarding that order.</p></div>
+      <div class="terms-block"><h5>Cancellation &amp; Order Changes</h5><p>Cancellations or revisions will not be accepted after the order has shipped or been picked up.</p></div>
+      <div class="terms-block"><h5>Freight Damage · Refusals · Shortages</h5><p>OF4S's back-office team administers these claims when the order ships via our designated carriers. All claims must be filed within 15 calendar days of receipt of goods. A claim will be disputed if product is moved from the original ship-to location. Send a copy of the bill of lading noting any visible damage, refusal or shortage. OF4S is not responsible for filing claims if the order ships via the customer's selected carrier.</p></div>
+      <div class="terms-block"><h5>Manufacturing Defect / Concealed Damage</h5><p>Must be filed within 15 days of receipt of goods. A digital photo and a properly completed OF4S claim form are required to process the claim.</p></div>
+      <div class="terms-block"><h5>Limitation of Liability</h5><p>Under no circumstances shall OF4S be liable for lost profits, loss of goodwill, stored data, or general, special, consequential or exemplary damages. OF4S's liability is limited to repair or replacement of defective parts, or the purchase price of the product. Except as provided, OF4S makes no other warranties, expressed or implied, including merchantability and fitness for a particular purpose.</p></div>
+      <div class="terms-block"><h5>Parts Replacement</h5><p>Replacement parts are available from our distribution center.</p></div>
+      <div class="terms-block flag"><h5>Returns</h5><p>Returns not accepted.</p></div>
+      <div class="terms-block"><h5>Renderings</h5><p>Fabrics and finishes may vary in catalog renderings and dye lot.</p></div>
+    </div>
+    <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
+    <div class="page-num">09 · Terms &amp; Conditions</div>
+  </section>
+
+  <!-- ============ PAGE 10 · CARE ============ -->
+  <section class="page">
+    <p class="eyebrow">08 · Longevity</p>
+    <h2 class="sec-title">Care &amp; maintenance</h2>
+    <hr class="rule"/>
+    <ol class="care-list">
+      <li>Dust all surfaces regularly with a soft damp cloth, in the grain direction. Do not use spray polishes or those containing silicone.</li>
+      <li>Lift objects when moving them; never drag across a finished surface. Keep sharp metal objects — keys, spring binders, briefcase hinges — from contacting the finish.</li>
+      <li>Place wet objects on coasters; use a desk pad for writing.</li>
+      <li>Protect the bottoms of items such as flower vases and desk accessories.</li>
+      <li>Contact with certain plastics may cause discoloration and finish damage.</li>
+      <li>Use felt pads under electronic equipment.</li>
+      <li>Furnishings exposed to ultraviolet rays may change color.</li>
+      <li>Lubricate drawer-suspension housings and ball bearings every 6 months with a high-quality petroleum-jelly-type lubricant.</li>
+      <li>Clean pull hardware with a window-type cleaner sprayed onto the cloth, not the hardware.</li>
+      <li>Furniture settles over time — check that units are level and adjust glides to keep drawers aligned.</li>
+    </ol>
+    <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
+    <div class="page-num">10 · Care &amp; Maintenance</div>
+  </section>
+
+  <!-- ============ PAGE 11 · RMA FORM ============ -->
+  <section class="page">
+    <p class="eyebrow">09 · Returns Authorization</p>
+    <h2 class="sec-title">RMA form</h2>
+    <hr class="rule"/>
+    <div class="rma-top">
+      <div><div class="rl">RMA #</div><div class="rfill"></div></div>
+      <div><div class="rl">Date</div><div class="rfill"></div></div>
+      <div><div class="rl">Sale Order #</div><div class="rfill"></div></div>
+      <div><div class="rl">PO #</div><div class="rfill"></div></div>
+    </div>
+    <p class="rma-note">An RMA must be filed when merchandise is returned. Pictures of the damaged goods and original cartons are required and must accompany your claim; failure to include them will delay or deny processing. Return the completed form to BO@officefurniture4sale.com.</p>
+
+    <div class="rma-grp">
+      <div class="glabel">Contact Information</div>
+      <div class="rma-fields">
+        <div class="rma-field"><span class="fl">First Name</span><span class="fb"></span></div>
+        <div class="rma-field"><span class="fl">Last Name</span><span class="fb"></span></div>
+        <div class="rma-field wide"><span class="fl">Company Name</span><span class="fb"></span></div>
+      </div>
+    </div>
+
+    <div class="rma-grp">
+      <div class="glabel">Product Information</div>
+      <div class="rma-fields">
+        <div class="rma-field"><span class="fl">Product Name</span><span class="fb"></span></div>
+        <div class="rma-field"><span class="fl">Model</span><span class="fb"></span></div>
+        <div class="rma-field"><span class="fl">Quantity</span><span class="fb"></span></div>
+        <div class="rma-field"><span class="fl">Color</span><span class="fb"></span></div>
+      </div>
+    </div>
+
+    <div class="rma-grp">
+      <div class="glabel">Damage Type</div>
+      <div class="rma-check">
+        <span class="c"><span class="box"></span>Freight damage</span>
+        <span class="c"><span class="box"></span>Manufacturer defect</span>
+        <span class="c"><span class="box"></span>Concealed damage</span>
+        <span class="c"><span class="box"></span>Other</span>
+      </div>
+    </div>
+
+    <div class="rma-grp">
+      <div class="glabel">RMA Type</div>
+      <div class="rma-check">
+        <span class="c"><span class="box"></span>Exchange</span>
+        <span class="c"><span class="box"></span>Repair</span>
+        <span class="c"><span class="box"></span>Other</span>
+      </div>
+    </div>
+
+    <div class="rma-grp">
+      <div class="glabel">Description of Problem</div>
+      <div class="rma-fields"><div class="rma-field wide"><span class="fb tall"></span></div></div>
+    </div>
+    <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
+    <div class="page-num">11 · RMA Form</div>
+  </section>
+
+  <!-- ============ PAGE 12 · BACK COVER ============ -->
+  <section class="page back">
+    <div class="inner">
+      <div>
+        <span class="lockup-h on-dark">
+          <span class="logo on-dark" style="font-size:36px;">OF<span class="four">4</span>S</span>
+          <span class="rule"></span>
+          <span class="fullname">OFFICE FURNITURE<br/>4 SALE</span>
+        </span>
+        <div class="parent">A The Outlet Center of Florida Company</div>
+      </div>
+      <div class="contact">
+        <div class="cblock">
+          <div class="l">Distribution Center</div>
+          <div class="v">1790 West 8th Avenue<br/>Hialeah, FL 33010</div>
+        </div>
+        <div class="cblock">
+          <div class="l">Hours</div>
+          <div class="v">Monday – Friday<br/>9:30 AM – 5:00 PM EST</div>
+        </div>
+        <div class="cblock">
+          <div class="l">Phone</div>
+          <div class="v">(305) 889-3364</div>
+        </div>
+        <div class="cblock">
+          <div class="l">Orders &amp; Claims</div>
+          <div class="v">BO@officefurniture4sale.com<br/>officefurniture4sale.com</div>
+        </div>
+      </div>
+      <div class="tagline">Furnishing the entrepreneurial spirit since 2005.</div>
+      <div class="garnish on-dark">21 years in South Florida · est. 2005</div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
