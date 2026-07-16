@@ -101,6 +101,42 @@ Self-contained; no network needed at render time.
 To build a new one: edit/copy `flyer.html` with the new role's content, set the
 output filename in `render.mjs`, run `node render.mjs`, view the PNG, refine.
 
+## Craft notes — what works (learned from builds)
+
+Concrete, reusable lessons. Start from these; they save iterations.
+
+- **"WE'RE HIRING" is the hook — make it huge.** ~92px Schibsted 800, uppercase,
+  tight tracking (−0.035em; never past the −0.04em floor), white over the hero.
+  The specific role goes directly beneath (~30px) with one navy-300 accent word.
+  A big headline out-pulls a small "hiring" pill every time; that's the whole
+  point of the flyer.
+- **Info bar: size the facts up.** Values want ~20px (not ~15px), and the
+  **compensation** value is the #1 candidate draw — give it the navy-300 accent
+  and a touch more size (~22px) so money reads first. Labels stay small mono caps.
+- **Text over a photo needs active help.** Over the *bright* parts of an image
+  (windows, sky), white and navy-300 both wash out. Fix with BOTH a deeper local
+  scrim gradient *and* a `text-shadow`. Two gradients do the work: a top scrim
+  (dark → transparent by ~27%) so the logo lockup reads, and a bottom-up gradient
+  (near-opaque navy at the base → light by ~34–57%) so the white headline reads.
+  Don't assume — verify on the render.
+- **Keep faces clear of the headline.** Tune `object-position` (≈`50% 42%` for the
+  current photo) so both faces sit fully above "WE'RE HIRING." Confirm with a
+  zoomed crop, not the thumbnail.
+- **QA the way you'd QA print.** Before delivering: (1) confirm one-page fit with
+  `document.querySelector('.page').scrollHeight === 1056` (no overflow); (2)
+  render close-up crops of the logo and info bar (Playwright `clip` on the
+  element's bounding box) and actually read them at size. Small mono captions and
+  accents are where legibility quietly fails.
+- **Vertical budget that fits one page.** Hero ≈424px leaves room for the info
+  bar + body + CTA + note. If the role has long copy, the space savers are: body
+  ~14px / responsibilities ~12.5px, responsibilities in 2 balanced columns
+  (`column-count: 2`, read down-then-across), and the Qualifications +
+  Compensation callout as a side-by-side `duo` rather than stacked.
+- **Accent discipline.** navy-300 is the one light accent that reads on deep navy
+  — use it for the role's accent word, the comp figure, and the CTA accent, and
+  keep it consistent. Everything else structural is the navy scale; body is dark
+  on paper. Brass stays out.
+
 ## Hard rules for this project
 
 1. **Hand off, don't publish.** Deliver the PNG to the user; they distribute it.
