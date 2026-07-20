@@ -21,6 +21,19 @@ The reusable, up-to-date template lives in Odoo as the post **"TEMPLATE — OF4S
 
 ---
 
+## How I want my project blog posts (design preferences)
+
+Locked in from real posts — build to these from the start, so I don't have to ask for the same fixes again. (The exact "how-to" is in Hard rules and Operational lessons below; this is the plain-language "what I want.")
+
+- **Borderless photos.** No boxes or dashed borders around images in the finished post — clean, plain photos, like the published South Florida Donor Network post.
+- **Matching image sizes.** Images shown side by side — especially the 3D-render-vs-finished pair, and the gallery rows — must be the **same size**.
+- **Logos never zoom.** The client logo and the partner logos must **not** be click-to-enlarge (give logo files a name containing "logo", or add `data-no-zoom`).
+- **Photos can zoom, but must never trap the reader.** The click-to-enlarge pop-up must start **closed**, and its **× / Esc must always work** — it must never open by itself or block the page.
+- **Photos are stored as public, reusable images**, so deleting an old draft never wipes the photos out of a live post.
+- **Drafts stay drafts.** I upload the photos and click Publish myself — nothing goes public without me.
+
+---
+
 ## Design system (for any OF4S-branded asset)
 
 `design-system/` is the canonical OF4S v3 design system — tokens, brand voice, components, and specs. Use it as the source of truth for colors, type, logo, and components when building any marketing asset. Reading order: `design-system/HANDOFF.md` → `DELTA.md` → `BUILD-SPEC.md`; `tokens.css` holds the color/type tokens; the `*.html` files are live component/typography/color references.
