@@ -262,29 +262,17 @@
 
   /* ============ BACK COVER ============ */
   .back { background: var(--navy-900); color: var(--paper-50); padding: 0; }
-  .back .inner { height: 1056px; padding: 72px; display: flex; flex-direction: column; position: relative; }
-  .back .art { position: absolute; right: -60px; top: 150px; width: 640px; height: 640px; pointer-events: none; z-index: 0; }
-  .back .art::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle, rgba(143,169,199,0.24) 0%, rgba(143,169,199,0.11) 34%, rgba(143,169,199,0.04) 56%, transparent 72%); }
-  .back .art .ring { position: absolute; border-radius: 50%; border: 1px solid rgba(143,169,199,0.18); }
-  .back .art .ring.r1 { inset: 100px; }
-  .back .art .ring.r2 { inset: 175px; border-color: rgba(143,169,199,0.12); }
-  .back .art .ring.r3 { inset: 250px; border-color: rgba(143,169,199,0.26); }
-  .back .art .dot { position: absolute; bottom: 92px; left: 64px; width: 7px; height: 7px; border-radius: 50%; background: var(--brass-400); }
-  .back .art .dot2 { position: absolute; top: 30px; left: -18px; width: 5px; height: 5px; border-radius: 50%; background: var(--navy-300); opacity: 0.65; }
-  .back .art .dot3 { position: absolute; bottom: 210px; right: 40px; width: 4px; height: 4px; border-radius: 50%; background: var(--navy-300); opacity: 0.5; }
-  .back .art .line { position: absolute; width: 340px; height: 1px; background: linear-gradient(90deg, transparent, rgba(143,169,199,0.35), transparent); top: 74px; left: -110px; transform: rotate(-32deg); transform-origin: left center; }
-  .back .art2 { position: absolute; left: -140px; bottom: -60px; width: 300px; height: 300px; pointer-events: none; z-index: 0; }
-  .back .art2 .ring { position: absolute; border-radius: 50%; border: 1px solid rgba(143,169,199,0.14); }
-  .back .art2 .ring.s1 { inset: 0; }
-  .back .art2 .ring.s2 { inset: 45px; border-color: rgba(143,169,199,0.20); }
-  .back .art .chair { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 1; }
-  .back .art .chair img { max-width: 72%; max-height: 72%; object-fit: contain; }
-  .back .parent { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-300); margin-top: 8px; }
-  .back .contact { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .back .inner { height: 1056px; padding: 72px; position: relative; overflow: hidden; }
+  .back .chair-photo { position: absolute; right: -60px; bottom: 24px; width: 440px; z-index: 1; pointer-events: none; }
+  .back .chair-photo img { width: 100%; display: block; filter: drop-shadow(-18px 26px 34px rgba(0,0,0,0.45)); }
+  .back .floor-shadow { position: absolute; right: -80px; bottom: 4px; width: 500px; height: 90px; border-radius: 50%; background: radial-gradient(ellipse, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.22) 45%, transparent 72%); z-index: 0; pointer-events: none; }
+  .back .parent { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-300); margin-top: 12px; }
+  .back .content { position: absolute; left: 72px; bottom: 84px; width: 392px; z-index: 3; }
+  .back .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 28px; }
   .back .cblock .l { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-300); margin-bottom: 8px; }
-  .back .cblock .v { font-size: 14px; line-height: 1.6; color: var(--paper-100); }
-  .back .tagline { font-family: var(--font-display); font-weight: 400; font-size: 26px; color: var(--navy-300); margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.28); text-wrap: balance; }
-  .back .garnish { margin-top: 16px; }
+  .back .cblock .v { font-size: 13px; line-height: 1.6; color: var(--paper-100); }
+  .back .tagline { font-family: var(--font-display); font-weight: 400; font-size: 24px; color: var(--navy-300); margin-top: 40px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.24); text-wrap: balance; }
+  .back .garnish { margin-top: 14px; }
 
   @media screen and (max-width: 900px) {
     .page { width: 100%; min-height: 0; padding: 36px 28px; }
@@ -789,40 +777,30 @@
         </span>
         <div class="parent">A The Outlet Center of Florida Company</div>
       </div>
-      <div class="art">
-        <div class="line"></div>
-        <div class="ring r1"></div>
-        <div class="ring r2"></div>
-        <div class="ring r3"></div>
-        <div class="dot"></div>
-        <div class="dot2"></div>
-        <div class="dot3"></div>
-        <div class="chair"><img src="haley%202%20v%20blk-crop.png" alt="Calico Visitor chair, black" onerror="this.style.display='none'"/></div>
+      <div class="floor-shadow"></div>
+      <div class="chair-photo"><img src="haley%202%20v%20blk-crop.png" alt="Calico Visitor chair, black" onerror="this.style.display='none'"/></div>
+      <div class="content">
+        <div class="contact">
+          <div class="cblock">
+            <div class="l">Distribution Center</div>
+            <div class="v">1790 West 8th Avenue<br/>Hialeah, FL 33010</div>
+          </div>
+          <div class="cblock">
+            <div class="l">Hours</div>
+            <div class="v">Monday – Friday<br/>9:30 AM – 5:00 PM EST</div>
+          </div>
+          <div class="cblock">
+            <div class="l">Phone</div>
+            <div class="v">(305) 889-3364</div>
+          </div>
+          <div class="cblock">
+            <div class="l">Orders &amp; Claims</div>
+            <div class="v">BO@officefurniture4sale.com<br/>officefurniture4sale.com</div>
+          </div>
+        </div>
+        <div class="tagline">Furnishing the entrepreneurial spirit since 2005.</div>
+        <div class="garnish on-dark">21 years in South Florida · est. 2005</div>
       </div>
-      <div class="art2">
-        <div class="ring s1"></div>
-        <div class="ring s2"></div>
-      </div>
-      <div class="contact">
-        <div class="cblock">
-          <div class="l">Distribution Center</div>
-          <div class="v">1790 West 8th Avenue<br/>Hialeah, FL 33010</div>
-        </div>
-        <div class="cblock">
-          <div class="l">Hours</div>
-          <div class="v">Monday – Friday<br/>9:30 AM – 5:00 PM EST</div>
-        </div>
-        <div class="cblock">
-          <div class="l">Phone</div>
-          <div class="v">(305) 889-3364</div>
-        </div>
-        <div class="cblock">
-          <div class="l">Orders &amp; Claims</div>
-          <div class="v">BO@officefurniture4sale.com<br/>officefurniture4sale.com</div>
-        </div>
-      </div>
-      <div class="tagline">Furnishing the entrepreneurial spirit since 2005.</div>
-      <div class="garnish on-dark">21 years in South Florida · est. 2005</div>
     </div>
   </section>
 
