@@ -128,37 +128,19 @@
 
   /* ============ PAGE 1 — COVER ============ */
   .cover { background: var(--navy-900); color: var(--paper-50); padding: 0; overflow: hidden; }
-  .cover .inner { position: relative; height: 1056px; padding: 64px 72px; display: flex; flex-direction: column; }
-  .cover .topbar { display: flex; justify-content: space-between; align-items: flex-start; }
+  .cover .inner { position: relative; height: 1056px; padding: 64px 72px; }
+  .cover .topbar { position: absolute; top: 56px; left: 64px; right: 56px; display: flex; justify-content: space-between; align-items: flex-start; z-index: 3; }
   .cover .est { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--navy-300); text-align: right; text-transform: uppercase; line-height: 1.8; }
-  .cover .hero-img {
-    position: absolute; right: 40px; top: 210px; width: 520px; height: 560px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .cover .hero-img::after {
-    content: attr(data-file); font-family: var(--font-mono); font-size: 12px;
-    color: rgba(143,169,199,0.45); letter-spacing: 0.1em;
-    border: 1px dashed rgba(143,169,199,0.35); border-radius: 8px;
-    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
-  }
-  .cover .hero-img img { max-width: 100%; max-height: 100%; position: relative; }
-  .cover .duo { position: absolute; right: 10px; top: 78px; width: 690px; height: 750px; display: flex; align-items: center; justify-content: center; z-index: 1; }
-  .cover .duo img { object-fit: contain; max-width: 100%; max-height: 100%; position: relative; z-index: 1; }
-  .cover .glow { position: absolute; right: 45px; top: 143px; width: 620px; height: 620px; pointer-events: none; z-index: 0; }
-  .cover .glow::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle, rgba(143,169,199,0.34) 0%, rgba(143,169,199,0.16) 32%, rgba(143,169,199,0.05) 55%, transparent 72%); }
-  .cover .glow .ring { position: absolute; border-radius: 50%; border: 1px solid rgba(143,169,199,0.22); }
-  .cover .glow .ring.r1 { inset: 95px; }
-  .cover .glow .ring.r2 { inset: 168px; border-color: rgba(143,169,199,0.14); }
-  .cover .glow .ring.r3 { inset: 240px; border-color: rgba(143,169,199,0.32); }
-  .cover .glow .dot { position: absolute; top: 78px; right: 58px; width: 7px; height: 7px; border-radius: 50%; background: var(--brass-400); }
-  .cover .title-block { margin-top: auto; }
+  .cover .chair-photo { position: absolute; right: 30px; bottom: -46px; width: 760px; z-index: 2; pointer-events: none; }
+  .cover .chair-photo img { width: 100%; display: block; }
+  .cover .title-block { position: absolute; left: 64px; right: 300px; top: 400px; z-index: 3; }
   .cover .kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--navy-300); margin-bottom: 18px; }
-  .cover h1 { font-family: var(--font-display); font-weight: 300; font-size: 76px; line-height: 0.98; letter-spacing: -0.03em; margin: 0; color: var(--paper-50); max-width: 620px; text-wrap: balance; }
+  .cover h1 { font-family: var(--font-display); font-weight: 300; font-size: 60px; line-height: 1.04; letter-spacing: -0.03em; margin: 0; color: var(--paper-50); text-wrap: balance; }
   .cover h1 em { color: var(--navy-300); font-weight: 400; }
-  .cover .edition { display: flex; gap: 40px; margin-top: 34px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.28); }
+  .cover .edition { margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.24); max-width: 340px; }
   .cover .edition .cell .l { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-300); }
-  .cover .edition .cell .v { font-family: var(--font-display); font-size: 18px; margin-top: 4px; color: var(--paper-100); }
-  .cover .band { position: absolute; left: 0; top: 0; width: 8px; height: 100%; background: var(--navy-300); }
+  .cover .edition .cell .v { font-family: var(--font-display); font-size: 22px; margin-top: 4px; color: var(--paper-100); }
+  .cover .band { position: absolute; left: 0; top: 0; width: 8px; height: 100%; background: var(--navy-300); z-index: 3; }
 
   /* ============ PAGE 2 — CONTENTS ============ */
   .toc-list { list-style: none; margin: 0; padding: 0; }
@@ -356,18 +338,12 @@
         </span>
         <div class="est">Trade &amp; Wholesale<br/>Program · 2026</div>
       </div>
-      <div class="glow">
-        <div class="ring r1"></div>
-        <div class="ring r2"></div>
-        <div class="ring r3"></div>
-        <div class="dot"></div>
-      </div>
-      <div class="duo">
-        <img class="solo" src="stella%20dg%20w%20hr%202-crop.png" alt="Sidon executive chair" onerror="this.style.display='none'"/>
+      <div class="chair-photo">
+        <img src="cover-bg.png" alt="Sidon executive chair" onerror="this.style.display='none'"/>
       </div>
       <div class="title-block">
         <div class="kicker">Seating Trade Catalog</div>
-        <h1>Contract seating, <em>dealer-direct.</em></h1>
+        <h1>Contract seating,<br/><em>dealer-direct.</em></h1>
         <div class="edition">
           <div class="cell"><div class="l">Edition</div><div class="v">2026</div></div>
         </div>
@@ -420,8 +396,6 @@
           <span class="swatch"><span class="dot" style="background:#555047;"></span>Dark Grey · DGY</span>
         </div>
         <ul class="feat">
-          <li>Executive high-back profile with integrated headrest.</li>
-          <li>Ergonomic mesh back for all-day support.</li>
           <li>Built for the eight-hour, single-shift workday.</li>
           <li>Gray mesh back rest.</li>
           <li>Gray seat cushion.</li>
@@ -465,8 +439,6 @@
           <span class="swatch"><span class="dot" style="background:#555047;"></span>Dark Grey · DGY</span>
         </div>
         <ul class="feat">
-          <li>Executive high-back profile with integrated headrest.</li>
-          <li>Ergonomic mesh back for all-day support.</li>
           <li>Built for the eight-hour, single-shift workday.</li>
           <li>Black mesh back rest.</li>
           <li>Black seat cushion.</li>
