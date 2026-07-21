@@ -142,8 +142,15 @@
     width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
   }
   .cover .hero-img img { max-width: 100%; max-height: 100%; position: relative; }
-  .cover .duo { position: absolute; right: 10px; top: 78px; width: 690px; height: 750px; display: flex; align-items: center; justify-content: center; }
-  .cover .duo img { object-fit: contain; max-width: 100%; max-height: 100%; }
+  .cover .duo { position: absolute; right: 10px; top: 78px; width: 690px; height: 750px; display: flex; align-items: center; justify-content: center; z-index: 1; }
+  .cover .duo img { object-fit: contain; max-width: 100%; max-height: 100%; position: relative; z-index: 1; }
+  .cover .glow { position: absolute; right: 45px; top: 143px; width: 620px; height: 620px; pointer-events: none; z-index: 0; }
+  .cover .glow::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle, rgba(143,169,199,0.34) 0%, rgba(143,169,199,0.16) 32%, rgba(143,169,199,0.05) 55%, transparent 72%); }
+  .cover .glow .ring { position: absolute; border-radius: 50%; border: 1px solid rgba(143,169,199,0.22); }
+  .cover .glow .ring.r1 { inset: 95px; }
+  .cover .glow .ring.r2 { inset: 168px; border-color: rgba(143,169,199,0.14); }
+  .cover .glow .ring.r3 { inset: 240px; border-color: rgba(143,169,199,0.32); }
+  .cover .glow .dot { position: absolute; top: 78px; right: 58px; width: 7px; height: 7px; border-radius: 50%; background: var(--brass-400); }
   .cover .title-block { margin-top: auto; }
   .cover .kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--navy-300); margin-bottom: 18px; }
   .cover h1 { font-family: var(--font-display); font-weight: 300; font-size: 76px; line-height: 0.98; letter-spacing: -0.03em; margin: 0; color: var(--paper-50); max-width: 620px; text-wrap: balance; }
@@ -273,7 +280,16 @@
 
   /* ============ BACK COVER ============ */
   .back { background: var(--navy-900); color: var(--paper-50); padding: 0; }
-  .back .inner { height: 1056px; padding: 72px; display: flex; flex-direction: column; }
+  .back .inner { height: 1056px; padding: 72px; display: flex; flex-direction: column; position: relative; }
+  .back .art { position: absolute; right: -60px; top: 150px; width: 640px; height: 640px; pointer-events: none; z-index: 0; }
+  .back .art::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle, rgba(143,169,199,0.24) 0%, rgba(143,169,199,0.11) 34%, rgba(143,169,199,0.04) 56%, transparent 72%); }
+  .back .art .ring { position: absolute; border-radius: 50%; border: 1px solid rgba(143,169,199,0.18); }
+  .back .art .ring.r1 { inset: 100px; }
+  .back .art .ring.r2 { inset: 175px; border-color: rgba(143,169,199,0.12); }
+  .back .art .ring.r3 { inset: 250px; border-color: rgba(143,169,199,0.26); }
+  .back .art .dot { position: absolute; bottom: 92px; left: 64px; width: 7px; height: 7px; border-radius: 50%; background: var(--brass-400); }
+  .back .art .chair { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 1; }
+  .back .art .chair img { max-width: 72%; max-height: 72%; object-fit: contain; }
   .back .parent { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-300); margin-top: 8px; }
   .back .contact { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
   .back .cblock .l { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-300); margin-bottom: 8px; }
@@ -333,16 +349,20 @@
         </span>
         <div class="est">Trade &amp; Wholesale<br/>Program · 2026</div>
       </div>
+      <div class="glow">
+        <div class="ring r1"></div>
+        <div class="ring r2"></div>
+        <div class="ring r3"></div>
+        <div class="dot"></div>
+      </div>
       <div class="duo">
-        <img class="solo" src="stella%20dg%20w%20hr%202.png" alt="Sidon executive chair" onerror="this.style.display='none'"/>
+        <img class="solo" src="stella%20dg%20w%20hr%202-crop.png" alt="Sidon executive chair" onerror="this.style.display='none'"/>
       </div>
       <div class="title-block">
         <div class="kicker">Seating Trade Catalog</div>
         <h1>Contract seating, <em>dealer-direct.</em></h1>
         <div class="edition">
           <div class="cell"><div class="l">Edition</div><div class="v">2026</div></div>
-          <div class="cell"><div class="l">Program</div><div class="v">Wholesale / Trade</div></div>
-          <div class="cell"><div class="l">Origin</div><div class="v">Import Collection</div></div>
         </div>
       </div>
     </div>
@@ -387,7 +407,7 @@
         <div class="name">Sidon</div>
         <p class="tagline">Executive high-back mesh task chair</p>
         <div class="price-line"><span class="amt">$625.00</span><span class="lp">List</span></div>
-        <p class="sku"><span class="k">SKU</span> &nbsp;O-SIDON-HR-&lt;BLK&gt;, &lt;DGY&gt;</p>
+        <p class="sku"><span class="k">SKU</span> &nbsp;O-SIDON-HR-&lt;DGY&gt;</p>
         <div class="swatches">
           <span class="swatch"><span class="dot" style="background:#1a1814;"></span>Black · BLK</span>
           <span class="swatch"><span class="dot" style="background:#555047;"></span>Dark Grey · DGY</span>
@@ -396,6 +416,18 @@
           <li>Executive high-back profile with integrated headrest.</li>
           <li>Ergonomic mesh back for all-day support.</li>
           <li>Built for the eight-hour, single-shift workday.</li>
+          <li>Gray mesh back rest.</li>
+          <li>Gray seat cushion.</li>
+          <li>Light gray frame, base, and mechanism.</li>
+          <li>Fixed lumbar support.</li>
+          <li>4D-adjustable PU armrests.</li>
+          <li>50-density molded foam.</li>
+          <li>Self-adjusting mechanism.</li>
+          <li>4-position lock.</li>
+          <li>53mm seat slider.</li>
+          <li>100mm black Class-3 gas lift.</li>
+          <li>345mm nylon five-star base.</li>
+          <li>60mm black PU castors.</li>
         </ul>
       </div>
     </div>
@@ -421,7 +453,7 @@
         <div class="name">Sidon</div>
         <p class="tagline">Executive high-back mesh task chair</p>
         <div class="price-line"><span class="amt">$625.00</span><span class="lp">List</span></div>
-        <p class="sku"><span class="k">SKU</span> &nbsp;O-SIDON-HR-&lt;BLK&gt;, &lt;DGY&gt;</p>
+        <p class="sku"><span class="k">SKU</span> &nbsp;O-SIDON-HR-&lt;BLK&gt;</p>
         <div class="swatches">
           <span class="swatch"><span class="dot" style="background:#1a1814;"></span>Black · BLK</span>
           <span class="swatch"><span class="dot" style="background:#555047;"></span>Dark Grey · DGY</span>
@@ -430,6 +462,18 @@
           <li>Executive high-back profile with integrated headrest.</li>
           <li>Ergonomic mesh back for all-day support.</li>
           <li>Built for the eight-hour, single-shift workday.</li>
+          <li>Black mesh back rest.</li>
+          <li>Black seat cushion.</li>
+          <li>Black frame, base, and mechanism.</li>
+          <li>Fixed lumbar support.</li>
+          <li>4D-adjustable PU armrests.</li>
+          <li>50-density molded foam.</li>
+          <li>Self-adjusting mechanism.</li>
+          <li>4-position lock.</li>
+          <li>53mm seat slider.</li>
+          <li>100mm black Class-3 gas lift.</li>
+          <li>345mm nylon five-star base.</li>
+          <li>60mm black PU castors.</li>
         </ul>
       </div>
     </div>
@@ -454,21 +498,21 @@
         <div class="chair-frame" data-file="Realbiz hb blk.png"><img src="Realbiz%20hb%20blk-crop.png" alt="Aley High-Back, black" onerror="this.style.display='none'"/></div>
         <div class="cname">Aley High-Back</div>
         <div class="camt">$471.64</div>
-        <div class="csku">O-ALEY-H-&lt;BLK&gt;<br/>&lt;GRY&gt; &lt;NVY&gt; &lt;TAU&gt;</div>
+        <div class="csku">O-ALEY-H-&lt;BLK&gt; &lt;GRY&gt; &lt;NVY&gt; &lt;TAU&gt;</div>
         <div class="cswatch"><span class="dot" style="background:#1a1814;"></span><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#15273f;"></span><span class="dot" style="background:#b8a58c;"></span></div>
       </div>
       <div class="card">
         <div class="chair-frame" data-file="Realbiz mb blk.png"><img src="Realbiz%20mb%20blk-crop.png" alt="Aley Mid-Back, black" onerror="this.style.display='none'"/></div>
         <div class="cname">Aley Mid-Back</div>
         <div class="camt">$397.27</div>
-        <div class="csku">O-ALEY-M-&lt;BLK&gt;<br/>&lt;GRY&gt; &lt;NVY&gt; &lt;TAU&gt;</div>
+        <div class="csku">O-ALEY-M-&lt;BLK&gt; &lt;GRY&gt; &lt;NVY&gt; &lt;TAU&gt;</div>
         <div class="cswatch"><span class="dot" style="background:#1a1814;"></span><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#15273f;"></span><span class="dot" style="background:#b8a58c;"></span></div>
       </div>
       <div class="card">
         <div class="chair-frame" data-file="Realbiz v blk.png"><img src="Realbiz%20v%20blk-crop.png" alt="Aley Visitor, black" onerror="this.style.display='none'"/></div>
         <div class="cname">Aley Visitor</div>
         <div class="camt">$380.19</div>
-        <div class="csku">O-ALEY-V-&lt;BLK&gt;<br/>&lt;GRY&gt; &lt;NVY&gt; &lt;TAU&gt;</div>
+        <div class="csku">O-ALEY-V-&lt;BLK&gt; &lt;GRY&gt; &lt;NVY&gt; &lt;TAU&gt;</div>
         <div class="cswatch"><span class="dot" style="background:#1a1814;"></span><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#15273f;"></span><span class="dot" style="background:#b8a58c;"></span></div>
       </div>
     </div>
@@ -502,21 +546,21 @@
         <div class="chair-frame" data-file="haley 2 .png"><img src="haley%202%20-crop.png" alt="Calico Task, black mesh" onerror="this.style.display='none'"/></div>
         <div class="cname">Calico Task</div>
         <div class="camt">$218.75</div>
-        <div class="csku">O-CL2023T-&lt;GRY&gt;, &lt;BLK&gt;</div>
+        <div class="csku">O-CL2023T-&lt;BLK&gt;</div>
         <div class="cswatch"><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#1a1814;"></span></div>
       </div>
       <div class="card">
         <div class="chair-frame" data-file="haley 2 v blk.png"><img src="haley%202%20v%20blk-crop.png" alt="Calico Visitor, black" onerror="this.style.display='none'"/></div>
         <div class="cname">Calico Visitor</div>
         <div class="camt">$218.75</div>
-        <div class="csku">O-CL2023V-&lt;GRY&gt;, &lt;BLK&gt;</div>
+        <div class="csku">O-CL2023V-&lt;BLK&gt;</div>
         <div class="cswatch"><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#1a1814;"></span></div>
       </div>
     </div>
     <div class="colorway">
       <div class="cw-label">Also available — in grey and black</div>
       <div class="gallery">
-        <div class="g"><div class="frame"><img src="HALEY%20II%20ERGONOMIC%20MESH%20TASK%20CHAIR%20gry-crop.png" alt="Calico Task, all-gray" onerror="this.style.display='none'"/></div><div class="cap">Task · All Gray</div></div>
+        <div class="g"><div class="frame"><img src="haley%202%20gry-crop.png" alt="Calico Task, grey" onerror="this.style.display='none'"/></div><div class="cap">Task · Grey</div></div>
         <div class="g"><div class="frame"><img src="haley%202%20v%20gry-crop.png" alt="Calico Visitor, grey" onerror="this.style.display='none'"/></div><div class="cap">Visitor · Grey</div></div>
       </div>
     </div>
@@ -535,7 +579,7 @@
     </div>
     <hr class="rule"/>
     <div class="hero-prod">
-      <div class="chair-frame" style="min-height:350px" data-file="HALEY II ERGONOMIC MESH TASK CHAIR gry.png"><img src="HALEY%20II%20ERGONOMIC%20MESH%20TASK%20CHAIR%20gry-crop.png" alt="Calico Task, all-gray ergonomic mesh" onerror="this.style.display='none'"/></div>
+      <div class="chair-frame" style="min-height:260px" data-file="HALEY II ERGONOMIC MESH TASK CHAIR gry.png"><img src="HALEY%20II%20ERGONOMIC%20MESH%20TASK%20CHAIR%20gry-crop.png" alt="Calico Task, all-gray ergonomic mesh" onerror="this.style.display='none'"/></div>
       <div class="spec">
         <p class="eyebrow" style="margin-bottom:4px;">Calico · All Gray</p>
         <div class="name">Calico Task</div>
@@ -549,13 +593,6 @@
           <li>Ultra-strong nylon mesh back rest.</li>
           <li>All-gray upgrade — frame, mesh, and upholstery.</li>
         </ul>
-      </div>
-    </div>
-    <div class="colorway">
-      <div class="cw-label">Also available — in grey and black</div>
-      <div class="gallery">
-        <div class="g"><div class="frame"><img src="haley%202%20-crop.png" alt="Calico Task, black" onerror="this.style.display='none'"/></div><div class="cap">Task · Black</div></div>
-        <div class="g"><div class="frame"><img src="haley%202%20v%20blk-crop.png" alt="Calico Visitor, black" onerror="this.style.display='none'"/></div><div class="cap">Visitor · Black</div></div>
       </div>
     </div>
     <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
@@ -574,7 +611,7 @@
         <div class="chair-frame" data-file="weston blk.png"><img src="weston%20blk-crop.png" alt="Gibran Stack Chair" onerror="this.style.display='none'"/></div>
         <div class="cname">Gibran Stack Chair</div>
         <div class="camt">$201.39</div>
-        <div class="csku">O-GIBRAN-&lt;BLK&gt;, &lt;GRY&gt;, &lt;BLU&gt;,<br/>&lt;GRN&gt;, &lt;RED&gt;, &lt;ORA&gt;</div>
+        <div class="csku">O-GIBRAN-&lt;BLK&gt; &lt;GRY&gt; &lt;BLU&gt; &lt;GRN&gt; &lt;RED&gt; &lt;ORA&gt;</div>
         <div class="cswatch"><span class="dot" style="background:#1a1814;"></span><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#5b8fc7;"></span><span class="dot" style="background:#7a9a4f;"></span><span class="dot" style="background:#9c3a30;"></span><span class="dot" style="background:#d08a3e;"></span></div>
       </div>
       <div class="card">
@@ -624,7 +661,7 @@
       </div>
       <div class="info-card">
         <h4>Local Assembly Service</h4>
-        <p class="big">$13.00<span style="font-size:13px;color:var(--stone-500);"> / unit</span></p>
+        <p class="big">$15.00<span style="font-size:13px;color:var(--stone-500);"> / unit</span></p>
         <p>Optional assembly for tri-county deliveries.</p>
       </div>
       <div class="info-card">
@@ -633,7 +670,7 @@
       </div>
       <div class="info-card full">
         <h4>Special Order / Container Program</h4>
-        <p>A 50% non-refundable deposit is required to enter your order into production. Minimum quantities apply — please call for details. Products ship to any destination within the continental United States in approximately <strong>45–60 days</strong>.</p>
+        <p>A 50% non-refundable deposit is required to enter your order into production. Minimum quantities apply — please call for details. Products ship to any destination within the continental United States in approximately <strong>60 days</strong>.</p>
       </div>
       <div class="info-card full">
         <h4>Ordering Procedure</h4>
@@ -774,6 +811,13 @@
           <span class="fullname">OFFICE FURNITURE<br/>4 SALE</span>
         </span>
         <div class="parent">A The Outlet Center of Florida Company</div>
+      </div>
+      <div class="art">
+        <div class="ring r1"></div>
+        <div class="ring r2"></div>
+        <div class="ring r3"></div>
+        <div class="dot"></div>
+        <div class="chair"><img src="stella%20jb%20w%20hr%202-crop-flip.png" alt="Sidon executive chair, black" onerror="this.style.display='none'"/></div>
       </div>
       <div class="contact">
         <div class="cblock">
