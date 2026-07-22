@@ -131,9 +131,9 @@
   .cover .inner { position: relative; height: 1056px; padding: 64px 72px; }
   .cover .topbar { position: absolute; top: 56px; left: 64px; right: 56px; display: flex; justify-content: space-between; align-items: flex-start; z-index: 3; }
   .cover .est { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--navy-300); text-align: right; text-transform: uppercase; line-height: 1.8; }
-  .cover .chair-photo { position: absolute; right: 30px; bottom: -46px; width: 760px; z-index: 2; pointer-events: none; }
+  .cover .chair-photo { position: absolute; right: -70px; bottom: -46px; width: 800px; z-index: 2; pointer-events: none; }
   .cover .chair-photo img { width: 100%; display: block; }
-  .cover .title-block { position: absolute; left: 64px; right: 300px; top: 400px; z-index: 3; }
+  .cover .title-block { position: absolute; left: 64px; right: 300px; bottom: 84px; z-index: 3; }
   .cover .kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--navy-300); margin-bottom: 18px; }
   .cover h1 { font-family: var(--font-display); font-weight: 300; font-size: 60px; line-height: 1.04; letter-spacing: -0.03em; margin: 0; color: var(--paper-50); text-wrap: balance; }
   .cover h1 em { color: var(--navy-300); font-weight: 400; }
@@ -189,6 +189,13 @@
   .feat { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
   .feat li { position: relative; padding-left: 20px; font-size: 12.5px; color: var(--stone-700); line-height: 1.5; }
   .feat li::before { content: ''; position: absolute; left: 0; top: 7px; width: 8px; height: 8px; background: var(--navy-600); border-radius: 2px; }
+
+  /* ---- Spec sheet (key/value technical detail grid) ---- */
+  .spec-sheet { margin-top: 30px; padding-top: 22px; border-top: 1px solid rgba(26,24,20,0.12); }
+  .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; margin-top: 4px; }
+  .spec-row { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; padding: 9px 0; border-bottom: 1px solid rgba(26,24,20,0.08); }
+  .spec-row .k { font-size: 12px; color: var(--stone-500); }
+  .spec-row .v { font-size: 12.5px; color: var(--stone-900); font-weight: 500; text-align: right; white-space: nowrap; }
 
   /* Collection grid (3-up / 2-up) */
   .collection { display: grid; gap: 26px; margin-top: 4px; }
@@ -345,15 +352,15 @@
     <h2 class="sec-title">Contents</h2>
     <hr class="rule"/>
     <ul class="toc-list">
-      <li><span class="n">01</span><span class="t">Sidon — Dark Grey · Black</span><span class="dots"></span><span class="pg">03</span></li>
+      <li><span class="n">01</span><span class="t">Sidon — Gray · Black</span><span class="dots"></span><span class="pg">03</span></li>
       <li><span class="n">02</span><span class="t">Aley Collection — High · Mid · Visitor</span><span class="dots"></span><span class="pg">05</span></li>
       <li><span class="n">03</span><span class="t">Calico Collection — Task · Visitor · All-Gray</span><span class="dots"></span><span class="pg">06</span></li>
       <li><span class="n">04</span><span class="t">Gibran Collection — Stack · Armless Stack</span><span class="dots"></span><span class="pg">08</span></li>
-      <li><span class="n">05</span><span class="t">Ordering &amp; Delivery Programs</span><span class="dots"></span><span class="pg">09</span></li>
-      <li><span class="n">06</span><span class="t">Warranty</span><span class="dots"></span><span class="pg">10</span></li>
-      <li><span class="n">07</span><span class="t">Terms &amp; Conditions</span><span class="dots"></span><span class="pg">11</span></li>
-      <li><span class="n">08</span><span class="t">Care &amp; Maintenance</span><span class="dots"></span><span class="pg">12</span></li>
-      <li><span class="n">09</span><span class="t">RMA Form</span><span class="dots"></span><span class="pg">13</span></li>
+      <li><span class="n">05</span><span class="t">Ordering &amp; Delivery Programs</span><span class="dots"></span><span class="pg">10</span></li>
+      <li><span class="n">06</span><span class="t">Warranty</span><span class="dots"></span><span class="pg">11</span></li>
+      <li><span class="n">07</span><span class="t">Terms &amp; Conditions</span><span class="dots"></span><span class="pg">12</span></li>
+      <li><span class="n">08</span><span class="t">Care &amp; Maintenance</span><span class="dots"></span><span class="pg">13</span></li>
+      <li><span class="n">09</span><span class="t">RMA Form</span><span class="dots"></span><span class="pg">14</span></li>
     </ul>
     <div class="about">
       <h3>Furnishing the entrepreneurial spirit since 2005.</h3>
@@ -372,16 +379,16 @@
     </div>
     <hr class="rule"/>
     <div class="hero-prod">
-      <div class="chair-frame" style="min-height:600px" data-file="stella dg w hr 2.png"><img src="stella%20dg%20w%20hr%202-crop.png" alt="Sidon executive high-back, dark grey, front three-quarter angle" onerror="this.style.display='none'"/></div>
+      <div class="chair-frame" style="min-height:600px" data-file="stella dg w hr 2.png"><img src="stella%20dg%20w%20hr%202-crop.png" alt="Sidon executive high-back, gray, front three-quarter angle" onerror="this.style.display='none'"/></div>
       <div class="spec">
-        <p class="eyebrow" style="margin-bottom:4px;">Sidon · Dark Grey</p>
+        <p class="eyebrow" style="margin-bottom:4px;">Sidon · Gray</p>
         <div class="name">Sidon</div>
         <p class="tagline">Executive high-back mesh task chair</p>
         <div class="price-line"><span class="amt">$625.00</span><span class="lp">List</span></div>
-        <p class="sku"><span class="k">SKU</span> &nbsp;O-SIDON-HR-&lt;DGY&gt;</p>
+        <p class="sku"><span class="k">SKU</span> &nbsp;O-SIDON-HR-&lt;GY&gt;</p>
         <div class="swatches">
           <span class="swatch"><span class="dot" style="background:#1a1814;"></span>Black · BLK</span>
-          <span class="swatch"><span class="dot" style="background:#555047;"></span>Dark Grey · DGY</span>
+          <span class="swatch"><span class="dot" style="background:#555047;"></span>Gray · GY</span>
         </div>
         <ul class="feat">
           <li>Built for the eight-hour, single-shift workday.</li>
@@ -400,12 +407,12 @@
       </div>
     </div>
     <div class="gallery">
-      <div class="g"><div class="frame"><img src="stella%20dg%20w%20hr%202-crop.png" alt="Sidon dark grey, front three-quarter angle" onerror="this.style.display='none'"/></div><div class="cap">Dark Grey · Front</div></div>
-      <div class="g"><div class="frame"><img src="stella%20dg%20w%20hr%203-crop.png" alt="Sidon dark grey, side profile" onerror="this.style.display='none'"/></div><div class="cap">Dark Grey · Side</div></div>
-      <div class="g"><div class="frame"><img src="Stella%20DG%20W%20HR-crop.png" alt="Sidon dark grey, back three-quarter angle" onerror="this.style.display='none'"/></div><div class="cap">Dark Grey · Back</div></div>
+      <div class="g"><div class="frame"><img src="stella%20dg%20w%20hr%202-crop.png" alt="Sidon gray, front three-quarter angle" onerror="this.style.display='none'"/></div><div class="cap">Gray · Front</div></div>
+      <div class="g"><div class="frame"><img src="stella%20dg%20w%20hr%203-crop.png" alt="Sidon gray, side profile" onerror="this.style.display='none'"/></div><div class="cap">Gray · Side</div></div>
+      <div class="g"><div class="frame"><img src="Stella%20DG%20W%20HR-crop.png" alt="Sidon gray, back three-quarter angle" onerror="this.style.display='none'"/></div><div class="cap">Gray · Back</div></div>
     </div>
     <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
-    <div class="page-num">03 · Sidon — Dark Grey</div>
+    <div class="page-num">03 · Sidon — Gray</div>
   </section>
 
   <!-- ============ PAGE 4 · SIDON — BLACK ============ -->
@@ -424,7 +431,7 @@
         <p class="sku"><span class="k">SKU</span> &nbsp;O-SIDON-HR-&lt;BLK&gt;</p>
         <div class="swatches">
           <span class="swatch"><span class="dot" style="background:#1a1814;"></span>Black · BLK</span>
-          <span class="swatch"><span class="dot" style="background:#555047;"></span>Dark Grey · DGY</span>
+          <span class="swatch"><span class="dot" style="background:#555047;"></span>Gray · GY</span>
         </div>
         <ul class="feat">
           <li>Built for the eight-hour, single-shift workday.</li>
@@ -467,14 +474,14 @@
         <div class="cswatch"><span class="dot" style="background:#1a1814;"></span><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#15273f;"></span><span class="dot" style="background:#b8a58c;"></span></div>
       </div>
       <div class="card">
-        <div class="chair-frame" data-file="Realbiz mb blk.png"><img src="Realbiz%20mb%20blk-crop.png" alt="Aley Mid-Back, black" onerror="this.style.display='none'"/></div>
+        <div class="chair-frame" style="align-items:flex-end" data-file="Realbiz mb blk.png"><img style="max-width:78%;max-height:78%" src="Realbiz%20mb%20blk-crop.png" alt="Aley Mid-Back, black" onerror="this.style.display='none'"/></div>
         <div class="cname">Aley Mid-Back</div>
         <div class="camt">$397.27</div>
         <div class="csku">O-ALEY-M-&lt;BLK&gt; &lt;GRY&gt; &lt;NVY&gt; &lt;TAU&gt;</div>
         <div class="cswatch"><span class="dot" style="background:#1a1814;"></span><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#15273f;"></span><span class="dot" style="background:#b8a58c;"></span></div>
       </div>
       <div class="card">
-        <div class="chair-frame" data-file="Realbiz v blk.png"><img src="Realbiz%20v%20blk-crop.png" alt="Aley Visitor, black" onerror="this.style.display='none'"/></div>
+        <div class="chair-frame" style="align-items:flex-end" data-file="Realbiz v blk.png"><img style="max-width:78%;max-height:78%" src="Realbiz%20v%20blk-crop.png" alt="Aley Visitor, black" onerror="this.style.display='none'"/></div>
         <div class="cname">Aley Visitor</div>
         <div class="camt">$380.19</div>
         <div class="csku">O-ALEY-V-&lt;BLK&gt; &lt;GRY&gt; &lt;NVY&gt; &lt;TAU&gt;</div>
@@ -482,9 +489,9 @@
       </div>
     </div>
     <div class="colorway">
-      <div class="cw-label">Available in four colors</div>
+      <div class="cw-label">Available in four colors — shown in high-back</div>
       <div class="gallery">
-        <div class="g"><div class="frame"><img src="Realbiz%20mb%20blk-crop.png" alt="Aley black" onerror="this.style.display='none'"/></div><div class="cap">Black</div></div>
+        <div class="g"><div class="frame"><img src="realbiz-hb-front-crop.png" alt="Aley high-back black" onerror="this.style.display='none'"/></div><div class="cap">Black</div></div>
         <div class="g"><div class="frame"><img src="Realbiz%20hb%20gry-crop.png" alt="Aley high-back grey" onerror="this.style.display='none'"/></div><div class="cap">Grey</div></div>
         <div class="g"><div class="frame"><img src="Realbiz%20hb%20nvy-crop.png" alt="Aley high-back navy" onerror="this.style.display='none'"/></div><div class="cap">Navy</div></div>
         <div class="g"><div class="frame"><img src="Realbiz%20hb%20tau-crop.png" alt="Aley high-back taupe" onerror="this.style.display='none'"/></div><div class="cap">Taupe</div></div>
@@ -560,6 +567,33 @@
         </ul>
       </div>
     </div>
+    <div class="spec-sheet">
+      <div class="eyebrow">Specifications</div>
+      <div class="spec-grid">
+        <div class="spec-col">
+          <div class="spec-row"><span class="k">Back Color</span><span class="v">Gray</span></div>
+          <div class="spec-row"><span class="k">Frame Color</span><span class="v">Gray</span></div>
+          <div class="spec-row"><span class="k">Arms</span><span class="v">Fixed</span></div>
+          <div class="spec-row"><span class="k">Seat Material</span><span class="v">Fabric</span></div>
+          <div class="spec-row"><span class="k">Back Material</span><span class="v">Mesh II</span></div>
+          <div class="spec-row"><span class="k">Tilt</span><span class="v">Yes</span></div>
+          <div class="spec-row"><span class="k">Tilt Lock</span><span class="v">Yes</span></div>
+          <div class="spec-row"><span class="k">Adjustable Tilt Tension</span><span class="v">Yes</span></div>
+          <div class="spec-row"><span class="k">Adjustable Seat Height</span><span class="v">Pneumatic / 1-touch</span></div>
+        </div>
+        <div class="spec-col">
+          <div class="spec-row"><span class="k">Weight Capacity</span><span class="v">250 lbs.</span></div>
+          <div class="spec-row"><span class="k">Lumbar Support</span><span class="v">Yes</span></div>
+          <div class="spec-row"><span class="k">Back Height</span><span class="v">21"</span></div>
+          <div class="spec-row"><span class="k">Seat Size</span><span class="v">19"W x 18"D</span></div>
+          <div class="spec-row"><span class="k">Adjustable Height Range</span><span class="v">15"–21.5"</span></div>
+          <div class="spec-row"><span class="k">Overall Dimensions</span><span class="v">22"W x 19"D x 40.5"H</span></div>
+          <div class="spec-row"><span class="k">Removable Arms</span><span class="v">No</span></div>
+          <div class="spec-row"><span class="k">Frame Construction</span><span class="v">Poly</span></div>
+          <div class="spec-row"><span class="k">Assembly Required</span><span class="v">Yes</span></div>
+        </div>
+      </div>
+    </div>
     <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
     <div class="page-num">07 · Calico — All Gray</div>
   </section>
@@ -607,6 +641,53 @@
     <div class="page-num">08 · Gibran Collection</div>
   </section>
 
+  <!-- ============ PAGE 9 · GIBRAN — SPECIFICATIONS ============ -->
+  <section class="page">
+    <div class="prod-head">
+      <span class="idx">04 · Stackable Seating</span>
+    </div>
+    <hr class="rule"/>
+    <div class="hero-prod">
+      <div class="chair-frame" style="min-height:420px" data-file="weston blk.png"><img src="weston%20blk-crop.png" alt="Gibran Stack Chair, black" onerror="this.style.display='none'"/></div>
+      <div class="spec">
+        <p class="eyebrow" style="margin-bottom:4px;">Gibran · Specifications</p>
+        <div class="name">Gibran Stack Chair</div>
+        <p class="tagline">Fully welded stackable frame</p>
+        <div class="price-line"><span class="amt">$201.39</span><span class="lp">List</span></div>
+        <p class="sku"><span class="k">SKU</span> &nbsp;O-GIBRAN-&lt;BLK&gt; &lt;GRY&gt; &lt;BLU&gt; &lt;GRN&gt; &lt;RED&gt; &lt;ORA&gt;</p>
+        <ul class="feat">
+          <li>Fully welded frame construction.</li>
+          <li>Stackable up to eight.</li>
+          <li>Ultra-strong nylon mesh back rest.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="spec-sheet">
+      <div class="eyebrow">Specifications</div>
+      <div class="spec-grid">
+        <div class="spec-col">
+          <div class="spec-row"><span class="k">Back Color</span><span class="v">Black</span></div>
+          <div class="spec-row"><span class="k">Frame Color</span><span class="v">Silver</span></div>
+          <div class="spec-row"><span class="k">Arms</span><span class="v">Fixed</span></div>
+          <div class="spec-row"><span class="k">Seat Material</span><span class="v">Fabric</span></div>
+          <div class="spec-row"><span class="k">Back Material</span><span class="v">Mesh</span></div>
+          <div class="spec-row"><span class="k">Assembly Required</span><span class="v">No</span></div>
+          <div class="spec-row"><span class="k">Stackable Up To</span><span class="v">10</span></div>
+        </div>
+        <div class="spec-col">
+          <div class="spec-row"><span class="k">Seat Size</span><span class="v">17"W x 17"D</span></div>
+          <div class="spec-row"><span class="k">Seat Height</span><span class="v">18"</span></div>
+          <div class="spec-row"><span class="k">Back Height</span><span class="v">19"</span></div>
+          <div class="spec-row"><span class="k">Overall Dimensions</span><span class="v">21.5"W x 17"D x 35"H</span></div>
+          <div class="spec-row"><span class="k">Weight Capacity</span><span class="v">250 lbs.</span></div>
+          <div class="spec-row"><span class="k">Recommended Daily Usage</span><span class="v">0–4 hours</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
+    <div class="page-num">09 · Gibran — Specifications</div>
+  </section>
+
   <!-- ============ PAGE 7 · PROGRAMS ============ -->
   <section class="page">
     <p class="eyebrow">05 · Logistics</p>
@@ -643,7 +724,7 @@
       </div>
     </div>
     <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
-    <div class="page-num">09 · Programs</div>
+    <div class="page-num">10 · Programs</div>
   </section>
 
   <!-- ============ PAGE 8 · WARRANTY ============ -->
@@ -664,7 +745,7 @@
       <p style="margin:0;"><strong>All warranty claims:</strong> BO@officefurniture4sale.com — original invoice #, a detailed description of the issue, and a digital photo are required at the time the claim is filed.</p>
     </div>
     <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
-    <div class="page-num">10 · Warranty</div>
+    <div class="page-num">11 · Warranty</div>
   </section>
 
   <!-- ============ PAGE 9 · TERMS ============ -->
@@ -683,7 +764,7 @@
       <div class="terms-block"><h5>Renderings</h5><p>Fabrics and finishes may vary in catalog renderings and dye lot.</p></div>
     </div>
     <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
-    <div class="page-num">11 · Terms &amp; Conditions</div>
+    <div class="page-num">12 · Terms &amp; Conditions</div>
   </section>
 
   <!-- ============ PAGE 10 · CARE ============ -->
@@ -704,7 +785,7 @@
       <li>Furniture settles over time — check that units are level and adjust glides to keep drawers aligned.</li>
     </ol>
     <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
-    <div class="page-num">12 · Care &amp; Maintenance</div>
+    <div class="page-num">13 · Care &amp; Maintenance</div>
   </section>
 
   <!-- ============ PAGE 11 · RMA FORM ============ -->
@@ -763,7 +844,7 @@
       <div class="rma-fields"><div class="rma-field wide"><span class="fb tall"></span></div></div>
     </div>
     <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
-    <div class="page-num">13 · RMA Form</div>
+    <div class="page-num">14 · RMA Form</div>
   </section>
 
   <!-- ============ PAGE 12 · BACK COVER ============ -->
