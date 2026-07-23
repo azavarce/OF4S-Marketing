@@ -20,7 +20,7 @@ Here's to the next chapter. 🤍
 
 ## Post Brief
 
-**Image:** `founder-post-v1.png` (1080×1350, vertical 4:5 — best feed real estate on LinkedIn). Photo collage of the Carolina "In The Fold" collection — a warm patient-lounge lifestyle shot, a clinical exam room, and a standalone chair — framed in the OF4S v3 system (Schibsted Grotesk headline, navy accent, brass garnish dot, OF4S wordmark).
+**Image:** `founder-post-v1.png` (1080×1350, vertical 4:5 — best feed real estate on LinkedIn). Now a 5-image mosaic built from the photos uploaded to the Drive folder — a warm patient-lounge lifestyle shot, a clinical exam room, mauve and sage lounge seating vignettes, and a folding-chair detail — framed in the OF4S v3 system (masthead, Schibsted Grotesk headline, navy accent, blue facility pills, OF4S wordmark).
 
 **Tagging:**
 - Tag OFS / Carolina's official LinkedIn page if you want them to reshare — a manufacturer amplifying a new-dealer post is good reach.
@@ -28,8 +28,6 @@ Here's to the next chapter. 🤍
 - No individual client to tag on this one — it's a capability announcement, not a project story.
 
 **Link:** Do not put carolina.ofs.com/healthcare in the post body — put it in the **first comment** to protect reach. Something like: "More on the Carolina collection → [link]"
-
-**Note on images:** These 3 photos came from the "In The Fold" product brochure PDF in the Drive folder (the only usable photography found there — the other two files were a Bokeh chair brochure I couldn't pull images from due to a file-size limit, and a text-only white paper). Worth asking OFS/Carolina for the full brand image library or a higher-res asset pack if you want more variety for future posts — happy to swap in different photos once you have that link.
 
 ## Next: Version 2 (company page)
 
