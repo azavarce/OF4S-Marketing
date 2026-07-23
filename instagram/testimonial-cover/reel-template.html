@@ -80,44 +80,53 @@
     );
   }
 
-  /* Text panel — solid navy card, floated up off the true bottom edge so
-     it stays inside the 1080x1350 grid-safe zone (bottom offset = 285px
-     crop + 40px buffer = 325px). Do not set bottom:0 on this variant. */
-  .cover .content {
+  /* Bottom-anchored group: the tag sits on the photo, directly above the
+     navy box, and the box follows right under it — stacked, not nested.
+     Floated up off the true bottom edge (bottom offset = 285px crop +
+     40px buffer = 325px) so the whole group stays inside the 1080x1350
+     grid-safe zone. Do not set bottom:0 on this variant. */
+  .cover .foot {
     position: absolute;
     left: 0; right: 0;
     bottom: 325px;
+    z-index: 2;
+  }
+
+  /* "Client Testimonial" tag — outside the navy box, on the photo. Its
+     own small gradient keeps it legible without needing a pill/badge
+     shape. Sized well above body-text scale so it reads first, even
+     shrunk to a grid thumbnail. */
+  .cover .tag {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 32px 56px 22px;
+    background: linear-gradient(to top, rgba(10,22,40,0.6) 0%, rgba(10,22,40,0) 100%);
+  }
+  .cover .tag .mark {
+    font-family: var(--of4s-font-display);
+    font-weight: 300;
+    font-size: 72px;
+    line-height: 0.4;
+    color: var(--of4s-navy-300);
+    transform: scaleX(-1);
+  }
+  .cover .tag .label {
+    font-family: var(--of4s-font-mono);
+    font-weight: 800;
+    font-size: 36px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--of4s-paper-50);
+    text-shadow: 0 2px 14px rgba(10,22,40,0.85);
+  }
+
+  /* Text panel — solid navy card, not a fade. This is the "shape" that defines the copy area. */
+  .cover .content {
     background: rgba(10,22,40,0.94);
     border-top: 1px solid rgba(143,169,199,0.35);
     border-radius: 0 0 var(--of4s-radius-lg) var(--of4s-radius-lg);
     padding: 40px 56px 48px;
-    z-index: 2;
-  }
-
-  /* Quote mark + "Testimonial" — back together, above the name, no pill.
-     No background shape of its own; the panel is already the shape.
-     Sized and weighted (700) to stay legible at grid-thumbnail scale,
-     which is why the earlier small mono-caps eyebrow got dropped. */
-  .cover .kicker {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 18px;
-  }
-  .cover .kicker .mark {
-    font-family: var(--of4s-font-display);
-    font-weight: 300;
-    font-size: 56px;
-    line-height: 0.5;
-    color: var(--of4s-navy-300);
-  }
-  .cover .kicker .label {
-    font-family: var(--of4s-font-mono);
-    font-weight: 700;
-    font-size: 28px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--of4s-navy-300);
   }
 
   .cover .name {
@@ -160,13 +169,15 @@
         <div class="photo-label">CLIENT PHOTO SLOT<br/>full-bleed, cover, face anchored inside the 4:5 grid-safe zone</div>
       </div>
       <div class="scrim"></div>
-      <div class="content">
-        <div class="kicker">
+      <div class="foot">
+        <div class="tag">
           <span class="mark">&ldquo;</span>
-          <span class="label">Testimonial</span>
+          <span class="label">Client Testimonial</span>
         </div>
-        <p class="name">Client Name</p>
-        <div class="role">Title <span class="company">&middot; Company Name</span></div>
+        <div class="content">
+          <p class="name">Client Name</p>
+          <div class="role">Title <span class="company">&middot; Company Name</span></div>
+        </div>
       </div>
       <div class="safe-guide"></div>
     </div>
