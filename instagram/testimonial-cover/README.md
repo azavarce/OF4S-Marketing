@@ -33,6 +33,12 @@ Canvas is 1080×1920. The grid crop is centered, so:
 
 `reel-template.html` has a `.safe-guide` overlay (dashed lines at the crop boundaries) toggled by adding `show-guide` to `<body>` — useful for checking a new photo's framing before exporting, never present in the final export.
 
+## Locked-in — 2026-07-23
+
+This layout (tag + navy box, sizes above, no quote mark, no pill/badge) is the standard going forward. Match it exactly for every new testimonial cover rather than re-deriving the design.
+
+**Note for next revision:** tighten the gap between `.tag` and `.content` — bring `CLIENT TESTIMONIAL` down a bit closer to the navy box. Adjust `.tag`'s bottom padding (currently `26px`) down first before touching anything else.
+
 ## To produce a new cover
 
 1. Duplicate `template.html` (feed) and/or `reel-template.html` (reel).
