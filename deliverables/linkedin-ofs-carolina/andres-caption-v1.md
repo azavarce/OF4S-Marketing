@@ -23,3 +23,15 @@ That's exactly why I'm glad OF4S now represents OFS Healthcare — Carolina, bui
 Got a healthcare project on your plate? Let's talk specs.
 
 #Healthcare #HealthcareDesign #OfficeFurniture #InteriorDesign #WorkplaceDesign #SouthFlorida #FFE
+
+---
+
+## Caption — Option 3 (reads as news)
+
+OF4S just added a new manufacturer to our healthcare lineup: OFS Healthcare.
+
+Carolina — their healthcare collection — is built specifically for FF&E in clinics, medical offices, spas, senior living facilities, and hospitals.
+
+If you're working on a healthcare space, I'd love to show you what's now on the table.
+
+#Healthcare #HealthcareDesign #OfficeFurniture #InteriorDesign #WorkplaceDesign #SouthFlorida #FFE
