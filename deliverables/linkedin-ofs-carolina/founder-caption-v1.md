@@ -2,7 +2,7 @@
 
 ## Caption
 
-Big news: OF4S now represents Carolina by OFS!
+Big news: OF4S now represents OFS Healthcare!
 
 A U.S.-manufactured furniture line built for the full continuum of care — patient rooms, caregiver spaces, and everything in between.
 
