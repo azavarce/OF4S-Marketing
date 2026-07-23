@@ -2,7 +2,7 @@
 
 ## Caption
 
-Big news: OF4S now represents OFS Healthcare!
+Big news: we now represent OFS Healthcare!
 
 Meet Carolina: a U.S.-based manufacturer that specializes in FF&E for the healthcare industry, built for the full continuum of care.
 
