@@ -60,35 +60,40 @@
     );
   }
 
-  /* "Testimonial" badge — its own solid shape on the photo, not squeezed
-     in with the name/role text. This is the word that has to read first,
-     even at a grid thumbnail, so it gets its own high-contrast pill
-     instead of competing with the panel below. */
-  .cover .badge {
-    position: absolute;
-    top: 48px;
-    left: 48px;
-    z-index: 3;
-    background: var(--of4s-navy-300);
-    color: var(--of4s-navy-950);
-    font-family: var(--of4s-font-mono);
-    font-weight: 700;
-    font-size: 32px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 14px 28px;
-    border-radius: var(--of4s-radius-pill);
-    box-shadow: var(--of4s-shadow-md);
-  }
-
   /* Text panel — solid navy card, not a fade. This is the "shape" that defines the copy area. */
   .cover .content {
     position: absolute;
     left: 0; right: 0; bottom: 0;
     background: rgba(10,22,40,0.94);
     border-top: 1px solid rgba(143,169,199,0.35);
-    padding: 44px 56px 48px;
+    padding: 40px 56px 48px;
     z-index: 2;
+  }
+
+  /* Quote mark + "Testimonial" — back together, above the name, no pill.
+     No background shape of its own; the panel is already the shape.
+     Sized and weighted (700) to stay legible at grid-thumbnail scale,
+     which is why the earlier small mono-caps eyebrow got dropped. */
+  .cover .kicker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .cover .kicker .mark {
+    font-family: var(--of4s-font-display);
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 0.5;
+    color: var(--of4s-navy-300);
+  }
+  .cover .kicker .label {
+    font-family: var(--of4s-font-mono);
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--of4s-navy-300);
   }
 
   .cover .name {
@@ -129,8 +134,11 @@
     <div class="cover">
       <div class="photo"></div>
       <div class="scrim"></div>
-      <div class="badge">Testimonial</div>
       <div class="content">
+        <div class="kicker">
+          <span class="mark">&ldquo;</span>
+          <span class="label">Testimonial</span>
+        </div>
         <p class="name">Katie Goar</p>
         <div class="role">President <span class="company">&middot; Quadel Consulting &amp; Training</span></div>
       </div>
