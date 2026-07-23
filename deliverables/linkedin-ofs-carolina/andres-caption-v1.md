@@ -32,6 +32,6 @@ This is a big one for our healthcare clients.
 
 We just added OFS Healthcare to our lineup: Carolina, a U.S.-based manufacturer built specifically for FF&E in clinics, medical offices, spas, senior living facilities, and hospitals.
 
-I can't wait to start speccing this into projects! If you're working on a healthcare space, let's talk.
+Got a healthcare project coming up? Let's put it to work.
 
 #Healthcare #HealthcareDesign #OfficeFurniture #InteriorDesign #WorkplaceDesign #SouthFlorida #FFE
