@@ -2,11 +2,11 @@
 
 ## Caption
 
-New partner: OF4S now represents Carolina by OFS.
+Big news: OF4S now represents Carolina by OFS!
 
 A U.S.-manufactured furniture line built for the full continuum of care — patient rooms, caregiver spaces, and everything in between.
 
-Opening a clinic, medical office, spa, senior living community, or hospital? We'd love to help you furnish it.
+Opening a clinic, medical office, spa, senior living community, or hospital? We'd love to help you furnish it!
 
 #Healthcare #HealthcareDesign #OfficeFurniture #InteriorDesign #WorkplaceDesign #SouthFlorida
 
