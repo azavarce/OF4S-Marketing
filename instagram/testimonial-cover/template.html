@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OF4S — Instagram Testimonial Cover (draft)</title>
+<link rel="stylesheet" href="../../design-system/tokens.css" />
+<style>
+  body {
+    margin: 0;
+    background: var(--of4s-paper-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 48px 24px;
+  }
+
+  /* ── Reusable testimonial-cover component ─────────────────────────── */
+  .cover {
+    position: relative;
+    width: 1080px;
+    height: 1080px;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: var(--of4s-font-sans);
+    box-shadow: var(--of4s-shadow-lg);
+  }
+
+  /* Photo slot — swap background-image per post. Cover, centered. */
+  .cover .photo {
+    position: absolute;
+    inset: 0;
+    background: var(--of4s-stone-500) center 20% / cover no-repeat;
+    /* PLACEHOLDER: replace with url('CLIENT_PHOTO_FILENAME.jpg') */
+  }
+  .cover .photo-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--of4s-font-mono);
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(250,248,244,0.55);
+    text-align: center;
+    padding: 0 60px;
+  }
+
+  /* Legibility gradient — bottom two-thirds, navy to transparent */
+  .cover .scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(10,22,40,0.92) 0%,
+      rgba(10,22,40,0.72) 22%,
+      rgba(10,22,40,0.28) 46%,
+      rgba(10,22,40,0) 62%
+    );
+  }
+
+  /* Quote mark garnish — top-left, small, brass-adjacent role played by navy per system rules */
+  .cover .mark {
+    position: absolute;
+    top: 56px;
+    left: 56px;
+    font-family: var(--of4s-font-display);
+    font-weight: 300;
+    font-size: 96px;
+    line-height: 0.5;
+    color: var(--of4s-navy-300);
+    text-shadow: 0 2px 12px rgba(10,22,40,0.5);
+    z-index: 2;
+  }
+
+  /* Content block — bottom-anchored */
+  .cover .content {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 44px 56px 52px;
+    z-index: 2;
+  }
+  .cover .eyebrow {
+    font-family: var(--of4s-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--of4s-navy-300);
+    margin-bottom: 14px;
+  }
+  .cover .name {
+    font-family: var(--of4s-font-display);
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--of4s-paper-50);
+    margin: 0 0 10px;
+  }
+  .cover .role {
+    font-family: var(--of4s-font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--of4s-paper-200);
+    line-height: 1.5;
+  }
+  .cover .role .company {
+    color: var(--of4s-navy-300);
+  }
+
+  .stage-label {
+    text-align: center;
+    font-family: var(--of4s-font-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--of4s-stone-600);
+    margin-top: 18px;
+  }
+</style>
+</head>
+<body>
+  <div>
+    <div class="cover">
+      <div class="photo">
+        <div class="photo-label">CLIENT PHOTO SLOT<br/>full-bleed, cover, centered ~20% from top</div>
+      </div>
+      <div class="scrim"></div>
+      <div class="mark">&ldquo;</div>
+      <div class="content">
+        <div class="eyebrow">Client story</div>
+        <p class="name">Client Name</p>
+        <div class="role">Title <span class="company">&middot; Company Name</span></div>
+      </div>
+    </div>
+    <div class="stage-label">1080 &times; 1080 &middot; instagram/testimonial-cover/template.html</div>
+  </div>
+</body>
+</html>
