@@ -2,19 +2,13 @@
 
 ## Caption
 
-For years, when a client called about a clinic build-out, a senior living wing, or a new hospital floor, I had to give them the same answer: "that's not really our lane."
+New partner: OF4S now represents Carolina by OFS.
 
-Not anymore.
+A U.S.-manufactured furniture line built for the full continuum of care — patient rooms, caregiver spaces, and everything in between.
 
-We're now an authorized dealer for Carolina by OFS — a U.S.-based manufacturer that's spent decades studying what actually happens in a healthcare space. Where a nurse sets down a chart mid-shift. Where a family waits for news. Where a patient needs to feel like a person, not a room number.
+Opening a clinic, medical office, spa, senior living community, or hospital? We'd love to help you furnish it.
 
-That's the part people miss about healthcare furniture. It's not just cleanable surfaces and weight ratings — though it's built for all of that too. It's whether a waiting room feels like a hallway, or like somewhere you'd actually want to sit.
-
-So if you have a client opening a clinic, a medical office, a spa, a senior living community, or a hospital — we'd love to help you furnish it right.
-
-Here's to the next chapter. 🤍
-
-#Healthcare #HealthcareDesign #OfficeFurniture #InteriorDesign #WorkplaceDesign #FounderStory #SouthFlorida #FF&E
+#Healthcare #HealthcareDesign #OfficeFurniture #InteriorDesign #WorkplaceDesign #SouthFlorida
 
 ---
 
