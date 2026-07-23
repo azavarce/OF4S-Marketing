@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>OF4S — Testimonial Cover: Katie Goar (draft)</title>
+<title>OF4S — Instagram Testimonial Reel Cover (draft)</title>
 <link rel="stylesheet" href="../../design-system/tokens.css" />
 <style>
   body {
@@ -16,23 +16,43 @@
     padding: 48px 24px;
   }
 
-  /* ── Reusable testimonial-cover component ─────────────────────────── */
+  /* ── Reusable testimonial reel-cover component ─────────────────────
+     Canvas is the full Reel cover, 1080x1920 (9:16).
+     The profile GRID only shows the center 1080x1350 (4:5) crop —
+     285px is cropped off the top and 285px off the bottom.
+     Keep the face and the text panel inside that center band, or
+     they won't show up when someone is scrolling the grid. ─────────── */
   .cover {
     position: relative;
     width: 1080px;
     max-width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1080 / 1920;
     border-radius: 12px;
     overflow: hidden;
     font-family: var(--of4s-font-sans);
     box-shadow: var(--of4s-shadow-lg);
   }
 
-  /* Photo slot — swap background-image per post. Cover, centered. */
+  /* Grid-safe guide — 4:5 center crop. Visible only with .show-guide on <body>, never in exports. */
+  .cover .safe-guide {
+    position: absolute;
+    left: 0; right: 0;
+    top: 14.844%;    /* 285 / 1920 */
+    bottom: 14.844%; /* 285 / 1920 */
+    border-top: 2px dashed rgba(201,164,116,0.85);
+    border-bottom: 2px dashed rgba(201,164,116,0.85);
+    z-index: 5;
+    display: none;
+  }
+  body.show-guide .safe-guide { display: block; }
+
+  /* Photo slot — swap background-image per post. Cover, anchored so the
+     face sits well inside the 4:5 safe zone (roughly upper-middle third). */
   .cover .photo {
     position: absolute;
     inset: 0;
-    background: var(--of4s-stone-500) url('katie-goar.png') center 15% / cover no-repeat;
+    background: var(--of4s-stone-500) center 24% / cover no-repeat;
+    /* PLACEHOLDER: replace with url('CLIENT_PHOTO_FILENAME.jpg') */
   }
   .cover .photo-label {
     position: absolute;
@@ -49,28 +69,31 @@
     padding: 0 60px;
   }
 
-  /* Light lift over the top two-thirds so the panel below doesn't sit on a hard edge */
+  /* Light lift so the panel doesn't sit on a hard photo edge */
   .cover .scrim {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       to top,
       rgba(10,22,40,0.35) 0%,
-      rgba(10,22,40,0) 40%
+      rgba(10,22,40,0) 32%
     );
   }
 
-  /* Text panel — solid navy card, not a fade. This is the "shape" that defines the copy area. */
+  /* Text panel — solid navy card, floated up off the true bottom edge so
+     it stays inside the 1080x1350 grid-safe zone (bottom offset = 285px
+     crop + 40px buffer = 325px). Do not set bottom:0 on this variant. */
   .cover .content {
     position: absolute;
-    left: 0; right: 0; bottom: 0;
+    left: 0; right: 0;
+    bottom: 325px;
     background: rgba(10,22,40,0.94);
     border-top: 1px solid rgba(143,169,199,0.35);
+    border-radius: 0 0 var(--of4s-radius-lg) var(--of4s-radius-lg);
     padding: 40px 56px 48px;
     z-index: 2;
   }
 
-  /* Quote mark garnish — sits on the panel, not the photo */
   .cover .mark {
     font-family: var(--of4s-font-display);
     font-weight: 300;
@@ -122,16 +145,19 @@
 <body>
   <div>
     <div class="cover">
-      <div class="photo"></div>
+      <div class="photo">
+        <div class="photo-label">CLIENT PHOTO SLOT<br/>full-bleed, cover, face anchored inside the 4:5 grid-safe zone</div>
+      </div>
       <div class="scrim"></div>
       <div class="content">
         <div class="mark">&ldquo;</div>
         <div class="eyebrow">Client testimonial</div>
-        <p class="name">Katie Goar</p>
-        <div class="role">President <span class="company">&middot; Quadel Consulting &amp; Training</span></div>
+        <p class="name">Client Name</p>
+        <div class="role">Title <span class="company">&middot; Company Name</span></div>
       </div>
+      <div class="safe-guide"></div>
     </div>
-    <div class="stage-label">1080 &times; 1080 &middot; instagram/testimonial-cover/2026-07-katie-goar.html</div>
+    <div class="stage-label">1080 &times; 1920 reel cover &middot; grid shows center 1080 &times; 1350 &middot; instagram/testimonial-cover/reel-template.html</div>
   </div>
 </body>
 </html>
