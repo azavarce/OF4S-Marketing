@@ -80,6 +80,26 @@
     );
   }
 
+  /* "Testimonial" badge — pinned inside the grid-safe zone from the top
+     (same 285px crop + 40px buffer = 325px offset used for the bottom
+     panel, mirrored). Its own solid shape, not squeezed into the panel. */
+  .cover .badge {
+    position: absolute;
+    top: 325px;
+    left: 48px;
+    z-index: 3;
+    background: var(--of4s-navy-300);
+    color: var(--of4s-navy-950);
+    font-family: var(--of4s-font-mono);
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: var(--of4s-radius-pill);
+    box-shadow: var(--of4s-shadow-md);
+  }
+
   /* Text panel — solid navy card, floated up off the true bottom edge so
      it stays inside the 1080x1350 grid-safe zone (bottom offset = 285px
      crop + 40px buffer = 325px). Do not set bottom:0 on this variant. */
@@ -90,27 +110,10 @@
     background: rgba(10,22,40,0.94);
     border-top: 1px solid rgba(143,169,199,0.35);
     border-radius: 0 0 var(--of4s-radius-lg) var(--of4s-radius-lg);
-    padding: 40px 56px 48px;
+    padding: 44px 56px 48px;
     z-index: 2;
   }
 
-  .cover .mark {
-    font-family: var(--of4s-font-display);
-    font-weight: 300;
-    font-size: 64px;
-    line-height: 0.4;
-    color: var(--of4s-navy-300);
-    margin-bottom: 4px;
-  }
-  .cover .eyebrow {
-    font-family: var(--of4s-font-mono);
-    font-weight: 500;
-    font-size: 20px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--of4s-navy-300);
-    margin-bottom: 18px;
-  }
   .cover .name {
     font-family: var(--of4s-font-display);
     font-weight: 500;
@@ -151,9 +154,8 @@
         <div class="photo-label">CLIENT PHOTO SLOT<br/>full-bleed, cover, face anchored inside the 4:5 grid-safe zone</div>
       </div>
       <div class="scrim"></div>
+      <div class="badge">Testimonial</div>
       <div class="content">
-        <div class="mark">&ldquo;</div>
-        <div class="eyebrow">Client testimonial</div>
         <p class="name">Client Name</p>
         <div class="role">Title <span class="company">&middot; Company Name</span></div>
       </div>

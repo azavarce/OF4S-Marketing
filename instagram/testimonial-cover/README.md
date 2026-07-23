@@ -15,12 +15,11 @@ Both built on `design-system/tokens.css`.
   - Feed (1:1): anchor `center 20%`.
   - Reel (9:16): anchor `center 24%` (roughly upper-middle third) so the face sits inside the 4:5 grid-safe zone — check with the guide (below) and adjust per photo.
 - **Scrim:** a light navy lift over the top of the photo so it doesn't compete with the panel.
-- **Text panel:** a solid navy card (`rgba(10,22,40,0.94)`) with a thin `--of4s-navy-300` top rule — this is the shape that defines the copy area, not a soft fade.
-  - Quote mark: display-font `"` in `--of4s-navy-300` — signals "testimonial" at a glance in grid view.
-  - Eyebrow: `CLIENT TESTIMONIAL` — mono caps, `--of4s-navy-300`.
-  - Name: Schibsted Grotesk 500, 60px, white.
-  - Title · Company: mono caps, 16px — `--of4s-paper-200` for the title, `--of4s-navy-300` for the company.
-- **No logo** — per brand direction, the grayscale/branded logo is intentionally omitted so the grid doesn't feel crowded when several of these run in sequence. The quote mark + navy accent + mono voice is enough to read as OF4S without a lockup.
+- **"Testimonial" badge:** `.badge` — a solid `--of4s-navy-300` pill with dark navy text, bold mono, top-left, sitting directly on the photo. This is the word that has to read first, even at a shrunk grid thumbnail, so it's a standalone high-contrast shape rather than small mono caps buried in the text panel (that was tried first and wasn't legible — don't reintroduce an "eyebrow" line in the panel).
+- **Text panel:** a solid navy card (`rgba(10,22,40,0.94)`) with a thin `--of4s-navy-300` top rule — this is the shape that defines the name/role copy area, not a soft fade.
+  - Name: Schibsted Grotesk 500, 66px, white.
+  - Title · Company: mono caps 500, 24px — `--of4s-paper-200` for the title, `--of4s-navy-300` for the company.
+- **No logo** — per brand direction, the grayscale/branded logo is intentionally omitted so the grid doesn't feel crowded when several of these run in sequence. The badge + navy accent + mono voice is enough to read as OF4S without a lockup.
 
 ## Reel cover — grid-safe math
 
@@ -29,7 +28,7 @@ Canvas is 1080×1920. The grid crop is centered, so:
 - Crop-safe top: `(1920 − 1350) / 2 = 285px`
 - Crop-safe bottom: `1920 − 285 = 1635px`
 
-The text panel is floated up off the true bottom edge (`bottom: 325px`, i.e. the 285px crop plus a 40px buffer) instead of flush at `bottom: 0`, so it lands inside `[285, 1635]` with margin. **Don't reset this to `bottom: 0` on the reel variant** — that would push the name/title below the grid-visible area.
+The text panel is floated up off the true bottom edge (`bottom: 325px`, i.e. the 285px crop plus a 40px buffer) instead of flush at `bottom: 0`, so it lands inside `[285, 1635]` with margin. **Don't reset this to `bottom: 0` on the reel variant** — that would push the name/title below the grid-visible area. The badge mirrors this from the top (`top: 325px`) for the same reason.
 
 `reel-template.html` has a `.safe-guide` overlay (dashed lines at the crop boundaries) toggled by adding `show-guide` to `<body>` — useful for checking a new photo's framing before exporting, never present in the final export.
 

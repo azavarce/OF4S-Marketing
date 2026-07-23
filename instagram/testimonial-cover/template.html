@@ -61,35 +61,37 @@
     );
   }
 
+  /* "Testimonial" badge — its own solid shape on the photo, not squeezed
+     in with the name/role text. This is the word that has to read first,
+     even at a grid thumbnail, so it gets its own high-contrast pill
+     instead of competing with the panel below. */
+  .cover .badge {
+    position: absolute;
+    top: 48px;
+    left: 48px;
+    z-index: 3;
+    background: var(--of4s-navy-300);
+    color: var(--of4s-navy-950);
+    font-family: var(--of4s-font-mono);
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: var(--of4s-radius-pill);
+    box-shadow: var(--of4s-shadow-md);
+  }
+
   /* Text panel — solid navy card, not a fade. This is the "shape" that defines the copy area. */
   .cover .content {
     position: absolute;
     left: 0; right: 0; bottom: 0;
     background: rgba(10,22,40,0.94);
     border-top: 1px solid rgba(143,169,199,0.35);
-    padding: 40px 56px 48px;
+    padding: 44px 56px 48px;
     z-index: 2;
   }
 
-  /* Quote mark garnish — sits on the panel, not the photo. Kept small
-     and tight so it doesn't eat space needed for legible copy. */
-  .cover .mark {
-    font-family: var(--of4s-font-display);
-    font-weight: 300;
-    font-size: 64px;
-    line-height: 0.4;
-    color: var(--of4s-navy-300);
-    margin-bottom: 4px;
-  }
-  .cover .eyebrow {
-    font-family: var(--of4s-font-mono);
-    font-weight: 500;
-    font-size: 20px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--of4s-navy-300);
-    margin-bottom: 18px;
-  }
   .cover .name {
     font-family: var(--of4s-font-display);
     font-weight: 500;
@@ -130,9 +132,8 @@
         <div class="photo-label">CLIENT PHOTO SLOT<br/>full-bleed, cover, centered ~20% from top</div>
       </div>
       <div class="scrim"></div>
+      <div class="badge">Testimonial</div>
       <div class="content">
-        <div class="mark">&ldquo;</div>
-        <div class="eyebrow">Client testimonial</div>
         <p class="name">Client Name</p>
         <div class="role">Title <span class="company">&middot; Company Name</span></div>
       </div>
