@@ -8,7 +8,7 @@ Meet Carolina — a U.S.-based manufacturer that specializes in FF&E for the hea
 
 If you have clients opening a clinic, medical office, spa, senior living facility, or hospital, we'd be more than happy to help furnish it!
 
-#Healthcare #HealthcareDesign #OfficeFurniture #InteriorDesign #WorkplaceDesign #SouthFlorida
+#Healthcare #HealthcareDesign #OfficeFurniture #InteriorDesign #WorkplaceDesign #SouthFlorida #FFE #HealthcareFurniture
 
 ---
 
