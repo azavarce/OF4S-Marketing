@@ -16,10 +16,10 @@ Both built on `design-system/tokens.css`.
   - Reel (9:16): anchor `center 24%` (roughly upper-middle third) so the face sits inside the 4:5 grid-safe zone — check with the guide (below) and adjust per photo.
 - **Scrim:** a light navy lift over the top of the photo so it doesn't compete with the elements below.
 - **`.foot`:** a bottom-anchored wrapper holding the tag and the navy box as two stacked, separate pieces (not nested) — this is what lets the tag sit outside the box while both still move together as one group for the reel's grid-safe offset.
-  - **Tag** (`.tag`, on the photo, directly above the box): `CLIENT TESTIMONIAL` — mono, weight 800, 36px, white with a text-shadow, sitting on its own small gradient rather than a pill/badge. No quote mark (tried and removed — plain text reads cleaner). This is the phrase that has to read first, even at a shrunk grid thumbnail, so it's oversized and outside the box rather than squeezed inside it as a small eyebrow (two earlier, smaller-and/or-boxed versions weren't legible or didn't match the brand's sharp-edged shapes — don't reintroduce a pill, and don't shrink this back down).
-  - **Box** (`.content`, directly under the tag): solid navy card (`rgba(10,22,40,0.94)`) with a thin `--of4s-navy-300` top rule.
-    - Name: Schibsted Grotesk 500, 66px, white.
-    - Title · Company: mono caps 500, 24px — `--of4s-paper-200` for the title, `--of4s-navy-300` for the company.
+  - **Tag** (`.tag`, on the photo, directly above the box): `CLIENT TESTIMONIAL` — mono, weight 800, 46px, white with a text-shadow, sitting on its own small gradient rather than a pill/badge. No quote mark (tried and removed — plain text reads cleaner). This is the phrase that has to read first, even at a shrunk grid thumbnail, so it's oversized and outside the box rather than squeezed inside it as a small eyebrow (earlier smaller-and/or-boxed versions weren't legible or didn't match the brand's sharp-edged shapes — don't reintroduce a pill, and don't shrink this back down).
+  - **Box** (`.content`, directly under the tag): solid navy card (`rgba(10,22,40,0.94)`) with a thin `--of4s-navy-300` top rule. Deliberately sized to fit large type rather than the other way around — it's fine for this box to grow taller as the name/role text grows.
+    - Name: Schibsted Grotesk 500, 82px, white.
+    - Title · Company: mono caps 500, 32px — `--of4s-paper-200` for the title, `--of4s-navy-300` for the company.
 - **No logo** — per brand direction, the grayscale/branded logo is intentionally omitted so the grid doesn't feel crowded when several of these run in sequence. The tag + navy accent + mono voice is enough to read as OF4S without a lockup.
 
 ## Reel cover — grid-safe math
