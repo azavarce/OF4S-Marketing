@@ -28,10 +28,10 @@ Got a healthcare project on your plate? Let's talk specs.
 
 ## Caption — Option 3 (reads as news)
 
-We just added a new manufacturer to our healthcare lineup: OFS Healthcare.
+This is a big one for our healthcare clients.
 
-Carolina, their healthcare collection, is built specifically for FF&E in clinics, medical offices, spas, senior living facilities, and hospitals.
+We just added OFS Healthcare to our lineup: Carolina, a U.S.-based manufacturer built specifically for FF&E in clinics, medical offices, spas, senior living facilities, and hospitals.
 
-If you're working on a healthcare space, I'd love to show you what's now on the table.
+I can't wait to start speccing this into projects! If you're working on a healthcare space, let's talk.
 
 #Healthcare #HealthcareDesign #OfficeFurniture #InteriorDesign #WorkplaceDesign #SouthFlorida #FFE
