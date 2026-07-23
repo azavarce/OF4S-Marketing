@@ -6,7 +6,7 @@ Big news: OF4S now represents OFS Healthcare!
 
 Meet Carolina — a U.S.-based manufacturer that specializes in FF&E for the healthcare industry, built for the full continuum of care.
 
-Opening a clinic, medical office, spa, senior living community, or hospital? We'd love to help you furnish it!
+If you have clients opening a clinic, medical office, spa, senior living facility, or hospital, we'd be more than happy to help furnish it!
 
 #Healthcare #HealthcareDesign #OfficeFurniture #InteriorDesign #WorkplaceDesign #SouthFlorida
 
