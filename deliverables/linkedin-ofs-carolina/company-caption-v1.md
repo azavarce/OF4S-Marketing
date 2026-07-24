@@ -2,9 +2,9 @@
 
 ## Caption
 
-Healthcare spaces come with a different set of demands than a typical office.
+New partnership: we now represent OFS Healthcare.
 
-We now represent OFS Healthcare, the Carolina collection: a U.S.-based manufacturer that specializes in FF&E for clinics, medical offices, spas, senior living facilities, and hospitals.
+Carolina, their healthcare collection, is a U.S.-based manufacturer that specializes in FF&E for clinics, medical offices, spas, senior living facilities, and hospitals.
 
 Planning a healthcare fit-out? We're happy to walk through options.
 
