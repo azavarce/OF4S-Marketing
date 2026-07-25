@@ -102,6 +102,7 @@ the full build spec.
 | `imagery.html` / `iconography.html` | Photo treatment + icon style |
 | `directions.html` | The chosen direction, "Editorial Modern" |
 | `presentation.html`, `proposal.html`, `collateral.html`, `social.html` | Applied templates (decks, proposals, letterhead/cards/email sig, social) |
+| `assets/logo/` | Logo files — vector SVGs (outlined, no font needed) + transparent PNGs of the primary mark and horizontal lockup in light/dark versions, plus favicon/app tiles. See `assets/logo/README.md` for which file goes where |
 | `shared.css`, `sidebar.jsx`, `scroll-hint.js`, `netlify.toml`, `index-print.html`, `README.md` | Chrome/deploy for the system site itself — ignore for content work |
 
 Tip: every `.html` page opens directly in a browser (no build step), so the
@@ -111,9 +112,9 @@ person can *see* the system, not just read about it.
 
 ## Not included
 
-Logo SVG/PNG exports, photography, product shots, customer logos, and
-testimonials. Use captioned placeholders until real assets are supplied.
-Fonts load from Google Fonts / CDN inside the HTML pages.
+Photography, product shots, customer logos, and testimonials. Use captioned
+placeholders until real assets are supplied. Fonts load from Google Fonts /
+CDN inside the HTML pages. (Logo files ARE included — see `assets/logo/`.)
 
 ---
 
