@@ -315,9 +315,76 @@
     font-family: var(--of4s-font-mono); font-size: 6px; letter-spacing: 0.1em;
     text-transform: uppercase; color: var(--of4s-paper-200); text-align: right; line-height: 1.5;
   }
+
+  /* ============================================================
+     DRAFT 2 — dark navy surface, ghost-mark watermark, elevated
+     white cards for photos and the contact block (inverted).
+     ============================================================ */
+
+  .draft-2 .card { background: var(--of4s-navy-900); }
+
+  .draft-2 .card::before {
+    content: "4";
+    position: absolute;
+    font-family: var(--of4s-font-display);
+    font-weight: 800;
+    font-size: 9in;
+    line-height: 1;
+    color: rgba(143, 169, 199, 0.08);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .draft-2 .card.front::before { right: -1.6in; bottom: -2.3in; }
+  .draft-2 .card.back::before { left: -2in; top: -2.6in; }
+
+  .draft-2 .logo-lockup .mark { color: var(--of4s-paper-50); }
+  .draft-2 .logo-lockup .mark .four { color: var(--of4s-navy-300); }
+  .draft-2 .logo-lockup .rule { background: rgba(255,255,255,0.25); }
+  .draft-2 .logo-lockup .caption { color: var(--of4s-paper-200); }
+
+  .draft-2 .eyebrow { color: var(--of4s-navy-300); }
+
+  .draft-2 .front h1 { color: var(--of4s-paper-50); }
+  .draft-2 .front h1 em { color: var(--of4s-navy-300); }
+
+  .draft-2 .tile {
+    box-shadow: var(--of4s-shadow-lg);
+  }
+
+  .draft-2 .front .footer-line { color: var(--of4s-paper-200); }
+
+  .draft-2 .back .services h2 { color: var(--of4s-paper-50); }
+  .draft-2 .back .services h2 em { color: var(--of4s-navy-300); }
+  .draft-2 .back .services .lede { color: var(--of4s-paper-200); }
+
+  .draft-2 .svc-row { border-bottom: 1px solid rgba(255,255,255,0.14); }
+  .draft-2 .svc-row .dot { background: var(--of4s-navy-300); }
+  .draft-2 .svc-row .txt { color: var(--of4s-paper-200); }
+  .draft-2 .svc-row .txt strong { color: var(--of4s-paper-50); }
+
+  .draft-2 .back .services .foot-note { color: rgba(255,255,255,0.4); }
+
+  /* Contact card inverts to a light card floating on the dark page */
+  .draft-2 .contact {
+    background: var(--of4s-paper-50);
+    color: var(--of4s-stone-900);
+    box-shadow: var(--of4s-shadow-lg);
+  }
+  .draft-2 .contact .title { color: var(--of4s-navy-600); }
+  .draft-2 .contact .lines .line { color: var(--of4s-stone-700); }
+  .draft-2 .contact .lines .line .k { color: var(--of4s-navy-600); }
+  .draft-2 .contact .ask {
+    color: var(--of4s-stone-600);
+    border-top: 1px solid rgba(15,29,51,0.1);
+  }
+  .draft-2 .contact .bottom-row { border-top: 1px solid rgba(15,29,51,0.1); }
+  .draft-2 .brand-mini .mark { color: var(--of4s-navy-800); }
+  .draft-2 .brand-mini .mark .four { color: var(--of4s-navy-500); }
+  .draft-2 .brand-mini .addr { color: var(--of4s-stone-600); }
+  .draft-2 .qr-cap { color: var(--of4s-stone-600); }
 </style>
 </head>
-<body>
+<body class="draft-2">
 
   <div class="panel-label">FRONT</div>
   <div class="card guides front">
@@ -341,7 +408,7 @@
         <div class="tile"><span class="fill-label">PHOTO · BREAK ROOM</span><div class="cap">Break Room &amp; Cafeteria</div></div>
         <div class="tile"><span class="fill-label">PHOTO · RECEPTION</span><div class="cap">Reception Area &amp; Lobby</div></div>
         <div class="tile"><span class="fill-label">PHOTO · TRAINING ROOM</span><div class="cap">Training Rooms</div></div>
-        <div class="tile brand"><div class="brand-mark">OF<span class="four">4</span>S</div></div>
+        <div class="tile"><span class="fill-label">PHOTO · LOUNGE AREA</span><div class="cap">Lounge Area</div></div>
       </div>
     </div>
     <div class="footer-line" style="bottom: 0.28in;">officefurniture4sale.com</div>

@@ -26,16 +26,16 @@ async function exportPanel(page, selector, outPath) {
 (async () => {
   const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
   const page = await browser.newPage();
-  await page.goto('file://' + __dirname + '/postcard.html', { waitUntil: 'load' });
+  await page.goto('file://' + __dirname + '/postcard-draft-2.html', { waitUntil: 'load' });
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(300);
 
-  await exportPanel(page, '.card.front', 'postcard-front-print.pdf');
+  await exportPanel(page, '.card.front', 'postcard-draft-2-front-print.pdf');
 
-  await page.goto('file://' + __dirname + '/postcard.html', { waitUntil: 'load' });
+  await page.goto('file://' + __dirname + '/postcard-draft-2.html', { waitUntil: 'load' });
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(300);
-  await exportPanel(page, '.card.back', 'postcard-back-print.pdf');
+  await exportPanel(page, '.card.back', 'postcard-draft-2-back-print.pdf');
 
   await browser.close();
   console.log('done');
