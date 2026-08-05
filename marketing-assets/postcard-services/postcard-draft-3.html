@@ -242,6 +242,35 @@
     white-space: nowrap;
   }
 
+  .strip-cols { display: flex; align-items: center; gap: 24px; }
+  .strip-services { flex: 1.5; }
+
+  .mini-contact {
+    flex: 1;
+    display: flex; align-items: center; gap: 10px;
+    padding-left: 24px;
+    border-left: 1px solid rgba(15,29,51,0.1);
+  }
+  .mini-headshot {
+    width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+    background: var(--of4s-navy-700);
+    background-image: repeating-linear-gradient(
+      135deg, rgba(143,169,199,0.28) 0px, rgba(143,169,199,0.28) 2px,
+      transparent 2px, transparent 8px
+    );
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(15,29,51,0.15);
+  }
+  .mini-headshot span {
+    font-family: var(--of4s-font-mono); font-size: 4.5px; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--of4s-navy-300); text-align: center; line-height: 1.2;
+  }
+  .mini-name {
+    font-family: var(--of4s-font-display); font-weight: 500; font-size: 11px;
+    letter-spacing: -0.01em; color: var(--of4s-stone-900); margin-bottom: 2px;
+  }
+  .mini-info { font-size: 9px; color: var(--of4s-stone-600); }
+
   /* ---------- shared: contact card (used on the cover side) ---------- */
 
   .contact {
@@ -252,6 +281,13 @@
     padding: 18px 20px;
     display: flex;
     flex-direction: column;
+  }
+
+  .contact .cc-top .k { display: block; margin-bottom: 6px; }
+  .contact .cc-address {
+    font-family: var(--of4s-font-display); font-weight: 500; font-size: 16px;
+    letter-spacing: -0.01em; line-height: 1.35; color: var(--of4s-paper-50);
+    max-width: 2.6in;
   }
 
   .contact .who { display: flex; gap: 14px; align-items: center; margin-bottom: 16px; }
@@ -273,12 +309,13 @@
   .contact .name { font-family: var(--of4s-font-display); font-weight: 500; font-size: 16px; letter-spacing: -0.01em; }
   .contact .title { font-size: 9px; color: var(--of4s-navy-300); margin-top: 2px; }
 
-  .contact .lines { display: flex; flex-direction: column; gap: 9px; margin-bottom: 18px; }
-  .contact .lines .line { font-size: 10px; color: var(--of4s-paper-200); }
-  .contact .lines .line .k {
+  .contact .k {
     font-family: var(--of4s-font-mono); font-size: 6.5px; letter-spacing: 0.14em;
     text-transform: uppercase; color: var(--of4s-navy-300); display: block; margin-bottom: 2px;
   }
+
+  .contact .lines { display: flex; flex-direction: column; gap: 9px; margin-bottom: 18px; }
+  .contact .lines .line { font-size: 10px; color: var(--of4s-paper-200); }
 
   .contact .ask {
     font-size: 10px; line-height: 1.55; color: var(--of4s-paper-200);
@@ -340,19 +377,15 @@
         </div>
 
         <div class="contact">
-          <div class="who">
-            <div class="headshot"><span>LAUREN<br/>HEADSHOT</span></div>
-            <div>
-              <div class="name">Lauren [Last Name]</div>
-              <div class="title">[Title / Role]</div>
-            </div>
+          <div class="cc-top">
+            <span class="k">Showroom</span>
+            <div class="cc-address">[Showroom address]</div>
           </div>
-          <div class="lines">
-            <div class="line"><span class="k">Phone</span>[Lauren's phone]</div>
-            <div class="line"><span class="k">Email</span>[Lauren's email]</div>
-            <div class="line"><span class="k">Showroom</span>[Showroom address]</div>
+          <div class="lines" style="margin-top: 18px;">
+            <div class="line"><span class="k">Phone</span>[Company phone]</div>
+            <div class="line"><span class="k">Email</span>[Company email]</div>
           </div>
-          <p class="ask">Ask Lauren about space plans, quotes, and installation timelines for your next project.</p>
+          <p class="ask">Stop by the showroom, or reach out for a walkthrough, a quote, or a space plan.</p>
           <div class="bottom-row">
             <div style="display:flex; gap:8px; align-items:center;">
               <div class="qr">
@@ -400,14 +433,25 @@
       </div>
 
       <div class="services-strip">
-        <span class="eyebrow">What we do</span>
-        <div class="chip-row">
-          <span class="chip">Space Planning</span>
-          <span class="chip">3D Model &amp; Rendering</span>
-          <span class="chip">Staging</span>
-          <span class="chip">Furniture Rental</span>
-          <span class="chip">Decommissioning</span>
-          <span class="chip">Delivery &amp; Installation</span>
+        <div class="strip-cols">
+          <div class="strip-services">
+            <span class="eyebrow">What we do</span>
+            <div class="chip-row">
+              <span class="chip">Space Planning</span>
+              <span class="chip">3D Model &amp; Rendering</span>
+              <span class="chip">Staging</span>
+              <span class="chip">Furniture Rental</span>
+              <span class="chip">Decommissioning</span>
+              <span class="chip">Delivery &amp; Installation</span>
+            </div>
+          </div>
+          <div class="mini-contact">
+            <div class="mini-headshot"><span>LAUREN<br/>HEADSHOT</span></div>
+            <div>
+              <div class="mini-name">Lauren [Last Name] &middot; [Title]</div>
+              <div class="mini-info">[Lauren's phone] &middot; [Lauren's email]</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
