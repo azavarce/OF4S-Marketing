@@ -23,7 +23,7 @@ The reusable, up-to-date template lives in Odoo as the post **"TEMPLATE — OF4S
 
 ## Instagram — client testimonial cover
 
-**Locked-in design (2026-07-23).** For a client-testimonial Instagram post/reel cover, use the templates in `instagram/testimonial-cover/` — don't re-derive the design from scratch. Full spec, grid-safe math, and rationale live in `instagram/testimonial-cover/README.md`; read it before making a new one.
+**Locked-in design (2026-07-23).** For a client-testimonial Instagram post/reel cover, use the templates in `instagram/testimonial-cover/` — don't re-derive the design from scratch. Full spec, grid-safe math, and rationale live in `instagram/testimonial-cover/README.md`; read it before making a new one. Before starting **any** new Instagram design (testimonial or otherwise), also read `instagram/LESSONS.md` — general legibility, shape-language, reel-crop-math, and technical gotchas learned while building this one, so they don't get repeated.
 
 Quick summary:
 
