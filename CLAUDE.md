@@ -21,6 +21,21 @@ The reusable, up-to-date template lives in Odoo as the post **"TEMPLATE — OF4S
 
 ---
 
+## Instagram — client testimonial cover
+
+**Locked-in design (2026-07-23).** For a client-testimonial Instagram post/reel cover, use the templates in `instagram/testimonial-cover/` — don't re-derive the design from scratch. Full spec, grid-safe math, and rationale live in `instagram/testimonial-cover/README.md`; read it before making a new one.
+
+Quick summary:
+
+1. **Two variants, same visual language:** `template.html` (1080×1080 feed post) and `reel-template.html` (1080×1920 reel cover — Instagram's grid only shows the center 1080×1350 crop, so face and text must stay inside that safe zone; the file has a togglable `.safe-guide` to check this).
+2. **Anatomy:** full-bleed client photo → light scrim → a `CLIENT TESTIMONIAL` tag directly on the photo (mono, weight 800, 46px, white, no quote mark, no pill/badge shape) → a solid navy box right under it with the name (Schibsted Grotesk 500, 82px) and title · company (mono caps, 32px). No logo — keeps the grid from feeling crowded across multiple posts.
+3. **Never invent the name/title/company/quote** — pull only from what the user provides.
+4. **Photo:** pull from a Google Drive folder/link the user shares, same pattern as the blog-post skill.
+5. **Export:** render each `.cover` element to PNG at its native size (1080×1080 or 1080×1920) via Playwright (`/opt/node22/lib/node_modules/playwright`, launched with `executablePath: '/opt/pw-browsers/chromium'`) — the Artifact preview alone won't show sibling image files, so always confirm with an actual PNG.
+6. **Known follow-up (not yet applied):** tighten the gap between the tag and the navy box — bring `CLIENT TESTIMONIAL` down slightly closer to the box. Adjust `.tag`'s bottom padding first.
+
+---
+
 ## Design system (for any OF4S-branded asset)
 
 `design-system/` is the canonical OF4S v3 design system — tokens, brand voice, components, and specs. Use it as the source of truth for colors, type, logo, and components when building any marketing asset. Reading order: `design-system/HANDOFF.md` → `DELTA.md` → `BUILD-SPEC.md`; `tokens.css` holds the color/type tokens; the `*.html` files are live component/typography/color references.
