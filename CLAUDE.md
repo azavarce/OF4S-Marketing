@@ -45,3 +45,33 @@ This repo provides the *instructions and reference*; it does not provide the liv
 - **Google Drive** access to read the project-photos folder.
 
 If either is missing, tell the user to ask Andres to connect it — do not proceed without them.
+
+---
+
+## Lessons from live posts (apply these from the start — don't wait to be corrected)
+
+These came out of building and revising the Somos TV post against the live UMusic post as the reference. `ANATOMY.md` still documents an older single-gallery layout — until it's rewritten, follow the corrections below over that file where they conflict.
+
+**Structure — one section per named space, not one lumped gallery.**
+In "What we helped design & furnish," don't put every furnished-space photo in a single `of4s-gallery`. Give each space its own `of4s-sec` (eyebrow + `<h2>`, one fresh accent word) followed by its own gallery — exactly like UMusic's Collaborative area / Lounge / Executive offices / etc. If the client only gave 5 spaces but photos exist for a 6th (e.g. a "Collaborative area" folder that wasn't in the original scope), add that section and add the space to the snapshot too.
+
+**Linked space list, with real page checks.**
+The "What we helped design & furnish" intro is followed by a bulleted list of spaces, each `<a href="/...">` to its OF4S category page, bold+underlined, with a one-line description — copy UMusic's exact markup pattern. Before linking, check the live page list (`SELECT url FROM website_page`) — don't assume a page exists. Not every space has one (e.g. no `/filing`, `/storage`, or `/editing-rooms` page exists as of this writing); leave those bold but unlinked, or link to the closest real match only if the user confirms it's accurate (e.g. Editing Rooms → `/private-offices`, since editing-room furniture is private-office furniture).
+
+**Multiple photos per space.**
+Don't assume one photo per space. Ask how many photos exist for each space, or default to 3 placeholder slots per space with "photo N of 3 · delete this box if you have fewer, duplicate it if you have more" — not a single slot.
+
+**Placeholders and real photos don't mix cleanly by default.**
+When a real image is dropped into a placeholder `<span class="of4s-imgslot">`, the border/background CSS on that class still applies to the final photo unless the class is stripped down. Once photos are uploaded, immediately simplify `.of4s-imgslot` to `display:block` with no border/background/padding — don't leave dashed-box styling wrapping real photos. Odoo's editor auto-adds `of4s-zoomable` (click-to-enlarge) to uploaded images — nothing to do there.
+
+**Captions must match what's actually in the photo — verify, don't assume from the section name.**
+"Workstations going in" on an empty room, or "Space to seat the whole group" over a chairless conference room, are the kind of mismatches that get caught immediately by the client-facing user. If the photo's content isn't confirmed, write a caption that's true of any plausible framing (e.g. "The space, cleared and ready" / "Furniture being assembled on-site") rather than guessing specifics.
+
+**Voice — don't overclaim beyond what's confirmed.**
+Avoid absolute or judgment-laden phrasing not backed by the user's notes: not "wanted the new office to work harder than the old one," not "moving the whole operation at once," not "on schedule" unless the user said so. When a fact is fuzzy (a number, a timing claim), hedge honestly ("roughly 6,000 square feet") or ask, rather than asserting it.
+
+**Full-content Odoo writes — verify photo count survives every edit.**
+`blog.post.content` is replaced wholesale on every `odoo_write` — there's no partial patch. Before any text-only edit, fetch the live content, edit it locally, and run a diff check (`<img ` count unchanged, no unintended string still present) before writing back. Never reconstruct the HTML from memory once real photos are in it — always start from the live DB content.
+
+**Filename-driven mapping works well — encourage it upfront.**
+Ask the user to name their Drive photos by space (e.g. `Conference 1`, `Executive 1`) before sending the folder link. Claude cannot currently view Drive images directly (downloads return empty/unusable content in this environment) — filenames are the only reliable way to build accurate galleries without a slow back-and-forth.
