@@ -15,7 +15,7 @@ import sys
 from PIL import Image
 
 
-def crop_product(src, dst, pad_frac=0.06):
+def crop_product(src, dst, pad_frac=0.06, max_dim=1400):
     im = Image.open(src).convert("RGBA")
     alpha = im.split()[-1]
     bbox = alpha.point(lambda a: 255 if a > 12 else 0).getbbox()
@@ -29,7 +29,15 @@ def crop_product(src, dst, pad_frac=0.06):
     top = max(0, top - pad_y)
     right = min(im.width, right + pad_x)
     bottom = min(im.height, bottom + pad_y)
-    im.crop((left, top, right, bottom)).save(dst)
+    cropped = im.crop((left, top, right, bottom))
+    # Modern phone/vendor photos can be 4000px+ on a side; cap output so
+    # file sizes and print performance stay in line with the rest of the
+    # catalog's assets (originally ~1000-1500px on the long edge).
+    cw, ch = cropped.size
+    if max(cw, ch) > max_dim:
+        scale = max_dim / max(cw, ch)
+        cropped = cropped.resize((int(cw * scale), int(ch * scale)), Image.LANCZOS)
+    cropped.save(dst, optimize=True)
 
 
 if __name__ == "__main__":
