@@ -51,7 +51,7 @@ def _flood_bg_mask(small_rgb, white_thresh):
     return mask
 
 
-def _fill_enclosed_holes(small_rgb, border_bg_mask, hole_thresh=236, max_area_frac=0.08):
+def _fill_enclosed_holes(small_rgb, border_bg_mask, hole_thresh=236, max_area_frac=0.35):
     """Catch bright see-through gaps (armrest loops, base gaps) that the
     border flood fill can't reach because they don't touch the image edge.
     Only small, very-white islands are removed, so a genuinely light-
