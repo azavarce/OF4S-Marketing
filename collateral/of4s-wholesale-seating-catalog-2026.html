@@ -196,10 +196,6 @@
   .spec-row { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; padding: 9px 0; border-bottom: 1px solid rgba(26,24,20,0.08); }
   .spec-row .k { font-size: 12px; color: var(--stone-500); }
   .spec-row .v { font-size: 12.5px; color: var(--stone-900); font-weight: 500; text-align: right; white-space: nowrap; }
-  .spec-sheet.compact { margin-top: 14px; padding-top: 12px; }
-  .spec-sheet.compact .spec-row { padding: 4.5px 0; gap: 8px; }
-  .spec-sheet.compact .spec-row .k { font-size: 10.5px; }
-  .spec-sheet.compact .spec-row .v { font-size: 11px; white-space: normal; text-align: right; }
 
   /* Collection grid (3-up / 2-up) */
   .collection { display: grid; gap: 26px; margin-top: 4px; }
@@ -361,8 +357,8 @@
       <li><span class="n">02</span><span class="t">Aley Collection — High · Mid · Visitor</span><span class="dots"></span><span class="pg">05</span></li>
       <li><span class="n">03</span><span class="t">Aley — Matte Black Conversion Kit</span><span class="dots"></span><span class="pg">06</span></li>
       <li><span class="n">04</span><span class="t">Calico Collection — Task · Visitor · All-Gray</span><span class="dots"></span><span class="pg">07</span></li>
-      <li><span class="n">05</span><span class="t">Gibran Collection — Stack · Armless Stack</span><span class="dots"></span><span class="pg">09</span></li>
-      <li><span class="n">06</span><span class="t">Lyra</span><span class="dots"></span><span class="pg">11</span></li>
+      <li><span class="n">05</span><span class="t">Lyra</span><span class="dots"></span><span class="pg">09</span></li>
+      <li><span class="n">06</span><span class="t">Gibran Collection — Stack · Armless Stack</span><span class="dots"></span><span class="pg">10</span></li>
       <li><span class="n">07</span><span class="t">Ordering &amp; Delivery Programs</span><span class="dots"></span><span class="pg">12</span></li>
       <li><span class="n">08</span><span class="t">Warranty</span><span class="dots"></span><span class="pg">13</span></li>
       <li><span class="n">09</span><span class="t">Terms &amp; Conditions</span><span class="dots"></span><span class="pg">14</span></li>
@@ -520,13 +516,20 @@
     <p class="eyebrow" style="margin-bottom:4px;">The Aley Collection</p>
     <h2 class="sec-title">Aley — Matte Black Conversion Kit</h2>
     <p class="body">Matte black arms and base for the Aley family — an add-on kit ordered together with an Aley Task or Visitor chair, not a standalone chair.</p>
-    <div class="collection two">
+    <div class="collection three">
+      <div class="card">
+        <div class="chair-frame" style="height:225px" data-file="aley-kit-highback-task-crop.png"></div>
+        <div class="cname">Aley High-Back Black Conversion Kit</div>
+        <div class="camt">Price TBD</div>
+        <div class="csku">SKU TBD</div>
+        <div class="csku" style="margin-top:4px;">Photo pending</div>
+      </div>
       <div class="card">
         <div class="chair-frame" style="height:225px" data-file="aley-kit-black-task-crop.png"><img src="aley-kit-black-task-crop.png" alt="Aley Task with matte black conversion kit" onerror="this.style.display='none'"/></div>
         <div class="cname">Aley Task Black Conversion Kit</div>
         <div class="camt">$145.00</div>
         <div class="csku">O-RLBZ-TX-BLK</div>
-        <div class="csku" style="margin-top:4px;">Pairs with Aley Mid/High-Back — any upholstery color</div>
+        <div class="csku" style="margin-top:4px;">Pairs with Aley Mid-Back — any upholstery color</div>
       </div>
       <div class="card">
         <div class="chair-frame" style="height:225px" data-file="aley-kit-black-visitor-crop.png"><img src="aley-kit-black-visitor-crop.png" alt="Aley Visitor with matte black conversion kit" onerror="this.style.display='none'"/></div>
@@ -566,30 +569,26 @@
         <div class="chair-frame" data-file="calico-task-blk-crop.png"><img src="calico-task-blk-crop.png" alt="Calico Task, black mesh" onerror="this.style.display='none'"/></div>
         <div class="cname">Calico Task</div>
         <div class="camt">$218.75</div>
-        <div class="csku">O-CL2023T-&lt;BLK&gt; &lt;BLU&gt; &lt;GRN&gt; &lt;GRY&gt; &lt;RED&gt;</div>
-        <div class="cswatch"><span class="dot" style="background:#1a1814;"></span><span class="dot" style="background:#5b8fc7;"></span><span class="dot" style="background:#7a9a4f;"></span><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#9c3a30;"></span></div>
+        <div class="csku">O-CL2023T-&lt;BLK&gt;</div>
+        <div class="cswatch"><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#1a1814;"></span></div>
       </div>
       <div class="card">
         <div class="chair-frame" data-file="calico-visitor-blk-crop.png"><img src="calico-visitor-blk-crop.png" alt="Calico Visitor, black" onerror="this.style.display='none'"/></div>
         <div class="cname">Calico Visitor</div>
         <div class="camt">$218.75</div>
-        <div class="csku">O-CL2023V-&lt;BLK&gt; &lt;BLU&gt; &lt;GRN&gt; &lt;GRY&gt; &lt;RED&gt;</div>
-        <div class="cswatch"><span class="dot" style="background:#1a1814;"></span><span class="dot" style="background:#5b8fc7;"></span><span class="dot" style="background:#7a9a4f;"></span><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#9c3a30;"></span></div>
+        <div class="csku">O-CL2023V-&lt;BLK&gt;</div>
+        <div class="cswatch"><span class="dot" style="background:#a8a094;"></span><span class="dot" style="background:#1a1814;"></span></div>
       </div>
     </div>
     <div class="colorway">
-      <div class="cw-label">Calico — five mesh colors</div>
+      <div class="cw-label">Also available — in grey and black</div>
       <div class="gallery">
-        <div class="g"><div class="frame"><img src="calico-task-blk-crop.png" alt="Calico black" onerror="this.style.display='none'"/></div><div class="cap">Black</div></div>
-        <div class="g"><div class="frame"><img src="calico-task-blu-crop.png" alt="Calico blue" onerror="this.style.display='none'"/></div><div class="cap">Blue</div></div>
-        <div class="g"><div class="frame"><img src="calico-task-grn-crop.png" alt="Calico green" onerror="this.style.display='none'"/></div><div class="cap">Green</div></div>
-        <div class="g"><div class="frame"><img src="calico-task-gry-crop.png" alt="Calico gray" onerror="this.style.display='none'"/></div><div class="cap">Gray</div></div>
-        <div class="g"><div class="frame"><img src="calico-task-red-crop.png" alt="Calico red" onerror="this.style.display='none'"/></div><div class="cap">Red</div></div>
+        <div class="g"><div class="frame"><img src="calico-task-gry-crop.png" alt="Calico Task, grey" onerror="this.style.display='none'"/></div><div class="cap">Task · Grey</div></div>
+        <div class="g"><div class="frame"><img src="calico-visitor-gry-crop.png" alt="Calico Visitor, grey" onerror="this.style.display='none'"/></div><div class="cap">Visitor · Grey</div></div>
       </div>
     </div>
     <div class="collection-feat">
-      <span class="cf"><b>5</b> mesh colors</span>
-      <span class="cf">Black · Blue · Green · Gray · Red</span>
+      <span class="cf"><b>Ultra-strong</b> nylon mesh back rest</span>
       <span class="cf">Task · Visitor</span>
     </div>
     <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
@@ -607,87 +606,77 @@
     <p class="body">Ultra-strong nylon mesh back seating in task and visitor formats — now in an all-gray finish.</p>
     <div class="collection two">
       <div class="card">
-        <div class="chair-frame" style="height:145px" data-file="calico-task-ag-crop.png"><img src="calico-task-ag-crop.png" alt="Calico Task, all-gray" onerror="this.style.display='none'"/></div>
+        <div class="chair-frame" data-file="calico-task-ag-crop.png"><img src="calico-task-ag-crop.png" alt="Calico Task, all-gray" onerror="this.style.display='none'"/></div>
         <div class="cname">Calico Task</div>
         <div class="camt">$246.25</div>
         <div class="csku">O-CL2023T-AG</div>
         <div class="cswatch"><span class="dot" style="background:#a8a094;"></span></div>
       </div>
       <div class="card">
-        <div class="chair-frame" style="height:145px" data-file="calico-visitor-ag-crop.png"><img src="calico-visitor-ag-crop.png" alt="Calico Visitor, all-gray" onerror="this.style.display='none'"/></div>
+        <div class="chair-frame" data-file="calico-visitor-ag-crop.png"><img src="calico-visitor-ag-crop.png" alt="Calico Visitor, all-gray" onerror="this.style.display='none'"/></div>
         <div class="cname">Calico Visitor</div>
         <div class="camt">$218.75</div>
         <div class="csku">O-HY8298VII-AG</div>
         <div class="cswatch"><span class="dot" style="background:#a8a094;"></span></div>
       </div>
     </div>
-    <div class="colorway" style="margin-top:8px;">
+    <div class="colorway">
       <div class="cw-label">All Gray — additional angles</div>
       <div class="gallery">
-        <div class="g"><div class="frame" style="height:80px;"><img src="calico-task-ag-back-crop.png" alt="Calico Task, all-gray, back angle" onerror="this.style.display='none'"/></div><div class="cap">Task · Back</div></div>
-        <div class="g"><div class="frame" style="height:80px;"><img src="calico-visitor-ag-back-crop.png" alt="Calico Visitor, all-gray, back angle" onerror="this.style.display='none'"/></div><div class="cap">Visitor · Back</div></div>
+        <div class="g"><div class="frame"><img src="calico-task-ag-back-crop.png" alt="Calico Task, all-gray, back angle" onerror="this.style.display='none'"/></div><div class="cap">Task · Back</div></div>
+        <div class="g"><div class="frame"><img src="calico-visitor-ag-back-crop.png" alt="Calico Visitor, all-gray, back angle" onerror="this.style.display='none'"/></div><div class="cap">Visitor · Back</div></div>
       </div>
     </div>
-    <div class="spec-sheet compact" style="display:grid; grid-template-columns:1fr 1fr; gap:0 32px;">
-      <div>
-        <div class="eyebrow">Calico Task — Specifications</div>
-        <div class="spec-grid" style="grid-template-columns:1fr 1fr; gap:0 16px; margin-top:8px;">
-          <div class="spec-col">
-            <div class="spec-row"><span class="k">Back Color</span><span class="v">Gray</span></div>
-            <div class="spec-row"><span class="k">Frame Color</span><span class="v">Gray</span></div>
-            <div class="spec-row"><span class="k">Arms</span><span class="v">Fixed</span></div>
-            <div class="spec-row"><span class="k">Seat Material</span><span class="v">Fabric</span></div>
-            <div class="spec-row"><span class="k">Back Material</span><span class="v">Mesh II</span></div>
-            <div class="spec-row"><span class="k">Tilt</span><span class="v">Yes</span></div>
-            <div class="spec-row"><span class="k">Tilt Lock</span><span class="v">Yes</span></div>
-            <div class="spec-row"><span class="k">Adj. Tilt Tension</span><span class="v">Yes</span></div>
-            <div class="spec-row"><span class="k">Adj. Seat Height</span><span class="v">Pneumatic</span></div>
-          </div>
-          <div class="spec-col">
-            <div class="spec-row"><span class="k">Weight Capacity</span><span class="v">250 lbs.</span></div>
-            <div class="spec-row"><span class="k">Lumbar Support</span><span class="v">Yes</span></div>
-            <div class="spec-row"><span class="k">Back Height</span><span class="v">21"</span></div>
-            <div class="spec-row"><span class="k">Seat Size</span><span class="v">19"W x 18"D</span></div>
-            <div class="spec-row"><span class="k">Adj. Height Range</span><span class="v">15"–21.5"</span></div>
-            <div class="spec-row"><span class="k">Overall Dim.</span><span class="v">22"W x 19"D x 40.5"H</span></div>
-            <div class="spec-row"><span class="k">Removable Arms</span><span class="v">No</span></div>
-            <div class="spec-row"><span class="k">Frame Constr.</span><span class="v">Poly</span></div>
-            <div class="spec-row"><span class="k">Assembly Req.</span><span class="v">Yes</span></div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="eyebrow">Calico Visitor — Specifications</div>
-        <div class="spec-grid" style="grid-template-columns:1fr 1fr; gap:0 16px; margin-top:8px;">
-          <div class="spec-col">
-            <div class="spec-row"><span class="k">Collection</span><span class="v">Eco-Series</span></div>
-            <div class="spec-row"><span class="k">Brand</span><span class="v">Haley</span></div>
-            <div class="spec-row"><span class="k">Seat Color</span><span class="v">Gray</span></div>
-            <div class="spec-row"><span class="k">Back Color</span><span class="v">Gray</span></div>
-            <div class="spec-row"><span class="k">Frame Color</span><span class="v">Gray</span></div>
-            <div class="spec-row"><span class="k">Arms</span><span class="v">Fixed</span></div>
-            <div class="spec-row"><span class="k">Seat Material</span><span class="v">Fabric</span></div>
-            <div class="spec-row"><span class="k">Back Material</span><span class="v">Mesh II</span></div>
-            <div class="spec-row"><span class="k">Assembly Req.</span><span class="v">Yes</span></div>
-          </div>
-          <div class="spec-col">
-            <div class="spec-row"><span class="k">Back Height</span><span class="v">21"</span></div>
-            <div class="spec-row"><span class="k">Seat Size</span><span class="v">18.5"W x 18.5"D</span></div>
-            <div class="spec-row"><span class="k">Seat Height</span><span class="v">18.5"</span></div>
-            <div class="spec-row"><span class="k">Overall Dim.</span><span class="v">22"W x 19"D x 37"H</span></div>
-            <div class="spec-row"><span class="k">Daily Usage</span><span class="v">0–4 hrs.</span></div>
-            <div class="spec-row"><span class="k">Warranty</span><span class="v">2-Years</span></div>
-            <div class="spec-row"><span class="k">Weight Capacity</span><span class="v">250 lbs.</span></div>
-            <div class="spec-row"><span class="k">ANSI/BIFMA</span><span class="v">Yes</span></div>
-          </div>
-        </div>
-      </div>
+    <div class="collection-feat">
+      <span class="cf"><b>Ultra-strong</b> nylon mesh back rest</span>
+      <span class="cf">Task · Visitor</span>
     </div>
     <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
     <div class="page-num">08 · Calico — All Gray</div>
   </section>
 
-  <!-- ============ PAGE 8 · GIBRAN COLLECTION ============ -->
+  <!-- ============ PAGE 9 · LYRA ============ -->
+  <section class="page">
+    <div class="prod-head">
+      <span class="idx">05 · Task Seating</span>
+    </div>
+    <hr class="rule"/>
+    <div class="hero-prod">
+      <div class="chair-frame" style="min-height:600px" data-file="lyra-angled-front-crop.png"><img src="lyra-angled-front-crop.png" alt="Lyra task chair, black, front three-quarter angle" onerror="this.style.display='none'"/></div>
+      <div class="spec">
+        <p class="eyebrow" style="margin-bottom:4px;">Lyra · Black</p>
+        <div class="name">Lyra</div>
+        <p class="tagline">Ergonomic task chair, height-adjustable arms</p>
+        <div class="price-line"><span class="amt">$380.00</span><span class="lp">List</span></div>
+        <p class="sku"><span class="k">SKU</span> &nbsp;O-AA8929-BLK</p>
+        <div class="swatches">
+          <span class="swatch"><span class="dot" style="background:#1a1814;"></span>Black · BLK</span>
+        </div>
+        <ul class="feat">
+          <li>Black mesh back rest.</li>
+          <li>Black fabric seat.</li>
+          <li>High-density molded foam seat.</li>
+          <li>Height-adjustable arms.</li>
+          <li>Pneumatic seat height adjustment.</li>
+          <li>Back tilt &amp; lock.</li>
+          <li>Seat slide adjustment.</li>
+          <li>Tilt tension adjustment.</li>
+          <li>BIFMA certified.</li>
+          <li>275 lbs. weight capacity.</li>
+          <li>3-year warranty.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gallery">
+      <div class="g"><div class="frame"><img src="lyra-front-crop.png" alt="Lyra, front" onerror="this.style.display='none'"/></div><div class="cap">Front</div></div>
+      <div class="g"><div class="frame"><img src="lyra-side-crop.png" alt="Lyra, side profile" onerror="this.style.display='none'"/></div><div class="cap">Side</div></div>
+      <div class="g"><div class="frame"><img src="lyra-mechanism-crop.png" alt="Lyra, back three-quarter angle showing tilt mechanism" onerror="this.style.display='none'"/></div><div class="cap">Mechanism</div></div>
+    </div>
+    <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
+    <div class="page-num">09 · Lyra</div>
+  </section>
+
+  <!-- ============ PAGE 10 · GIBRAN COLLECTION ============ -->
   <section class="page">
     <div class="prod-head"><span class="idx">04 · Stackable Seating</span></div>
     <hr class="rule"/>
@@ -727,10 +716,10 @@
       <span class="cf"><b>Ultra-strong</b> nylon mesh back rest</span>
     </div>
     <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
-    <div class="page-num">09 · Gibran Collection</div>
+    <div class="page-num">10 · Gibran Collection</div>
   </section>
 
-  <!-- ============ PAGE 9 · GIBRAN — SPECIFICATIONS ============ -->
+  <!-- ============ PAGE 11 · GIBRAN — SPECIFICATIONS ============ -->
   <section class="page">
     <div class="prod-head">
       <span class="idx">04 · Stackable Seating</span>
@@ -774,48 +763,7 @@
       </div>
     </div>
     <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
-    <div class="page-num">10 · Gibran — Specifications</div>
-  </section>
-
-  <!-- ============ PAGE 11 · LYRA ============ -->
-  <section class="page">
-    <div class="prod-head">
-      <span class="idx">05 · Task Seating</span>
-    </div>
-    <hr class="rule"/>
-    <div class="hero-prod">
-      <div class="chair-frame" style="min-height:600px" data-file="lyra-angled-front-crop.png"><img src="lyra-angled-front-crop.png" alt="Lyra task chair, black, front three-quarter angle" onerror="this.style.display='none'"/></div>
-      <div class="spec">
-        <p class="eyebrow" style="margin-bottom:4px;">Lyra · Black</p>
-        <div class="name">Lyra</div>
-        <p class="tagline">Ergonomic task chair, height-adjustable arms</p>
-        <div class="price-line"><span class="amt">$380.00</span><span class="lp">List</span></div>
-        <p class="sku"><span class="k">SKU</span> &nbsp;O-AA8929-BLK</p>
-        <div class="swatches">
-          <span class="swatch"><span class="dot" style="background:#1a1814;"></span>Black · BLK</span>
-        </div>
-        <ul class="feat">
-          <li>Black mesh back rest.</li>
-          <li>Black fabric seat.</li>
-          <li>High-density molded foam seat.</li>
-          <li>Height-adjustable arms.</li>
-          <li>Pneumatic seat height adjustment.</li>
-          <li>Back tilt &amp; lock.</li>
-          <li>Seat slide adjustment.</li>
-          <li>Tilt tension adjustment.</li>
-          <li>BIFMA certified.</li>
-          <li>275 lbs. weight capacity.</li>
-          <li>3-year warranty.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="gallery">
-      <div class="g"><div class="frame"><img src="lyra-front-crop.png" alt="Lyra, front" onerror="this.style.display='none'"/></div><div class="cap">Front</div></div>
-      <div class="g"><div class="frame"><img src="lyra-side-crop.png" alt="Lyra, side profile" onerror="this.style.display='none'"/></div><div class="cap">Side</div></div>
-      <div class="g"><div class="frame"><img src="lyra-back-crop.png" alt="Lyra, back" onerror="this.style.display='none'"/></div><div class="cap">Back</div></div>
-    </div>
-    <div class="page-brand"><span class="logo" style="font-size:15px;">OF<span class="four">4</span>S</span></div>
-    <div class="page-num">11 · Lyra</div>
+    <div class="page-num">11 · Gibran — Specifications</div>
   </section>
 
   <!-- ============ PAGE 12 · PROGRAMS ============ -->
