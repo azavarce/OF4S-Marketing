@@ -209,8 +209,13 @@ project's **3D walkthrough VIDEO** as an autoplay background (muted, looping, no
 controls — same as the South Florida Donor Network post), then an OPTIONAL 2D
 floor-plan image.
 
-Paste the project's Vimeo **VIDEO ID (numbers only)** in place of `[VIMEO_ID]`.
-Delete the video block if there is no 3D video.
+**As of the last several project posts, the client has been supplying YouTube
+links, not Vimeo — default to YouTube unless she explicitly gives a Vimeo ID.**
+Paste the project's video ID in place of `[VIDEO_ID]` in whichever block
+matches the source she gave you. Delete the video block entirely if there is
+no 3D video.
+
+YouTube (default):
 
 ```html
 <div class="of4s-sec">
@@ -218,16 +223,22 @@ Delete the video block if there is no 3D video.
   <h2>[Heading with one <em>accent</em> word]</h2>
 </div>
 <p>[How the plan came together: CET Designer, real-time iteration, how feedback turned into layouts.]</p>
-<div class="of4s-wide" style="aspect-ratio: 16 / 9;"><iframe src="//player.vimeo.com/video/[VIMEO_ID]?autoplay=1&amp;muted=1&amp;autopause=0&amp;controls=0&amp;loop=1" style="width:100%;height:100%;border:0;border-radius:8px;" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
+<div class="of4s-wide" style="aspect-ratio: 16 / 9;"><iframe src="https://www.youtube.com/embed/[VIDEO_ID]?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=[VIDEO_ID]" style="width:100%;height:100%;border:0;border-radius:8px;" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
 <figure class="of4s-wide">
   <img src="[/web/image/…]" alt="[Client] 2D floor plan">
   <figcaption>The 2D plan</figcaption>
 </figure>
 ```
 
-> Note: the `[VIMEO_ID]` placeholder's square brackets get URL-encoded by Odoo's
-> sanitizer (`%5BVIMEO_ID%5D`) — harmless. A real numeric ID has no brackets, so
-> the stored URL stays clean.
+Vimeo (only if she explicitly gives a Vimeo numeric ID):
+
+```html
+<div class="of4s-wide" style="aspect-ratio: 16 / 9;"><iframe src="//player.vimeo.com/video/[VIDEO_ID]?autoplay=1&amp;muted=1&amp;autopause=0&amp;controls=0&amp;loop=1" style="width:100%;height:100%;border:0;border-radius:8px;" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
+```
+
+> Note: the `[VIDEO_ID]` placeholder's square brackets get URL-encoded by Odoo's
+> sanitizer (`%5BVIDEO_ID%5D`) — harmless. A real ID has no brackets, so the
+> stored URL stays clean.
 
 ## 8 · What we helped design & furnish
 
@@ -379,7 +390,7 @@ as-is. "within the hour" is canon.
 | Cover / banner | Odoo post setting | LANDSCAPE hero; reads as list thumbnail AND top banner. Not in content HTML. |
 | Client logo | logo block | Optional, centered, ~110px tall — big enough to READ. |
 | Salesperson at work | `of4s-wide` (§5) | FIRST content photo. Person working on THIS project, NOT a room. Caption names them. |
-| 3D project video | `of4s-wide` iframe (§7) | Autoplay background Vimeo, ID only, muted/looping/no controls. |
+| 3D project video | `of4s-wide` iframe (§7) | Autoplay background — YouTube by default (Vimeo only if she explicitly says so), ID only, muted/looping/no controls. |
 | 2D plan | `of4s-wide` (§7) | Optional. |
 | Furniture partners | `of4s-partners` strip (§8) | Homepage grayscale logos; ONLY manufacturers used on this project; never white-bg versions. |
 | Furnished-space photos | `of4s-gallery` (§8) | Renders and/or installed shots. |

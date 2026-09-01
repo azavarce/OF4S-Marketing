@@ -119,7 +119,7 @@ STORY NOTES (short bullets, NOT prose)
 - The final results — the outcome / how it feels:
 
 MEDIA
-- 3D project video — Vimeo VIDEO ID (numbers only), if there is one:
+- 3D project video — the video link/ID, if there is one (recent projects have used YouTube, not Vimeo — either is fine, just send the link or ID):
 - Cover/banner photo — which LANDSCAPE hero shot to use (or ask me to propose):
 
 EXTRAS
@@ -131,9 +131,10 @@ EXTRAS
 ```
 
 Two media notes:
-- **Vimeo ID** — she gives you the number only (e.g. `1202238113`), not the full
-  URL. It becomes the autoplay background video in the Design & layout section.
-  If there is no 3D video, omit that block.
+- **Video ID** — default to YouTube (recent projects have supplied YouTube links,
+  not Vimeo); use Vimeo only if she explicitly gives a Vimeo ID. Extract the ID
+  from whatever link she pastes. It becomes the autoplay background video in the
+  Design & layout section. If there is no 3D video, omit that block.
 - **Cover photo** — confirm which LANDSCAPE hero shot to set as the post Cover.
   It is used BOTH as the blog-list thumbnail AND the wide banner at the top of the
   opened post, so it must crop well wide (avoid portrait/awkward-crop images).
