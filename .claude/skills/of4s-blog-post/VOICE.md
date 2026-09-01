@@ -46,21 +46,43 @@ From a live post (Martinez Cid Law):
 
 - **Discovery** — understanding culture, operational needs, and goals.
   Who we met with, what they had, what they needed, the constraints. This is
-  where we show we listened before we designed.
+  where we show we listened before we designed. **As of the last several
+  project posts:** one intro paragraph, then a bulleted **"We focused on:"**
+  list (3–5 bullets, each starting with a **bold** lead phrase), then a closing
+  sentence naming the brief that resulted.
 - **Design & layout planning** — how the plan came together. Lean on the real
   method: "Utilizing CET Designer … real-time … immediate feedback and
   adjustments … 3D visualizations of spatial layouts, furniture selections, and
   aesthetic elements." Feedback turned into layouts.
 - **What we helped design & furnish** — "turnkey furniture solutions across every
   major space." Consistent color palette and material finish; visual cohesion;
-  a professional atmosphere. Name the spaces.
+  a professional atmosphere. **As of the last several project posts:** the
+  space list is a bulleted list where each bullet LINKS the space type to its
+  OF4S website page (bold + underlined anchor text), followed by a one-line
+  description of what we did there — see ANATOMY.md §8 for the link table and
+  markup. Each space type then gets its own short section + gallery further
+  down the post (not one merged gallery).
 - **The installation** — our in-house team; phased delivery; on schedule; minimal
-  disruption; placed to the approved plan; quality checks.
-- **The final results** — the outcome and how it feels. Close with a sentence that
-  summarizes the result, e.g. "The result is a workspace that is clean, modern,
-  and built to support the team's day-to-day operations."
+  disruption; placed to the approved plan; quality checks. **As of the last
+  several project posts:** intro paragraph, then a bulleted **"We managed the
+  installation through:"** list in the same bold-lead-phrase style as Discovery.
+- **The final results** — the outcome and how it feels. **As of the last several
+  project posts, this is two paragraphs**: the first on what the space reflects
+  about the client and how it feels now; the second restating the real project
+  numbers (weeks, workstations, sq ft) in prose, using only numbers already
+  given. Close each paragraph with a sentence that summarizes the result, e.g.
+  "The result is a workspace that is clean, modern, and built to support the
+  team's day-to-day operations."
 
 Every section should end on a sentence that summarizes its outcome.
+
+### The bold-lead-phrase bullet pattern
+
+Discovery's "We focused on:" list and Installation's "We managed the
+installation through:" list share one pattern: `<li><strong>[3–6 word lead
+phrase, the concrete action or fact]</strong> [rest of the sentence, plain
+text]</li>`. The bold phrase is the scannable headline of the bullet — pick
+the most concrete noun phrase from what she told you, not a vague summary.
 
 ---
 

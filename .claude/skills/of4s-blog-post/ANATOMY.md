@@ -92,7 +92,7 @@ is swapping each named placeholder for its photo.
 5. **Salesperson-at-work `of4s-wide` — the FIRST content photo**
 6. Discovery
 7. Design & layout planning (text + **3D autoplay video** + optional 2D plan)
-8. What we helped design & furnish (head + intro → **partner-logo strip** → gallery)
+8. What we helped design & furnish (intro + **linked space-type bullets** → **partner-logo strip** → one `.of4s-sec` + gallery PER space type)
 9. **Render-vs-installed `of4s-pair`** — signature OF4S element
 10. The installation (gallery)
 11. The final results (gallery + optional quote band)
@@ -191,15 +191,26 @@ room. Full-width `of4s-wide`. The caption names them.
 
 ## 6 · Discovery
 
-`.of4s-sec` (eyebrow + h2) followed by 1–2 body paragraphs as siblings.
+**As of the last several project posts, Discovery is a paragraph plus a
+bulleted "We focused on:" list** — not one or two plain paragraphs. Each
+bullet leads with a **bold phrase** (the concrete thing we did/heard),
+followed by plain detail. Close with one sentence naming the brief that
+resulted.
 
 ```html
 <div class="of4s-sec">
   <p class="of4s-eyebrow">Discovery</p>
   <h2>[Heading with one <em>accent</em> word]</h2>
 </div>
-<p>[What the client had and needed; who we sat down with; the cultural and operational requirements uncovered.]</p>
-<p>[Optional second paragraph: departments, headcount, growth plans, the brief that came out of discovery.]</p>
+<p>[What the client had and needed; who we sat down with; the cultural and operational requirements uncovered — 2–3 sentences, specific.]</p>
+<p>We focused on:</p>
+<ul>
+  <li><strong>[Bold lead phrase]</strong> [rest of the point]</li>
+  <li><strong>[Bold lead phrase]</strong> [rest of the point]</li>
+  <li><strong>[Bold lead phrase]</strong> [rest of the point]</li>
+  <li><strong>[Bold lead phrase]</strong> [rest of the point]</li>
+</ul>
+<p>[One closing sentence naming the brief that came out of discovery, e.g. "That brief — X and Y — shaped every decision that followed."]</p>
 ```
 
 ## 7 · Design & layout planning
@@ -242,14 +253,34 @@ Vimeo (only if she explicitly gives a Vimeo numeric ID):
 
 ## 8 · What we helped design & furnish
 
-Body paragraph (optionally a `<ul>` of spaces), then the **partner-logo strip**
-(right after the intro, BEFORE the galleries), then a gallery of furnished spaces.
+**As of the last several project posts, this section has two parts:**
 
-**As of the last several project posts, this is the ONLY photo gallery of the
-finished spaces in the post.** Put every finished/furnished-space photo here
-(private offices, cubicles, conference rooms, etc.) — do NOT split them into a
-separate "final results" gallery; §11 keeps its body paragraph and optional
-quote band but no gallery of its own.
+**Part A — the intro block.** Body paragraph, then a bulleted list where **each
+bullet is a link to the matching OF4S website space-type page**, bold +
+underlined, followed by an em dash and a one-line description of what we did
+in that space. Then the **partner-logo strip** (right after the bullets,
+BEFORE any galleries). Close with one sentence summarizing the result.
+
+Known OF4S space-type page links — use whichever match the project's spaces
+(add more only if she confirms a real page exists; never invent a URL):
+
+| Space type | href |
+|---|---|
+| Executive offices | `/executive-offices` |
+| Private offices | `/private-offices` |
+| Conference rooms | `/conference-rooms` |
+| Open workstations / cubicles | `/open-work-spaces` |
+| Collaborative spaces | `/collaborative-spaces` |
+| Lounge area | `/lounge-area` |
+
+**Part B — one section PER space type.** Immediately after Part A, give each
+individual space type its OWN `.of4s-sec` (eyebrow + `<h2>`, one `<em>` accent
+word) followed by its own gallery of just that space's photos. **Do NOT put
+every finished-space photo into one flat gallery** — group them by space type,
+each with its own short heading, in the order they were introduced in Part A's
+bullet list. (This replaces the single merged "furnished gallery" — there is
+no separate "final results" gallery either; §11 keeps its body paragraph and
+optional quote band but no gallery of its own.)
 
 Use ONLY the manufacturers actually used on THIS project. These are the HOMEPAGE
 grayscale logos (color on hover) — the standard. **Do NOT use white-background
@@ -265,16 +296,18 @@ logo versions.** Available assets:
 | SitOnIt | `/web/image/6439` | 9to5 | `/web/image/6450` |
 
 ```html
+<!-- PART A — intro + linked space-type bullets + partner logos -->
 <div class="of4s-sec">
   <p class="of4s-eyebrow">What we helped design &amp; furnish</p>
   <h2>[Heading with one <em>accent</em> word]</h2>
 </div>
-<p>[Turnkey scope: the spaces furnished and how one consistent palette tied them together.]</p>
+<p>[Turnkey scope: the spaces furnished and how one consistent palette tied them together — 1–2 sentences.]</p>
 <ul>
-  <li>[Space one]</li>
-  <li>[Space two]</li>
-  <li>[Space three]</li>
+  <li><a href="/executive-offices"><u><strong>Executive Offices</strong></u></a> – [one-line description of what we did here]</li>
+  <li><a href="/private-offices"><u><strong>Private Offices</strong></u></a> – [one-line description]</li>
+  <li><a href="/conference-rooms"><u><strong>Conference Rooms</strong></u></a> – [one-line description]</li>
 </ul>
+<p>[One closing sentence: the result, e.g. "The result is an office with one shared identity from X to Y."]</p>
 <div style="text-align:center;margin:2.5em auto;">
   <p class="of4s-eyebrow" style="text-align:center;">Furniture partners on this project</p>
   <div class="of4s-partners">
@@ -284,11 +317,18 @@ logo versions.** Available assets:
     <!-- …only the manufacturers used on THIS project… -->
   </div>
 </div>
-<div class="of4s-gallery">
-  <figure><img src="[/web/image/…]" alt="[alt]"><figcaption>[caption]</figcaption></figure>
-  <figure><img src="[/web/image/…]" alt="[alt]"><figcaption>[caption]</figcaption></figure>
-  <figure><img src="[/web/image/…]" alt="[alt]"><figcaption>[caption]</figcaption></figure>
+
+<!-- PART B — one .of4s-sec + gallery PER space type, repeat for each space -->
+<div class="of4s-sec">
+  <p class="of4s-eyebrow">[Space type, e.g. Executive offices]</p>
+  <h2>[Short heading with one <em>accent</em> word]</h2>
 </div>
+<div class="of4s-gallery">
+  <figure><img src="[/web/image/…]" alt="[Space type]"><figcaption>[Space type]</figcaption></figure>
+  <figure><img src="[/web/image/…]" alt="[Space type]"><figcaption>[Space type]</figcaption></figure>
+  <figure><img src="[/web/image/…]" alt="[Space type]"><figcaption>[Space type]</figcaption></figure>
+</div>
+<!-- …repeat the .of4s-sec + .of4s-gallery pair for every remaining space type… -->
 ```
 
 ## 9 · Render-vs-installed pair — SIGNATURE OF4S element
@@ -307,14 +347,24 @@ only if there is no render + matching installed photo.
 
 ## 10 · The installation
 
-Body paragraph + install gallery.
+**As of the last several project posts, this is a body paragraph plus a
+bulleted "We managed the installation through:" list** (same bold-lead-phrase
+style as Discovery's "We focused on:"), then the gallery. An optional
+`of4s-band` summary line may follow the gallery (real substance, not
+necessarily a person-attributed quote — but never invent a fact or number).
 
 ```html
 <div class="of4s-sec">
   <p class="of4s-eyebrow">The installation</p>
   <h2>[Heading with one <em>accent</em> word]</h2>
 </div>
-<p>[Our in-house team: delivery, placement to the approved plan, on schedule, minimal disruption.]</p>
+<p>[Our in-house team: delivery, placement to the approved plan, on schedule, minimal disruption — 1–2 sentences.]</p>
+<p>We managed the installation through:</p>
+<ul>
+  <li><strong>[Bold lead phrase]</strong> [rest of the point]</li>
+  <li><strong>[Bold lead phrase]</strong> [rest of the point]</li>
+  <li><strong>[Bold lead phrase]</strong> [rest of the point]</li>
+</ul>
 <div class="of4s-gallery">
   <figure><img src="[/web/image/…]" alt="[alt]"><figcaption>[caption]</figcaption></figure>
   <figure><img src="[/web/image/…]" alt="[alt]"><figcaption>[caption]</figcaption></figure>
@@ -324,17 +374,22 @@ Body paragraph + install gallery.
 
 ## 11 · The final results
 
-Body paragraph only — **no gallery here** (all finished-space photos live in the
-one furnished gallery in §8; do not duplicate or split them into a second
-gallery). The dark `of4s-band` quote is OPTIONAL — use a real client or team
-line, or omit the band entirely.
+**As of the last several project posts, this is TWO body paragraphs** (not
+one) — **no gallery here** (all finished-space photos live in the per-space-type
+sections in §8; do not duplicate them into a second gallery). Bold the same
+kind of key phrases as elsewhere. The second paragraph typically restates the
+real project-stats numbers in prose (workstations, weeks, sq ft) ahead of the
+stats strip in §12 — use only real numbers already given, never invent one.
+The dark `of4s-band` quote is OPTIONAL — use a real client or team line, or
+omit the band entirely.
 
 ```html
 <div class="of4s-sec">
   <p class="of4s-eyebrow">The final results</p>
   <h2>[Heading with one <em>accent</em> word]</h2>
 </div>
-<p>[The finished office: what it reflects about the client's culture, how it works and feels now, the outcome delivered.]</p>
+<p>[The finished office: what it reflects about the client's culture, how it works and feels now, the outcome delivered — 2–3 sentences, bold the key phrases.]</p>
+<p>[Second paragraph: restate the real stats in prose — weeks order-to-install, workstations, sq ft — using only numbers already given.]</p>
 <div class="of4s-band">
   <p class="of4s-eyebrow">[label, e.g. In their words]</p>
   <blockquote>[A real client or team quote.]</blockquote>

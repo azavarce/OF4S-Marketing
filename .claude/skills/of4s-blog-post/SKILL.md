@@ -158,10 +158,12 @@ skips the SEO fields, propose a `website_meta_title` (≈50–60 chars) and
    - **2D floor plan** (optional, §7)
    - **3D render** — note which renders have a **matching installed photo of the
      same area** (those two become the signature render-vs-installed pair, §9).
-   - **Furnished-space gallery** photos — this is the ONLY gallery of finished
-     spaces in the post (as of the last several project posts). Put every
-     finished/furnished-space photo here (private offices, cubicles, conference
-     rooms, etc.); do NOT hold any back for a separate "final results" gallery.
+   - **Furnished-space photos, grouped BY SPACE TYPE** — as of the last several
+     project posts, do NOT lump every finished-space photo into one gallery.
+     Group them by the specific space type (private offices, executive offices,
+     cubicles/open workstations, conference rooms, etc.) — each group becomes
+     its own mini-section with its own heading and gallery in §8. There is no
+     separate "final results" gallery either — final results stays text-only.
    - **Installation** photos
 3. Present the proposed image→slot mapping back to her as a simple list and ask
    her to correct it. Example:
@@ -174,7 +176,9 @@ skips the SEO fields, propose a `website_meta_title` (≈50–60 chars) and
    - 3D video (YouTube ID): dQw4w9WgXcQ
    - 2D plan:              plan-2d.png
    - Render vs installed:  render-01.png  +  space-03.jpg  (same area)
-   - Furnished gallery:    space-01.jpg, space-02.jpg, space-03.jpg, final-02.jpg (all finished-space photos, one gallery)
+   - Private offices:      space-01.jpg, space-02.jpg
+   - Executive offices:    exec-01.jpg, exec-02.jpg, final-02.jpg
+   - Conference rooms:     conf-01.jpg
    - Installation:         install-01.jpg, install-02.jpg
    - Not used:             blurry-01.jpg
    ```
@@ -212,8 +216,8 @@ Image checklist — click each placeholder in Odoo and upload the named file:
 3. 2D plan (optional)     → plan-2d.png        (caption: The 2D plan)
 4. Render (pair, left)    → render-01.png      (caption: The 3D render)
 5. Installed (pair, right)→ space-03.jpg       (caption: The finished space)
-6. Furnished space        → space-01.jpg       (caption: Private office · L-desk)
-7. Furnished space        → final-02.jpg       (caption: The conference room)
+6. Private offices        → space-01.jpg       (caption: Private offices)
+7. Executive offices      → final-02.jpg       (caption: Executive offices)
 8. Installation           → install-01.jpg     (caption: Casework going in)
 ```
 (The 3D video is not an upload — it's the YouTube/Vimeo ID she gave you, already
@@ -258,11 +262,14 @@ Using `VOICE.md`, write the copy from her bullet notes:
 Follow `ANATOMY.md` and `template.html` exactly. Build the components in order:
 
 standfirst → [logo, 110px] → snapshot (4 fixed fields) → credibility strip
-(FIXED) → **salesperson-at-work `of4s-wide` (FIRST photo)** → Discovery → Design &
-layout planning (body + **3D autoplay video** + optional 2D-plan image) → What we
-helped design & furnish (body → **partner-logo strip** → gallery) →
-**render-vs-installed `of4s-pair`** → The installation (gallery) → The final
-results (gallery + optional quote band) → project stats strip → CTA (FIXED).
+(FIXED) → **salesperson-at-work `of4s-wide` (FIRST photo)** → Discovery (body +
+**"We focused on:" bulleted list**) → Design & layout planning (body + **3D
+autoplay video** + optional 2D-plan image) → What we helped design & furnish
+(body + **linked space-type bullets** → **partner-logo strip** → **one
+`.of4s-sec` + gallery PER space type**) → **render-vs-installed `of4s-pair`** →
+The installation (body + **"We managed the installation through:" bulleted
+list** + gallery) → The final results (two paragraphs, no gallery + optional
+quote band) → project stats strip → CTA (FIXED).
 
 Wrap in the stylesheet link + `.of4s-blog` div, and keep the partner-strip
 `<style>` block ONCE near the top (verbatim from ANATOMY.md):
