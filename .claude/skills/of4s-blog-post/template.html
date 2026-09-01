@@ -119,15 +119,27 @@
      Plays automatically, muted, looping, no controls. Delete this block if there
      is no 3D video. -->
 <div class="of4s-wide" style="aspect-ratio: 16 / 9;"><iframe src="https://www.youtube.com/embed/[VIDEO_ID]?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=[VIDEO_ID]" style="width:100%;height:100%;border:0;border-radius:8px;" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
-<!-- Optional 2D floor plan (delete if not available). -->
-<figure class="of4s-wide">
-  <span class="of4s-imgslot" style="display:block;border:2px dashed #b0b7c3;border-radius:10px;padding:1.6em 1em;text-align:center;background:#f4f6f9;color:#3a4353;font-family:Arial,Helvetica,sans-serif;line-height:1.4;">
-    <span style="display:block;font-weight:700;letter-spacing:.06em;font-size:.85em;">⬆ REPLACE WITH IMAGE</span>
-    <span style="display:block;font-size:1.15em;font-weight:700;margin-top:.35em;">[2D-PLAN-FILENAME]</span>
-    <span style="display:block;font-size:.85em;margin-top:.25em;">Slot: 2D floor plan (optional)</span>
-  </span>
-  <figcaption>The 2D plan</figcaption>
-</figure>
+<!-- Optional 2D + 3D plan pair — SIDE BY SIDE in an of4s-pair, never stacked as
+     two separate of4s-wide figures. If there's only a 2D plan and no 3D render
+     for this section, use a single of4s-wide figure instead of the pair. -->
+<div class="of4s-pair">
+  <figure>
+    <span class="of4s-imgslot" style="display:block;border:2px dashed #b0b7c3;border-radius:10px;padding:1.6em 1em;text-align:center;background:#f4f6f9;color:#3a4353;font-family:Arial,Helvetica,sans-serif;line-height:1.4;">
+      <span style="display:block;font-weight:700;letter-spacing:.06em;font-size:.85em;">⬆ REPLACE WITH IMAGE</span>
+      <span style="display:block;font-size:1.15em;font-weight:700;margin-top:.35em;">[2D-PLAN-FILENAME]</span>
+      <span style="display:block;font-size:.85em;margin-top:.25em;">Slot: 2D floor plan (optional)</span>
+    </span>
+    <figcaption>The 2D plan</figcaption>
+  </figure>
+  <figure>
+    <span class="of4s-imgslot" style="display:block;border:2px dashed #b0b7c3;border-radius:10px;padding:1.6em 1em;text-align:center;background:#f4f6f9;color:#3a4353;font-family:Arial,Helvetica,sans-serif;line-height:1.4;">
+      <span style="display:block;font-weight:700;letter-spacing:.06em;font-size:.85em;">⬆ REPLACE WITH IMAGE</span>
+      <span style="display:block;font-size:1.15em;font-weight:700;margin-top:.35em;">[3D-PLAN-FILENAME]</span>
+      <span style="display:block;font-size:.85em;margin-top:.25em;">Slot: 3D render (optional)</span>
+    </span>
+    <figcaption>The 3D plan</figcaption>
+  </figure>
+</div>
 
 <!-- 8 · WHAT WE HELPED DESIGN & FURNISH.
      PART A: Intro → bulleted list of LINKED space-type pages (bold+underline

@@ -217,8 +217,9 @@ resulted.
 
 Text on how the plan came together (CET Designer, real-time iteration), then the
 project's **3D walkthrough VIDEO** as an autoplay background (muted, looping, no
-controls — same as the South Florida Donor Network post), then an OPTIONAL 2D
-floor-plan image.
+controls — same as the South Florida Donor Network post), then an OPTIONAL
+**2D + 3D plan pair** — side by side in an `of4s-pair`, never stacked as two
+separate wide figures.
 
 **As of the last several project posts, the client has been supplying YouTube
 links, not Vimeo — default to YouTube unless she explicitly gives a Vimeo ID.**
@@ -235,11 +236,21 @@ YouTube (default):
 </div>
 <p>[How the plan came together: CET Designer, real-time iteration, how feedback turned into layouts.]</p>
 <div class="of4s-wide" style="aspect-ratio: 16 / 9;"><iframe src="https://www.youtube.com/embed/[VIDEO_ID]?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=[VIDEO_ID]" style="width:100%;height:100%;border:0;border-radius:8px;" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
-<figure class="of4s-wide">
-  <img src="[/web/image/…]" alt="[Client] 2D floor plan">
-  <figcaption>The 2D plan</figcaption>
-</figure>
+<div class="of4s-pair">
+  <figure>
+    <img src="[/web/image/…]" alt="[Client] 2D floor plan">
+    <figcaption>The 2D plan</figcaption>
+  </figure>
+  <figure>
+    <img src="[/web/image/…]" alt="[Client] 3D render">
+    <figcaption>The 3D plan</figcaption>
+  </figure>
+</div>
 ```
+
+If there is only a 2D plan and no 3D render for this section, use the single
+`of4s-wide` figure instead of the pair — never leave the pair with an empty
+second slot.
 
 Vimeo (only if she explicitly gives a Vimeo numeric ID):
 
