@@ -245,6 +245,12 @@ Vimeo (only if she explicitly gives a Vimeo numeric ID):
 Body paragraph (optionally a `<ul>` of spaces), then the **partner-logo strip**
 (right after the intro, BEFORE the galleries), then a gallery of furnished spaces.
 
+**As of the last several project posts, this is the ONLY photo gallery of the
+finished spaces in the post.** Put every finished/furnished-space photo here
+(private offices, cubicles, conference rooms, etc.) — do NOT split them into a
+separate "final results" gallery; §11 keeps its body paragraph and optional
+quote band but no gallery of its own.
+
 Use ONLY the manufacturers actually used on THIS project. These are the HOMEPAGE
 grayscale logos (color on hover) — the standard. **Do NOT use white-background
 logo versions.** Available assets:
@@ -318,8 +324,10 @@ Body paragraph + install gallery.
 
 ## 11 · The final results
 
-Body paragraph + a gallery of the finished space. The dark `of4s-band` quote is
-OPTIONAL — use a real client or team line, or omit the band entirely.
+Body paragraph only — **no gallery here** (all finished-space photos live in the
+one furnished gallery in §8; do not duplicate or split them into a second
+gallery). The dark `of4s-band` quote is OPTIONAL — use a real client or team
+line, or omit the band entirely.
 
 ```html
 <div class="of4s-sec">
@@ -327,11 +335,6 @@ OPTIONAL — use a real client or team line, or omit the band entirely.
   <h2>[Heading with one <em>accent</em> word]</h2>
 </div>
 <p>[The finished office: what it reflects about the client's culture, how it works and feels now, the outcome delivered.]</p>
-<div class="of4s-gallery">
-  <figure><img src="[/web/image/…]" alt="[alt]"><figcaption>[caption]</figcaption></figure>
-  <figure><img src="[/web/image/…]" alt="[alt]"><figcaption>[caption]</figcaption></figure>
-  <figure><img src="[/web/image/…]" alt="[alt]"><figcaption>[caption]</figcaption></figure>
-</div>
 <div class="of4s-band">
   <p class="of4s-eyebrow">[label, e.g. In their words]</p>
   <blockquote>[A real client or team quote.]</blockquote>

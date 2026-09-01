@@ -158,9 +158,11 @@ skips the SEO fields, propose a `website_meta_title` (≈50–60 chars) and
    - **2D floor plan** (optional, §7)
    - **3D render** — note which renders have a **matching installed photo of the
      same area** (those two become the signature render-vs-installed pair, §9).
-   - **Furnished-space gallery** photos
+   - **Furnished-space gallery** photos — this is the ONLY gallery of finished
+     spaces in the post (as of the last several project posts). Put every
+     finished/furnished-space photo here (private offices, cubicles, conference
+     rooms, etc.); do NOT hold any back for a separate "final results" gallery.
    - **Installation** photos
-   - **Final-result** photos
 3. Present the proposed image→slot mapping back to her as a simple list and ask
    her to correct it. Example:
 
@@ -169,12 +171,11 @@ skips the SEO fields, propose a `website_meta_title` (≈50–60 chars) and
    - Cover / banner:       final-01.jpg  (set as the post Cover — wide hero)
    - Logo:                 martinez-logo.png
    - Salesperson at work:  IMG_5713.jpg  (FIRST photo, right after the stats)
-   - 3D video (Vimeo ID):  1202238113
+   - 3D video (YouTube ID): dQw4w9WgXcQ
    - 2D plan:              plan-2d.png
    - Render vs installed:  render-01.png  +  space-03.jpg  (same area)
-   - Furnished gallery:    space-01.jpg, space-02.jpg, space-03.jpg
+   - Furnished gallery:    space-01.jpg, space-02.jpg, space-03.jpg, final-02.jpg (all finished-space photos, one gallery)
    - Installation:         install-01.jpg, install-02.jpg
-   - Final results:        final-01.jpg, final-02.jpg
    - Not used:             blurry-01.jpg
    ```
 
@@ -212,11 +213,11 @@ Image checklist — click each placeholder in Odoo and upload the named file:
 4. Render (pair, left)    → render-01.png      (caption: The 3D render)
 5. Installed (pair, right)→ space-03.jpg       (caption: The finished space)
 6. Furnished space        → space-01.jpg       (caption: Private office · L-desk)
-7. Installation           → install-01.jpg     (caption: Casework going in)
-8. Final result           → final-01.jpg       (caption: The conference room)
+7. Furnished space        → final-02.jpg       (caption: The conference room)
+8. Installation           → install-01.jpg     (caption: Casework going in)
 ```
-(The 3D video is not an upload — it's the Vimeo ID she gave you, already in the
-markup.)
+(The 3D video is not an upload — it's the YouTube/Vimeo ID she gave you, already
+in the markup.)
 
 If a slot has no suitable photo, omit that figure (don't leave an empty
 placeholder) and note it for her.
