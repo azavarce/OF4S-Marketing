@@ -92,8 +92,8 @@ is swapping each named placeholder for its photo.
 5. **Salesperson-at-work `of4s-wide` — the FIRST content photo**
 6. Discovery
 7. Design & layout planning (text + **3D autoplay video** + optional 2D plan)
-8. What we helped design & furnish (intro + **linked space-type bullets** → **partner-logo strip** → one `.of4s-sec` + gallery PER space type)
-9. **Render-vs-installed `of4s-pair`** — signature OF4S element
+8. What we helped design & furnish (intro + **linked space-type bullets** → **partner-logo strip** → **render-vs-installed `of4s-pair`** (§9, signature OF4S element) → one `.of4s-sec` + gallery PER space type)
+9. **Render-vs-installed `of4s-pair`** — signature OF4S element, positioned inside §8 right after the partner-logo strip (see §8/§9 for the exact spot)
 10. The installation (gallery)
 11. The final results (gallery + optional quote band)
 12. Project stats strip
@@ -329,6 +329,15 @@ logo versions.** Available assets:
   </div>
 </div>
 
+<!-- RENDER-vs-INSTALLED PAIR — SIGNATURE OF4S element (§9 below). Goes HERE,
+     right after the partner-logo strip and BEFORE the per-space-type sections
+     start — never after them. Omit if there's no render + matching installed
+     photo (see §9 for the full rule). -->
+<div class="of4s-pair">
+  <figure><img src="[/web/image/…]" alt="[Client] 3D render of the space"><figcaption>The 3D render</figcaption></figure>
+  <figure><img src="[/web/image/…]" alt="[Client] the same space installed"><figcaption>The finished space</figcaption></figure>
+</div>
+
 <!-- PART B — one .of4s-sec + gallery PER space type, repeat for each space -->
 <div class="of4s-sec">
   <p class="of4s-eyebrow">[Space type, e.g. Executive offices]</p>
@@ -343,6 +352,10 @@ logo versions.** Available assets:
 ```
 
 ## 9 · Render-vs-installed pair — SIGNATURE OF4S element
+
+**Position: right after the partner-logo strip in §8, BEFORE the per-space-type
+sections begin** — not at the end of §8, and not between §8 and §10. See the
+Part A/B markup above for the exact spot.
 
 Whenever you have a **3D render AND a photo of that SAME area already installed**,
 pair them here: render on the left, the finished reality on the right. This is a
