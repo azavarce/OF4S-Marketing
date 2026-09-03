@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OF4S — Testimonial Cover: Johnny Prugh (draft)</title>
+<link rel="stylesheet" href="../../design-system/tokens.css" />
+<style>
+  body {
+    margin: 0;
+    background: var(--of4s-paper-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 48px 24px;
+  }
+
+  /* ── Reusable testimonial-cover component ─────────────────────────── */
+  .cover {
+    position: relative;
+    width: 1080px;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: var(--of4s-font-sans);
+    box-shadow: var(--of4s-shadow-lg);
+  }
+
+  /* Photo slot — swap background-image per post. Cover, centered. */
+  .cover .photo {
+    position: absolute;
+    inset: 0;
+    background: var(--of4s-stone-500) center 20% / cover no-repeat;
+    /* PLACEHOLDER: replace with url('CLIENT_PHOTO_FILENAME.jpg') */
+  }
+  .cover .photo-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--of4s-font-mono);
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(250,248,244,0.55);
+    text-align: center;
+    padding: 0 60px;
+  }
+
+  /* Light lift over the top two-thirds so the panel below doesn't sit on a hard edge */
+  .cover .scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(10,22,40,0.35) 0%,
+      rgba(10,22,40,0) 40%
+    );
+  }
+
+  /* Bottom-anchored group: the tag sits on the photo, directly above the
+     navy box, and the box follows right under it — stacked, not nested. */
+  .cover .foot {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    z-index: 2;
+  }
+
+  /* "Client Testimonial" tag — outside the navy box, on the photo. Its
+     own small gradient keeps it legible without needing a pill/badge
+     shape. Sized well above body-text scale so it reads first, even
+     shrunk to a grid thumbnail. */
+  .cover .tag {
+    padding: 36px 56px 26px;
+    background: linear-gradient(to top, rgba(10,22,40,0.6) 0%, rgba(10,22,40,0) 100%);
+  }
+  .cover .tag .label {
+    font-family: var(--of4s-font-mono);
+    font-weight: 800;
+    font-size: 46px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--of4s-paper-50);
+    text-shadow: 0 2px 14px rgba(10,22,40,0.85);
+  }
+
+  /* Text panel — solid navy card, not a fade. This is the "shape" that defines the copy area. */
+  .cover .content {
+    background: rgba(10,22,40,0.94);
+    border-top: 1px solid rgba(143,169,199,0.35);
+    padding: 44px 56px 52px;
+  }
+
+  .cover .name {
+    font-family: var(--of4s-font-display);
+    font-weight: 500;
+    font-size: 82px;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    color: var(--of4s-paper-50);
+    margin: 0 0 20px;
+  }
+  .cover .role {
+    font-family: var(--of4s-font-mono);
+    font-weight: 500;
+    font-size: 32px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--of4s-paper-200);
+    line-height: 1.4;
+  }
+  .cover .role .company {
+    color: var(--of4s-navy-300);
+  }
+
+  .stage-label {
+    text-align: center;
+    font-family: var(--of4s-font-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--of4s-stone-600);
+    margin-top: 18px;
+  }
+</style>
+</head>
+<body>
+  <div>
+    <div class="cover">
+      <div class="photo">
+        <div class="photo-label">johnny-prugh.jpg<br/>drop in — full-bleed, cover, centered ~20% from top</div>
+      </div>
+      <div class="scrim"></div>
+      <div class="foot">
+        <div class="tag">
+          <span class="label">Client Testimonial</span>
+        </div>
+        <div class="content">
+          <p class="name">Johnny Prugh</p>
+          <div class="role">Director of Facilities Operations &amp; Maintenance<br/><span class="company">Miami Country Day School</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="stage-label">1080 &times; 1080 &middot; instagram/testimonial-cover/2026-09-johnny-prugh.html</div>
+  </div>
+</body>
+</html>
