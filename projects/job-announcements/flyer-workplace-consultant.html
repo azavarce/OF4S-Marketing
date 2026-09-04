@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="assets/fonts/fonts.css" />
+<style>
+  /* ---- OF4S v3 tokens (exact values from design-system/tokens.css) ---- */
+  :root {
+    --navy-950:#0a1628; --navy-900:#0f1d33; --navy-800:#15273f; --navy-700:#1e3554;
+    --navy-600:#2d4a6e; --navy-500:#466489; --navy-300:#8fa9c7; --navy-100:#dde5ee;
+    --paper-50:#faf8f4; --paper-100:#f3efe7; --paper-200:#e8e2d4; --paper-300:#d6cfbe;
+    --stone-400:#a8a094; --stone-500:#7a7468; --stone-600:#555047; --stone-700:#3a362f; --stone-900:#1a1814;
+    --font-display:'Schibsted Grotesk','Geist',sans-serif;
+    --font-sans:'Geist',-apple-system,system-ui,sans-serif;
+    --font-mono:'Geist Mono','SF Mono',Menlo,monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #ffffff; }
+  em { font-style: normal; } /* brand rule: accent word is color, never italic */
+
+  /* 8.5in x 11in at 96dpi = 816 x 1056 px. Rendered at 300 DPI via deviceScaleFactor. */
+  .page {
+    width: 816px; height: 1056px;
+    background: var(--paper-50); color: var(--stone-900);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    display: flex; flex-direction: column; overflow: hidden; position: relative;
+  }
+
+  /* ============================= HERO (photo + overlay) ============================= */
+  .hero { position: relative; height: 424px; overflow: hidden; background: var(--navy-900); }
+  .hero img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: 50% 40%;
+  }
+  /* navy brand gradient: bright top (faces), deep navy bottom (headline zone) + top scrim for logo */
+  .hero .scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(10,22,40,0.82) 0%, rgba(10,22,40,0.5) 9%, rgba(10,22,40,0.14) 18%, rgba(10,22,40,0) 27%),
+      linear-gradient(to top, rgba(10,22,40,0.98) 0%, rgba(10,22,40,0.95) 19%, rgba(15,39,63,0.85) 37%, rgba(15,39,63,0.5) 57%, rgba(15,39,63,0.14) 100%);
+  }
+  .hero .topbar {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 2;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 26px 56px;
+  }
+  /* Horizontal lockup on dark (design-system logo-type.html) */
+  .lockup { display: inline-flex; align-items: center; gap: 15px; }
+  .mark { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.03em;
+          line-height: 0.9; color: var(--paper-50); font-size: 38px; display: inline-flex; }
+  .mark .four { color: var(--navy-300); }
+  .lockup .rule { width: 1px; align-self: stretch; background: rgba(255,255,255,0.5); }
+  .lockup .fullname { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.26em;
+          text-transform: uppercase; color: var(--paper-50); line-height: 1.7;
+          text-shadow: 0 1px 8px rgba(10,22,40,0.75); }
+  .topbar .url { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+          text-transform: uppercase; color: var(--navy-300); }
+
+  .hero .headline {
+    position: absolute; left: 56px; right: 56px; bottom: 30px; z-index: 2; color: var(--paper-50);
+  }
+  .hero .kick {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: #bcd0e4; margin-bottom: 12px; text-shadow: 0 1px 10px rgba(10,22,40,0.9);
+    display: inline-flex; align-items: center; gap: 12px;
+  }
+  .hero .kick::before { content: ""; width: 26px; height: 2px; background: var(--navy-300); }
+  .hero h1 {
+    font-family: var(--font-display); font-weight: 800; font-size: 92px; line-height: 0.9;
+    letter-spacing: -0.035em; text-transform: uppercase; margin-bottom: 16px;
+    text-shadow: 0 2px 24px rgba(10,22,40,0.45);
+  }
+  .hero .role {
+    display: inline-flex; align-items: baseline; gap: 0;
+    font-family: var(--font-display); font-weight: 600; font-size: 30px; letter-spacing: -0.02em;
+    color: var(--paper-50);
+  }
+  .hero .role em { color: var(--navy-300); }
+
+  /* ============================= INFO BAR ============================= */
+  .infobar {
+    background: var(--navy-950); color: var(--paper-50);
+    display: flex; align-items: stretch;
+  }
+  .infobar .cell { flex: 1; padding: 17px 56px; display: flex; flex-direction: column; gap: 5px; }
+  .infobar .cell + .cell { border-left: 1px solid rgba(255,255,255,0.12); padding-left: 26px; }
+  .infobar .cell:first-child { padding-left: 56px; }
+  .infobar .l { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em;
+          text-transform: uppercase; color: var(--navy-300); }
+  .infobar .v { font-family: var(--font-sans); font-weight: 600; font-size: 20px; letter-spacing: -0.015em; line-height: 1; }
+  .infobar .cell.comp .v { color: var(--navy-300); font-size: 18px; }
+
+  /* ============================= BODY ============================= */
+  .body { flex: 1; padding: 26px 56px 0; display: flex; flex-direction: column; gap: 18px; }
+  .section .eyebrow {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy-600); margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
+  }
+  .section .eyebrow::after { content: ""; flex: 1; height: 1px; background: rgba(15,29,51,0.10); }
+  .section p { font-size: 14px; line-height: 1.55; color: var(--stone-700); max-width: 680px; }
+
+  ul.dutylist { list-style: none; column-count: 2; column-gap: 36px; }
+  ul.dutylist li { break-inside: avoid; position: relative; padding-left: 18px;
+                   margin-bottom: 10px; font-size: 13px; line-height: 1.4; color: var(--stone-700); }
+  ul.dutylist li:last-child { margin-bottom: 0; }
+  ul.dutylist li::before { content: ""; position: absolute; left: 0; top: 6px;
+                   width: 6px; height: 6px; background: var(--navy-500); border-radius: 1px; }
+
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; }
+  .about .eyebrow { color: var(--navy-600); }
+  .about p { font-size: 13.5px; line-height: 1.55; color: var(--stone-700); }
+
+  .comp-callout { background: var(--navy-100); border: 1px solid rgba(45,74,110,0.22);
+                  border-radius: 8px; padding: 16px 22px; }
+  .comp-callout .eyebrow { color: var(--navy-700); margin-bottom: 10px; }
+  .comp-callout .eyebrow::after { background: rgba(45,74,110,0.20); }
+  .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+  .comp-grid .item { font-size: 13.5px; font-weight: 600; line-height: 1.3; color: var(--navy-800);
+                     position: relative; padding-left: 16px; }
+  .comp-grid .item::before { content: ""; position: absolute; left: 0; top: 6px;
+                     width: 6px; height: 6px; background: var(--navy-500); border-radius: 999px; }
+
+  /* ============================= CTA ============================= */
+  .cta { margin-top: auto; background: var(--navy-900); color: var(--paper-50);
+         padding: 24px 56px 20px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .cta .lead .eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em;
+          text-transform: uppercase; color: var(--navy-300); margin-bottom: 8px; }
+  .cta .lead h2 { font-family: var(--font-display); font-weight: 700; font-size: 29px;
+          letter-spacing: -0.02em; line-height: 1.05; color: var(--paper-50); }
+  .cta .lead h2 em { color: var(--navy-300); }
+  .cta .action { text-align: right; flex-shrink: 0; }
+  .cta .action .apply { display: inline-block; font-family: var(--font-mono); font-size: 13.5px; font-weight: 500;
+          color: var(--navy-900); background: var(--paper-50); padding: 12px 18px; border-radius: 6px; white-space: nowrap; }
+  .cta .action .apply b { color: var(--navy-700); }
+  .cta .action .site { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+          text-transform: uppercase; color: var(--navy-300); margin-top: 9px; }
+
+  .note { background: var(--navy-950); color: var(--paper-200); padding: 10px 56px;
+          font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; line-height: 1.5;
+          display: flex; gap: 10px; align-items: center; }
+  .note b { color: var(--paper-50); font-weight: 500; letter-spacing: 0.12em; }
+  .note .dot { color: var(--navy-500); }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- HERO -->
+    <section class="hero">
+      <img src="assets/img/hero-consultant.jpg" alt="Two professionals reviewing a workspace design with material samples and a laptop by large office windows" />
+      <div class="scrim"></div>
+      <div class="topbar">
+        <span class="lockup">
+          <span class="mark"><span class="of">OF</span><span class="four">4</span><span class="s">S</span></span>
+          <span class="rule"></span>
+          <span class="fullname">OFFICE FURNITURE<br />4 SALE</span>
+        </span>
+        <span class="url">OfficeFurniture4Sale.com</span>
+      </div>
+      <div class="headline">
+        <div class="kick">Now Hiring · Join Our Team</div>
+        <h1>We're Hiring</h1>
+        <div class="role">Workplace Furniture&nbsp;<em>Consultant</em></div>
+      </div>
+    </section>
+
+    <!-- INFO BAR -->
+    <div class="infobar">
+      <div class="cell"><span class="l">Location</span><span class="v">South Florida</span></div>
+      <div class="cell"><span class="l">Job Type</span><span class="v">Full-Time</span></div>
+      <div class="cell comp"><span class="l">Compensation</span><span class="v">Salary + Commission</span></div>
+    </div>
+
+    <!-- BODY -->
+    <div class="body">
+
+      <section class="section">
+        <div class="eyebrow">About the Role</div>
+        <p>Help South Florida businesses build workspaces that work. As a Workplace Furniture
+        Consultant, you'll partner with clients to design their space from a furniture standpoint —
+        owning the relationship from the first on-site measurement to a finished, installed
+        solution, backed by our proprietary design software and OF4S operations team.</p>
+      </section>
+
+      <section class="section">
+        <div class="eyebrow">What You'll Do</div>
+        <ul class="dutylist">
+          <li>Meet with clients in their spaces to measure and discuss their needs.</li>
+          <li>Design the solution using our proprietary design software.</li>
+          <li>Schedule Zoom calls to review designs and quotes.</li>
+          <li>Coordinate with OF4S operations teams to deliver and install your client's order.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <div class="duo">
+          <div class="about">
+            <div class="eyebrow">About OF4S</div>
+            <p>OF4S is a commercial office furniture dealer serving South Florida. We help clients
+            design, furnish, and install complete workspaces — and our consultants own that
+            relationship end to end.</p>
+          </div>
+          <div class="comp-callout">
+            <div class="eyebrow">What We Offer</div>
+            <div class="comp-grid">
+              <div class="item">Salary</div>
+              <div class="item">Commission</div>
+              <div class="item">Bonuses</div>
+              <div class="item">Benefits</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="lead">
+        <div class="eyebrow">How to Apply</div>
+        <h2>Ready to design with <em>us?</em></h2>
+      </div>
+      <div class="action">
+        <span class="apply">Email your resume → <b>ACG@OfficeFurniture4Sale.com</b></span>
+        <div class="site">OfficeFurniture4Sale.com</div>
+      </div>
+    </section>
+
+    <div class="note"><b>Discover OF4S</b><span class="dot">·</span>@officefurniture4sale<span class="dot">·</span>OfficeFurniture4Sale.com</div>
+
+  </div>
+</body>
+</html>

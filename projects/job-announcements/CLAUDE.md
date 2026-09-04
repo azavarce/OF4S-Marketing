@@ -98,8 +98,11 @@ Self-contained; no network needed at render time.
   `/opt/pw-browsers/chromium-1194/...`) renders `.page` at `deviceScaleFactor
   3.125` → a true 2550 × 3300 PNG in `output/`.
 
-To build a new one: edit/copy `flyer.html` with the new role's content, set the
-output filename in `render.mjs`, run `node render.mjs`, view the PNG, refine.
+To build a new one: copy `flyer.html` to `flyer-<role>.html`, edit the content,
+then render with `node render.mjs flyer-<role>.html output/<Role-Name>.png`
+(run with no args it renders the BDM flyer). View the PNG, refine. Keep the base
+`flyer.html` as the reusable template; one committed `flyer-<role>.html` + PNG per
+role. Example: `flyer-workplace-consultant.html`.
 
 ## Craft notes — what works (learned from builds)
 
