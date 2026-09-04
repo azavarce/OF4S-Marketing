@@ -28,7 +28,7 @@
   }
 
   /* ============================= HERO (photo + overlay) ============================= */
-  .hero { position: relative; height: 424px; overflow: hidden; background: var(--navy-900); }
+  .hero { position: relative; height: 476px; overflow: hidden; background: var(--navy-900); }
   .hero img {
     position: absolute; inset: 0; width: 100%; height: 100%;
     object-fit: cover; object-position: 50% 40%;
@@ -92,7 +92,7 @@
   .infobar .cell.comp .v { color: var(--navy-300); font-size: 18px; }
 
   /* ============================= BODY ============================= */
-  .body { flex: 1; padding: 26px 56px 0; display: flex; flex-direction: column; gap: 18px; }
+  .body { flex: 1; padding: 32px 56px 0; display: flex; flex-direction: column; gap: 26px; }
   .section .eyebrow {
     font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--navy-600); margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
@@ -112,12 +112,12 @@
   .about p { font-size: 13.5px; line-height: 1.55; color: var(--stone-700); }
 
   .comp-callout { background: var(--navy-100); border: 1px solid rgba(45,74,110,0.22);
-                  border-radius: 8px; padding: 16px 22px; }
-  .comp-callout .eyebrow { color: var(--navy-700); margin-bottom: 10px; }
+                  border-radius: 8px; padding: 22px 26px; }
+  .comp-callout .eyebrow { color: var(--navy-700); margin-bottom: 14px; }
   .comp-callout .eyebrow::after { background: rgba(45,74,110,0.20); }
-  .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
-  .comp-grid .item { font-size: 13.5px; font-weight: 600; line-height: 1.3; color: var(--navy-800);
-                     position: relative; padding-left: 16px; }
+  .comp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px 16px; }
+  .comp-grid .item { font-size: 15px; font-weight: 600; line-height: 1.3; color: var(--navy-800);
+                     position: relative; padding-left: 17px; }
   .comp-grid .item::before { content: ""; position: absolute; left: 0; top: 6px;
                      width: 6px; height: 6px; background: var(--navy-500); border-radius: 999px; }
 
@@ -140,6 +140,9 @@
           font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; line-height: 1.5;
           display: flex; gap: 10px; align-items: center; }
   .note b { color: var(--paper-50); font-weight: 500; letter-spacing: 0.12em; }
+  .note .site { color: var(--paper-50); }
+  .note .ig { display: inline-flex; align-items: center; gap: 6px; color: var(--paper-50); }
+  .note .ig svg { display: block; }
   .note .dot { color: var(--navy-500); }
 </style>
 </head>
@@ -167,7 +170,6 @@
 
     <!-- INFO BAR -->
     <div class="infobar">
-      <div class="cell"><span class="l">Location</span><span class="v">South Florida</span></div>
       <div class="cell"><span class="l">Job Type</span><span class="v">Full-Time</span></div>
       <div class="cell comp"><span class="l">Compensation</span><span class="v">Salary + Commission</span></div>
     </div>
@@ -177,10 +179,8 @@
 
       <section class="section">
         <div class="eyebrow">About the Role</div>
-        <p>Help South Florida businesses build workspaces that work. As a Workplace Furniture
-        Consultant, you'll partner with clients to design their space from a furniture standpoint —
-        owning the relationship from the first on-site measurement to a finished, installed
-        solution, backed by our proprietary design software and OF4S operations team.</p>
+        <p>Help businesses build workspaces that work. As a Workplace Furniture Consultant, you'll
+        partner with clients to design their space from a furniture standpoint.</p>
       </section>
 
       <section class="section">
@@ -194,21 +194,13 @@
       </section>
 
       <section class="section">
-        <div class="duo">
-          <div class="about">
-            <div class="eyebrow">About OF4S</div>
-            <p>OF4S is a commercial office furniture dealer serving South Florida. We help clients
-            design, furnish, and install complete workspaces — and our consultants own that
-            relationship end to end.</p>
-          </div>
-          <div class="comp-callout">
-            <div class="eyebrow">What We Offer</div>
-            <div class="comp-grid">
-              <div class="item">Salary</div>
-              <div class="item">Commission</div>
-              <div class="item">Bonuses</div>
-              <div class="item">Benefits</div>
-            </div>
+        <div class="comp-callout">
+          <div class="eyebrow">What We Offer</div>
+          <div class="comp-grid">
+            <div class="item">Salary</div>
+            <div class="item">Commission</div>
+            <div class="item">Bonuses</div>
+            <div class="item">Benefits</div>
           </div>
         </div>
       </section>
@@ -227,7 +219,19 @@
       </div>
     </section>
 
-    <div class="note"><b>Discover OF4S</b><span class="dot">·</span>@officefurniture4sale<span class="dot">·</span>OfficeFurniture4Sale.com</div>
+    <div class="note">
+      <b>Learn more about OF4S</b>
+      <span class="dot">·</span>
+      <span class="site">OfficeFurniture4Sale.com</span>
+      <span class="dot">·</span>
+      <span class="ig">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5.5"/>
+          <circle cx="12" cy="12" r="4.4"/>
+          <circle cx="17.6" cy="6.4" r="1.3" fill="currentColor" stroke="none"/>
+        </svg>@officefurniture4sale
+      </span>
+    </div>
 
   </div>
 </body>
