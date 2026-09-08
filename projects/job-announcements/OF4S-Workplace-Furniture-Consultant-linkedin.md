@@ -7,7 +7,7 @@
 OfficeFurniture4Sale.com supports small to mid-sized businesses that are opening,
 expanding, or renovating office spaces. Our in-house designers, space planners,
 and account managers guide clients through workplace design, furniture selection,
-budgeting, delivery, and installation — offering a broad range of furniture makes,
+budgeting, delivery, and installation, offering a broad range of furniture makes,
 models, finishes, and configurations to meet both functional and aesthetic needs.
 Clients can visit our showroom and offices in Miami or request onsite
 consultations.
@@ -15,7 +15,7 @@ consultations.
 ## About the Role
 
 Help businesses build workspaces that work. As a Workplace Furniture Consultant,
-you'll partner with clients to design their space from a furniture standpoint —
+you'll partner with clients to design their space from a furniture standpoint,
 owning the relationship from the first onsite consultation through
 post-installation follow-up.
 
@@ -28,7 +28,7 @@ post-installation follow-up.
   with budget and timelines.
 - Schedule meetings to review designs and quotes.
 - Coordinate with OF4S account managers and operations teams to deliver and
-  install your client's order — monitoring orders, delivery schedules, and
+  install your client's order, monitoring orders, delivery schedules, and
   installation so projects are completed as promised.
 - Maintain product knowledge, support showroom visits, conduct onsite office
   assessments, and provide training on workplace furniture solutions as needed.
@@ -42,11 +42,11 @@ post-installation follow-up.
 
 ## Qualifications
 
-- Strong consulting skills — client needs analysis, solution presentation, and
+- Strong consulting skills: client needs analysis, solution presentation, and
   relationship management.
-- Workplace design capabilities — space planning, ergonomic considerations, and
+- Workplace design capabilities: space planning, ergonomic considerations, and
   functional office layouts.
-- Project management skills — overseeing timelines, budgets, deliverables, and
+- Project management skills: overseeing timelines, budgets, deliverables, and
   coordination with internal teams and vendors.
 - Training skills to support client education on product features, workplace
   standards, and best practices.
