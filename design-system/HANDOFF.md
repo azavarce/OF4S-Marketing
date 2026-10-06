@@ -36,4 +36,4 @@ The complete, **decided** OF4S design system. All explorations are resolved; wha
 
 ## Not included
 
-Logo SVG/PNG exports, photography, product shots, customer logos, testimonials. Use captioned placeholders until real assets exist.
+Logo PNG exports (SVGs are in `logo/`), photography, product shots, customer logos, testimonials. Use captioned placeholders until real assets exist.

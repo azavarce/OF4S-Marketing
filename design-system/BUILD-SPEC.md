@@ -135,7 +135,7 @@ Horizontal lockup (web nav / letterhead / covers): mark + 1px vertical rule + st
 Caption exactly: `OFFICE FURNITURE<br/>4 SALE`.
 Favicon/tile: navy-800 square (radius 5px @32 / 9px @56), "OF4S" Schibsted 700 (11px @32 / 18px @56, ls -0.03em), paper-50 with 4 in navy-300.
 URL style: mono 14px stone-700, the `4` navy-600 weight 600 → of4s.com.
-No SVG/PNG exports exist yet — render in live text/CSS on the web.
+SVG exports (glyphs outlined, no font needed) live in `design-system/logo/`: `of4s-logo.svg` (light backgrounds), `of4s-logo-white.svg` (transparent, for dark backgrounds), `of4s-logo-on-navy.svg` (with navy background), `of4s-logo-tile.svg` (square favicon/avatar). On the web, live text/CSS is still preferred.
 
 ## 7. Stats / numbers (the ONLY sanctioned brass)
 
