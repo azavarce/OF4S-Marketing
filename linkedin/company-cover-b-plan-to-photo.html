@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>OF4S LinkedIn Cover B</title>
+<link rel="stylesheet" href="../design-system/tokens.css">
+<style>
+  html, body { margin:0; background: var(--of4s-paper-50); }
+  .cover { position:relative; width:2100px; height:350px; overflow:hidden; box-sizing:border-box;
+    background: var(--of4s-paper-50); display:grid; grid-template-columns: 480px 1fr 380px 600px; align-items:center; }
+  .ghost { position:absolute; left:150px; top:-150px; font-family:var(--of4s-font-display); font-weight:300;
+    font-size:620px; line-height:1; letter-spacing:-0.04em; color: var(--of4s-paper-200); }
+  .copy { grid-column:2; position:relative; }
+  .eyebrow { font-family:var(--of4s-font-mono); font-size:15px; letter-spacing:0.22em; text-transform:uppercase;
+    color: var(--of4s-navy-600); margin-bottom:22px; }
+  h1 { margin:0; font-family:var(--of4s-font-display); font-weight:300; font-size:70px; line-height:0.98;
+    letter-spacing:-0.035em; color: var(--of4s-stone-900); }
+  h1 em { font-style:normal; font-weight:400; color: var(--of4s-navy-600); }
+  .services { display:flex; gap:18px; align-items:center; margin-top:28px; font-family:var(--of4s-font-mono);
+    font-size:15px; letter-spacing:0.22em; text-transform:uppercase; color: var(--of4s-stone-700); }
+  .services .sep { width:6px; height:6px; border-radius:50%; background: var(--of4s-navy-300); }
+  .panel { position:relative; align-self:stretch; }
+  .plan-panel { grid-column:3; background: var(--of4s-navy-900); display:flex; align-items:center; justify-content:center; }
+  .plan { width:340px; fill:none; stroke: var(--of4s-navy-300); stroke-width:1.6; stroke-linejoin:round; }
+  .plan .wall { stroke: var(--of4s-paper-200); stroke-width:3; }
+  .plan .win { stroke: var(--of4s-navy-300); stroke-width:7; }
+  .plan .ht { stroke: var(--of4s-navy-500); stroke-dasharray:4 6; }
+  .photo-panel { grid-column:4; background: url(photos/open-office.webp) center 62% / cover no-repeat; }
+  .cap { position:absolute; left:24px; top:22px; font-family:var(--of4s-font-mono); font-size:13px;
+    letter-spacing:0.22em; text-transform:uppercase; color: var(--of4s-navy-300); }
+  .photo-panel .cap { color: var(--of4s-paper-50); background: rgba(15,29,51,0.85); padding:6px 10px; left:16px; top:16px; }
+</style></head>
+<body>
+  <div class="cover">
+    <div class="ghost">4</div>
+    <div class="copy">
+      <div class="eyebrow">Commercial office furniture</div>
+      <h1>From floor plan<br>to finished <em>space.</em></h1>
+      <div class="services"><span>Design</span><span class="sep"></span><span>Furnish</span><span class="sep"></span><span>Install</span></div>
+    </div>
+    <div class="panel plan-panel"><span class="cap">01 · Plan</span><svg class="plan" viewBox="0 0 450 330" xmlns="http://www.w3.org/2000/svg">
+<rect x="10" y="20" width="430" height="300" class="wall"/>
+<line x1="80" y1="20" x2="190" y2="20" class="win"/><line x1="260" y1="20" x2="370" y2="20" class="win"/>
+<path d="M10 260 a50 50 0 0 1 50 50" class="ht"/>
+<path d="M40 60 h110 v26 h-84 v44 h-26 Z"/><circle cx="100" cy="108" r="11"/><path d="M280 60 h-110 v26 h84 v44 h26 Z"/><circle cx="220" cy="108" r="11"/><path d="M300 60 h110 v26 h-84 v44 h-26 Z"/><circle cx="360" cy="108" r="11"/><line x1="30" y1="140" x2="420" y2="140" class="ht"/><path d="M40 190 h110 v26 h-84 v44 h-26 Z"/><circle cx="100" cy="238" r="11"/><path d="M280 190 h-110 v26 h84 v44 h26 Z"/><circle cx="220" cy="238" r="11"/><path d="M300 190 h110 v26 h-84 v44 h-26 Z"/><circle cx="360" cy="238" r="11"/><line x1="30" y1="270" x2="420" y2="270" class="ht"/>
+</svg></div>
+    <div class="panel photo-panel"><span class="cap">02 · Finished</span></div>
+  </div>
+</body></html>
