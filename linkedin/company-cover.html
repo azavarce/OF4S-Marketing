@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OF4S LinkedIn Cover</title>
+<link rel="stylesheet" href="../design-system/tokens.css">
+<style>
+  html, body { margin: 0; background: var(--of4s-navy-900); }
+  /* Canvas: 2100×350 CSS px, exported at 2× → 4200×700 (6:1, LinkedIn company cover) */
+  .cover {
+    position: relative; width: 2100px; height: 350px; overflow: hidden;
+    background: var(--of4s-navy-900); color: var(--of4s-paper-50);
+    display: grid; grid-template-columns: 450px 1fr auto; align-items: center;
+    padding: 0 110px 0 0; column-gap: 90px; box-sizing: border-box;
+  }
+  /* Quiet floor-plan hairlines — architectural texture, no photo */
+  .grid {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(143,169,199,0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(143,169,199,0.07) 1px, transparent 1px);
+    background-size: 70px 70px;
+    mask-image: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0) 62%);
+  }
+  /* Oversized ghost "4" — echoes the mark */
+  .ghost {
+    position: absolute; left: 150px; top: -150px;
+    font-family: var(--of4s-font-display); font-weight: 300;
+    font-size: 620px; line-height: 1; letter-spacing: -0.04em;
+    color: var(--of4s-navy-800);
+  }
+  .copy { grid-column: 2; position: relative; }
+  .eyebrow {
+    font-family: var(--of4s-font-mono); font-size: 15px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--of4s-navy-300); margin-bottom: 22px;
+  }
+  h1 {
+    margin: 0; font-family: var(--of4s-font-display); font-weight: 300;
+    font-size: 80px; line-height: 0.95; white-space: nowrap; letter-spacing: -0.035em; color: var(--of4s-paper-50);
+  }
+  h1 em { font-style: normal; font-weight: 400; color: var(--of4s-navy-300); }
+  .services {
+    display: flex; gap: 18px; align-items: center; margin-top: 28px;
+    font-family: var(--of4s-font-mono); font-size: 15px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--of4s-paper-200);
+  }
+  .services .sep { width: 6px; height: 6px; border-radius: 50%; background: var(--of4s-navy-500); }
+  .brand { grid-column: 3; position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 26px; }
+  .lockup-h { display: inline-flex; align-items: center; gap: 26px; }
+  .logo {
+    font-family: var(--of4s-font-display); font-weight: 700; font-size: 76px;
+    letter-spacing: -0.03em; line-height: 0.9; color: var(--of4s-paper-50);
+  }
+  .logo .four { color: var(--of4s-navy-300); }
+  .lockup-h .rule { width: 1px; align-self: stretch; background: rgba(255,255,255,0.25); }
+  .lockup-h .fullname {
+    font-family: var(--of4s-font-mono); font-size: 15px; letter-spacing: 0.26em;
+    text-transform: uppercase; color: var(--of4s-paper-200); line-height: 1.9; white-space: nowrap;
+  }
+  .url {
+    font-family: var(--of4s-font-mono); font-size: 19px; color: var(--of4s-paper-200);
+    padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.18); align-self: stretch;
+  }
+  .url b { color: var(--of4s-navy-300); font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="cover">
+    <div class="grid"></div>
+    <div class="ghost">4</div>
+    <div class="copy">
+      <div class="eyebrow">South Florida · Commercial office furniture</div>
+      <h1>The workplace, made <em>easy.</em></h1>
+      <div class="services"><span>Design</span><span class="sep"></span><span>Furnish</span><span class="sep"></span><span>Install</span></div>
+    </div>
+    <div class="brand">
+      <span class="lockup-h">
+        <span class="logo">OF<span class="four">4</span>S</span>
+        <span class="rule"></span>
+        <span class="fullname">Office Furniture<br>4 Sale</span>
+      </span>
+      <div class="url">officefurniture<b>4</b>sale.com</div>
+    </div>
+  </div>
+</body>
+</html>
