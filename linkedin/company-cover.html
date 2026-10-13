@@ -10,7 +10,7 @@
   .cover {
     position: relative; width: 2100px; height: 350px; overflow: hidden;
     background: var(--of4s-navy-900); color: var(--of4s-paper-50);
-    display: grid; grid-template-columns: 450px 1fr auto; align-items: center;
+    display: grid; grid-template-columns: 540px 1fr; align-items: center;
     padding: 0 110px 0 0; column-gap: 90px; box-sizing: border-box;
   }
   /* Quiet floor-plan hairlines — architectural texture, no photo */
@@ -36,7 +36,7 @@
   }
   h1 {
     margin: 0; font-family: var(--of4s-font-display); font-weight: 300;
-    font-size: 80px; line-height: 0.95; white-space: nowrap; letter-spacing: -0.035em; color: var(--of4s-paper-50);
+    font-size: 82px; line-height: 0.95; white-space: nowrap; letter-spacing: -0.035em; color: var(--of4s-paper-50);
   }
   h1 em { font-style: normal; font-weight: 400; color: var(--of4s-navy-300); }
   .services {
@@ -45,23 +45,6 @@
     text-transform: uppercase; color: var(--of4s-paper-200);
   }
   .services .sep { width: 6px; height: 6px; border-radius: 50%; background: var(--of4s-navy-500); }
-  .brand { grid-column: 3; position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 26px; }
-  .lockup-h { display: inline-flex; align-items: center; gap: 26px; }
-  .logo {
-    font-family: var(--of4s-font-display); font-weight: 700; font-size: 76px;
-    letter-spacing: -0.03em; line-height: 0.9; color: var(--of4s-paper-50);
-  }
-  .logo .four { color: var(--of4s-navy-300); }
-  .lockup-h .rule { width: 1px; align-self: stretch; background: rgba(255,255,255,0.25); }
-  .lockup-h .fullname {
-    font-family: var(--of4s-font-mono); font-size: 15px; letter-spacing: 0.26em;
-    text-transform: uppercase; color: var(--of4s-paper-200); line-height: 1.9; white-space: nowrap;
-  }
-  .url {
-    font-family: var(--of4s-font-mono); font-size: 19px; color: var(--of4s-paper-200);
-    padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.18); align-self: stretch;
-  }
-  .url b { color: var(--of4s-navy-300); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -69,17 +52,9 @@
     <div class="grid"></div>
     <div class="ghost">4</div>
     <div class="copy">
-      <div class="eyebrow">South Florida · Commercial office furniture</div>
-      <h1>The workplace, made <em>easy.</em></h1>
+      <div class="eyebrow">Commercial office furniture</div>
+      <h1>From floor plan to finished <em>space.</em></h1>
       <div class="services"><span>Design</span><span class="sep"></span><span>Furnish</span><span class="sep"></span><span>Install</span></div>
-    </div>
-    <div class="brand">
-      <span class="lockup-h">
-        <span class="logo">OF<span class="four">4</span>S</span>
-        <span class="rule"></span>
-        <span class="fullname">Office Furniture<br>4 Sale</span>
-      </span>
-      <div class="url">officefurniture<b>4</b>sale.com</div>
     </div>
   </div>
 </body>
