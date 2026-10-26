@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OF4S Warehouse Associate Flyer</title>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-950:#0a1628; --navy-900:#0f1d33; --navy-800:#15273f; --navy-700:#1e3554;
+    --navy-600:#2d4a6e; --navy-500:#466489; --navy-300:#8fa9c7; --navy-100:#dde5ee;
+    --brass-700:#8e6a30; --brass-400:#c9a474;
+    --paper-50:#faf8f4; --paper-100:#f3efe7; --paper-200:#e8e2d4;
+    --stone-500:#7a7468; --stone-600:#555047; --stone-700:#3a362f; --stone-900:#1a1814;
+    --display:'Schibsted Grotesk','Geist',sans-serif;
+    --sans:'Geist',system-ui,sans-serif;
+    --mono:'Geist Mono',Menlo,monospace;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body { font-family: var(--sans); color: var(--stone-900); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  em, i { font-style: normal; }
+
+  .page { width: 210mm; height: 297mm; overflow: hidden; display: flex; flex-direction: column; background: var(--paper-50); }
+
+  /* Hero */
+  .hero { background: var(--navy-800); color: var(--paper-50); padding: 14mm 15mm 12mm; position: relative; }
+  .top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .brand { font-family: var(--display); font-weight: 700; font-size: 34px; letter-spacing: -0.02em; line-height: 1; }
+  .brand .four { color: var(--navy-300); font-weight: 600; }
+  .brand-cap { font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--navy-300); margin-top: 6px; }
+  .loc { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--navy-300); text-align: right; line-height: 1.7; }
+
+  .eyebrow { font-family: var(--mono); font-size: 13px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--navy-300); margin-top: 11mm; display: flex; align-items: center; gap: 10px; }
+  .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--navy-300); }
+  h1 { font-family: var(--display); font-weight: 700; font-size: 56px; line-height: 0.98; letter-spacing: -0.03em; margin-top: 5mm; }
+  h1 em { color: var(--navy-300); }
+
+  .facts { display: flex; gap: 10px; margin-top: 8mm; flex-wrap: wrap; }
+  .pay { background: var(--paper-50); color: var(--navy-800); border-radius: 8px; padding: 10px 18px; display: flex; align-items: baseline; gap: 6px; }
+  .pay b { font-family: var(--display); font-weight: 800; font-size: 40px; letter-spacing: -0.03em; line-height: 1; }
+  .pay span { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy-600); }
+  .fact { border: 1px solid rgba(143,169,199,0.45); border-radius: 8px; padding: 10px 16px; display: flex; flex-direction: column; justify-content: center; }
+  .fact .k { font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-300); }
+  .fact .v { font-family: var(--display); font-weight: 600; font-size: 18px; margin-top: 3px; }
+
+  /* Benefits */
+  .benefits { background: var(--navy-100); padding: 6mm 15mm; display: flex; align-items: center; gap: 12px; }
+  .benefits .label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-600); white-space: nowrap; margin-right: 4px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { background: #fff; color: var(--navy-800); font-weight: 600; font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(15,29,51,0.1); }
+
+  /* Body */
+  .body { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; padding: 9mm 15mm 0; }
+  h2 { font-family: var(--display); font-weight: 700; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; padding-bottom: 8px; border-bottom: 2px solid var(--navy-800); margin-bottom: 10px; }
+  h2 em { color: var(--navy-600); }
+  ul { list-style: none; }
+  li { position: relative; padding-left: 18px; font-size: 13.5px; line-height: 1.4; color: var(--stone-700); margin-bottom: 7px; }
+  li::before { content: ""; position: absolute; left: 0; top: 6px; width: 7px; height: 7px; background: var(--navy-600); border-radius: 1px; }
+  li strong { color: var(--stone-900); font-weight: 600; }
+  .req li::before { background: none; border: 2px solid var(--navy-600); width: 8px; height: 8px; top: 5px; border-radius: 50%; }
+
+  /* Apply */
+  .apply { margin: 6mm 15mm 0; background: #fff; border: 1px solid rgba(15,29,51,0.18); border-radius: 14px; padding: 6mm; display: flex; gap: 7mm; align-items: center; }
+  .qr { width: 34mm; height: 34mm; flex: none; }
+  .qr img { width: 100%; height: 100%; display: block; }
+  .apply h3 { font-family: var(--display); font-weight: 700; font-size: 26px; letter-spacing: -0.02em; line-height: 1.05; }
+  .apply h3 em { color: var(--navy-600); }
+  .steps { display: flex; gap: 14px; margin-top: 10px; }
+  .step { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--stone-700); }
+  .step .n { font-family: var(--mono); font-size: 11px; color: var(--brass-700); border: 1px solid var(--brass-700); border-radius: 50%; width: 22px; height: 22px; display: grid; place-items: center; flex: none; }
+  .apply .alt { margin-top: 10px; font-size: 12.5px; color: var(--stone-600); }
+  .apply .alt b { color: var(--navy-800); }
+
+  /* Footer */
+  .foot { margin-top: auto; padding: 5mm 15mm 7mm; display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stone-500); }
+  .foot .placeholder { background: #fff6d6; color: #8a6d1a; padding: 3px 6px; border-radius: 2px; letter-spacing: 0.08em; }
+
+  .page { page-break-after: always; }
+  .loc { max-width: 70mm; }
+  .body { padding-top: 7mm; }
+  .bonus { margin-top: 12px; padding: 10px 12px; background: var(--paper-100); border-radius: 8px; }
+  .bonus .k { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-600); margin-bottom: 6px; display: block; }
+  .bonus li { margin-bottom: 4px; }
+  .bonus li::before { content: "+"; background: none; border: 0; width: auto; height: auto; top: -1px; font-weight: 700; color: var(--navy-600); }
+  .apply .addr { margin-top: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: var(--stone-600); }
+</style>
+
+</head>
+<body>
+<div class="page" lang="en">
+  <header class="hero">
+    <div class="top">
+      <div>
+        <div class="brand">OF<span class="four">4</span>S</div>
+        <div class="brand-cap">Office Furniture 4 Sale · Since 2005</div>
+      </div>
+      <div class="loc">Hialeah, FL<br>1790 W 8th Ave</div>
+    </div>
+    <div class="eyebrow">Now Hiring</div>
+    <h1>Warehouse <em>Associate</em></h1>
+    <div class="facts">
+      <div class="pay"><b>$15–16</b><span>/ hour</span></div>
+      <div class="fact"><span class="k">Schedule</span><span class="v">Full-time</span></div>
+      <div class="fact"><span class="k">Hours</span><span class="v">37–40 / week</span></div>
+    </div>
+  </header>
+
+  <section class="benefits">
+    <span class="label">Benefits</span>
+    <div class="chips">
+      <span class="chip">Health insurance</span>
+      <span class="chip">401(k) + matching</span>
+      <span class="chip">Paid time off</span>
+      <span class="chip">Employee discount</span>
+    </div>
+  </section>
+
+  <section class="body">
+    <div>
+      <h2>What you'll <em>do</em></h2>
+      <ul>
+        <li><strong>Receive</strong> incoming products at the warehouse</li>
+        <li>Do regular <strong>inventory counts</strong> so the system matches the shelves</li>
+        <li>Put products away on the correct shelf</li>
+        <li>Check that outgoing orders are complete and match the client's order</li>
+        <li>Follow warehouse procedures</li>
+      </ul>
+    </div>
+    <div class="req">
+      <h2>What you <em>need</em></h2>
+      <ul>
+        <li><strong>Speak English and Spanish</strong></li>
+        <li>Read and write in English</li>
+        <li>Legally allowed to work in the U.S.</li>
+        <li>Available at least 37 hours a week during business hours</li>
+        <li>Comfortable working in a warehouse</li>
+        <li>Detail-oriented, disciplined, and a good problem solver</li>
+      </ul>
+      <div class="bonus">
+        <span class="k">Bonus if you have</span>
+        <ul>
+        <li>1 year of warehouse or shipping &amp; receiving experience</li>
+        <li>Forklift certification</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="apply">
+    <div class="qr"><img src="qr-warehouse.svg" alt="QR code to apply on Indeed"></div>
+    <div>
+      <h3>Scan to <em>apply</em> today</h3>
+      <p class="alt">No phone handy? <b>Talk to us at the booth</b> and leave your name and number.</p>
+      <p class="addr">1790 W 8th Ave, Hialeah, FL 33010</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>OF4S · South Florida</span>
+    <span class="placeholder">[Website · Phone]</span>
+  </footer>
+</div>
+<div class="page" lang="es">
+  <header class="hero">
+    <div class="top">
+      <div>
+        <div class="brand">OF<span class="four">4</span>S</div>
+        <div class="brand-cap">Office Furniture 4 Sale · Desde 2005</div>
+      </div>
+      <div class="loc">Hialeah, FL<br>1790 W 8th Ave</div>
+    </div>
+    <div class="eyebrow">Estamos contratando</div>
+    <h1>Asociado de <em>Almacén</em></h1>
+    <div class="facts">
+      <div class="pay"><b>$15–16</b><span>/ hora</span></div>
+      <div class="fact"><span class="k">Horario</span><span class="v">Tiempo completo</span></div>
+      <div class="fact"><span class="k">Horas</span><span class="v">37–40 / semana</span></div>
+    </div>
+  </header>
+
+  <section class="benefits">
+    <span class="label">Beneficios</span>
+    <div class="chips">
+      <span class="chip">Seguro médico</span>
+      <span class="chip">401(k) con aporte</span>
+      <span class="chip">Tiempo libre pagado</span>
+      <span class="chip">Descuento de empleado</span>
+    </div>
+  </section>
+
+  <section class="body">
+    <div>
+      <h2>Lo que vas a <em>hacer</em></h2>
+      <ul>
+        <li><strong>Recibir</strong> la mercancía que llega al almacén</li>
+        <li>Hacer <strong>conteos de inventario</strong> para que el sistema coincida con los estantes</li>
+        <li>Colocar los productos en el estante correcto</li>
+        <li>Verificar que los pedidos de salida estén completos y coincidan con el pedido del cliente</li>
+        <li>Seguir los procedimientos del almacén</li>
+      </ul>
+    </div>
+    <div class="req">
+      <h2>Lo que <em>necesitas</em></h2>
+      <ul>
+        <li><strong>Hablar inglés y español</strong></li>
+        <li>Leer y escribir en inglés</li>
+        <li>Estar autorizado para trabajar en EE. UU.</li>
+        <li>Disponibilidad de al menos 37 horas por semana en horario laboral</li>
+        <li>Sentirte cómodo trabajando en un almacén</li>
+        <li>Detallista, disciplinado y bueno resolviendo problemas</li>
+      </ul>
+      <div class="bonus">
+        <span class="k">Un plus si tienes</span>
+        <ul>
+        <li>1 año de experiencia en almacén o envíos y recepción</li>
+        <li>Certificación de montacargas</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="apply">
+    <div class="qr"><img src="qr-warehouse.svg" alt="Código QR para aplicar en Indeed"></div>
+    <div>
+      <h3>Escanea y <em>aplica</em> hoy</h3>
+      <p class="alt">¿No tienes tu teléfono a mano? <b>Habla con nosotros en el stand</b> y déjanos tu nombre y número.</p>
+      <p class="addr">1790 W 8th Ave, Hialeah, FL 33010</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>OF4S · South Florida</span>
+    <span class="placeholder">[Sitio web · Teléfono]</span>
+  </footer>
+</div>
+</body>
+</html>

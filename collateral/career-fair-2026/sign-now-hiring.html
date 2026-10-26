@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OF4S Now Hiring Sign</title>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-800:#15273f; --navy-600:#2d4a6e; --navy-300:#8fa9c7; --navy-100:#dde5ee;
+    --paper-50:#faf8f4; --paper-100:#f3efe7;
+    --stone-500:#7a7468; --stone-600:#555047; --stone-900:#1a1814;
+    --display:'Schibsted Grotesk','Geist',sans-serif;
+    --sans:'Geist',system-ui,sans-serif;
+    --mono:'Geist Mono',Menlo,monospace;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body { font-family: var(--sans); color: var(--stone-900); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  em { font-style: normal; }
+
+  .page { width: 210mm; height: 297mm; overflow: hidden; display: flex; flex-direction: column; background: var(--paper-50); }
+
+  .hero { flex: 1; display: flex; flex-direction: column; background: var(--navy-800); color: var(--paper-50); padding: 14mm 15mm 16mm; }
+  .brand { font-family: var(--display); font-weight: 700; font-size: 34px; letter-spacing: -0.02em; line-height: 1; }
+  .brand .four { color: var(--navy-300); font-weight: 600; }
+  .brand-cap { font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--navy-300); margin-top: 6px; }
+  h1 { font-family: var(--display); font-weight: 800; font-size: 196px; line-height: 0.84; letter-spacing: -0.05em; margin-top: auto; }
+  h1 em { color: var(--navy-300); }
+  .sub { font-family: var(--mono); font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--navy-300); margin-top: 8mm; display: flex; align-items: center; gap: 10px; }
+  .sub::before { content: ""; width: 28px; height: 2px; background: var(--navy-300); }
+
+  .jobs { flex: 1; padding: 0 15mm; display: flex; flex-direction: column; justify-content: center; gap: 6mm; }
+  .job { background: #fff; border: 1px solid rgba(15,29,51,0.18); border-radius: 14px; padding: 7mm 8mm; display: flex; justify-content: space-between; align-items: center; gap: 6mm; }
+  .job h2 { font-family: var(--display); font-weight: 700; font-size: 34px; line-height: 1.02; letter-spacing: -0.025em; }
+  .job .meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stone-600); margin-top: 8px; }
+  .job .tag { display: inline-block; margin-top: 10px; background: var(--navy-100); color: var(--navy-800); font-weight: 600; font-size: 15px; padding: 5px 12px; border-radius: 999px; }
+  .pay { text-align: right; flex: none; }
+  .pay b { display: block; font-family: var(--display); font-weight: 800; font-size: 60px; letter-spacing: -0.04em; line-height: 1; color: var(--navy-800); }
+  .pay span { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy-600); }
+
+  .ask { padding: 14mm 15mm 16mm; }
+  .ask p { font-family: var(--display); font-weight: 700; font-size: 44px; letter-spacing: -0.02em; line-height: 1.1; }
+  .ask p em { color: var(--navy-600); }
+  .ask .es { font-size: 26px; font-weight: 500; color: var(--stone-600); margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <div class="brand">OF<span class="four">4</span>S</div>
+    <div class="brand-cap">Office Furniture 4 Sale · Since 2005</div>
+    <h1>Now<br><em>Hiring</em></h1>
+    <div class="sub">Full-time · Hialeah, FL</div>
+  </header>
+
+  <section class="ask">
+    <p>Ask us about our <em>open jobs</em>.</p>
+    <p class="es">Pregúntanos por nuestras vacantes.</p>
+  </section>
+</div>
+</body>
+</html>
