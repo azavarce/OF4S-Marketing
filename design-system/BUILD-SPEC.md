@@ -27,7 +27,7 @@ Magazine-editorial: giant light-weight Schibsted display headlines with one navy
 **Homepage hero (the reference mock, `.A-hero` in directions.html):**
 - Light hero on `--of4s-paper-50`, min-height 520px, `padding: 56px 64px`, `display:grid; grid-template-columns: 1.5fr 1fr; gap: 64px; align-items: end` — headline bottom-left, body copy + CTA bottom-right (asymmetric, baseline-anchored).
 - Hero H1: `font-family: Schibsted Grotesk; font-weight:300; font-size:96px; line-height:0.92; letter-spacing:-0.035em; color: var(--of4s-stone-900)`; `em { font-style:normal; color: var(--of4s-navy-600); font-weight:400 }`.
-- Eyebrow above headline: mono 11px / 0.22em / uppercase / navy-600; margin-bottom:20px — e.g. "SOUTH FLORIDA · SINCE 2008".
+- Eyebrow above headline: mono 11px / 0.22em / uppercase / navy-600; margin-bottom:20px — e.g. "SOUTH FLORIDA · SINCE 2005".
 - Body: 15px/1.6 stone-700; max-width:320px.
 - Hero CTA: `.btn btn-primary btn-lg` (per ruling 3).
 - Section rhythm: sections `padding: 64px 80px` (up to 96px for feature moments), separated by `border-bottom: var(--of4s-border-thin)` (1px rgba(15,29,51,0.1)). Mobile (≤960px): 36–40px 20px.
