@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OF4S Scan to Apply Table Tent</title>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-800:#15273f; --navy-600:#2d4a6e; --navy-300:#8fa9c7; --navy-100:#dde5ee;
+    --paper-50:#faf8f4; --paper-100:#f3efe7;
+    --stone-500:#7a7468; --stone-600:#555047; --stone-900:#1a1814;
+    --display:'Schibsted Grotesk','Geist',sans-serif;
+    --sans:'Geist',system-ui,sans-serif;
+    --mono:'Geist Mono',Menlo,monospace;
+  }
+  @page { size: A4 landscape; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body { font-family: var(--sans); color: var(--stone-900); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  em { font-style: normal; }
+
+  .sheet { width: 297mm; height: 210mm; overflow: hidden; display: flex; flex-direction: column; position: relative; }
+  .panel { height: 105mm; flex: none; display: flex; background: var(--paper-50); overflow: hidden; }
+  .panel.back { transform: rotate(180deg); }
+  .fold { position: absolute; left: 0; right: 0; top: 105mm; border-top: 1px dashed rgba(143,169,199,0.8); z-index: 5; }
+
+  .lead { width: 84mm; flex: none; background: var(--navy-800); color: var(--paper-50); padding: 10mm 9mm 9mm 12mm; display: flex; flex-direction: column; }
+  .brand { font-family: var(--display); font-weight: 700; font-size: 30px; letter-spacing: -0.02em; line-height: 1; }
+  .brand .four { color: var(--navy-300); font-weight: 600; }
+  .brand-cap { font-family: var(--mono); font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--navy-300); margin-top: 6px; }
+  h1 { font-family: var(--display); font-weight: 800; font-size: 46px; line-height: 0.95; letter-spacing: -0.04em; margin-top: auto; }
+  h1 em { color: var(--navy-300); }
+  .es { font-family: var(--display); font-weight: 500; font-size: 19px; letter-spacing: -0.01em; color: var(--navy-100); margin-top: 8px; }
+  .loc { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--navy-300); margin-top: 12px; display: flex; align-items: center; gap: 8px; }
+  .loc::before { content: ""; width: 20px; height: 2px; background: var(--navy-300); }
+
+  .jobs { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; padding: 9mm 10mm; align-items: stretch; }
+  .job { background: #fff; border: 1px solid rgba(15,29,51,0.18); border-radius: 14px; padding: 5mm; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .qr { width: 47mm; height: 47mm; flex: none; }
+  .qr img { width: 100%; height: 100%; display: block; }
+  .job h2 { font-family: var(--display); font-weight: 700; font-size: 19px; line-height: 1.08; letter-spacing: -0.02em; margin-top: 4mm; }
+  .job h2 em { color: var(--navy-600); }
+  .meta { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone-600); margin-top: 6px; }
+  .tag { display: inline-block; margin-top: auto; background: var(--navy-100); color: var(--navy-800); font-weight: 600; font-size: 12.5px; padding: 4px 11px; border-radius: 999px; }
+  .tag.spacer { visibility: hidden; }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <section class="panel front">
+    <div class="lead">
+      <div class="brand">OF<span class="four">4</span>S</div>
+      <div class="brand-cap">Office Furniture 4 Sale · Since 2005</div>
+      <h1>Scan to<br><em>Apply</em></h1>
+      <p class="es">Escanea para aplicar</p>
+      <div class="loc">Hialeah, FL · Now hiring</div>
+    </div>
+    <div class="jobs">
+      <div class="job">
+        <div class="qr"><img src="qr.svg" alt="QR code to apply for the Furniture Delivery Driver and Warehouse job on Indeed"></div>
+        <h2>Furniture Delivery Driver &amp; <em>Warehouse</em></h2>
+        <div class="meta">$17 / hr · Full-time</div>
+        <span class="tag">Valid FL driver's license</span>
+      </div>
+      <div class="job">
+        <div class="qr"><img src="qr-warehouse.svg" alt="QR code to apply for the Warehouse Associate job on Indeed"></div>
+        <h2>Warehouse <em>Associate</em></h2>
+        <div class="meta">$15–16 / hr · Full-time</div>
+        <span class="tag">Se habla español</span>
+      </div>
+    </div>
+  </section>
+  <div class="fold"></div>
+  <section class="panel back">
+    <div class="lead">
+      <div class="brand">OF<span class="four">4</span>S</div>
+      <div class="brand-cap">Office Furniture 4 Sale · Since 2005</div>
+      <h1>Scan to<br><em>Apply</em></h1>
+      <p class="es">Escanea para aplicar</p>
+      <div class="loc">Hialeah, FL · Now hiring</div>
+    </div>
+    <div class="jobs">
+      <div class="job">
+        <div class="qr"><img src="qr.svg" alt="QR code to apply for the Furniture Delivery Driver and Warehouse job on Indeed"></div>
+        <h2>Furniture Delivery Driver &amp; <em>Warehouse</em></h2>
+        <div class="meta">$17 / hr · Full-time</div>
+        <span class="tag">Valid FL driver's license</span>
+      </div>
+      <div class="job">
+        <div class="qr"><img src="qr-warehouse.svg" alt="QR code to apply for the Warehouse Associate job on Indeed"></div>
+        <h2>Warehouse <em>Associate</em></h2>
+        <div class="meta">$15–16 / hr · Full-time</div>
+        <span class="tag">Se habla español</span>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>
