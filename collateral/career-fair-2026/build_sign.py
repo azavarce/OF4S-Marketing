@@ -87,7 +87,7 @@ DONE = "<script>document.fonts.ready.then(() => { document.body.dataset.fitted =
 variants = {
   # Original: big English headline, Spanish as a smaller line under it.
   # Page 2 flips it: Spanish headline (fit to width), English line under it.
-  "original": ("""  .heads { gap: 12mm; }
+  "original": ("""  .heads { gap: 12mm; padding-top: 22mm; }
   h1 { font-size: 244px; }
   h1.fit span { display: block; white-space: nowrap; width: max-content; }
   .sub { font-family: var(--display); font-size: 52px; font-weight: 600; letter-spacing: -0.02em; color: var(--navy-300); display: flex; align-items: center; gap: 18px; }
