@@ -24,20 +24,21 @@
   .page { width: 210mm; height: 297mm; overflow: hidden; display: flex; flex-direction: column; background: var(--paper-50); }
 
   /* Hero */
-  /* Light header to save ink: navy only in the top strip and the pay box. */
-  .hero { background: var(--paper-50); color: var(--navy-800); border-top: 4mm solid var(--navy-800); border-bottom: 1px solid rgba(15,29,51,0.12); padding: 10mm 15mm 11mm; position: relative; }
+  /* Navy covers the logo and title only; the facts row sits on paper to save ink. */
+  .hero { background: var(--navy-800); color: var(--paper-50); padding: 12mm 15mm 10mm; position: relative; }
+  .factrow { padding: 7mm 15mm; }
   .top { display: flex; justify-content: space-between; align-items: flex-start; }
   .brand { font-family: var(--display); font-weight: 700; font-size: 34px; letter-spacing: -0.02em; line-height: 1; }
-  .brand .four { color: var(--navy-500); font-weight: 600; }
-  .brand-cap { font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--navy-600); margin-top: 6px; }
-  .loc { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--navy-600); text-align: right; line-height: 1.7; }
+  .brand .four { color: var(--navy-300); font-weight: 600; }
+  .brand-cap { font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--navy-300); margin-top: 6px; }
+  .loc { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--navy-300); text-align: right; line-height: 1.7; }
 
-  .eyebrow { font-family: var(--mono); font-size: 13px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--navy-600); margin-top: 11mm; display: flex; align-items: center; gap: 10px; }
-  .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--navy-600); }
+  .eyebrow { font-family: var(--mono); font-size: 13px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--navy-300); margin-top: 10mm; display: flex; align-items: center; gap: 10px; }
+  .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--navy-300); }
   h1 { font-family: var(--display); font-weight: 700; font-size: 56px; line-height: 0.98; letter-spacing: -0.03em; margin-top: 5mm; }
-  h1 em { color: var(--navy-600); }
+  h1 em { color: var(--navy-300); }
 
-  .facts { display: flex; gap: 10px; margin-top: 8mm; flex-wrap: wrap; }
+  .facts { display: flex; gap: 10px; flex-wrap: wrap; }
   .pay { background: var(--navy-800); color: var(--paper-50); border-radius: 8px; padding: 10px 18px; display: flex; align-items: baseline; gap: 6px; }
   .pay b { font-family: var(--display); font-weight: 800; font-size: 40px; letter-spacing: -0.03em; line-height: 1; }
   .pay span { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy-300); }
@@ -98,12 +99,15 @@
     </div>
     <div class="eyebrow">Now Hiring</div>
     <h1>Furniture Delivery Driver &amp; <em>Warehouse</em></h1>
+  </header>
+
+  <section class="factrow">
     <div class="facts">
       <div class="pay"><b>$17</b><span>/ hour</span></div>
       <div class="fact"><span class="k">Schedule</span><span class="v">Full-time</span></div>
       <div class="fact"><span class="k">Start time</span><span class="v">6–7 AM</span></div>
     </div>
-  </header>
+  </section>
 
   <section class="benefits">
     <span class="label">Benefits</span>
@@ -170,12 +174,15 @@
     </div>
     <div class="eyebrow">Estamos contratando</div>
     <h1>Chofer de Entrega de Muebles y <em>Almacén</em></h1>
+  </header>
+
+  <section class="factrow">
     <div class="facts">
       <div class="pay"><b>$17</b><span>/ hora</span></div>
       <div class="fact"><span class="k">Horario</span><span class="v">Tiempo completo</span></div>
       <div class="fact"><span class="k">Hora de entrada</span><span class="v">6–7 AM</span></div>
     </div>
-  </header>
+  </section>
 
   <section class="benefits">
     <span class="label">Beneficios</span>

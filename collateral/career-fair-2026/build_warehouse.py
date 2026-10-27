@@ -69,12 +69,15 @@ def page(t, lang):
     </div>
     <div class="eyebrow">{t['eyebrow']}</div>
     <h1>{t['title']}</h1>
+  </header>
+
+  <section class="factrow">
     <div class="facts">
       <div class="pay"><b>$15–16</b><span>{t['per']}</span></div>
       <div class="fact"><span class="k">{t['k1']}</span><span class="v">{t['v1']}</span></div>
       <div class="fact"><span class="k">{t['k2']}</span><span class="v">{t['v2']}</span></div>
     </div>
-  </header>
+  </section>
 
   <section class="benefits">
     <span class="label">{t['blabel']}</span>
