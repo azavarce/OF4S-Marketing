@@ -26,6 +26,7 @@ HEAD = """<!doctype html>
   .heads { flex: 1; display: flex; flex-direction: column; }
   h1 { font-family: var(--display); font-weight: 800; line-height: 0.86; letter-spacing: -0.045em; }
   .rule { height: 4px; width: 48px; background: var(--navy-300); }
+  .page { page-break-after: always; }
   .foot { padding-top: 10mm; border-top: 1px solid rgba(143,169,199,0.35); }
   .brand { font-family: var(--display); font-weight: 700; font-size: 64px; letter-spacing: -0.02em; line-height: 1; }
   .brand .four { color: var(--navy-300); font-weight: 600; }
@@ -34,27 +35,45 @@ HEAD = """<!doctype html>
 </style>
 </head>
 <body>
-<div class="page">
-  <div class="heads">
 %s
-  </div>
-  <footer class="foot">
-    <div class="brand">OF<span class="four">4</span>S</div>
-    <div class="brand-cap">Office Furniture 4 Sale · Since 2005</div>
-  </footer>
-</div>
 %s
 </body>
 </html>
 """
 
+def page(heads, since="Since 2005"):
+    return f"""<div class="page">
+  <div class="heads">
+{heads}
+  </div>
+  <footer class="foot">
+    <div class="brand">OF<span class="four">4</span>S</div>
+    <div class="brand-cap">Office Furniture 4 Sale · {since}</div>
+  </footer>
+</div>"""
+
+EN_FIRST = """    <h1 lang="en"><span>Now</span><em><span>Hiring</span></em></h1>
+    <div class="rule"></div>
+    <h1 lang="es"><span>Estamos</span><em><span>contratando</span></em></h1>"""
+ES_FIRST = """    <h1 lang="es"><span>Estamos</span><em><span>contratando</span></em></h1>
+    <div class="rule"></div>
+    <h1 lang="en" class="second"><span data-match>Now</span><em><span data-match>Hiring</span></em></h1>"""
+
 FIT = """<script>
-  // Size each headline line so it spans the full content width.
+  // Size each headline line to span the full content width; data-match lines
+  // take the size of the smallest full-width line on their page.
   document.fonts.ready.then(() => {
     const target = document.querySelector('.heads').clientWidth;
-    document.querySelectorAll('h1 span').forEach(el => {
-      el.style.fontSize = '100px';
-      el.style.fontSize = (100 * target / el.getBoundingClientRect().width) + 'px';
+    document.querySelectorAll('.page').forEach(pg => {
+      let smallest = Infinity;
+      pg.querySelectorAll('h1 span:not([data-match])').forEach(el => {
+        el.style.fontSize = '100px';
+        const size = 100 * target / el.getBoundingClientRect().width;
+        el.style.fontSize = size + 'px';
+        smallest = Math.min(smallest, size);
+      });
+      // Secondary lines match the smallest full-width line on the page.
+      pg.querySelectorAll('h1 span[data-match]').forEach(el => { el.style.fontSize = smallest + 'px'; });
     });
     document.body.dataset.fitted = '1';
   });
@@ -67,20 +86,20 @@ variants = {
   h1 { font-size: 244px; }
   .sub { font-family: var(--display); font-size: 52px; font-weight: 600; letter-spacing: -0.02em; color: var(--navy-300); display: flex; align-items: center; gap: 18px; }
   .sub::before { content: ""; width: 48px; height: 4px; background: var(--navy-300); }""",
-   """    <h1 lang="en">Now<br><em>Hiring</em></h1>
-    <div class="sub" lang="es">Estamos contratando</div>""", DONE),
-  # A: every line stretched to the full width.
+   page("""    <h1 lang="en">Now<br><em>Hiring</em></h1>
+    <div class="sub" lang="es">Estamos contratando</div>"""), DONE),
+  # A: every line stretched to the full width. Page 1 English first, page 2 Spanish first.
   "A": ("""  .heads { gap: 9mm; }
+  .page:has(h1.second) .heads { justify-content: space-between; gap: 0; padding-bottom: 10mm; }
+  .page:has(h1.second) .rule { margin-top: auto; margin-bottom: 9mm; }
   h1 span { display: block; white-space: nowrap; width: max-content; }""",
-   """    <h1 lang="en"><span>Now</span><em><span>Hiring</span></em></h1>
-    <div class="rule"></div>
-    <h1 lang="es"><span>Estamos</span><em><span>contratando</span></em></h1>""", FIT),
+   page(EN_FIRST) + "\n" + page(ES_FIRST, "Desde 2005"), FIT),
   # B: all four lines the same size (limited by "contratando").
   "B": ("""  .heads { gap: 12mm; }
   h1 { font-size: 98px; }""",
-   """    <h1 lang="en">Now<br><em>Hiring</em></h1>
+   page("""    <h1 lang="en">Now<br><em>Hiring</em></h1>
     <div class="rule"></div>
-    <h1 lang="es">Estamos<br><em>contratando</em></h1>""", DONE),
+    <h1 lang="es">Estamos<br><em>contratando</em></h1>"""), DONE),
 }
 
 for name, (css, body, script) in variants.items():

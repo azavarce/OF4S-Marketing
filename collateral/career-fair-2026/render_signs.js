@@ -6,8 +6,9 @@ const { chromium } = require('playwright');
     const p = await b.newPage({ viewport: { width: 794, height: 1123 }, deviceScaleFactor: 2 });
     await p.goto(`file://${d}/sign-${v}.html`, { waitUntil: 'networkidle' });
     await p.waitForSelector('body[data-fitted]', { timeout: 5000 });
-    console.log(v, 'overflow:', await p.evaluate(() => { const pg = document.querySelector('.page'); return pg.scrollHeight - pg.clientHeight; }));
-    await p.locator('.page').screenshot({ path: `${d}/sign-${v}.png` });
+    console.log(v, 'overflow:', await p.evaluate(() => [...document.querySelectorAll('.page')].map(pg => pg.scrollHeight - pg.clientHeight)));
+    const pages = await p.$$('.page');
+    for (let i = 0; i < pages.length; i++) await pages[i].screenshot({ path: `${d}/sign-${v}${i ? '-p' + (i + 1) : ''}.png` });
     await p.pdf({ path: `${d}/OF4S-Now-Hiring-Sign-${v}-A4.pdf`, format: 'A4', printBackground: true });
     await p.close();
   }
