@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OF4S Delivery Driver Flyer</title>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-950:#0a1628; --navy-900:#0f1d33; --navy-800:#15273f; --navy-700:#1e3554;
+    --navy-600:#2d4a6e; --navy-500:#466489; --navy-300:#8fa9c7; --navy-100:#dde5ee;
+    --brass-700:#8e6a30; --brass-400:#c9a474;
+    --paper-50:#faf8f4; --paper-100:#f3efe7; --paper-200:#e8e2d4;
+    --stone-500:#7a7468; --stone-600:#555047; --stone-700:#3a362f; --stone-900:#1a1814;
+    --display:'Schibsted Grotesk','Geist',sans-serif;
+    --sans:'Geist',system-ui,sans-serif;
+    --mono:'Geist Mono',Menlo,monospace;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body { font-family: var(--sans); color: var(--stone-900); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  em, i { font-style: normal; }
+
+  .page { width: 210mm; height: 297mm; overflow: hidden; display: flex; flex-direction: column; background: var(--paper-50); }
+
+  /* Hero */
+  /* Navy covers the logo and title only; the facts row sits on paper to save ink. */
+  .hero { background: var(--navy-800); color: var(--paper-50); padding: 12mm 15mm 10mm; position: relative; }
+  .factrow { padding: 7mm 15mm; }
+  .top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .brand { font-family: var(--display); font-weight: 700; font-size: 34px; letter-spacing: -0.02em; line-height: 1; }
+  .brand .four { color: var(--navy-300); font-weight: 600; }
+  .brand-cap { font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--navy-300); margin-top: 6px; }
+  .loc { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--navy-300); text-align: right; line-height: 1.7; }
+
+  .eyebrow { font-family: var(--mono); font-size: 13px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--navy-300); margin-top: 10mm; display: flex; align-items: center; gap: 10px; }
+  .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--navy-300); }
+  h1 { font-family: var(--display); font-weight: 700; font-size: 56px; line-height: 0.98; letter-spacing: -0.03em; margin-top: 5mm; }
+  h1 em { color: var(--navy-300); }
+
+  .facts { display: flex; gap: 10px; flex-wrap: wrap; }
+  .pay { background: var(--navy-800); color: var(--paper-50); border-radius: 8px; padding: 10px 18px; display: flex; align-items: baseline; gap: 6px; }
+  .pay b { font-family: var(--display); font-weight: 800; font-size: 40px; letter-spacing: -0.03em; line-height: 1; }
+  .pay span { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy-300); }
+  .fact { border: 1px solid rgba(15,29,51,0.18); background: #fff; border-radius: 8px; padding: 10px 16px; display: flex; flex-direction: column; justify-content: center; }
+  .fact .k { font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-600); }
+  .fact .v { font-family: var(--display); font-weight: 600; font-size: 18px; margin-top: 3px; }
+
+  /* Benefits */
+  .benefits { background: var(--navy-100); padding: 6mm 15mm; display: flex; align-items: center; gap: 12px; }
+  .benefits .label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-600); white-space: nowrap; margin-right: 4px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { background: #fff; color: var(--navy-800); font-weight: 600; font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(15,29,51,0.1); }
+
+  /* Body */
+  .body { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; padding: 9mm 15mm 0; }
+  h2 { font-family: var(--display); font-weight: 700; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; padding-bottom: 8px; border-bottom: 2px solid var(--navy-800); margin-bottom: 10px; }
+  h2 em { color: var(--navy-600); }
+  ul { list-style: none; }
+  li { position: relative; padding-left: 18px; font-size: 13.5px; line-height: 1.4; color: var(--stone-700); margin-bottom: 7px; }
+  li::before { content: ""; position: absolute; left: 0; top: 6px; width: 7px; height: 7px; background: var(--navy-600); border-radius: 1px; }
+  li strong { color: var(--stone-900); font-weight: 600; }
+  .req li::before { background: none; border: 2px solid var(--navy-600); width: 8px; height: 8px; top: 5px; border-radius: 50%; }
+
+  /* Apply */
+  .apply { margin: 6mm 15mm 0; background: #fff; border: 1px solid rgba(15,29,51,0.18); border-radius: 14px; padding: 6mm; display: flex; gap: 7mm; align-items: center; }
+  .qr { width: 34mm; height: 34mm; flex: none; }
+  .qr img { width: 100%; height: 100%; display: block; }
+  .apply h3 { font-family: var(--display); font-weight: 700; font-size: 26px; letter-spacing: -0.02em; line-height: 1.05; }
+  .apply h3 em { color: var(--navy-600); }
+  .steps { display: flex; gap: 14px; margin-top: 10px; }
+  .step { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--stone-700); }
+  .step .n { font-family: var(--mono); font-size: 11px; color: var(--brass-700); border: 1px solid var(--brass-700); border-radius: 50%; width: 22px; height: 22px; display: grid; place-items: center; flex: none; }
+  .apply .alt { margin-top: 10px; font-size: 12.5px; color: var(--stone-600); }
+  .apply .alt b { color: var(--navy-800); }
+
+  /* Footer */
+  .foot { margin-top: auto; padding: 5mm 15mm 7mm; display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stone-500); }
+  .foot .site { color: var(--navy-800); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: none; }
+
+  .page { page-break-after: always; }
+  .page[lang=es] .eyebrow { margin-top: 9mm; }
+  .page[lang=es] .body { padding-top: 7mm; }
+  .page[lang=es] li { margin-bottom: 5px; }
+  .page[lang=es] h1 { font-size: 52px; }
+  .page[lang=es] .chip { font-size: 12.5px; padding: 6px 10px; }
+
+  @page { size: letter; }
+  .page { width: 8.5in; height: 11in; }
+  .hero { padding-top: 10mm; padding-bottom: 8mm; }
+  .eyebrow { margin-top: 7mm; }
+  .factrow { padding: 5mm 15mm; }
+  .benefits { padding-top: 4.5mm; padding-bottom: 4.5mm; }
+  .body { padding-top: 6mm; }
+  .apply { margin-top: 4mm; padding: 5mm 6mm; }
+  .foot { padding-top: 4mm; padding-bottom: 6mm; }
+</style>
+
+</head>
+<body>
+<div class="page" lang="en">
+  <header class="hero">
+    <div class="top">
+      <div>
+        <div class="brand">OF<span class="four">4</span>S</div>
+        <div class="brand-cap">Office Furniture 4 Sale · Since 2005</div>
+      </div>
+      <div class="loc">Hialeah, FL<br>Distribution Center</div>
+    </div>
+    <div class="eyebrow">Now Hiring</div>
+    <h1>Furniture Delivery Driver &amp; <em>Warehouse</em></h1>
+  </header>
+
+  <section class="factrow">
+    <div class="facts">
+      <div class="pay"><b>$17</b><span>/ hour</span></div>
+      <div class="fact"><span class="k">Schedule</span><span class="v">Full-time</span></div>
+      <div class="fact"><span class="k">Start time</span><span class="v">6–7 AM</span></div>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <span class="label">Benefits</span>
+    <div class="chips">
+      <span class="chip">Health insurance</span>
+      <span class="chip">401(k) + matching</span>
+      <span class="chip">Paid time off</span>
+      <span class="chip">Referral program</span>
+    </div>
+  </section>
+
+  <section class="body">
+    <div>
+      <h2>What you'll <em>do</em></h2>
+      <ul>
+        <li>Load your truck and check the packing lists against the day's routes</li>
+        <li><strong>Deliver and install</strong> office furniture with your team</li>
+        <li>Call clients during the day with your ETA</li>
+        <li>Leave every space clean: remove cartons and debris, vacuum</li>
+        <li>Report delays, damage, or missing items to the office</li>
+        <li>Keep your truck clean and report any maintenance issues</li>
+        <li>Help in the warehouse on days with no deliveries</li>
+      </ul>
+    </div>
+    <div class="req">
+      <h2>What you <em>need</em></h2>
+      <ul>
+        <li><strong>Valid, clean Florida driver's license</strong></li>
+        <li><strong>1+ year</strong> box truck or delivery driver experience</li>
+        <li>Fluent in English</li>
+        <li>High school diploma or equivalent</li>
+        <li>Able to lift heavy furniture</li>
+        <li>Clean, professional appearance</li>
+        <li>Background check and drug test before your first day</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="apply">
+    <div class="qr"><img src="qr.svg" alt="QR code to apply on Indeed"></div>
+    <div>
+      <h3>Scan to <em>apply</em> today</h3>
+      <div class="steps">
+        <div class="step"><span class="n">1</span>Submit your resume</div>
+        <div class="step"><span class="n">2</span>In-person interview</div>
+      </div>
+      <p class="alt">No phone handy? <b>Talk to us at the booth</b> and leave your name and number.</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>OF4S · South Florida</span>
+    <span class="site">officefurniture4sale.com</span>
+  </footer>
+</div>
+<div class="page" lang="es">
+  <header class="hero">
+    <div class="top">
+      <div>
+        <div class="brand">OF<span class="four">4</span>S</div>
+        <div class="brand-cap">Office Furniture 4 Sale · Desde 2005</div>
+      </div>
+      <div class="loc">Hialeah, FL<br>Centro de distribución</div>
+    </div>
+    <div class="eyebrow">Estamos contratando</div>
+    <h1>Chofer de Entrega de Muebles y <em>Almacén</em></h1>
+  </header>
+
+  <section class="factrow">
+    <div class="facts">
+      <div class="pay"><b>$17</b><span>/ hora</span></div>
+      <div class="fact"><span class="k">Horario</span><span class="v">Tiempo completo</span></div>
+      <div class="fact"><span class="k">Hora de entrada</span><span class="v">6–7 AM</span></div>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <span class="label">Beneficios</span>
+    <div class="chips">
+      <span class="chip">Seguro médico</span>
+      <span class="chip">401(k) con aporte</span>
+      <span class="chip">Días pagados</span>
+      <span class="chip">Programa de referidos</span>
+    </div>
+  </section>
+
+  <section class="body">
+    <div>
+      <h2>Lo que vas a <em>hacer</em></h2>
+      <ul>
+        <li>Cargar tu camión y verificar las listas de empaque con las rutas del día</li>
+        <li><strong>Entregar e instalar</strong> muebles de oficina con tu equipo</li>
+        <li>Llamar a los clientes durante el día para darles tu hora de llegada</li>
+        <li>Dejar cada espacio limpio: retirar cajas y escombros, y aspirar</li>
+        <li>Reportar a la oficina retrasos, daños o artículos faltantes</li>
+        <li>Mantener tu camión limpio y reportar cualquier problema mecánico</li>
+        <li>Ayudar en el almacén los días sin entregas</li>
+      </ul>
+    </div>
+    <div class="req">
+      <h2>Lo que <em>necesitas</em></h2>
+      <ul>
+        <li><strong>Licencia de conducir de Florida válida y limpia</strong></li>
+        <li><strong>1+ año</strong> de experiencia como chofer de entregas o de camión de caja</li>
+        <li>Hablar inglés con fluidez</li>
+        <li>Diploma de secundaria o equivalente</li>
+        <li>Poder levantar muebles pesados</li>
+        <li>Apariencia limpia y profesional</li>
+        <li>Verificación de antecedentes y prueba de drogas antes de empezar</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="apply">
+    <div class="qr"><img src="qr.svg" alt="Código QR para aplicar en Indeed"></div>
+    <div>
+      <h3>Escanea y <em>aplica</em> hoy</h3>
+      <div class="steps">
+        <div class="step"><span class="n">1</span>Envía tu currículum</div>
+        <div class="step"><span class="n">2</span>Entrevista en persona</div>
+      </div>
+      <p class="alt">¿No tienes tu teléfono a mano? <b>Habla con nosotros en el stand</b> y déjanos tu nombre y número.</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>OF4S · South Florida</span>
+    <span class="site">officefurniture4sale.com</span>
+  </footer>
+</div>
+</body>
+</html>

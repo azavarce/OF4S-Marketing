@@ -11,6 +11,22 @@ style = (S / "style.part").read_text().replace("</style>", """
   .apply .addr { margin-top: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: var(--stone-600); }
 </style>""")
 
+LETTER_CSS = """
+  @page { size: letter; }
+  .page { width: 8.5in; height: 11in; }
+  .hero { padding-top: 10mm; padding-bottom: 8mm; }
+  .eyebrow { margin-top: 7mm; }
+  .factrow { padding: 5mm 15mm; }
+  .benefits { padding-top: 4.5mm; padding-bottom: 4.5mm; }
+  .body { padding-top: 6mm; }
+  .apply { margin-top: 4mm; padding: 5mm 6mm; }
+  .foot { padding-top: 4mm; padding-bottom: 6mm; }
+</style>"""
+# Optional second argument "letter" builds a US Letter version.
+LETTER_MODE = len(sys.argv) > 2 and sys.argv[2] == "letter"
+if LETTER_MODE:
+    style = style.replace("</style>", LETTER_CSS, 1)
+
 T = {
  "en": dict(cap="Office Furniture 4 Sale · Since 2005", eyebrow="Now Hiring", title="Warehouse <em>Associate</em>",
    per="/ hour", k1="Schedule", v1="Full-time", k2="Hours", v2="37–40 / week",
@@ -136,4 +152,4 @@ html = f"""<!doctype html>
 </body>
 </html>
 """
-(S / "flyer-warehouse-associate.html").write_text(html)
+(S / ("flyer-warehouse-associate" + ("-letter" if LETTER_MODE else "") + ".html")).write_text(html)

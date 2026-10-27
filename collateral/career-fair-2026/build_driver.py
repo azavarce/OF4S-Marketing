@@ -9,6 +9,22 @@ style = (S / "style.part").read_text().replace("</style>", """
   .page[lang=es] .chip { font-size: 12.5px; padding: 6px 10px; }
 </style>""")
 
+LETTER_CSS = """
+  @page { size: letter; }
+  .page { width: 8.5in; height: 11in; }
+  .hero { padding-top: 10mm; padding-bottom: 8mm; }
+  .eyebrow { margin-top: 7mm; }
+  .factrow { padding: 5mm 15mm; }
+  .benefits { padding-top: 4.5mm; padding-bottom: 4.5mm; }
+  .body { padding-top: 6mm; }
+  .apply { margin-top: 4mm; padding: 5mm 6mm; }
+  .foot { padding-top: 4mm; padding-bottom: 6mm; }
+</style>"""
+# Optional second argument "letter" builds a US Letter version.
+LETTER_MODE = len(sys.argv) > 2 and sys.argv[2] == "letter"
+if LETTER_MODE:
+    style = style.replace("</style>", LETTER_CSS, 1)
+
 T = {
  "en": dict(cap="Office Furniture 4 Sale · Since 2005", loc="Hialeah, FL<br>Distribution Center",
    eyebrow="Now Hiring", title="Furniture Delivery Driver &amp; <em>Warehouse</em>",
@@ -137,4 +153,4 @@ html = f"""<!doctype html>
 </body>
 </html>
 """
-(S / "flyer-delivery-driver.html").write_text(html)
+(S / ("flyer-delivery-driver" + ("-letter" if LETTER_MODE else "") + ".html")).write_text(html)
