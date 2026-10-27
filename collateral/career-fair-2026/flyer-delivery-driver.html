@@ -75,10 +75,18 @@
   /* Footer */
   .foot { margin-top: auto; padding: 5mm 15mm 7mm; display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stone-500); }
   .foot .placeholder { background: #fff6d6; color: #8a6d1a; padding: 3px 6px; border-radius: 2px; letter-spacing: 0.08em; }
+
+  .page { page-break-after: always; }
+  .page[lang=es] .eyebrow { margin-top: 9mm; }
+  .page[lang=es] .body { padding-top: 7mm; }
+  .page[lang=es] li { margin-bottom: 5px; }
+  .page[lang=es] h1 { font-size: 52px; }
+  .page[lang=es] .chip { font-size: 12.5px; padding: 6px 10px; }
 </style>
+
 </head>
 <body>
-<div class="page">
+<div class="page" lang="en">
   <header class="hero">
     <div class="top">
       <div>
@@ -148,6 +156,78 @@
   <footer class="foot">
     <span>OF4S · South Florida</span>
     <span class="placeholder">[Website · Phone]</span>
+  </footer>
+</div>
+<div class="page" lang="es">
+  <header class="hero">
+    <div class="top">
+      <div>
+        <div class="brand">OF<span class="four">4</span>S</div>
+        <div class="brand-cap">Office Furniture 4 Sale · Desde 2005</div>
+      </div>
+      <div class="loc">Hialeah, FL<br>Centro de distribución</div>
+    </div>
+    <div class="eyebrow">Estamos contratando</div>
+    <h1>Chofer de Entrega de Muebles y <em>Almacén</em></h1>
+    <div class="facts">
+      <div class="pay"><b>$17</b><span>/ hora</span></div>
+      <div class="fact"><span class="k">Horario</span><span class="v">Tiempo completo</span></div>
+      <div class="fact"><span class="k">Hora de entrada</span><span class="v">6–7 AM</span></div>
+    </div>
+  </header>
+
+  <section class="benefits">
+    <span class="label">Beneficios</span>
+    <div class="chips">
+      <span class="chip">Seguro médico</span>
+      <span class="chip">401(k) con aporte</span>
+      <span class="chip">Días pagados</span>
+      <span class="chip">Programa de referidos</span>
+    </div>
+  </section>
+
+  <section class="body">
+    <div>
+      <h2>Lo que vas a <em>hacer</em></h2>
+      <ul>
+        <li>Cargar tu camión y verificar las listas de empaque con las rutas del día</li>
+        <li><strong>Entregar e instalar</strong> muebles de oficina con tu equipo</li>
+        <li>Llamar a los clientes durante el día para darles tu hora de llegada</li>
+        <li>Dejar cada espacio limpio: retirar cajas y escombros, y aspirar</li>
+        <li>Reportar a la oficina retrasos, daños o artículos faltantes</li>
+        <li>Mantener tu camión limpio y reportar cualquier problema mecánico</li>
+        <li>Ayudar en el almacén los días sin entregas</li>
+      </ul>
+    </div>
+    <div class="req">
+      <h2>Lo que <em>necesitas</em></h2>
+      <ul>
+        <li><strong>Licencia de conducir de Florida válida y limpia</strong></li>
+        <li><strong>1+ año</strong> de experiencia como chofer de entregas o de camión de caja</li>
+        <li>Hablar inglés con fluidez</li>
+        <li>Diploma de secundaria o equivalente</li>
+        <li>Poder levantar muebles pesados</li>
+        <li>Apariencia limpia y profesional</li>
+        <li>Verificación de antecedentes y prueba de drogas antes de empezar</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="apply">
+    <div class="qr"><img src="qr.svg" alt="Código QR para aplicar en Indeed"></div>
+    <div>
+      <h3>Escanea y <em>aplica</em> hoy</h3>
+      <div class="steps">
+        <div class="step"><span class="n">1</span>Envía tu currículum</div>
+        <div class="step"><span class="n">2</span>Entrevista en persona</div>
+      </div>
+      <p class="alt">¿No tienes tu teléfono a mano? <b>Habla con nosotros en el stand</b> y déjanos tu nombre y número.</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>OF4S · South Florida</span>
+    <span class="placeholder">[Sitio web · Teléfono]</span>
   </footer>
 </div>
 </body>
