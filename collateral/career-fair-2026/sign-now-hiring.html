@@ -25,10 +25,11 @@
   .brand { font-family: var(--display); font-weight: 700; font-size: 34px; letter-spacing: -0.02em; line-height: 1; font-size: 64px; }
   .brand .four { color: var(--navy-300); font-weight: 600; }
   .brand-cap { font-family: var(--mono); font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--navy-300); margin-top: 10px; }
-  h1 { font-family: var(--display); font-weight: 800; font-size: 244px; line-height: 0.84; letter-spacing: -0.05em; margin-top: auto; }
+  h1 { font-family: var(--display); font-weight: 800; line-height: 0.86; letter-spacing: -0.045em; }
+  h1 span { display: block; white-space: nowrap; width: max-content; }
+  .heads { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 9mm; }
+  .rule { height: 4px; width: 48px; background: var(--navy-300); }
   h1 em { color: var(--navy-300); }
-  .sub { font-family: var(--display); font-size: 52px; font-weight: 600; letter-spacing: -0.02em; color: var(--navy-300); margin-top: 12mm; display: flex; align-items: center; gap: 18px; }
-  .sub::before { content: ""; width: 48px; height: 4px; background: var(--navy-300); }
 
 </style>
 </head>
@@ -37,9 +38,23 @@
   <header class="hero">
     <div class="brand">OF<span class="four">4</span>S</div>
     <div class="brand-cap">Office Furniture 4 Sale · Since 2005</div>
-    <h1>Now<br><em>Hiring</em></h1>
-    <div class="sub">Estamos contratando</div>
+    <div class="heads">
+      <h1 lang="en"><span>Now</span><em><span>Hiring</span></em></h1>
+      <div class="rule"></div>
+      <h1 lang="es"><span>Estamos</span><em><span>contratando</span></em></h1>
+    </div>
   </header>
 </div>
+<script>
+  // Size each headline line so it spans the full content width.
+  document.fonts.ready.then(() => {
+    const target = document.querySelector('.heads').clientWidth;
+    document.querySelectorAll('h1 span').forEach(el => {
+      el.style.fontSize = '100px';
+      el.style.fontSize = (100 * target / el.getBoundingClientRect().width) + 'px';
+    });
+    document.body.dataset.fitted = '1';
+  });
+</script>
 </body>
 </html>
