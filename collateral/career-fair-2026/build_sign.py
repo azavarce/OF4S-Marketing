@@ -86,15 +86,23 @@ DONE = "<script>document.fonts.ready.then(() => { document.body.dataset.fitted =
 
 variants = {
   # Original: big English headline, Spanish as a smaller line under it.
-  # Page 2 flips it: Spanish headline (fit to width), English line under it.
   "original": ("""  .heads { gap: 12mm; padding-top: 22mm; }
   h1 { font-size: 244px; }
-  h1.fit span { display: block; white-space: nowrap; width: max-content; }
   .sub { font-family: var(--display); font-size: 52px; font-weight: 600; letter-spacing: -0.02em; color: var(--navy-300); display: flex; align-items: center; gap: 18px; }
   .sub::before { content: ""; width: 48px; height: 4px; background: var(--navy-300); }""",
    page("""    <h1 lang="en">Now<br><em>Hiring</em></h1>
-    <div class="sub" lang="es">Estamos contratando</div>""")
-   + "\n" + page("""    <h1 lang="es" class="fit"><span>Estamos</span><em><span>contratando</span></em></h1>
+    <div class="sub" lang="es">Estamos contratando</div>"""), DONE),
+  # Spanish version of the original, on its own A4 landscape sheet.
+  "es-landscape": ("""  @page { size: A4 landscape; }
+  .page { width: 297mm; height: 210mm; padding: 14mm 15mm 18mm; }
+  .heads { gap: 9mm; justify-content: center; }
+  h1 span { display: block; white-space: nowrap; width: max-content; }
+  .sub { font-family: var(--display); font-size: 52px; font-weight: 600; letter-spacing: -0.02em; color: var(--navy-300); display: flex; align-items: center; gap: 18px; }
+  .sub::before { content: ""; width: 48px; height: 4px; background: var(--navy-300); }
+  .foot { padding-top: 7mm; display: flex; align-items: baseline; gap: 20px; }
+  .brand { font-size: 48px; }
+  .brand-cap { margin-top: 0; }""",
+   page("""    <h1 lang="es"><span>Estamos</span><em><span>contratando</span></em></h1>
     <div class="sub" lang="en">Now Hiring</div>""", "Desde 2005"), FIT),
   # A: every line stretched to the full width. Page 1 English first, page 2 Spanish first.
   "A": ("""  .heads { gap: 9mm; }
