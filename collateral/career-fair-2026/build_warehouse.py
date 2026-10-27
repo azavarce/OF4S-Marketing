@@ -31,7 +31,7 @@ T = {
    bk="Bonus if you have", bonus=["1 year of warehouse or shipping &amp; receiving experience", "Forklift certification"],
    apply="Scan to <em>apply</em> today",
    alt="No phone handy? <b>Talk to us at the booth</b> and leave your name and number.",
-   qralt="QR code to apply on Indeed", ph="[Website · Phone]"),
+   qralt="QR code to apply on Indeed", ph="officefurniture4sale.com"),
  "es": dict(cap="Office Furniture 4 Sale · Desde 2005", eyebrow="Estamos contratando", title="Asociado de <em>Almacén</em>",
    per="/ hora", k1="Horario", v1="Tiempo completo", k2="Horas", v2="37–40 / semana",
    blabel="Beneficios", benefits=["Seguro médico", "401(k) con aporte", "Tiempo libre pagado", "Descuento de empleado"],
@@ -51,7 +51,7 @@ T = {
    bk="Un plus si tienes", bonus=["1 año de experiencia en almacén o envíos y recepción", "Certificación de montacargas"],
    apply="Escanea y <em>aplica</em> hoy",
    alt="¿No tienes tu teléfono a mano? <b>Habla con nosotros en el stand</b> y déjanos tu nombre y número.",
-   qralt="Código QR para aplicar en Indeed", ph="[Sitio web · Teléfono]"),
+   qralt="Código QR para aplicar en Indeed", ph="officefurniture4sale.com"),
 }
 
 def li(items): return "\n".join(f"        <li>{x}</li>" for x in items)
@@ -115,7 +115,7 @@ def page(t, lang):
 
   <footer class="foot">
     <span>OF4S · South Florida</span>
-    <span class="placeholder">{t['ph']}</span>
+    <span class="site">{t['ph']}</span>
   </footer>
 </div>"""
 

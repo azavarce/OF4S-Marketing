@@ -32,7 +32,7 @@ T = {
          "Background check and drug test before your first day"],
    apply="Scan to <em>apply</em> today", s1="Submit your resume", s2="In-person interview",
    alt="No phone handy? <b>Talk to us at the booth</b> and leave your name and number.",
-   qralt="QR code to apply on Indeed", ph="[Website · Phone]"),
+   qralt="QR code to apply on Indeed", ph="officefurniture4sale.com"),
  "es": dict(cap="Office Furniture 4 Sale · Desde 2005", loc="Hialeah, FL<br>Centro de distribución",
    eyebrow="Estamos contratando", title="Chofer de Entrega de Muebles y <em>Almacén</em>",
    per="/ hora", k1="Horario", v1="Tiempo completo", k2="Hora de entrada", v2="6–7 AM",
@@ -55,7 +55,7 @@ T = {
          "Verificación de antecedentes y prueba de drogas antes de empezar"],
    apply="Escanea y <em>aplica</em> hoy", s1="Envía tu currículum", s2="Entrevista en persona",
    alt="¿No tienes tu teléfono a mano? <b>Habla con nosotros en el stand</b> y déjanos tu nombre y número.",
-   qralt="Código QR para aplicar en Indeed", ph="[Sitio web · Teléfono]"),
+   qralt="Código QR para aplicar en Indeed", ph="officefurniture4sale.com"),
 }
 
 def li(items): return "\n".join(f"        <li>{x}</li>" for x in items)
@@ -116,7 +116,7 @@ def page(t, lang):
 
   <footer class="foot">
     <span>OF4S · South Florida</span>
-    <span class="placeholder">{t['ph']}</span>
+    <span class="site">{t['ph']}</span>
   </footer>
 </div>"""
 
