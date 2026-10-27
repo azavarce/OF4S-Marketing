@@ -124,5 +124,12 @@ variants["en-landscape"] = (LANDSCAPE_CSS,
    page("""    <h1 lang="en"><span>Now <em>Hiring</em></span></h1>
     <div class="sub" lang="es">Estamos contratando</div>"""), FIT)
 
+# US Letter landscape copies of the two landscape signs.
+for lang in ("en", "es"):
+    css, body, script = variants[f"{lang}-landscape"]
+    css = css.replace("@page { size: A4 landscape; }", "@page { size: letter landscape; }")
+    css = css.replace(".page { width: 297mm; height: 210mm;", ".page { width: 11in; height: 8.5in;")
+    variants[f"{lang}-letter"] = (css, body, script)
+
 for name, (css, body, script) in variants.items():
     (S / f"sign-{name}.html").write_text(HEAD % (css, body, script))
