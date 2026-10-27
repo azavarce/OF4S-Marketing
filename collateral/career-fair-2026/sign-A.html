@@ -65,8 +65,12 @@
     document.querySelectorAll('.page').forEach(pg => {
       let smallest = Infinity;
       pg.querySelectorAll('h1 span:not([data-match])').forEach(el => {
-        el.style.fontSize = '100px';
-        const size = 100 * target / el.getBoundingClientRect().width;
+        // Two passes: glyph widths don't scale perfectly linearly at large sizes.
+        let size = 100;
+        for (let i = 0; i < 2; i++) {
+          el.style.fontSize = size + 'px';
+          size = size * target / el.getBoundingClientRect().width;
+        }
         el.style.fontSize = size + 'px';
         smallest = Math.min(smallest, size);
       });

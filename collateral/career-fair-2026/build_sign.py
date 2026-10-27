@@ -67,8 +67,12 @@ FIT = """<script>
     document.querySelectorAll('.page').forEach(pg => {
       let smallest = Infinity;
       pg.querySelectorAll('h1 span:not([data-match])').forEach(el => {
-        el.style.fontSize = '100px';
-        const size = 100 * target / el.getBoundingClientRect().width;
+        // Two passes: glyph widths don't scale perfectly linearly at large sizes.
+        let size = 100;
+        for (let i = 0; i < 2; i++) {
+          el.style.fontSize = size + 'px';
+          size = size * target / el.getBoundingClientRect().width;
+        }
         el.style.fontSize = size + 'px';
         smallest = Math.min(smallest, size);
       });
@@ -82,12 +86,16 @@ DONE = "<script>document.fonts.ready.then(() => { document.body.dataset.fitted =
 
 variants = {
   # Original: big English headline, Spanish as a smaller line under it.
+  # Page 2 flips it: Spanish headline (fit to width), English line under it.
   "original": ("""  .heads { gap: 12mm; }
   h1 { font-size: 244px; }
+  h1.fit span { display: block; white-space: nowrap; width: max-content; }
   .sub { font-family: var(--display); font-size: 52px; font-weight: 600; letter-spacing: -0.02em; color: var(--navy-300); display: flex; align-items: center; gap: 18px; }
   .sub::before { content: ""; width: 48px; height: 4px; background: var(--navy-300); }""",
    page("""    <h1 lang="en">Now<br><em>Hiring</em></h1>
-    <div class="sub" lang="es">Estamos contratando</div>"""), DONE),
+    <div class="sub" lang="es">Estamos contratando</div>""")
+   + "\n" + page("""    <h1 lang="es" class="fit"><span>Estamos</span><em><span>contratando</span></em></h1>
+    <div class="sub" lang="en">Now Hiring</div>""", "Desde 2005"), FIT),
   # A: every line stretched to the full width. Page 1 English first, page 2 Spanish first.
   "A": ("""  .heads { gap: 9mm; }
   .page:has(h1.second) .heads { justify-content: space-between; gap: 0; padding-bottom: 10mm; }
