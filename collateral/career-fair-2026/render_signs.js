@@ -2,7 +2,7 @@ const { chromium } = require('playwright');
 (async () => {
   const d = process.argv[2];
   const b = await chromium.launch();
-  for (const v of ['original', 'A', 'B', 'es-landscape']) {
+  for (const v of ['original', 'A', 'B', 'es-landscape', 'en-landscape']) {
     const p = await b.newPage({ viewport: { width: 1123, height: 1123 }, deviceScaleFactor: 2 });
     await p.goto(`file://${d}/sign-${v}.html`, { waitUntil: 'networkidle' });
     await p.waitForSelector('body[data-fitted]', { timeout: 5000 });

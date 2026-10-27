@@ -118,5 +118,11 @@ variants = {
     <h1 lang="es">Estamos<br><em>contratando</em></h1>"""), DONE),
 }
 
+LANDSCAPE_CSS, _, _ = variants["es-landscape"]
+# English landscape: "Now Hiring" on one full-width line, Spanish line under it.
+variants["en-landscape"] = (LANDSCAPE_CSS,
+   page("""    <h1 lang="en"><span>Now <em>Hiring</em></span></h1>
+    <div class="sub" lang="es">Estamos contratando</div>"""), FIT)
+
 for name, (css, body, script) in variants.items():
     (S / f"sign-{name}.html").write_text(HEAD % (css, body, script))
