@@ -25,6 +25,14 @@ LETTER_MODE = len(sys.argv) > 2 and sys.argv[2] == "letter"
 if LETTER_MODE:
     style = style.replace("</style>", LETTER_CSS, 1)
 
+# The two-line job title makes this header taller than the warehouse flyer's;
+# a smaller title and tighter spacing keep the navy band about the same height.
+style = style.replace("</style>", """
+  .hero, .page[lang=es] .hero { padding-bottom: 7mm; }
+  .eyebrow, .page[lang=es] .eyebrow { margin-top: 6mm; }
+  h1, .page[lang=es] h1 { font-size: 42px; margin-top: 3mm; }
+</style>""")
+
 T = {
  "en": dict(cap="Office Furniture 4 Sale · Since 2005", loc="Hialeah, FL<br>Distribution Center",
    eyebrow="Now Hiring", title="Furniture Delivery Driver &amp; <em>Warehouse</em>",
