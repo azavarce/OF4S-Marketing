@@ -28,9 +28,10 @@ if LETTER_MODE:
 # The two-line job title makes this header taller than the warehouse flyer's;
 # a smaller title and tighter spacing keep the navy band about the same height.
 style = style.replace("</style>", """
-  .hero, .page[lang=es] .hero { padding-bottom: 7mm; }
-  .eyebrow, .page[lang=es] .eyebrow { margin-top: 6mm; }
-  h1, .page[lang=es] h1 { font-size: 42px; margin-top: 3mm; }
+  .hero, .page[lang=es] .hero { padding-top: 8mm; padding-bottom: 6mm; }
+  .eyebrow, .page[lang=es] .eyebrow { margin-top: 5mm; }
+  h1, .page[lang=es] h1 { font-size: 38px; margin-top: 2.5mm; }
+  .page[lang=es] h1 { font-size: 32px; letter-spacing: -0.035em; white-space: nowrap; }
 </style>""")
 
 T = {
