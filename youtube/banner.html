@@ -1,0 +1,36 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../design-system/tokens.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:2560px;height:1440px;overflow:hidden}
+body{background:var(--of4s-navy-900);position:relative;font-family:var(--of4s-font-sans);color:var(--of4s-paper-50)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(143,169,199,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(143,169,199,.07) 1px,transparent 1px);background-size:80px 80px}
+.glow{position:absolute;inset:0;background:radial-gradient(ellipse 1400px 700px at 70% 50%,rgba(70,100,137,.35),transparent 70%)}
+.big4{position:absolute;right:120px;top:50%;transform:translateY(-52%);font-family:var(--of4s-font-display);font-weight:800;font-size:1500px;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(143,169,199,.14);letter-spacing:-.05em}
+/* safe area 1546x423 centered */
+.safe{position:absolute;left:507px;top:508px;width:1546px;height:423px;display:flex;align-items:center;justify-content:space-between}
+.mark{display:flex;align-items:center;gap:36px}
+.m5{font-family:var(--of4s-font-display);font-weight:700;font-size:170px;letter-spacing:-.03em;line-height:.9}
+.m5 b{color:var(--of4s-navy-300);font-weight:700}
+.rule{width:2px;height:190px;background:rgba(255,255,255,.25)}
+.fullname{font-family:var(--of4s-font-mono);font-size:19px;letter-spacing:.22em;white-space:nowrap;line-height:1.9;color:var(--of4s-paper-200)}
+.copy{width:760px}
+.eyebrow{font-family:var(--of4s-font-mono);font-size:21px;letter-spacing:.22em;white-space:nowrap;text-transform:uppercase;color:var(--of4s-navy-300);margin-bottom:28px}
+h2{font-family:var(--of4s-font-display);font-weight:700;font-size:72px;line-height:1.02;letter-spacing:-.025em}
+h2 em{font-style:normal;color:var(--of4s-navy-300)}
+.tags{display:flex;gap:16px;margin-top:36px}
+.tag{font-family:var(--of4s-font-mono);font-size:20px;letter-spacing:.16em;white-space:nowrap;text-transform:uppercase;padding:12px 22px;border:1.5px solid rgba(143,169,199,.45);border-radius:999px;color:var(--of4s-paper-100)}
+.tag i{font-style:normal;color:var(--of4s-brass-400);margin-right:10px}
+.foot{position:absolute;left:507px;right:507px;bottom:290px;display:flex;justify-content:space-between;font-family:var(--of4s-font-mono);font-size:20px;letter-spacing:.24em;color:rgba(221,229,238,.5)}
+</style></head><body>
+<div class="grid"></div><div class="glow"></div><div class="big4">4</div>
+<div class="safe">
+  <div class="mark"><span class="m5">OF<b>4</b>S</span><span class="rule"></span><span class="fullname">OFFICE FURNITURE<br>4 SALE</span></div>
+  <div class="copy">
+    <div class="eyebrow">Client Conversations · Project Stories</div>
+    <h2>The people behind the <em>workplaces</em> we build.</h2>
+    <div class="tags"><span class="tag"><i>01</i>Podcast</span><span class="tag"><i>02</i>Projects</span><span class="tag"><i>03</i>South Florida</span></div>
+  </div>
+</div>
+<div class="foot"><span>OF4S.COM</span><span>COMMERCIAL OFFICE FURNITURE</span></div>
+</body></html>
