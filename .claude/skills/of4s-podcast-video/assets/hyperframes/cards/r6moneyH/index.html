@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=1080, height=1920" /><script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script><style>@font-face { font-family: "SG"; font-weight: 800; src: url("assets/schibsted-grotesk-latin-800-normal.woff") format("woff"); } * { margin: 0; padding: 0; box-sizing: border-box; } html, body { width: 1080px; height: 1920px; overflow: hidden; background: transparent; } #main { position: relative; width: 100%; height: 100%; } .card { position: absolute; border-radius: 28px; background: #faf8f4; box-shadow: 0 40px 90px rgba(15,29,51,.40), 0 8px 20px rgba(15,29,51,.20); transform-origin: 50% 70%; overflow: hidden; font-family: "SG"; font-weight: 800; color: #15273f; }
+#card { left: 70px; top: 1150px; width: 940px; height: 280px; }
+.col { position: absolute; top: 30px; width: 400px; text-align: center; }
+#cL { left: 16px; } #cR { left: 524px; }
+.lab { font-size: 34px; letter-spacing: .1em; color: #466489; }
+.amt { font-size: 82px; line-height: 1.2; }
+#aL { color: #d64545; } #aR { color: #2fb36a; }
+#vs { position: absolute; left: 430px; top: 112px; width: 80px; text-align: center; font-size: 36px; color: #8fa9c7; }
+#ok { position: absolute; left: 524px; top: 196px; width: 400px; text-align: center; font-size: 36px; color: #2fb36a; }
+#ring { position: absolute; left: 534px; top: 18px; width: 380px; height: 244px; border-radius: 22px; border: 6px solid #2fb36a; }
+</style></head><body>
+<div id="main" data-composition-id="main" data-start="0" data-duration="4.1" data-width="1080" data-height="1920">
+<div id="stage" class="clip" data-start="0" data-duration="4.1" data-track-index="0"><div class="card" id="card">
+<div class="col" id="cL"><div class="lab">LOSE</div><div class="amt" id="aL">$250,000</div></div>
+<div id="vs">vs</div>
+<div class="col" id="cR"><div class="lab">SPEND</div><div class="amt" id="aR">$1,500</div></div>
+<div id="ring"></div><div id="ok">&#10003; No-brainer</div>
+</div></div></div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+gsap.set(["#cL","#cR","#vs","#ok","#ring"], { opacity: 0 });
+tl.fromTo("#card", { scale: 0.6, y: -60, opacity: 0 }, { scale: 1, y: 0, opacity: 1, duration: 0.22, ease: "back.out(1.7)" }, 0.0);
+// "quarter million" (+0.15) · "$1,500" (+1.65) · "no-brainer" (+2.65)
+tl.fromTo("#cL", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.5)", immediateRender: false }, 0.15);
+tl.to("#vs", { opacity: 1, duration: 0.2 }, 1.2);
+tl.fromTo("#cR", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.5)", immediateRender: false }, 1.65);
+tl.fromTo("#ring", { opacity: 0, scale: 1.15 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)", immediateRender: false }, 2.65);
+tl.fromTo("#ok", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.2, immediateRender: false }, 2.7);
+tl.to("#card", { scale: 0.92, y: -20, opacity: 0, duration: 0.2, ease: "power2.in" }, 3.9);
+window.__timelines["main"] = tl;
+</script></body></html>

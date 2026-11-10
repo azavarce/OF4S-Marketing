@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=960" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 960px; overflow: hidden; background: #faf8f4; }
+      #main { position: relative; width: 100%; height: 100%; }
+      #bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 55%, #ffffff 0%, #faf8f4 60%, #f3efe7 100%); }
+      #wrap { position: absolute; left: 0; top: 0; width: 1080px; height: 960px; }
+      /* logo sits low in the top half: clear of the top UI zone (y < 220) */
+      #mask { position: absolute; left: 190px; top: 380px; width: 700px; height: 298px; overflow: hidden; }
+      #logo { position: absolute; left: 0; top: 0; width: 700px; height: 298px; object-fit: contain; }
+      #shine { position: absolute; top: -20px; left: 0; width: 150px; height: 340px; background: linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.7) 50%, rgba(255,255,255,0) 100%); }
+    </style>
+  </head>
+  <body>
+    <div id="main" data-composition-id="main" data-start="0" data-duration="0.733" data-width="1080" data-height="960">
+      <div id="bg" class="clip" data-start="0" data-duration="0.733" data-track-index="0"></div>
+      <div id="wrap" class="clip" data-start="0" data-duration="0.733" data-track-index="1">
+        <div id="mask"><img id="logo" src="assets/epgd_logo.png" /><div id="shine"></div></div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#logo", { y: 300 }, { y: 0, duration: 0.32, ease: "power4.out" }, 0.0);
+      tl.fromTo("#mask", { scale: 1.08 }, { scale: 1, duration: 0.7, ease: "power2.out" }, 0.0);
+      tl.fromTo("#shine", { x: -200 }, { x: 860, duration: 0.38, ease: "power2.inOut" }, 0.3);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

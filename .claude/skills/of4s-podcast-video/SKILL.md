@@ -5,7 +5,7 @@ description: Edit an OF4S client podcast into a YouTube full episode and vertica
 
 # OF4S Podcast Video Playbook
 
-Everything below was decided with Joanne (OF4S marketing) while editing the EPGD Law podcast (Eric Gros-Dubois x George Dargham, Nov 2026). Follow it from the first edit so she does not have to repeat feedback. `TECH.md` in this folder has the build recipe.
+Everything below was decided with Joanne (OF4S marketing) while editing the EPGD Law podcast (Eric Gros-Dubois x George Dargham, Nov 2026). Follow it from the first edit so she does not have to repeat feedback. `TECH.md` in this folder has the build recipe. **`assets/` holds the exact sounds, music, end cards, fonts and approved animation templates from the EPGD videos — use these by default (catalogue in `assets/README.md`); only look for new music/SFX when Joanne asks or the mood needs something different.**
 
 ---
 

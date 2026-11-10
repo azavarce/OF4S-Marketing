@@ -1,0 +1,25 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=1080, height=1920" /><script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script><style>@font-face { font-family: "SG"; font-weight: 800; src: url("assets/schibsted-grotesk-latin-800-normal.woff") format("woff"); } * { margin: 0; padding: 0; box-sizing: border-box; } html, body { width: 1080px; height: 1920px; overflow: hidden; background: transparent; } #main { position: relative; width: 100%; height: 100%; } .card { position: absolute; border-radius: 28px; background: #faf8f4; box-shadow: 0 40px 90px rgba(15,29,51,.40), 0 8px 20px rgba(15,29,51,.20); transform-origin: 50% 70%; overflow: hidden; font-family: "SG"; font-weight: 800; color: #15273f; }
+#card { left: 160px; top: 1030px; width: 760px; height: 380px; }
+.tile { position: absolute; top: 40px; width: 300px; height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; font-size: 40px; }
+#t0 { left: 50px; } #t1 { left: 410px; }
+.tile svg { width: 150px; height: 150px; }
+.tag { position: absolute; top: 20px; right: 40px; width: 76px; height: 76px; border-radius: 38px; background: #2fb36a; color: #fff; font-size: 48px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(0,0,0,.25); }
+</style></head><body>
+<div id="main" data-composition-id="main" data-start="0" data-duration="2.65" data-width="1080" data-height="1920">
+<div id="stage" class="clip" data-start="0" data-duration="2.65" data-track-index="0"><div class="card" id="card">
+<div class="tile" id="t0"><svg viewBox="0 0 150 150"><rect x="42" y="10" width="66" height="130" rx="14" fill="none" stroke="#15273f" stroke-width="10"/><circle cx="75" cy="122" r="7" fill="#15273f"/><rect x="62" y="22" width="26" height="6" rx="3" fill="#15273f"/></svg><span>Phone call</span><div class="tag" id="g0">$</div></div>
+<div class="tile" id="t1"><svg viewBox="0 0 150 150"><rect x="12" y="32" width="126" height="88" rx="12" fill="none" stroke="#15273f" stroke-width="10"/><path d="M16,40 L75,84 L134,40" fill="none" stroke="#15273f" stroke-width="10" stroke-linejoin="round"/></svg><span>Email</span><div class="tag" id="g1">$</div></div>
+</div></div></div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+gsap.set([".tile",".tag"], { opacity: 0 });
+tl.fromTo("#card", { scale: 0.6, y: 80, opacity: 0 }, { scale: 1, y: 0, opacity: 1, duration: 0.25, ease: "back.out(1.7)" }, 0.0);
+// "phone call" (+0.54) then its $ tag; "email" (+1.78) then its $ tag
+tl.fromTo("#t0", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.5)", immediateRender: false }, 0.54);
+tl.fromTo("#g0", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(3)", immediateRender: false }, 0.74);
+tl.fromTo("#t1", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.5)", immediateRender: false }, 1.78);
+tl.fromTo("#g1", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(3)", immediateRender: false }, 1.98);
+tl.to("#card", { scale: 0.92, y: 30, opacity: 0, duration: 0.2, ease: "power2.in" }, 2.45);
+window.__timelines["main"] = tl;
+</script></body></html>

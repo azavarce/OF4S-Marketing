@@ -1,0 +1,27 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=1080, height=1920" /><script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script><style>@font-face { font-family: "SG"; font-weight: 800; src: url("assets/schibsted-grotesk-latin-800-normal.woff") format("woff"); } * { margin: 0; padding: 0; box-sizing: border-box; } html, body { width: 1080px; height: 1920px; overflow: hidden; background: transparent; } #main { position: relative; width: 100%; height: 100%; } #stage { perspective: 1400px; }
+.card { position: absolute; border-radius: 28px; background: #faf8f4; box-shadow: 0 40px 90px rgba(15,29,51,.40), 0 8px 20px rgba(15,29,51,.20); transform-origin: 50% 70%; overflow: hidden; font-family: "SG"; font-weight: 800; color: #15273f; }
+.lab { font-size: 30px; letter-spacing: .12em; color: #466489; }
+.red { color: #d64545; } .green { color: #2fb36a; } .navy { color: #15273f; } .muted { color: #8fa9c7; }
+.chip{position:absolute;height:84px;line-height:84px;padding:0 34px;border-radius:42px;background:#dde5ee;color:#15273f;font-size:44px;white-space:nowrap}
+.chip .ln{position:absolute;left:22px;right:22px;top:40px;height:6px;border-radius:3px;background:#d64545;transform-origin:0 50%;transform:scaleX(0)}
+#card{left:140px;top:1100px;width:800px;height:270px}
+#hd{position:absolute;left:0;width:800px;top:34px;text-align:center}
+#c1{left:70px;top:120px} #c2{left:400px;top:120px}
+</style></head><body>
+<div id="main" data-composition-id="main" data-start="0" data-duration="5.1" data-width="1080" data-height="1920">
+<div id="stage" class="clip" data-start="0" data-duration="5.1" data-track-index="0">
+<div class="card" id="card"><div id="hd" class="lab">GOING AWAY FIRST</div><div class="chip" id="c1">Intake<div class="ln"></div></div><div class="chip" id="c2">Data entry<div class="ln"></div></div></div>
+</div></div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const IN = (sel, t) => tl.fromTo(sel, { rotationX: 70, y: 220, scale: 0.85, opacity: 0 }, { rotationX: 0, y: 0, scale: 1, opacity: 1, duration: 0.45, ease: "power3.out" }, t);
+const OUT = (sel, t) => tl.to(sel, { scale: 0.92, y: 30, opacity: 0, duration: 0.2, ease: "power2.in" }, t);
+const POP = (sel, t) => tl.fromTo(sel, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.28, ease: "back.out(2.5)", immediateRender: false }, t);
+gsap.set(["#c1","#c2"],{opacity:0});
+IN("#card",0.0); POP("#c1",2.05); POP("#c2",3.65);
+tl.to("#c1 .ln",{scaleX:1,duration:0.22,ease:"power2.out"},2.5); tl.to("#c1",{color:"#8fa9c7",duration:0.2},2.6);
+tl.to("#c2 .ln",{scaleX:1,duration:0.22,ease:"power2.out"},4.1); tl.to("#c2",{color:"#8fa9c7",duration:0.2},4.2);
+OUT("#card",4.85);
+window.__timelines["main"] = tl;
+</script></body></html>
