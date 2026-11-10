@@ -17,7 +17,7 @@ Folder layout matches the builder code. In `reference/build_reel_example.py`, se
 
 There is **no chime** on the OF4S logo card. Joanne removed it, so it is not included.
 
-## Music (`audio/music`): all Pixabay
+## Music (`audio/music`): all Pixabay (re-encoded to 192 kbps to fit the 30 MB skill limit)
 Content ID registered tracks need the License Certificate (Joanne already has the certificates for the ones marked ✔ in the EPGD Drive folder). See SKILL.md §8.
 
 | File | Role / mood | Used in | Content ID |
@@ -31,7 +31,7 @@ Content ID registered tracks need the License Certificate (Joanne already has th
 | `nastelbom-news-news-music-629329.mp3` | Newsy, serious | Reel 10 | Registered ✔ |
 | `cut_nastelbom-cinematic-drive.mp3` | **"Badass"** driving bed (16–33.5 s cut of 617063) | Reel 4 (Joanne picked C) | Registered (617063) ✔ |
 | `audioatlant-revolution-epic-action-cinematic-trailer-short-1-494839.mp3` | **Trailer / YouTube cold open**. Hits at ~18.3 s and ~29.7 s; the final hit lands on the title card | YouTube cold open, trailer | Registered ✔ |
-| `bombinsound-podcast-music-intro-ridingx27-617282.mp3`, `bombin_16s.mp3`, `bombin_logo.mp3`, `bombinsound-...-logo-version-...-617274.mp3` | **Podcast title / showcase / end-screen** music, ducks under the conversation | YouTube full episode | Not registered (safe for YouTube) |
+| `bombinsound-podcast-music-intro-ridingx27-617282.mp3`, `bombin_16s.mp3` (16 s cut of 490524), `bombinsound-...-logo-version-...-617274.mp3` | **Podcast title / showcase / end-screen** music, ducks under the conversation | YouTube full episode | Not registered (safe for YouTube) |
 
 Bed levels used: 16–21 dB under the voice (`BEDDB`), +4 dB under the hook. It must stay audible.
 
