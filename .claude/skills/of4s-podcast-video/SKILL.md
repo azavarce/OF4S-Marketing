@@ -135,3 +135,21 @@ Then propose a **topic list** for reels (one idea per reel), each with a 1-line 
 > Joanne
 
 Share the Drive folder with the client's email as Viewer/Commenter; keep only the videos to review inside it (sharing a subfolder does not expose the parent).
+
+**Follow-up if the client hasn't replied** (keep it polite and calm — never an ultimatum, never "otherwise we'll go ahead"; give a soft date a couple of days out, not "tomorrow"):
+
+> Hi [Name],
+>
+> I hope you're doing well! I just wanted to follow up on the podcast videos I sent over last week.
+>
+> We're aiming to start sharing the clips by [Thursday], so please let us know before then if there's anything you'd like changed or would prefer we not post.
+>
+> Here's the folder again for easy access:
+> [Google Drive link]
+>
+> Thank you!
+>
+> Best,
+> Joanne
+
+Reply on the original email thread. Joanne prefers short, plain sign-offs ("Thank you!", "Thanks again.") over gushy ones.
