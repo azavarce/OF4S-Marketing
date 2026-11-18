@@ -7,10 +7,10 @@
 <line x1="120" y1="300" x2="120" y2="720.0" stroke="#8a8378" stroke-width="4" stroke-linecap="round"/><line x1="720.0" y1="300" x2="720.0" y2="720.0" stroke="#8a8378" stroke-width="4" stroke-linecap="round"/>
 <image href="file:///home/user/OF4S-Marketing/marketing/canopy/clear-moon/clear-moon-canopy-roof-side.svg" width="11800" height="6200" transform="matrix(0.009322 -0.004661 0.048387 0.030645 420.000 110.000)"/>
 <path d="M720.0,300 L830.0,245 L475.0,82.5 Z" fill="url(#shade)"/>
-<image href="file:///home/user/OF4S-Marketing/marketing/canopy/clear-moon/clear-moon-canopy-valance.svg" width="11800" height="1100" transform="matrix(0.009322 -0.004661 0.000000 0.050000 720.000 300.000)"/>
+<image href="file:///home/user/OF4S-Marketing/marketing/canopy/clear-moon/clear-moon-canopy-valance-side-back.svg" width="11800" height="1100" transform="matrix(0.009322 -0.004661 0.000000 0.050000 720.000 300.000)"/>
 <path d="M720.0,300 L830.0,245 L830.0,300.0 L720.0,355.0 Z" fill="#000" fill-opacity=".12"/>
 <image href="file:///home/user/OF4S-Marketing/marketing/canopy/clear-moon/clear-moon-canopy-roof-front-back.svg" width="11800" height="6200" transform="matrix(0.050847 -0.000000 -0.008871 0.035081 175.000 82.500)"/>
-<image href="file:///home/user/OF4S-Marketing/marketing/canopy/clear-moon/clear-moon-canopy-valance.svg" width="11800" height="1100" transform="matrix(0.050847 0.000000 0.000000 0.050000 120.000 300.000)"/>
+<image href="file:///home/user/OF4S-Marketing/marketing/canopy/clear-moon/clear-moon-canopy-valance-front.svg" width="11800" height="1100" transform="matrix(0.050847 0.000000 0.000000 0.050000 120.000 300.000)"/>
 <path d="M120,300 L475.0,82.5 L720.0,300 L830.0,245" fill="none" stroke="#b49866" stroke-width="1.2"/>
 <path d="M120,300 L720.0,300 L830.0,245" fill="none" stroke="#9c8358" stroke-width="2"/>
 <rect x="120" y="300" width="600.0" height="6" fill="#000" fill-opacity=".10"/>
