@@ -89,12 +89,19 @@ Then propose a **topic list** for reels (one idea per reel), each with a 1-line 
 - Match the mood and pace: advice reels → steady/serious (no motivational "building" music); testimonials → warm/light; serious legal stories → dramatic; "badass" energy when she asks for it. When she doesn't like a track, send **3 short (20 s) previews (A/B/C)** and let her pick.
 - SFX: soft click on gold keywords; swoosh on card entries; pops on card beats; riser + cinematic impact into the black beat. **The "thud" is only for funny moments.** No chime/ding on the OF4S logo card.
 - **LICENSING (standing rule):** every time you use a NEW music track, check its Pixabay page for **"Content ID Registered"**. If registered, **remind Joanne to log in to Pixabay and download that track's License Certificate** (.txt, from the "Download" dropdown on the track page) and keep it with the videos. Only Content ID tracks have certificates. Prefer non-registered tracks for the YouTube full episode. Claims are disputed in YouTube Studio → Checks → Dispute → License → paste certificate.
+  - **Non-registered tracks can still be claimed by third parties.** Example: BombinSound #490524 was claimed by HAAWK on the EPGD YouTube episode. In that case there is no certificate, so dispute with **License** and paste the Pixabay track URL + https://pixabay.com/service/license-summary/ as the rationale. Never appeal a rejected dispute (that risks a strike); mute or replace the segment instead.
 
 ## 9. Branding & end card
 
 - Design system v3 (`design-system/`): navy-800 #15273f, navy-900 #0f1d33, navy-700 #1e3554, navy-300 #8fa9c7, navy-100 #dde5ee, paper-50 #faf8f4; Schibsted Grotesk display, Geist body.
 - Every reel ends on the **OF4S logo end card** (navy gradient, navy-300 rule, Geist URL officefurniture4sale.com), ~2.6 s, with a whoosh in and no chime.
 - Name tags: navy box, navy-300 accent bar, name in Schibsted, title in Geist.
+- **Guest NAME CARD (approved, use exactly this whenever Joanne asks for a "name card"):** run `reference/namecard.py in.mp4 out.mp4 "<Name>" "<Title, Company>"`. Spec, 1080x1920:
+  - Centred navy box (#15273f at ~92% opacity), corner radius 28, soft drop shadow. Height 196; width = longest line + 55 px padding each side. Top edge at **y = 1490**, which leaves a gap between the captions and the card for the Instagram link sticker.
+  - Two lines only: **name** in Schibsted Grotesk 700, 74 px, white; **title + company** in Geist 500, 38 px, navy-100 (e.g. "Founding Partner, EPGD Business Law").
+  - **No "Episode N" label.**
+  - Visible from the **first frame** (no fade-in), held to 3.4 s, then a 0.35 s fade-out.
+  - Don't change the size or position unless she asks.
 
 ## 10. YouTube full episode
 
