@@ -210,3 +210,26 @@ Several clips from the same episode go out over a few weeks, so **captions must 
 - Rotate hashtags slightly per post (keep 2–3 core tags, swap the topic tags).
 - Each caption says what **this** clip is about, not a summary of the whole episode (the full-episode post already did that).
 - George's page = his voice (short, upbeat, personal). OF4S page = brand voice, more official. Never post the same clip on both pages on the same day.
+
+## 15. Outside producer's feedback (on EPGD Reel 1 "networking" + George's series trailer)
+
+Reel 1 was the earliest edit and used the most B-roll; later reels already used much less. These rules apply to every edit from now on:
+
+**Audio**
+- **No distorted / saturated voice.** The producer heard the voice "breaking" in Reel 1 and in George's trailer. Every build: check the source WAV for clipped samples (flat tops near 0 dBFS) and the output for distortion; use a **true-peak limiter at about −1 dBTP**, not a hard limiter pushing into distortion; if the source itself clipped, use a declipper or pick a cleaner take. Listen to the loudest lines on headphones before sending.
+- **No people talking over each other.** Cut overlaps so only one voice is heard at a time; drop a line rather than keep crosstalk. Lines where the audio isn't clear are cut.
+
+**Transitions**
+- **No plain black screen.** A black frame after the hook reads as empty to a viewer. For a story-reel "rewind" beat, use a quick hard cut or a ~0.5 s **OF4S logo flash** (navy, like the end card) instead of black.
+
+**B-roll & animations**
+- **No AI-looking or generic stock B-roll** (rejected: unclear "billboards" shot, a "free networking group" of random people, one dressed like a farmer). If B-roll is used at all, it must be **from OF4S's world**: real OF4S installs, the showroom, the team, the client's office. When in doubt, stay on the speaker.
+- **No literal "illustrate the sentence" animations** (rejected: an empty chair with a question mark for "imaginary boss").
+- When showing a room/space (e.g. "invited to be on the board"), **use a real OF4S install photo**. That's a chance to show the work.
+- Diagrams that explain an idea (the word-of-mouth diagram) are good; give them enough screen time to read (slightly longer).
+
+**Set & filming (pass these to George before each shoot)**
+- **Clean, spotless set.** "You sell furniture, it has to be impeccable." Clear the desk of cards, pens, remotes, old calculators, cups. Frame to show good furniture and hide clutter; in edits, crop tighter or blur/cover clutter that's left in.
+- Shoot at the client's office when it's OF4S furniture, and **make the furniture look great**. It's free proof of OF4S's work.
+- **George shouldn't read questions on camera.** Keep them on the table out of frame, glance down briefly, and look at the guest while asking.
+- Avoid talking over the guest during recording (leave a beat before reacting).
