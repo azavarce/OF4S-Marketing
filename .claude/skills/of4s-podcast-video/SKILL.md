@@ -239,5 +239,6 @@ Reel 1 was the earliest edit and used the most B-roll; later reels already used 
 - **Never a black screen** between hook and story.
 - **Switching between George and the guest → whip:** a 0.3 s horizontal slide with motion blur plus a soft whoosh (`whoosh_ds.mp3`), the music hit landing in the middle of the whip. Voices are never blended: the first speaker finishes before the whip starts, and the second starts only when fully on screen.
 - **Same speaker (hook → his own story) → quick white flash:** about 0.2 s (2 frames up, 4 down) on the music hit, with a light impact. Use sparingly.
+- **Words are never cut at a transition.** Find the real silence before the first word and after the last word on the waveform (10 ms steps). If two words run together with no gap (e.g. "And you…"), keep both. After rendering, **transcribe the finished file** and confirm every word of both lines is complete before sending. Always build transitions from the original camera audio, never by cutting a finished reel (its mixed music hides the gaps between words).
 - Avoid anything gimmicky: an effect needs a reason (a change of speaker, place or time), not just decoration.
 - Reference build: Reel 8 hook → George's question, rebuilt from the raw 4K cameras (Eric 539.00–544.02 in "Shot 2 Client.MOV", George 499.95–501.52 + 502.36–505.98, George video offset −3.25 s).
