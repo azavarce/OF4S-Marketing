@@ -233,3 +233,11 @@ Reel 1 was the earliest edit and used the most B-roll; later reels already used 
 - Shoot at the client's office when it's OF4S furniture, and **make the furniture look great**. It's free proof of OF4S's work.
 - **George shouldn't read questions on camera.** Keep them on the table out of frame, glance down briefly, and look at the guest while asking.
 - Avoid talking over the guest during recording (leave a beat before reacting).
+
+## 16. Transitions (approved Nov 2026, replaces the black "rewind" beat)
+
+- **Never a black screen** between hook and story.
+- **Switching between George and the guest → whip:** a 0.3 s horizontal slide with motion blur plus a soft whoosh (`whoosh_ds.mp3`), the music hit landing in the middle of the whip. Voices are never blended: the first speaker finishes before the whip starts, and the second starts only when fully on screen.
+- **Same speaker (hook → his own story) → quick white flash:** about 0.2 s (2 frames up, 4 down) on the music hit, with a light impact. Use sparingly.
+- Avoid anything gimmicky: an effect needs a reason (a change of speaker, place or time), not just decoration.
+- Reference build: Reel 8 hook → George's question, rebuilt from the raw 4K cameras (Eric 539.00–544.02 in "Shot 2 Client.MOV", George 499.95–501.52 + 502.36–505.98, George video offset −3.25 s).
