@@ -160,3 +160,42 @@ Share the Drive folder with the client's email as Viewer/Commenter; keep only th
 > Joanne
 
 Reply on the original email thread. Joanne prefers short, plain sign-offs ("Thank you!", "Thanks again.") over gushy ones.
+
+## 13. Quality bar — mistakes Joanne has already caught (check EVERY one before sending)
+
+**Cuts & hooks**
+- **Never clip a word, including at the end of a line** ("…I don't fully *trust*", "What's your *niche*?"). After building, **transcribe the rendered output around every cut** and confirm the first and last word of each segment are complete. Waveform alone is not enough.
+- Never cut **inside a sentence** to save time (e.g. removing "super pro-employer state and a" from "Florida is a super pro-employer state and a pro non-compete state"). Use the whole sentence or a different line.
+- **Pause cuts are smooth:** same framing on both sides (soft cut / short crossfade), **no zoom in or out** at a pause cut. Zoom steps are only for new lines.
+- **Hooks with judgment, not by formula.** The black-screen "rewind" is only for a real story with a build-up. If the host's question is the natural opener ("What's your niche?", "Corporations by law are required to…"), **start with the host's question** and keep it whole. Ask yourself: does a stranger understand the first 3 seconds?
+- **Every trailer/hook line must make sense on its own.** No lines with an unexplained "he" or "it" ("Now he can do it on his own using ChatGPT", "You can't afford not to have it"). Add a context line before a story line when needed (e.g. "Florida is a pro non-compete state" before the non-compete story).
+- **Nothing extreme or misleading** out of context (rejected: "ChatGPT is making up cases that don't exist"). Host lines in a guest trailer must connect to what the guest says, or drop them.
+
+**Framing**
+- **Don't over-zoom the host** (George). Head and shoulders, with some chest visible, like the guest framing. Check a still of every shot.
+- Keep the head at the same height across neighbouring shots. No empty wall above the head, no head cut at the top.
+
+**Music**
+- **Match the music to the content of each reel**, not to the series. Success stories and "getting clients results" → confident/uplifting, **never sad**. Sad/dramatic only for a genuinely bad-outcome story. When unsure, send A/B/C previews before rendering.
+- In trailers/montages, **never carry over music from a reel's audio** (clips cut from finished reels bring their bed with them; use the raw camera audio).
+
+**Captions**
+- Centred (x = 540) and inside the safe zone, verified by measuring the rendered overlay, not by eye.
+- Captions/text must **never overlap photo cards**; raise the caption above the cards while they're up.
+- No lone one-word caption chunks (merge them); no double spaces.
+
+**Covers (Instagram)**
+- Approved style: **split screen** (George top, guest bottom, navy seam), title on the **guest's half**, left-aligned, white line + gold line, **subtle navy shade**, **no logo**, both faces inside the 3:4 grid crop (y 240–1680). Text may touch the top of the guest's head slightly.
+- Use frames where both people look **engaged, not frowning**, with mouths closed or mid-natural-expression. Use a **different frame for each reel**.
+- Title = a short title, **not a fake quote**. Avoid leading with numbers unless she asks. Don't change the text size unless asked.
+- When she dislikes a frame, offer 3 alternatives side by side.
+
+**YouTube thumbnail**
+- 1280x720. Host and guest **cut out, large, at the edges, facing each other**, placed symmetrically (same distance from each edge so lighting/shadow is even). **Dark moody background** (blurred OF4S install photo, darkened) with edge vignette. Brightened faces.
+- **3–5 words stacked in the centre**, one word in a **gold box with navy text**. Thumbnail text complements the title, doesn't repeat it. Nothing in the bottom-right corner (timestamp).
+- No reaching arms or limbs touching the other person — pick frames with arms crossed or close to the body.
+
+**Language & legal**
+- Never call a lawyer (or any guest) an "expert", "specialist" or "the best" in captions, titles, covers or posts (Florida Bar rules). Use their actual title.
+- No outcome claims a guest didn't make ("cost him $250,000" when he said "put $250,000 a year at risk").
+- Get the guest's OK on the YouTube title/thumbnail before publishing.
