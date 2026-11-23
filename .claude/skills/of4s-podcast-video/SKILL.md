@@ -199,3 +199,14 @@ Reply on the original email thread. Joanne prefers short, plain sign-offs ("Than
 - Never call a lawyer (or any guest) an "expert", "specialist" or "the best" in captions, titles, covers or posts (Florida Bar rules). Use their actual title.
 - No outcome claims a guest didn't make ("cost him $250,000" when he said "put $250,000 a year at risk").
 - Get the guest's OK on the YouTube title/thumbnail before publishing.
+
+## 14. Captions across a series (Instagram, LinkedIn: George's page and the OF4S page)
+
+Several clips from the same episode go out over a few weeks, so **captions must not sound repetitive**:
+- Before writing a caption, **look at the captions already posted for that episode** (ask Joanne or check this thread) and don't reuse the same hook structure, the same credit phrase or the same CTA.
+- Rotate hooks: a question / the guest's own line / a turning point / a surprising fact / a short lesson.
+- Rotate how the guest is credited. Say "my friend and client" at most once per episode. Otherwise use "Eric Gros-Dubois of EPGD Business Law", "Eric", "our first guest", etc.
+- Rotate CTAs: "Watch the full episode: [link]" / "Full conversation here: [link]" / "Hear the rest of the story: [link]" / "The whole episode is up: [link]" / Instagram: "Watch the full story at the link in bio."
+- Rotate hashtags slightly per post (keep 2–3 core tags, swap the topic tags).
+- Each caption says what **this** clip is about, not a summary of the whole episode (the full-episode post already did that).
+- George's page = his voice (short, upbeat, personal). OF4S page = brand voice, more official. Never post the same clip on both pages on the same day.
