@@ -237,8 +237,10 @@ Reel 1 was the earliest edit and used the most B-roll; later reels already used 
 ## 16. Transitions (approved Nov 2026, replaces the black "rewind" beat)
 
 - **Never a black screen** between hook and story.
-- **Switching between George and the guest → whip:** a 0.3 s horizontal slide with motion blur plus a soft whoosh (`whoosh_ds.mp3`), the music hit landing in the middle of the whip. Voices are never blended: the first speaker finishes before the whip starts, and the second starts only when fully on screen.
-- **Same speaker (hook → his own story) → quick white flash:** about 0.2 s (2 frames up, 4 down) on the music hit, with a light impact. Use sparingly.
-- **Words are never cut at a transition.** Find the real silence before the first word and after the last word on the waveform (10 ms steps). If two words run together with no gap (e.g. "And you…"), keep both. After rendering, **transcribe the finished file** and confirm every word of both lines is complete before sending. Always build transitions from the original camera audio, never by cutting a finished reel (its mixed music hides the gaps between words).
-- Avoid anything gimmicky: an effect needs a reason (a change of speaker, place or time), not just decoration.
+- **Default transition = the WHIP** (Joanne's choice): 0.3 s horizontal slide with motion blur (`xfade=slideleft` + horizontal blur) and a soft whoosh (`whoosh_ds.mp3`), the music hit in the middle of the whip.
+  - **Breathing room:** the speaker finishes his last word, holds on screen **0.2 s**, then the whip starts. The next speaker starts talking **0.1 s after** he's fully on screen. Keep ~0.4 s of extra footage before his first word so his lips stay in sync. The whoosh never overlaps a word.
+  - Voices are never blended across the whip.
+- The white flash was shown as an alternative; use it **only if Joanne asks**.
+- **Words are never cut at a transition.** Find the real silence before the first word and after the last word on the waveform (10 ms steps). If two words run together with no gap (e.g. "And you…"), keep both. After rendering, **transcribe the finished file** and confirm every word is complete before sending. Always build from the original camera audio, never by cutting a finished reel (its mixed music hides the gaps between words).
+- **Animations and effects must never be literal or gimmicky** (the producer's feedback): no illustrating the sentence (empty chair for "imaginary boss", stamps, random icons), no AI-looking stock. Only add a card/diagram when it **explains** something (numbers, a comparison, a process, a checklist), or a **real OF4S photo** when a space is mentioned. When in doubt, stay on the speaker.
 - Reference build: Reel 8 hook → George's question, rebuilt from the raw 4K cameras (Eric 539.00–544.02 in "Shot 2 Client.MOV", George 499.95–501.52 + 502.36–505.98, George video offset −3.25 s).
