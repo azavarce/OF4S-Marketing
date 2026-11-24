@@ -2,10 +2,11 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: one 9:16 Instagram Story frame, centered; single deliberate navy look. Loops every 12s. */
+/* Layout: one 9:16 Instagram Story frame. Scene 1 greeting (0–7.7s), scene 2 OF4S logo card (8.2–12s). Loops every 12s. */
 :root{
-  --navy-950:#0a1628; --navy-800:#15273f; --navy-600:#2d4a6e; --navy-300:#8fa9c7;
-  --paper:#faf8f4; --paper-200:#e8e2d4; --brass:#c9a474;
+  --navy-950:#0a1628; --navy-900:#0f1d33; --navy-800:#15273f; --navy-600:#2d4a6e; --navy-300:#8fa9c7;
+  --paper:#faf8f4; --paper-200:#e8e2d4;
+  --pumpkin:#d9772b; --harvest:#e3a845; --cranberry:#a8392e; --olive:#6f8a4f; --brass:#c9a474;
   --display:'Schibsted Grotesk','Geist',sans-serif;
   --sans:'Geist',-apple-system,system-ui,sans-serif;
   --mono:'Geist Mono','SF Mono',Menlo,monospace;
@@ -16,69 +17,105 @@ body{background:var(--navy-950);color:var(--paper);display:grid;place-items:cent
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px;box-sizing:border-box}
 .wrap{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%}
 .story{position:relative;width:min(100%,405px,calc((100vh - 90px) * 9 / 16));aspect-ratio:9/16;max-width:100%;
-  overflow:hidden;border-radius:14px;background:radial-gradient(120% 80% at 50% 0%,var(--navy-600) 0%,var(--navy-800) 45%,var(--navy-950) 100%);
-  container-type:inline-size;box-shadow:0 18px 40px rgba(0,0,0,.4)}
+  overflow:hidden;border-radius:14px;container-type:inline-size;box-shadow:0 18px 40px rgba(0,0,0,.4);
+  background:radial-gradient(110% 70% at 50% 105%,rgba(217,119,43,.28) 0%,rgba(168,57,46,.12) 35%,transparent 65%),
+             radial-gradient(120% 80% at 50% 0%,var(--navy-600) 0%,var(--navy-800) 45%,var(--navy-950) 100%)}
 canvas{position:absolute;inset:0;width:100%;height:100%}
-.top,.bottom{position:absolute;left:7cqw;right:7cqw;display:flex;justify-content:space-between;align-items:center;
-  font-family:var(--mono);font-size:3cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-300)}
-.top{top:7cqw} .bottom{bottom:7cqw}
-.bottom{justify-content:center}
-.m5{display:inline-flex;font-family:var(--display);font-weight:700;font-size:9cqw;letter-spacing:-.03em;line-height:.9;color:var(--paper);text-transform:none}
-.m5 .four{color:var(--navy-300)}
-.center{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 8cqw;gap:5cqw}
-.kicker{font-family:var(--mono);font-size:3.2cqw;letter-spacing:.18em;text-transform:uppercase;color:var(--navy-300)}
-h2{margin:0;font-family:var(--display);font-weight:800;font-size:10.4cqw;white-space:nowrap;line-height:.92;letter-spacing:-.035em}
-h2 span{display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em}
-h2 span i{display:block;font-style:normal}
-h2 em{font-style:normal;color:var(--navy-300)}
-.rule{height:2px;background:var(--paper);transform-origin:left;width:22cqw}
+
+/* Scene 1 */
+.greet{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 8cqw;gap:5cqw}
+h2{margin:0;font-family:var(--display);font-weight:800;font-size:10.4cqw;line-height:1;letter-spacing:-.035em;white-space:nowrap}
+h2 .line{display:block}
+h2 .ch{display:inline-block}
+h2 .warm .ch:nth-child(4n+1){color:var(--pumpkin)} h2 .warm .ch:nth-child(4n+2){color:var(--harvest)}
+h2 .warm .ch:nth-child(4n+3){color:var(--brass)}   h2 .warm .ch:nth-child(4n){color:var(--pumpkin)}
+.dots{display:flex;gap:2.4cqw}
+.dots i{width:3.2cqw;height:3.2cqw;border-radius:50%;display:block}
+.dots i:nth-child(1){background:var(--pumpkin)} .dots i:nth-child(2){background:var(--harvest)}
+.dots i:nth-child(3){background:var(--cranberry)} .dots i:nth-child(4){background:var(--olive)}
 .msg{font-family:var(--sans);font-weight:300;font-size:4.6cqw;line-height:1.4;color:var(--paper-200);max-width:30ch;margin:0}
-.sign{font-family:var(--sans);font-weight:500;font-size:4cqw;color:var(--paper)}
+.sign{font-family:var(--sans);font-weight:500;font-size:4cqw;color:var(--harvest)}
+
+/* Scene 2: logo card */
+.card{position:absolute;inset:0;background:var(--navy-900);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7cqw}
+.lockup{display:flex;align-items:center;gap:3.5cqw}
+.m5{display:inline-flex;font-family:var(--display);font-weight:700;font-size:13cqw;letter-spacing:-.03em;line-height:.9;color:var(--paper)}
+.m5 .four{color:var(--navy-300)}
+.lockup .rule{width:1px;align-self:stretch;background:rgba(255,255,255,.25);transform-origin:top}
+.fullname{font-family:var(--mono);font-size:2.5cqw;letter-spacing:.26em;text-transform:uppercase;color:var(--paper-200);line-height:1.9}
+.url{font-family:var(--mono);font-size:3cqw;letter-spacing:.06em;color:var(--navy-300)}
+.url b{color:var(--paper);font-weight:500}
+.card .dots{gap:2cqw} .card .dots i{width:2cqw;height:2cqw}
+
 .btn{font:500 13px var(--sans);background:transparent;color:var(--navy-300);border:1px solid var(--navy-600);border-radius:999px;padding:8px 16px;cursor:pointer}
 .btn:focus-visible{outline:2px solid var(--paper);outline-offset:2px}
 
-/* 12s loop */
-.anim .kicker{animation:fade 12s infinite}
-.anim h2 span:nth-child(1) i{animation:rise 12s infinite .15s both}
-.anim h2 span:nth-child(2) i{animation:rise 12s infinite .35s both}
-.anim h2 span:nth-child(3) i{animation:rise 12s infinite .55s both}
-.anim .rule{animation:draw 12s infinite .9s both}
-.anim .msg{animation:fadeup 12s infinite 1.6s both}
-.anim .sign{animation:fadeup 12s infinite 2.6s both}
-@keyframes rise{0%{transform:translateY(110%)}7%,90%{transform:translateY(0)}97%,100%{transform:translateY(-110%)}}
-@keyframes fade{0%{opacity:0}6%,90%{opacity:1}97%,100%{opacity:0}}
-@keyframes fadeup{0%{opacity:0;transform:translateY(8px)}7%,88%{opacity:1;transform:none}95%,100%{opacity:0}}
-@keyframes draw{0%{transform:scaleX(0)}8%,88%{transform:scaleX(1)}95%,100%{transform:scaleX(0)}}
-@media (prefers-reduced-motion:reduce){.anim *{animation:none!important}}
+/* ── Timeline (12s loop) ── */
+.anim .greet{animation:greetOut 12s infinite}
+.anim h2 .ch{animation:pop 12s infinite both;animation-delay:calc(.15s + var(--i) * .055s)}
+.anim .dots i{animation:dot 12s infinite both;animation-delay:calc(1.3s + var(--i) * .12s)}
+.anim .msg{animation:fadeup 12s infinite 2s both}
+.anim .sign{animation:fadeup 12s infinite 2.9s both}
+.anim .card{animation:cardIn 12s infinite both}
+.anim .card .m5 span{animation:cardPop 12s infinite both;animation-delay:calc(var(--i) * .08s)}
+.anim .card .rule{animation:cardRule 12s infinite both}
+.anim .card .fullname,.anim .card .url,.anim .card .dots{animation:cardFade 12s infinite both}
+.anim .card .url{animation-delay:.2s} .anim .card .dots{animation-delay:.35s}
+
+@keyframes pop{0%{opacity:0;transform:translateY(60%) rotate(-12deg) scale(.6)}4%{opacity:1;transform:translateY(-12%) rotate(4deg) scale(1.08)}6.5%,100%{opacity:1;transform:none}}
+@keyframes dot{0%{transform:scale(0)}3%{transform:scale(1.4)}5%,100%{transform:scale(1)}}
+@keyframes fadeup{0%{opacity:0;transform:translateY(10px)}6%,100%{opacity:1;transform:none}}
+@keyframes greetOut{0%,62%{opacity:1;transform:none}67%,100%{opacity:0;transform:scale(.94)}}
+@keyframes cardIn{0%,65%{clip-path:circle(0% at 50% 50%)}71%,96%{clip-path:circle(80% at 50% 50%);opacity:1}100%{clip-path:circle(80% at 50% 50%);opacity:0}}
+@keyframes cardPop{0%,68%{opacity:0;transform:translateY(40%)}72%,100%{opacity:1;transform:none}}
+@keyframes cardRule{0%,70%{transform:scaleY(0)}74%,100%{transform:scaleY(1)}}
+@keyframes cardFade{0%,72%{opacity:0;transform:translateY(6px)}76%,100%{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.anim *{animation:none!important}.card{display:none}}
 </style>
 
 <div class="wrap">
-  <div class="story anim" id="story" role="img" aria-label="Happy Thanksgiving from the OF4S team: from our team to yours, thank you for another great year.">
+  <div class="story anim" id="story" role="img" aria-label="Happy Thanksgiving from the OF4S team: from our team to yours, thank you for another great year. Ends on the OF4S logo card.">
     <canvas id="c"></canvas>
-    <div class="center">
-      <h2><span><i>Happy</i></span><span><i><em>Thanks</em>giving</i></span></h2>
-      <div class="rule"></div>
+    <div class="greet">
+      <h2><span class="line" data-split>Happy</span><span class="line warm" data-split>Thanksgiving</span></h2>
+      <div class="dots"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i></div>
       <p class="msg">From our team to yours, thank you to every client, partner and friend for another great year.</p>
       <div class="sign">The OF4S Team</div>
     </div>
-    <div class="bottom"><span class="m5"><span>OF</span><span class="four">4</span><span>S</span></span></div>
+    <div class="card">
+      <div class="lockup">
+        <span class="m5"><span style="--i:0">OF</span><span class="four" style="--i:1">4</span><span style="--i:2">S</span></span>
+        <span class="rule"></span>
+        <span class="fullname">Office Furniture<br>4 Sale</span>
+      </div>
+      <div class="url">officefurniture4sale<b>.com</b></div>
+      <div class="dots"><i></i><i></i><i></i><i></i></div>
+    </div>
   </div>
   <button class="btn" id="replay" type="button">Replay</button>
 </div>
 
 <script>
+let n=0;document.querySelectorAll('[data-split]').forEach(el=>{const t=el.textContent;el.textContent='';
+  for(const c of t){const s=document.createElement('span');s.className='ch';s.textContent=c;s.style.setProperty('--i',n++);el.appendChild(s)}});
 const cv=document.getElementById('c'),ctx=cv.getContext('2d');
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-let W,H,leaves=[];
+const COLORS=['#d9772b','#e3a845','#a8392e','#6f8a4f','#c9a474'];
+let W,H,leaves=[],t0=performance.now();
 function size(){const r=cv.getBoundingClientRect(),d=devicePixelRatio||1;W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0)}
-function leaf(init){return{x:Math.random()*W,y:init?Math.random()*H:-20,s:6+Math.random()*10,v:.25+Math.random()*.5,
-  a:Math.random()*6.28,r:(Math.random()-.5)*.02,sw:Math.random()*6.28,o:.35+Math.random()*.35}}
-function draw(l){ctx.save();ctx.translate(l.x,l.y);ctx.rotate(l.a);ctx.globalAlpha=l.o;ctx.fillStyle='#c9a474';
-  ctx.beginPath();ctx.moveTo(0,-l.s);ctx.quadraticCurveTo(l.s*.7,0,0,l.s);ctx.quadraticCurveTo(-l.s*.7,0,0,-l.s);ctx.fill();
-  ctx.globalAlpha=l.o*1.4;ctx.strokeStyle='#0a1628';ctx.lineWidth=.8;ctx.beginPath();ctx.moveTo(0,-l.s);ctx.lineTo(0,l.s);ctx.stroke();ctx.restore()}
-function tick(){ctx.clearRect(0,0,W,H);for(const l of leaves){l.y+=l.v;l.sw+=.015;l.x+=Math.sin(l.sw)*.4;l.a+=l.r;
-  if(l.y>H+20)Object.assign(l,leaf(false));draw(l)}if(!reduce)requestAnimationFrame(tick)}
-size();leaves=Array.from({length:26},()=>leaf(true));tick();
+function leaf(init){return{x:Math.random()*W,y:init?Math.random()*H:-20,s:6+Math.random()*11,v:.35+Math.random()*.7,
+  a:Math.random()*6.28,r:(Math.random()-.5)*.04,sw:Math.random()*6.28,o:.55+Math.random()*.4,c:COLORS[Math.random()*5|0],
+  maple:Math.random()<.45,flip:Math.random()*6.28}}
+function maple(s){ctx.beginPath();for(let i=0;i<=10;i++){const ang=-Math.PI/2+i*Math.PI/5,r=i%2?s*.45:s;ctx.lineTo(Math.cos(ang)*r,Math.sin(ang)*r)}ctx.closePath();ctx.fill()}
+function oval(s){ctx.beginPath();ctx.moveTo(0,-s);ctx.quadraticCurveTo(s*.7,0,0,s);ctx.quadraticCurveTo(-s*.7,0,0,-s);ctx.fill()}
+function draw(l){ctx.save();ctx.translate(l.x,l.y);ctx.rotate(l.a);ctx.scale(Math.cos(l.flip),1);ctx.globalAlpha=l.o;ctx.fillStyle=l.c;
+  l.maple?maple(l.s):oval(l.s);ctx.restore()}
+function tick(now){ctx.clearRect(0,0,W,H);const p=((now-t0)%12000)/12000;
+  const gust=p>.6&&p<.7?2.2:1; // leaves sweep faster as the logo card opens
+  for(const l of leaves){l.y+=l.v*gust;l.sw+=.02;l.x+=Math.sin(l.sw)*.6*gust;l.a+=l.r;l.flip+=.03;
+    if(l.y>H+20)Object.assign(l,leaf(false));draw(l)}
+  if(!reduce)requestAnimationFrame(tick)}
+size();leaves=Array.from({length:30},()=>leaf(true));requestAnimationFrame(tick);
 addEventListener('resize',size);
-document.getElementById('replay').onclick=()=>{const s=document.getElementById('story');s.classList.remove('anim');void s.offsetWidth;s.classList.add('anim')};
+document.getElementById('replay').onclick=()=>{const s=document.getElementById('story');s.classList.remove('anim');void s.offsetWidth;s.classList.add('anim');t0=performance.now()};
 </script>
