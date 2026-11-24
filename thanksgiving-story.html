@@ -1,0 +1,84 @@
+<title>OF4S Thanksgiving Story</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one 9:16 Instagram Story frame, centered; single deliberate navy look. Loops every 12s. */
+:root{
+  --navy-950:#0a1628; --navy-800:#15273f; --navy-600:#2d4a6e; --navy-300:#8fa9c7;
+  --paper:#faf8f4; --paper-200:#e8e2d4; --brass:#c9a474;
+  --display:'Schibsted Grotesk','Geist',sans-serif;
+  --sans:'Geist',-apple-system,system-ui,sans-serif;
+  --mono:'Geist Mono','SF Mono',Menlo,monospace;
+  color-scheme:dark;
+}
+html,body{height:100%}
+body{background:var(--navy-950);color:var(--paper);display:grid;place-items:center;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px;box-sizing:border-box}
+.wrap{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%}
+.story{position:relative;width:min(100%,405px,calc((100vh - 90px) * 9 / 16));aspect-ratio:9/16;max-width:100%;
+  overflow:hidden;border-radius:14px;background:radial-gradient(120% 80% at 50% 0%,var(--navy-600) 0%,var(--navy-800) 45%,var(--navy-950) 100%);
+  container-type:inline-size;box-shadow:0 18px 40px rgba(0,0,0,.4)}
+canvas{position:absolute;inset:0;width:100%;height:100%}
+.top,.bottom{position:absolute;left:7cqw;right:7cqw;display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--mono);font-size:3cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-300)}
+.top{top:7cqw} .bottom{bottom:7cqw}
+.bottom{justify-content:center}
+.m5{display:inline-flex;font-family:var(--display);font-weight:700;font-size:9cqw;letter-spacing:-.03em;line-height:.9;color:var(--paper);text-transform:none}
+.m5 .four{color:var(--navy-300)}
+.center{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 8cqw;gap:5cqw}
+.kicker{font-family:var(--mono);font-size:3.2cqw;letter-spacing:.18em;text-transform:uppercase;color:var(--navy-300)}
+h2{margin:0;font-family:var(--display);font-weight:800;font-size:10.4cqw;white-space:nowrap;line-height:.92;letter-spacing:-.035em}
+h2 span{display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em}
+h2 span i{display:block;font-style:normal}
+h2 em{font-style:normal;color:var(--navy-300)}
+.rule{height:2px;background:var(--paper);transform-origin:left;width:22cqw}
+.msg{font-family:var(--sans);font-weight:300;font-size:4.6cqw;line-height:1.4;color:var(--paper-200);max-width:30ch;margin:0}
+.sign{font-family:var(--sans);font-weight:500;font-size:4cqw;color:var(--paper)}
+.btn{font:500 13px var(--sans);background:transparent;color:var(--navy-300);border:1px solid var(--navy-600);border-radius:999px;padding:8px 16px;cursor:pointer}
+.btn:focus-visible{outline:2px solid var(--paper);outline-offset:2px}
+
+/* 12s loop */
+.anim .kicker{animation:fade 12s infinite}
+.anim h2 span:nth-child(1) i{animation:rise 12s infinite .15s both}
+.anim h2 span:nth-child(2) i{animation:rise 12s infinite .35s both}
+.anim h2 span:nth-child(3) i{animation:rise 12s infinite .55s both}
+.anim .rule{animation:draw 12s infinite .9s both}
+.anim .msg{animation:fadeup 12s infinite 1.6s both}
+.anim .sign{animation:fadeup 12s infinite 2.6s both}
+@keyframes rise{0%{transform:translateY(110%)}7%,90%{transform:translateY(0)}97%,100%{transform:translateY(-110%)}}
+@keyframes fade{0%{opacity:0}6%,90%{opacity:1}97%,100%{opacity:0}}
+@keyframes fadeup{0%{opacity:0;transform:translateY(8px)}7%,88%{opacity:1;transform:none}95%,100%{opacity:0}}
+@keyframes draw{0%{transform:scaleX(0)}8%,88%{transform:scaleX(1)}95%,100%{transform:scaleX(0)}}
+@media (prefers-reduced-motion:reduce){.anim *{animation:none!important}}
+</style>
+
+<div class="wrap">
+  <div class="story anim" id="story" role="img" aria-label="Happy Thanksgiving from the OF4S team: from our team to yours, thank you for another great year.">
+    <canvas id="c"></canvas>
+    <div class="center">
+      <h2><span><i>Happy</i></span><span><i><em>Thanks</em>giving</i></span></h2>
+      <div class="rule"></div>
+      <p class="msg">From our team to yours, thank you to every client, partner and friend for another great year.</p>
+      <div class="sign">The OF4S Team</div>
+    </div>
+    <div class="bottom"><span class="m5"><span>OF</span><span class="four">4</span><span>S</span></span></div>
+  </div>
+  <button class="btn" id="replay" type="button">Replay</button>
+</div>
+
+<script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let W,H,leaves=[];
+function size(){const r=cv.getBoundingClientRect(),d=devicePixelRatio||1;W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0)}
+function leaf(init){return{x:Math.random()*W,y:init?Math.random()*H:-20,s:6+Math.random()*10,v:.25+Math.random()*.5,
+  a:Math.random()*6.28,r:(Math.random()-.5)*.02,sw:Math.random()*6.28,o:.35+Math.random()*.35}}
+function draw(l){ctx.save();ctx.translate(l.x,l.y);ctx.rotate(l.a);ctx.globalAlpha=l.o;ctx.fillStyle='#c9a474';
+  ctx.beginPath();ctx.moveTo(0,-l.s);ctx.quadraticCurveTo(l.s*.7,0,0,l.s);ctx.quadraticCurveTo(-l.s*.7,0,0,-l.s);ctx.fill();
+  ctx.globalAlpha=l.o*1.4;ctx.strokeStyle='#0a1628';ctx.lineWidth=.8;ctx.beginPath();ctx.moveTo(0,-l.s);ctx.lineTo(0,l.s);ctx.stroke();ctx.restore()}
+function tick(){ctx.clearRect(0,0,W,H);for(const l of leaves){l.y+=l.v;l.sw+=.015;l.x+=Math.sin(l.sw)*.4;l.a+=l.r;
+  if(l.y>H+20)Object.assign(l,leaf(false));draw(l)}if(!reduce)requestAnimationFrame(tick)}
+size();leaves=Array.from({length:26},()=>leaf(true));tick();
+addEventListener('resize',size);
+document.getElementById('replay').onclick=()=>{const s=document.getElementById('story');s.classList.remove('anim');void s.offsetWidth;s.classList.add('anim')};
+</script>
