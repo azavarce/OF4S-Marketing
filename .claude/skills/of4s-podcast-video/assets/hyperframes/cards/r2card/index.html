@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'SG'; font-weight: 800; src: url('assets/schibsted-grotesk-latin-800-normal.woff') format('woff'); }
+      @font-face { font-family: 'Geist'; font-weight: 500; src: url('assets/geist-sans-latin-500-normal.woff') format('woff'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #faf8f4; }
+      #main { position: relative; width: 100%; height: 100%; }
+      #bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 42%, #ffffff 0%, #faf8f4 60%, #f3efe7 100%); }
+      #stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; perspective: 1400px; }
+      #card { position: absolute; left: 150px; top: 610px; width: 780px; height: 440px; border-radius: 22px;
+              background: linear-gradient(160deg, #1e3554 0%, #15273f 70%); box-shadow: 0 40px 80px rgba(15,29,51,.28), 0 8px 18px rgba(15,29,51,.18);
+              transform-origin: 50% 100%; overflow: hidden; }
+      #rule { position: absolute; left: 70px; top: 120px; width: 110px; height: 6px; border-radius: 3px; background: #8fa9c7; transform-origin: 0 50%; }
+      #title-wrap { position: absolute; left: 70px; top: 158px; height: 110px; overflow: hidden; width: 660px; }
+      #title { font-family: 'SG'; font-weight: 800; font-size: 86px; line-height: 1.15; color: #faf8f4; letter-spacing: -0.01em; }
+      .bar { position: absolute; left: 70px; height: 12px; border-radius: 6px; background: #2d4a6e; transform-origin: 0 50%; }
+      #b1 { top: 318px; width: 280px; } #b2 { top: 346px; width: 190px; }
+      #shine { position: absolute; top: -40px; left: 0; width: 160px; height: 520px; background: linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.14) 50%, rgba(255,255,255,0) 100%); }
+    </style>
+  </head>
+  <body>
+    <div id="main" data-composition-id="main" data-start="0" data-duration="1.3" data-width="1080" data-height="1920">
+      <div id="bg" class="clip" data-start="0" data-duration="1.3" data-track-index="0"></div>
+      <div id="stage" class="clip" data-start="0" data-duration="1.3" data-track-index="1">
+        <div id="card">
+          <div id="rule"></div>
+          <div id="title-wrap"><div id="title">Junior Partner</div></div>
+          <div class="bar" id="b1"></div><div class="bar" id="b2"></div>
+          <div id="shine"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      // card flips up into place, title reveals on "junior" (+0.14 s)
+      tl.fromTo("#card", { rotationX: 75, y: 260, opacity: 0 }, { rotationX: 0, y: 0, opacity: 1, duration: 0.42, ease: "power3.out" }, 0.0);
+      tl.fromTo("#rule", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power3.out" }, 0.12);
+      tl.fromTo("#title", { yPercent: 105 }, { yPercent: 0, duration: 0.38, ease: "power4.out" }, 0.14);
+      tl.fromTo(".bar", { scaleX: 0 }, { scaleX: 1, duration: 0.35, stagger: 0.06, ease: "power3.out" }, 0.3);
+      tl.fromTo("#shine", { x: -220 }, { x: 900, duration: 0.55, ease: "power2.inOut" }, 0.55);
+      tl.fromTo("#card", { scale: 1 }, { scale: 1.03, duration: 0.9, ease: "none" }, 0.42);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=1920, height=1080" /><script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script><style>
+@font-face { font-family: "SG"; font-weight: 800; src: url("assets/schibsted-grotesk-latin-800-normal.woff") format("woff"); }
+@font-face { font-family: "Geist"; font-weight: 500; src: url("assets/geist500.ttf") format("truetype"); }
+* { margin: 0; padding: 0; box-sizing: border-box; } html, body { width: 1920px; height: 1080px; overflow: hidden; background: transparent; } #main { position: relative; width: 100%; height: 100%; }
+#div { position:absolute; left:956px; top:0; width:8px; height:1080px; background:#15273f; transform-origin:50% 50%; }
+.tag { position:absolute; top:800px; height:164px; background:rgba(21,39,63,.94); padding:20px 48px 0 58px; overflow:hidden; }
+.tag:before { content:""; position:absolute; left:0; top:0; width:10px; height:164px; background:#8fa9c7; }
+.tag .n { font-family:"SG"; font-weight:800; font-size:64px; color:#faf8f4; letter-spacing:.02em; line-height:76px; white-space:nowrap; }
+.tag .t { font-family:"Geist"; font-weight:500; font-size:34px; color:#8fa9c7; letter-spacing:.04em; margin-top:6px; white-space:nowrap; }
+#tg { left:96px; } #te { right:96px; }
+#band { position:absolute; left:960px; top:830px; padding:0 64px; height:150px; background:rgba(21,39,63,.95); border-radius:22px; text-align:center; }
+#band .l { font-family:"Geist"; font-weight:500; font-size:28px; letter-spacing:.24em; color:#8fa9c7; margin-top:22px; }
+#items { margin-top:10px; font-family:"SG"; font-weight:800; font-size:46px; color:#faf8f4; white-space:nowrap; }
+#items span { display:inline-block; } #items .dot { color:#8fa9c7; margin:0 22px; }
+</style></head><body>
+<div id="main" data-composition-id="main" data-start="0" data-duration="5" data-width="1920" data-height="1080">
+<div id="stage" class="clip" data-start="0" data-duration="5" data-track-index="0">
+<div id="div"></div>
+<div class="tag" id="tg"><div class="n">George Dargham</div><div class="t">CEO, OfficeFurniture4Sale</div></div>
+<div class="tag" id="te"><div class="n">Eric Gros-Dubois</div><div class="t">Founding Partner, EPGD Business Law</div></div>
+<div id="band"><div class="l">IN THIS EPISODE</div><div id="items"><span id="i1">Bad contracts</span><span class="dot d1">•</span><span id="i2">Non-competes</span><span class="dot d2">•</span><span id="i3">AI lawsuits</span><span class="dot d3">•</span><span id="i4">A 65-person firm</span></div></div>
+</div></div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+gsap.set("#band",{xPercent:-50});
+gsap.set(["#i1","#i2","#i3","#i4",".dot"],{opacity:0});
+tl.fromTo("#div",{scaleY:0},{scaleY:1,duration:0.35,ease:"power3.out"},0.0);
+tl.fromTo("#tg",{xPercent:-130},{xPercent:0,duration:0.45,ease:"power4.out"},0.25);
+tl.fromTo("#te",{xPercent:130},{xPercent:0,duration:0.45,ease:"power4.out"},0.55);
+tl.to("#tg",{xPercent:-130,duration:0.3,ease:"power3.in"},2.05);
+tl.to("#te",{xPercent:130,duration:0.3,ease:"power3.in"},2.05);
+tl.fromTo("#band",{y:240,opacity:0},{y:0,opacity:1,duration:0.4,ease:"power3.out"},2.3);
+[["#i1",2.6],[".d1",2.85],["#i2",2.9],[".d2",3.15],["#i3",3.2],[".d3",3.45],["#i4",3.5]].forEach(([s,t])=>tl.fromTo(s,{opacity:0,scale:0.6},{opacity:1,scale:1,duration:0.25,ease:"back.out(2.5)",immediateRender:false},t));
+tl.to("#band",{y:240,opacity:0,duration:0.3,ease:"power3.in"},4.65);
+window.__timelines["main"] = tl;
+</script></body></html>

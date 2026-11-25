@@ -1,0 +1,27 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=1080, height=1920" /><script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script><style>@font-face { font-family: "SG7"; font-weight: 700; src: url("assets/schibsted-grotesk-latin-700-normal.woff") format("woff"); } @font-face { font-family: "SG"; font-weight: 800; src: url("assets/schibsted-grotesk-latin-800-normal.woff") format("woff"); } * { margin: 0; padding: 0; box-sizing: border-box; } html, body { width: 1080px; height: 1920px; overflow: hidden; background: transparent; } #main { position: relative; width: 100%; height: 100%; } #card { position: absolute; left: 110px; top: 1010px; width: 860px; height: 580px; border-radius: 28px; background: #faf8f4; box-shadow: 0 40px 90px rgba(15,29,51,.40), 0 8px 20px rgba(15,29,51,.20); transform-origin: 50% 70%; overflow: hidden; font-family: "SG"; font-weight: 800; color: #15273f; }
+#title { position: absolute; left: 0; width: 1080px; top: 1186px; text-align: center; font-family: "SG7"; font-weight: 700; font-size: 94px; line-height: 94px; color: #F6B560; text-shadow: 0 5px 14px rgba(0,0,0,.67); white-space: nowrap; }
+.cell { position: absolute; width: 260px; height: 230px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; font-size: 38px; }
+.cell svg { width: 110px; height: 110px; }
+</style></head><body>
+<div id="main" data-composition-id="main" data-start="0" data-duration="9.07" data-width="1080" data-height="1920">
+<div id="stage" class="clip" data-start="0" data-duration="9.07" data-track-index="0"><div id="title">owns a business</div><div id="card">
+<div class="cell" id="c0" style="left:30px;top:50px"><svg viewBox="0 0 110 110"><circle cx="42" cy="58" r="26" fill="none" stroke="#15273f" stroke-width="9"/><circle cx="68" cy="58" r="26" fill="none" stroke="#466489" stroke-width="9"/></svg><span>Married</span></div>
+<div class="cell" id="c1" style="left:300px;top:50px"><svg viewBox="0 0 110 110"><circle cx="55" cy="36" r="17" fill="#15273f"/><path d="M27,96 C27,66 40,58 55,58 C70,58 83,66 83,96 Z" fill="#15273f"/></svg><span>Kids</span></div>
+<div class="cell" id="c2" style="left:570px;top:50px"><svg viewBox="0 0 110 110"><circle cx="35" cy="34" r="15" fill="#15273f"/><path d="M10,92 C10,64 22,56 35,56 C48,56 60,64 60,92 Z" fill="#15273f"/><circle cx="75" cy="34" r="15" fill="#466489"/><path d="M50,92 C50,64 62,56 75,56 C88,56 100,64 100,92 Z" fill="#466489"/></svg><span>Partners</span></div>
+<div class="cell" id="c3" style="left:30px;top:300px"><svg viewBox="0 0 110 110"><circle cx="55" cy="26" r="13" fill="#15273f"/><path d="M33,66 C33,44 43,38 55,38 C67,38 77,44 77,66 Z" fill="#15273f"/><circle cx="24" cy="54" r="11" fill="#466489"/><path d="M5,98 C5,78 13,72 24,72 C35,72 43,78 43,98 Z" fill="#466489"/><circle cx="86" cy="54" r="11" fill="#466489"/><path d="M67,98 C67,78 75,72 86,72 C97,72 105,78 105,98 Z" fill="#466489"/></svg><span>Employees</span></div>
+<div class="cell" id="c4" style="left:300px;top:300px"><svg viewBox="0 0 110 110"><path d="M14,52 L55,16 L96,52" fill="none" stroke="#15273f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M26,48 L26,96 L84,96 L84,48" fill="none" stroke="#15273f" stroke-width="9" stroke-linejoin="round"/><rect x="47" y="66" width="16" height="30" fill="#466489"/></svg><span>Landlord</span></div>
+<div class="cell" id="c5" style="left:570px;top:300px"><svg viewBox="0 0 110 110"><circle cx="55" cy="55" r="42" fill="none" stroke="#15273f" stroke-width="8"/><text x="55" y="74" text-anchor="middle" font-family="SG" font-weight="800" font-size="52" fill="#15273f">TM</text></svg><span>Brand &amp; IP</span></div>
+</div></div></div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+gsap.set(".cell", { opacity: 0 });
+// the gold "owns a business" caption glides up to become the title; the card pops in under it; icons on each word
+tl.to("#title", { y: -278, duration: 0.42, ease: "power3.inOut" }, 0.0);
+tl.fromTo("#card", { scale: 0.6, y: 80, opacity: 0 }, { scale: 1, y: 0, opacity: 1, duration: 0.28, ease: "back.out(1.7)" }, 0.22);
+[0.632, 1.899, 2.849, 3.857, 5.629, 7.138].forEach((t, i) => {
+  tl.fromTo("#c"+i, { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.6)", immediateRender: false }, t);
+});
+tl.to(["#card","#title"], { opacity: 0, y: "+=30", duration: 0.2, ease: "power2.in" }, 8.87);
+window.__timelines["main"] = tl;
+</script></body></html>

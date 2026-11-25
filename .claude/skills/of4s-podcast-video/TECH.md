@@ -5,7 +5,7 @@ This is how the EPGD reels and YouTube episode were built. The working scripts a
 ## 0. Setup and housekeeping
 - Tools: ffmpeg/ffprobe, Python (numpy, scipy, Pillow), faster-whisper for transcripts, HyperFrames (`npx hyperframes render`) for animated cards, and Chromium (pre-installed).
 - Fonts: Schibsted Grotesk woff files (400–800, from the npm `@fontsource/schibsted-grotesk` package) and Geist. Use weight 700 for captions.
-- Music and SFX come from Pixabay, saved to `audiodl/music` and `audiodl/sfx`. Log every track's page URL so you can check Content ID (SKILL.md §8).
+- **Start from the bundled kit in `assets/`** (sounds, music, fonts, end cards, card templates; see `assets/README.md`). Set the builder's `A` to `<skill>/assets/audio`. New music/SFX come from Pixabay into the same folders. Log every track's page URL so you can check Content ID (SKILL.md §8).
 - **Disk:** the session has a fixed allowance. Delete cached segment renders (`vNN.mp4`) and intermediates (`body.mp4`, `picture.mp4`, `mix*.wav`) of reels that are finished. Never delete final deliverables or the `.mov` card renders still in use.
 - **Run HyperFrames renders one at a time** (use a queue script). If several run in parallel, Chrome fails to start.
 - Never kill processes with `pkill -f <pattern>`, because it can match your own shell. Check `/proc/<pid>/cmdline` first.

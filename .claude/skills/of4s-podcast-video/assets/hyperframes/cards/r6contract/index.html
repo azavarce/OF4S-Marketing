@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=1080, height=1920" /><script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script><style>@font-face { font-family: "SG"; font-weight: 800; src: url("assets/schibsted-grotesk-latin-800-normal.woff") format("woff"); } * { margin: 0; padding: 0; box-sizing: border-box; } html, body { width: 1080px; height: 1920px; overflow: hidden; background: transparent; } #main { position: relative; width: 100%; height: 100%; } .card { position: absolute; border-radius: 28px; background: #faf8f4; box-shadow: 0 40px 90px rgba(15,29,51,.40), 0 8px 20px rgba(15,29,51,.20); transform-origin: 50% 70%; overflow: hidden; font-family: "SG"; font-weight: 800; color: #15273f; }
+#card { left: 290px; top: 1000px; width: 500px; height: 430px; }
+#doc { position: absolute; left: 150px; top: 40px; width: 200px; height: 260px; }
+#lblw { position: absolute; left: 0; width: 500px; top: 322px; height: 76px; overflow: hidden; } #lbl { text-align: center; font-size: 52px; line-height: 76px; } #stage { perspective: 1400px; }
+#x { position: absolute; left: 110px; top: 30px; width: 280px; height: 280px; }
+</style></head><body>
+<div id="main" data-composition-id="main" data-start="0" data-duration="2.7" data-width="1080" data-height="1920">
+<div id="stage" class="clip" data-start="0" data-duration="2.7" data-track-index="0"><div class="card" id="card">
+<svg id="doc" viewBox="0 0 200 260"><path class="dr" d="M10,10 L140,10 L190,60 L190,250 L10,250 Z" fill="#fff" stroke="#15273f" stroke-width="10" stroke-linejoin="round"/><path class="dr" d="M140,10 L140,60 L190,60" fill="none" stroke="#15273f" stroke-width="10" stroke-linejoin="round"/><g stroke="#8fa9c7" stroke-width="10" stroke-linecap="round"><line class="ln" x1="40" y1="100" x2="160" y2="100"/><line class="ln" x1="40" y1="135" x2="160" y2="135"/><line class="ln" x1="40" y1="170" x2="125" y2="170"/></g><path id="sig" d="M40,215 C60,195 75,230 95,208 C110,195 120,222 160,205" fill="none" stroke="#15273f" stroke-width="6" stroke-linecap="round"/></svg>
+<div id="lblw"><div id="lbl">Contract?</div></div>
+<svg id="x" viewBox="0 0 280 280"><g stroke="#d64545" stroke-width="30" stroke-linecap="round"><line class="x1" x1="40" y1="40" x2="240" y2="240"/><line class="x2" x1="240" y1="40" x2="40" y2="240"/></g></svg>
+</div></div></div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const L = Math.hypot(200,200); gsap.set([".x1",".x2"], { strokeDasharray: L, strokeDashoffset: L });
+// entrance: card flips up from below, document draws itself in, label wipes up, signature lands on "contract" (+0.55)
+document.querySelectorAll("#doc .dr, #doc .ln, #sig").forEach(e => { const l = e.getTotalLength(); gsap.set(e, { strokeDasharray: l, strokeDashoffset: l }); });
+gsap.set("#doc path.dr", { fillOpacity: 0 });
+gsap.set("#lbl", { yPercent: 110 }); gsap.set("#x", { opacity: 0 });
+tl.set("#x", { opacity: 1 }, 2.12);
+tl.fromTo("#card", { rotationX: 70, y: 260, scale: 0.85, opacity: 0 }, { rotationX: 0, y: 0, scale: 1, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.0);
+tl.to("#doc .dr", { strokeDashoffset: 0, duration: 0.4, ease: "power2.inOut", stagger: 0.08 }, 0.12);
+tl.to("#doc path.dr", { fillOpacity: 1, duration: 0.2 }, 0.42);
+tl.fromTo("#lbl", { yPercent: 110 }, { yPercent: 0, duration: 0.35, ease: "power4.out", immediateRender: false }, 0.28);
+tl.to("#doc .ln", { strokeDashoffset: 0, duration: 0.18, ease: "power2.out", stagger: 0.07 }, 0.40);
+tl.to("#sig", { strokeDashoffset: 0, duration: 0.3, ease: "power1.inOut" }, 0.58);
+tl.fromTo("#doc", { scale: 1 }, { keyframes: { scale: [1, 1.08, 1] }, duration: 0.28, ease: "power2.out", transformOrigin: "50% 50%", immediateRender: false }, 0.55);
+// red X on "no" (+2.17)
+tl.to(".x1", { strokeDashoffset: 0, duration: 0.12, ease: "power2.out" }, 2.12);
+tl.to(".x2", { strokeDashoffset: 0, duration: 0.12, ease: "power2.out" }, 2.22);
+tl.to("#card", { keyframes: { x: [0, -10, 8, -4, 0] }, duration: 0.25 }, 2.25);
+tl.to("#card", { scale: 0.92, y: 30, opacity: 0, duration: 0.18, ease: "power2.in" }, 2.52);
+window.__timelines["main"] = tl;
+</script></body></html>
