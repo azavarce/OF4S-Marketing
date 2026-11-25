@@ -64,6 +64,10 @@ Then propose a **topic list** for reels (one idea per reel), each with a 1-line 
 - Split screen (host top / guest bottom, navy seam) is good for reactions and for exchanges; no zoom inside split screens.
 - One framing per line; zoom steps (not smooth zooms) only on key lines.
 - **Lighting / exposure (check on day 1, before any edit).** Pull stills of both cameras (faces, skin, background) and check the exposure. If the footage is dark, correct it so faces look **bright, natural and well lit**: lift exposure, shadows and midtones gently; keep skin tones natural and warm; keep real blacks (no washed-out grey look); don't add visible noise or blow out highlights and windows. **Match both cameras** to each other and to the look of the earlier OF4S podcasts. Use **one correction per camera for the whole podcast** (same on every reel and the YouTube episode). Check a contact sheet of every shot before rendering, and again on each finished file. With the first delivery, send one **before/after still** of the correction.
+  - **Settings already approved (start from these, then adjust to the new footage):** iPhone footage is HDR: always convert HDR to SDR first (`zscale … tonemap=hable:desat=0 … bt709`), or it looks flat/grey.
+    - **EPGD Law** (`reference/build_reel_example.py`): guest camera `colorchannelmixer=rr=1.049:gg=1.057:bb=1.110,eq=saturation=1.153`; George's camera matched to it with `lutrgb` per-channel levels (`GGo`).
+    - **Martínez-Cid** (`reference/martinezcid/reel_builder.py`, `youtube_builder.py`): `eq=brightness=0.015` after the tonemap; on Joanne's own cuts `eq=brightness=0.035:contrast=1.04:saturation=1.08` and a `lutrgb` match for the other camera (`finish_her_cut.py`).
+    - These are per-shoot values, not one fixed preset: measure face brightness/skin colour on stills of both cameras, compare with an approved EPGD/Martínez-Cid still, and set the values so they match.
 
 ## 6. Captions
 
