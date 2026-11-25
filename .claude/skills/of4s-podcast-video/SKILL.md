@@ -1,11 +1,13 @@
 ---
 name: of4s-podcast-video
-description: Edit an OF4S client podcast into a YouTube full episode and vertical short clips (Instagram Reels, TikTok, YouTube Shorts) using the rules Joanne approved on the EPGD Law podcast. Use for any OF4S podcast / interview / testimonial video edit: picking clip topics, writing the cut script, hooks, framing, captions, animations, music, SFX, end card, YouTube intro/chapters/captions, QA and client review.
+description: Edit an OF4S client podcast into a YouTube full episode and vertical short clips (Instagram Reels, TikTok, YouTube Shorts) using the rules Joanne approved on the EPGD Law and Martínez-Cid Law podcasts, with the saved tools in reference/. Use for any OF4S podcast / interview / testimonial video edit: audio check and repair, clip topics, cut script, hooks, framing, captions, photos, music, SFX, end card, YouTube intro/chapters/captions, the Video Desk editor, the final quality gate and client review.
 ---
 
 # OF4S Podcast Video Playbook
 
 Everything below was decided with Joanne (OF4S marketing) while editing the EPGD Law podcast (Eric Gros-Dubois x George Dargham, Nov 2026). Follow it from the first edit so she does not have to repeat feedback. `TECH.md` in this folder has the build recipe. **`assets/` holds the exact sounds, music, end cards, fonts and approved animation templates from the EPGD videos — use these by default (catalogue in `assets/README.md`); only look for new music/SFX when Joanne asks or the mood needs something different.**
+
+Updated after the Martínez-Cid Law podcast (Nov 2026): **§17** lessons, **§18** the 3-day workflow, **§19** the final gate every file must pass before it is sent (zero mistakes, professional), **§20** the shoot checklist for George. The working tools are in `reference/martinezcid/`.
 
 ---
 
@@ -113,6 +115,8 @@ Then propose a **topic list** for reels (one idea per reel), each with a 1-line 
 - Deliver **chapters (.txt)** and a **captions file (.srt)** for upload (do not burn captions into the whole episode). End screen ~20 s.
 
 ## 11. QA before sending anything
+
+**Run the full §19 gate on every file.** The list below is the minimum.
 
 - [ ] Every cut: no clipped word at start/end (waveform + listen points).
 - [ ] Heads uncut, consistent height, no desk clutter, nobody looking down, no camera drift.
@@ -244,3 +248,73 @@ Reel 1 was the earliest edit and used the most B-roll; later reels already used 
 - **Words are never cut at a transition.** Find the real silence before the first word and after the last word on the waveform (10 ms steps). If two words run together with no gap (e.g. "And you…"), keep both. After rendering, **transcribe the finished file** and confirm every word is complete before sending. Always build from the original camera audio, never by cutting a finished reel (its mixed music hides the gaps between words).
 - **Animations and effects must never be literal or gimmicky** (the producer's feedback): no illustrating the sentence (empty chair for "imaginary boss", stamps, random icons), no AI-looking stock. Only add a card/diagram when it **explains** something (numbers, a comparison, a process, a checklist), or a **real OF4S photo** when a space is mentioned. When in doubt, stay on the speaker.
 - Reference build: Reel 8 hook → George's question, rebuilt from the raw 4K cameras (Eric 539.00–544.02 in "Shot 2 Client.MOV", George 499.95–501.52 + 502.36–505.98, George video offset −3.25 s).
+
+## 17. Lessons from the Martínez-Cid Law podcast (Nov 2026)
+
+Tools for everything below are in `reference/martinezcid/` (see its README). Start from them; don't rebuild.
+
+**Sound: check it before anything else**
+- Run `audio_repair.check_clipping` on the master on day 1. Martínez-Cid's master (George's camera) was **clipped**; Joanne heard it as the voice "breaking", worst on the guest's loud lines.
+- Default fix: **declip the whole master** (−6 dB headroom + `adeclip`). Where it is still bad (hundreds of clipped samples per second, crosstalk), **patch those seconds with the other camera's copy** of the mics: drift-corrected, tone-matched (+4.5 dB above 3 kHz), gently compressed (never a hard limiter), level-matched, 30 ms crossfades. Joanne rejected the camera copy for a whole video (a bit duller) but loved it as a patch.
+- **Pause cuts never dip to silence**: 40 ms equal-power crossfade between the two takes.
+- Final mix: −14 LUFS, limiter set low enough that the **true peak is ≤ −1 dBTP** after AAC (check with `ebur128=peak=true`).
+- **Joanne's own exported cuts can carry the clipped audio** (her 04 "Client GPT" export was loud and broken). Rebuild their voice from the clean master with `her_cut_clean_voice.py` and confirm the words are identical.
+
+**Cuts**
+- A word's ending runs past where the waveform looks done (the "-st" of "trust", "-che" of "niche", "-tion" of "retention"). End a line 0.15–0.25 s after the visible end, at the next real silence, then **transcribe the finished file** and read every first and last word.
+- The transcriber **invents words at clip starts** ("And", "So", "Thank you", "Microsoft"). Check against the waveform before believing it, and fix captions by hand.
+- Remove stutters ("I, I represent", "there was, there was a", "what what what"), "you know", "um", throat noise and coughs. Keep emphatic repeats ("really, really", "It's odd. It's odd.").
+- Never leave a lone word of the next speaker in a caption ("…or the oddest? I").
+
+**Framing**
+- **One locked frame per camera for the whole reel.** Re-centering per piece made the frame jump in/right/left inside one sentence, and Joanne hated it. No zoom steps at pause cuts.
+- YouTube: George framed like the guest (head and shoulders, not over-zoomed), **both heads at the same height** (about 15% from the top), no empty wall above the guest.
+- YouTube camera follows the speaker via `speaker_detect.py` (voice classifier, 96% vs the checked script). Turns under 2 s → two-shot. George's framing only changes at a camera switch.
+
+**Structure & content choices Joanne made**
+- Hooks only when they serve the story. Often **George's question is the opener** ("What would you say was the craziest case…", "Corporations by law are required…", "Tell me the type of clients…"). Her employees reel: no hook at all ("it makes the video longer").
+- Cold open: no line starts with "And"; a punch line gets a short pause before and after; no line that needs context; she removed "My niche is the weird" in the end.
+- Name tags on YouTube: **big text** (52 px name / 30 px title at 1920 wide), long boxes, ~9 s on screen. Topic wording: **send 3–4 options before rendering** (she rejected "Money vs. vibes" and "Keeping great people"; chose "Starting his own firm × Hiring the right people × AI and the courts").
+- Client names a guest drops on camera (e.g. a former head of state) stay out unless Joanne/the guest OKs it.
+
+**Music & SFX**
+- Match the mood of each video: mysterious/investigative for "craziest case" (not sad piano), upbeat for success stories. Offer A/B(/C) versions of the same edit when unsure.
+- **Duck the music (−5 dB) once the host's question ends** and the guest starts answering.
+- Click sound for cards and photos (no bubble pop, no snap). Whip: soft `swoosh05` only (she disliked whoosh + impact on the whip).
+- Testimonial with captions + photos only: no music unless she asks.
+
+**Photos & captions**
+- Real OF4S install photos from the client's blog post (Odoo `blog.post`), matched to what's said (chairs → conference table, "war room" → conference room, standing desks → office desk). Click sound on each. **Captions move above a photo card** while it's up; never hidden.
+- Quotes in captions get quote marks ("“Brevity is the soul of wit”"). "err on the side of" is spelled *err*.
+
+## 18. Fast workflow: one podcast in 3 days
+
+| Day | Claude | Joanne |
+|---|---|---|
+| Before the shoot | Send George the shoot checklist (§20) | Forward it |
+| 1 | Download sources; **audio check + repair**; transcript (+ filler-aware transcript); speaker detection; head tracks; propose 8–10 clip topics as **one script document** (exact lines in order, hooks/openers, A/B/C music per clip, YouTube cold-open candidates, topic wording options) | Approve or adjust everything in one pass |
+| 2 | Build all reels + the YouTube episode with the saved tools, in one pass each; run the §19 gate on every file; upload previews to the **Video Desk** (`reference/martinezcid/video_desk.html`, one project doc per video) | — |
+| 3 | Render final versions from her Video Desk edits/notes; upload full quality to Drive | Review in the Video Desk: fix small things herself, leave notes for bigger ones, mark ready |
+
+Efficiency rules: one 4K render at a time (parallel 4K jobs ran out of memory); keep ≥10 GB disk free; keep the YouTube episode in sections and change the intro with `youtube_intro_splice.py` (keyframe cut, no full re-encode); don't re-transcribe an unchanged body (shift the old SRT/chapters instead). Review copies < 380 MB (2.4 Mbps); full masters go to Drive.
+
+**How to talk to Joanne**: short bullets plus **one table** (# / video / version / what changed / what I need from you). Files named `<Client>_<##>_<Topic>_v<N>.mp4`; the number never changes, only vN. When she asks a question mid-render, answer first. If her message is ambiguous ("try"), state the reading and act on it.
+
+**Her CapCut cuts**: useful when she has already chosen the lines (it replaces the script step). Ask for exports with the **original audio untouched** (no auto-enhance/volume boost/noise reduction), highest quality, and no captions or music; or her cut points. Her audio still gets mapped to the clean master.
+
+## 19. Final gate: zero mistakes, professional (run on EVERY file before sending)
+
+Nothing goes to Joanne until every line passes. If one fails, fix it first; never send "known issues".
+- [ ] **Words**: transcript of the finished file read start to end; every first/last word at every cut complete; no stray word from a cut neighbour; no filler/stutter/cough she asked to remove.
+- [ ] **Captions**: spelling, names and brand exact (Martínez-Cid, OfficeFurniture4Sale, OF4S); punctuation/capitals right; no caption over a face or photo; gold words are the right ones; nothing on black/transition frames.
+- [ ] **Sound**: no clipping/breaking on the loudest lines (listen points + clipped-sample count), pause cuts smooth, true peak ≤ −1 dBTP, music under the voice and ducked after the question, SFX are the approved ones.
+- [ ] **Picture**: contact sheet of 8–10 frames: locked framing, same head height, no empty wall, no green/black flashes (check transitions frame by frame), lighting matches, end card present.
+- [ ] **Content**: every rule in §13–§17 and every note she gave for this video in this round — tick them off one by one against her message.
+- [ ] **Delivery**: correct name/version, file plays to the end, size < 380 MB, previous version kept.
+
+## 20. Shoot checklist for George (send before every recording)
+- **Audio**: set mic/receiver gain so the loudest laugh peaks around −12 dB (Martínez-Cid clipped and broke the voice). Record a **backup** (second camera or a 32-bit float recorder) with both lavs.
+- Spotless table and room; show OF4S furniture, hide clutter, cards, cups.
+- Don't read questions on camera; glance at notes off frame and look at the guest. Leave a beat before reacting (no talking over the guest).
+- Both cameras at eye level, steady; guest framed with headroom; same white balance; record 10 s of room silence at the start.
+- Get the guest's exact name spelling and title on camera or in writing.
