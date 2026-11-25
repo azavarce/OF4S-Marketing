@@ -100,7 +100,7 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const COLORS=['#d9772b','#e3a845','#a8392e','#6f8a4f','#c9a474'];
 let W,H,leaves=[],t0=performance.now();
 function size(){const r=cv.getBoundingClientRect(),d=devicePixelRatio||1;W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0)}
-function leaf(init){return{x:Math.random()*W,y:init?Math.random()*H:-20,s:6+Math.random()*11,v:.35+Math.random()*.7,
+function leaf(init){const k=W/405;return{x:Math.random()*W,y:init?Math.random()*H:-20*k,s:(6+Math.random()*11)*k,v:(.35+Math.random()*.7)*k,
   a:Math.random()*6.28,r:(Math.random()-.5)*.04,sw:Math.random()*6.28,o:.55+Math.random()*.4,c:COLORS[Math.random()*5|0],
   maple:Math.random()<.45,flip:Math.random()*6.28}}
 function maple(s){ctx.beginPath();for(let i=0;i<=10;i++){const ang=-Math.PI/2+i*Math.PI/5,r=i%2?s*.45:s;ctx.lineTo(Math.cos(ang)*r,Math.sin(ang)*r)}ctx.closePath();ctx.fill()}
@@ -109,7 +109,7 @@ function draw(l){ctx.save();ctx.translate(l.x,l.y);ctx.rotate(l.a);ctx.scale(Mat
   l.maple?maple(l.s):oval(l.s);ctx.restore()}
 function tick(now){ctx.clearRect(0,0,W,H);const p=((now-t0)%11000)/11000;
   const gust=p>.575&&p<.64?2.6:1; // leaves sweep faster as the logo card opens
-  for(const l of leaves){l.y+=l.v*gust;l.sw+=.02;l.x+=Math.sin(l.sw)*.6*gust;l.a+=l.r;l.flip+=.03;
+  for(const l of leaves){l.y+=l.v*gust;l.sw+=.02;l.x+=Math.sin(l.sw)*.6*gust*W/405;l.a+=l.r;l.flip+=.03;
     if(l.y>H+20)Object.assign(l,leaf(false));draw(l)}
   if(!reduce)requestAnimationFrame(tick)}
 size();leaves=Array.from({length:30},()=>leaf(true));requestAnimationFrame(tick);
