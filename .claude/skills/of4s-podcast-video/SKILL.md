@@ -303,7 +303,7 @@ Tools for everything below are in `reference/martinezcid/` (see its README). Sta
 
 Efficiency rules: one 4K render at a time (parallel 4K jobs ran out of memory); keep ≥10 GB disk free; keep the YouTube episode in sections and change the intro with `youtube_intro_splice.py` (keyframe cut, no full re-encode); don't re-transcribe an unchanged body (shift the old SRT/chapters instead). Review copies < 380 MB (2.4 Mbps); full masters go to Drive.
 
-**Closing a podcast: update the skill.** Write every lesson into this file, not only the ones from Joanne's notes. Go through every builder script used and turn each setting Claude chose on its own (lighting/colour grade, audio repair, framing, transitions, music levels) into a written rule here, with the values and the script it lives in. A setting that is only in code is easy to miss on the next podcast (this happened with the lighting correction).
+**Every fix goes into this skill, the same day.** Anything Claude fixes, whether Joanne asked for it or not (a setting, a workaround, a tool limit, a bug in a script), is written here with the values and the script it lives in, at the time of the fix, and pushed. Before closing a podcast, go through every builder script once more and make sure no setting lives only in code. See §21.
 
 **How to talk to Joanne**: short bullets plus **one table** (# / video / version / what changed / what I need from you). Files named `<Client>_<##>_<Topic>_v<N>.mp4`; the number never changes, only vN. When she asks a question mid-render, answer first. If her message is ambiguous ("try"), state the reading and act on it.
 
@@ -325,3 +325,20 @@ Nothing goes to Joanne until every line passes. If one fails, fix it first; neve
 - Don't read questions on camera; glance at notes off frame and look at the guest. Leave a beat before reacting (no talking over the guest).
 - Both cameras at eye level, steady; guest framed with headroom; same white balance; **enough light on both faces** (add a soft light if the room is dim; footage that is too dark has to be brightened in the edit); record 10 s of room silence at the start.
 - Get the guest's exact name spelling and title on camera or in writing.
+
+## 21. Fixes Claude made on its own (keep adding; never only in code)
+
+| Problem | Fix (use it from the start next time) | Where |
+|---|---|---|
+| Footage too dark / flat (iPhone HDR) | HDR→SDR tonemap, then the approved grade; match both cameras (§5) | §5, builders |
+| Clipped master voice ("breaking") | Declip day 1; patch worst seconds with the other camera's audio (§17) | `audio_repair.py` |
+| Green edge on the whip | Render the `xfade` + blur in RGB (`format=gbrp`), not yuv | `reel_builder_hook_whip.py` |
+| Frames lost when cutting the YouTube body with `-ss … -c copy` | Cut at a keyframe with the segment muxer (`-f segment -segment_frames K`), join with stream copy, check the frame count | `youtube_intro_splice.py` |
+| Out of memory with two 4K renders | One 4K render at a time; long renders as tracked background jobs (a plain `&` job died) | — |
+| Duplicate / broken renders after a worker restart | Fail-fast render queue: one job, stop on the first error, check each output's frame count | — |
+| Disk full | Delete finished reels' intermediates and old masters; keep ≥10 GB free | TECH.md §1 |
+| Captions hidden under photo cards | Photo cards keep captions, placed above the photo; captions off only on non-photo cards | `finish_her_cut.py` |
+| Drive upload from a session capped at 10 MB | Big files: send in chat with SendUserFile (≤400 MB) and Joanne saves them to Drive | — |
+| Full-quality YouTube over 400 MB | HQ copy: HEVC two-pass ~2480 kbps (≈378 MB for ~20 min); review copy 2.4 Mbps H.264 | — |
+| Scheduled sessions have no Drive/Gmail connector | Put the Drive file IDs in the task prompt; download with curl `drive.usercontent.google.com/download?id=<ID>&export=download&confirm=t`; deliver in that session's chat | — |
+| Brand on a cup / product in shot | Track the logo box every frame (OpenCV tracker, re-checked with template match), smooth the box over ~0.5 s, soft `gblur` (sigma ~20) inside a feathered mask a little bigger than the logo; only the branded item; check every frame where it appears (no saved script yet: save it when built) | — |
