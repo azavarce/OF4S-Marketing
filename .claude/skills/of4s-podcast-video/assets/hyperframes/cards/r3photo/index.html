@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: transparent; }
+      #main { position: relative; width: 100%; height: 100%; }
+      #stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      /* 4:3 photo card over the upper part of the frame (inside the IG/TikTok safe zone); Eric stays visible below */
+      #card { position: absolute; left: 180px; top: 880px; width: 720px; height: 540px; border-radius: 28px; overflow: hidden;
+              border: 6px solid #faf8f4; box-shadow: 0 40px 90px rgba(15,29,51,.42), 0 8px 20px rgba(15,29,51,.22); transform-origin: 50% 60%; }
+      #photo { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; transform-origin: 40% 45%; }
+    </style>
+  </head>
+  <body>
+    <div id="main" data-composition-id="main" data-start="0" data-duration="1.42" data-width="1080" data-height="1920">
+      <div id="stage" class="clip" data-start="0" data-duration="1.42" data-track-index="0">
+        <div id="card"><img id="photo" src="assets/photo.jpg" /></div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      // pops up as a tilted photo card on "open", settles, then expands to fill the screen; slow push-in; shrinks away at the end of the line
+      // pops in on "open" with a slight tilt, settles; gentle push-in inside the frame; slips away at the end of the line
+      tl.fromTo("#card", { scale: 0.6, y: 90, rotation: -6, opacity: 0 }, { scale: 1, y: 0, rotation: -1.5, opacity: 1, duration: 0.38, ease: "back.out(1.7)" }, 0.0);
+      tl.to("#card", { rotation: 0, duration: 1.6, ease: "sine.inOut" }, 0.38);
+      tl.fromTo("#photo", { scale: 1.0 }, { scale: 1.06, duration: 1.42, ease: "none" }, 0.0);
+      tl.to("#card", { scale: 0.92, y: -40, opacity: 0, duration: 0.2, ease: "power2.in" }, 1.22);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

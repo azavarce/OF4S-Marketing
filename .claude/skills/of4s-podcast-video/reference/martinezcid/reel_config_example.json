@@ -1,0 +1,337 @@
+{
+ "case": {
+  "out": "MartinezCid_06_CraziestCase_v7_MusicB.mp4",
+  "music": "nastelbom-motivation-motivation-cinematic-617063.mp3",
+  "beddb": 20,
+  "base": [
+   [
+    "Q",
+    968.56,
+    976.51,
+    "G",
+    {
+     "x": 1060
+    }
+   ],
+   [
+    "J2b",
+    1002.84,
+    1004.66,
+    "J"
+   ],
+   [
+    "J2c",
+    1005.9,
+    1015.99,
+    "J",
+    {
+     "H": 1850
+    }
+   ],
+   [
+    "G1",
+    1015.99,
+    1016.66,
+    "G",
+    {
+     "x": 1020
+    }
+   ],
+   [
+    "J3",
+    1018.5,
+    1020.1,
+    "J"
+   ],
+   [
+    "J3b",
+    1021.72,
+    1028.84,
+    "J",
+    {
+     "H": 1850
+    }
+   ],
+   [
+    "J4",
+    1039.74,
+    1048.85,
+    "J"
+   ]
+  ],
+  "hl": [
+   [
+    "jump out of your follicle",
+    "it would",
+    "jump out of your follicle"
+   ],
+   [
+    "craziest case",
+    "was the",
+    "craziest case"
+   ],
+   [
+    "confidential",
+    "a lot of it's",
+    "confidential"
+   ],
+   [
+    "shocking stuff",
+    "really, really",
+    "shocking stuff"
+   ],
+   [
+    "reputation",
+    "in terms of",
+    "reputation"
+   ],
+   [
+    "won",
+    "final hearing and",
+    "won"
+   ]
+  ],
+  "fix": {}
+ },
+ "prose": {
+  "out": "MartinezCid_07_AIandCourts_v5.mp4",
+  "music": "sub_clair-chill-out-622413.mp3",
+  "beddb": 20,
+  "base": [
+   [
+    "SET",
+    752.62,
+    777.4,
+    "G",
+    {
+     "x": 1080
+    }
+   ],
+   [
+    "HKj",
+    777.61,
+    778.36,
+    "J"
+   ],
+   [
+    "J1a",
+    779.31,
+    798.56,
+    "J"
+   ],
+   [
+    "J1b",
+    799.8,
+    803.37,
+    "J",
+    {
+     "H": 1850
+    }
+   ],
+   [
+    "J2",
+    803.4,
+    807.65,
+    "J",
+    {
+     "H": 1850
+    }
+   ],
+   [
+    "J3",
+    814.18,
+    817.84,
+    "J"
+   ],
+   [
+    "J4",
+    821.83,
+    828.06,
+    "J",
+    {
+     "H": 1850
+    }
+   ]
+  ],
+  "hl": [
+   [
+    "defend themselves",
+    "using AI to",
+    "defend themselves"
+   ],
+   [
+    "not wrong",
+    "so he's",
+    "not wrong"
+   ],
+   [
+    "chief judge",
+    "lunch with the",
+    "chief judge"
+   ],
+   [
+    "exponentially higher",
+    "are",
+    "exponentially higher"
+   ],
+   [
+    "silver lining",
+    "there's a",
+    "silver lining"
+   ],
+   [
+    "somewhat quicker",
+    "I get through it",
+    "somewhat quicker"
+   ]
+  ],
+  "fix": {
+   "this": "these"
+  }
+ },
+ "niche": {
+  "out": "MartinezCid_08_NicheIsWeird_v5.mp4",
+  "music": "velariomusic-upbeat-chill-613805.mp3",
+  "beddb": 20,
+  "base": [
+   [
+    "Q",
+    852.42,
+    863.0,
+    "G",
+    {
+     "x": 1320
+    }
+   ],
+   [
+    "J1",
+    864.43,
+    866.2,
+    "J"
+   ],
+   [
+    "J2",
+    868.1,
+    875.22,
+    "J"
+   ],
+   [
+    "J3a",
+    877.59,
+    878.27,
+    "J"
+   ],
+   [
+    "J3b",
+    878.51,
+    880.4,
+    "J",
+    {
+     "H": 1850
+    }
+   ],
+   [
+    "J3c",
+    880.8,
+    891.83,
+    "J"
+   ],
+   [
+    "G2",
+    892.3,
+    893.29,
+    "G",
+    {
+     "x": 1060
+    }
+   ],
+   [
+    "J4a",
+    893.29,
+    893.95,
+    "J"
+   ],
+   [
+    "J4b",
+    894.64,
+    900.34,
+    "J",
+    {
+     "H": 1850
+    }
+   ],
+   [
+    "J4c",
+    901.02,
+    904.56,
+    "J"
+   ],
+   [
+    "G3",
+    906.4,
+    906.9,
+    "G",
+    {
+     "x": 1060
+    }
+   ],
+   [
+    "J5",
+    906.9,
+    909.98,
+    "J"
+   ],
+   [
+    "E1",
+    1050.42,
+    1053.7,
+    "J",
+    {
+     "H": 1800
+    }
+   ],
+   [
+    "E2",
+    1054.43,
+    1056.23,
+    "J",
+    {
+     "H": 1800
+    }
+   ]
+  ],
+  "hl": [
+   [
+    "the weird",
+    "my niche is",
+    "the weird"
+   ],
+   [
+    "very odd docket",
+    "I have a",
+    "very odd docket"
+   ],
+   [
+    "Sri Lanka",
+    "the Republic of",
+    "Sri Lanka"
+   ],
+   [
+    "reverter rights",
+    "about",
+    "reverter rights"
+   ],
+   [
+    "64 years",
+    "going back",
+    "64 years"
+   ],
+   [
+    "little old ladies",
+    "for the",
+    "little old ladies"
+   ]
+  ],
+  "fix": {}
+ }
+}
