@@ -58,18 +58,18 @@ h2 .warm .ch:nth-child(4n+3){color:var(--brass)}   h2 .warm .ch:nth-child(4n){co
 .anim .msg{animation:fadeup 9s infinite .1s both}
 .anim .sign{animation:fadeup 9s infinite .1s both}
 .anim .wipe i{animation:wipe 9s infinite both}
-.anim .wipe i:nth-child(2){animation-delay:.12s} .anim .wipe i:nth-child(3){animation-delay:.24s}
+.anim .wipe i:nth-child(2){animation-delay:.06s} .anim .wipe i:nth-child(3){animation-delay:.12s}
 .anim .card{animation:cardIn 9s infinite both}
 .anim .card .m5 span{animation:slam 9s infinite both}
 .anim .card .fullname{animation:cardFade 9s infinite both}
 
 @keyframes pop{0%{opacity:0;transform:translateY(60%) rotate(-12deg) scale(.6)}4%{opacity:1;transform:translateY(-12%) rotate(4deg) scale(1.08)}6.5%,100%{opacity:1;transform:none}}
 @keyframes fadeup{0%{opacity:0;transform:translateY(10px)}6%,100%{opacity:1;transform:none}}
-@keyframes greetOut{0%,51%{opacity:1;transform:none}56%,100%{opacity:0;transform:translateY(-6%)}}
-@keyframes wipe{0%,50%{transform:translateY(140%) skewY(-14deg)}57%,61%{transform:translateY(0) skewY(-14deg)}69%,100%{transform:translateY(-140%) skewY(-14deg)}}
-@keyframes cardIn{0%,59%{opacity:0}59.5%,96%{opacity:1}100%{opacity:0}}
-@keyframes slam{0%,64%{opacity:0;transform:scale(2.4);filter:blur(8px)}68%{opacity:1;transform:scale(.94);filter:blur(0)}70%,100%{opacity:1;transform:none;filter:blur(0)}}
-@keyframes cardFade{0%,64%{opacity:0;letter-spacing:.6em}70%,100%{opacity:1;letter-spacing:.14em}}
+@keyframes greetOut{0%,51%{opacity:1;transform:none}53.5%,100%{opacity:0;transform:translateY(-6%)}}
+@keyframes wipe{0%,50%{transform:translateY(140%) skewY(-14deg)}53.5%,55%{transform:translateY(0) skewY(-14deg)}59%,100%{transform:translateY(-140%) skewY(-14deg)}}
+@keyframes cardIn{0%,55.5%{opacity:0}56%,96%{opacity:1}100%{opacity:0}}
+@keyframes slam{0%,57.5%{opacity:0;transform:scale(2.4);filter:blur(8px)}61%{opacity:1;transform:scale(.94);filter:blur(0)}63%,100%{opacity:1;transform:none;filter:blur(0)}}
+@keyframes cardFade{0%,57.5%{opacity:0;letter-spacing:.6em}62%,100%{opacity:1;letter-spacing:.14em}}
 @media (prefers-reduced-motion:reduce){.anim *{animation:none!important}.card,.wipe{display:none}}
 </style>
 
@@ -108,7 +108,7 @@ function oval(s){ctx.beginPath();ctx.moveTo(0,-s);ctx.quadraticCurveTo(s*.7,0,0,
 function draw(l){ctx.save();ctx.translate(l.x,l.y);ctx.rotate(l.a);ctx.scale(Math.cos(l.flip),1);ctx.globalAlpha=l.o;ctx.fillStyle=l.c;
   l.maple?maple(l.s):oval(l.s);ctx.restore()}
 function tick(now){ctx.clearRect(0,0,W,H);const p=((now-t0)%9000)/9000;
-  const gust=p>.48&&p<.62?2.6:1; // leaves sweep faster as the logo card opens
+  const gust=p>.48&&p<.56?2.6:1; // leaves sweep faster as the logo card opens
   for(const l of leaves){l.y+=l.v*gust;l.sw+=.02;l.x+=Math.sin(l.sw)*.6*gust;l.a+=l.r;l.flip+=.03;
     if(l.y>H+20)Object.assign(l,leaf(false));draw(l)}
   if(!reduce)requestAnimationFrame(tick)}
