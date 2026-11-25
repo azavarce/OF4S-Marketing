@@ -2,7 +2,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: one 9:16 Instagram Story frame. Scene 1 greeting (0–7.7s), scene 2 OF4S logo card (8.2–12s). Loops every 12s. */
+/* Layout: one 9:16 Instagram Story frame. Greeting, autumn stripe wipe, OF4S logo card. Loops every 9s. */
 :root{
   --navy-950:#0a1628; --navy-900:#0f1d33; --navy-800:#15273f; --navy-600:#2d4a6e; --navy-300:#8fa9c7;
   --paper:#faf8f4; --paper-200:#e8e2d4;
@@ -50,27 +50,27 @@ h2 .warm .ch:nth-child(4n+3){color:var(--brass)}   h2 .warm .ch:nth-child(4n){co
 .btn{font:500 13px var(--sans);background:transparent;color:var(--navy-300);border:1px solid var(--navy-600);border-radius:999px;padding:8px 16px;cursor:pointer}
 .btn:focus-visible{outline:2px solid var(--paper);outline-offset:2px}
 
-/* ── Timeline (12s loop) ── */
-.anim .greet{animation:greetOut 12s infinite}
-.anim h2 .ch{animation:pop 12s infinite both;animation-delay:calc(.15s + var(--i) * .055s)}
-.anim .dots i{animation:dot 12s infinite both;animation-delay:calc(1.3s + var(--i) * .12s)}
-.anim .msg{animation:fadeup 12s infinite 2s both}
-.anim .sign{animation:fadeup 12s infinite 2.9s both}
-.anim .card{animation:cardIn 12s infinite both}
-.anim .card .m5 span{animation:cardPop 12s infinite both;animation-delay:calc(var(--i) * .08s)}
-.anim .card .rule{animation:cardRule 12s infinite both}
-.anim .card .fullname,.anim .card .url,.anim .card .dots{animation:cardFade 12s infinite both}
-.anim .card .url{animation-delay:.2s} .anim .card .dots{animation-delay:.35s}
+/* ── Timeline (9s loop): greeting 0–4.6s, autumn stripe wipe 4.6–6s, logo card 6–9s ── */
+.wipe i{position:absolute;inset:-25% -15%;display:block;transform:translateY(140%) skewY(-14deg)}
+.wipe i:nth-child(1){background:var(--pumpkin)} .wipe i:nth-child(2){background:var(--harvest)} .wipe i:nth-child(3){background:var(--cranberry)}
+.anim .greet{animation:greetOut 9s infinite}
+.anim h2 .ch{animation:pop 9s infinite both;animation-delay:calc(.1s + var(--i) * .045s)}
+.anim .msg{animation:fadeup 9s infinite 1s both}
+.anim .sign{animation:fadeup 9s infinite 1.5s both}
+.anim .wipe i{animation:wipe 9s infinite both}
+.anim .wipe i:nth-child(2){animation-delay:.12s} .anim .wipe i:nth-child(3){animation-delay:.24s}
+.anim .card{animation:cardIn 9s infinite both}
+.anim .card .m5 span{animation:slam 9s infinite both;animation-delay:calc(var(--i) * .1s)}
+.anim .card .fullname{animation:cardFade 9s infinite both}
 
 @keyframes pop{0%{opacity:0;transform:translateY(60%) rotate(-12deg) scale(.6)}4%{opacity:1;transform:translateY(-12%) rotate(4deg) scale(1.08)}6.5%,100%{opacity:1;transform:none}}
-@keyframes dot{0%{transform:scale(0)}3%{transform:scale(1.4)}5%,100%{transform:scale(1)}}
 @keyframes fadeup{0%{opacity:0;transform:translateY(10px)}6%,100%{opacity:1;transform:none}}
-@keyframes greetOut{0%,62%{opacity:1;transform:none}67%,100%{opacity:0;transform:scale(.94)}}
-@keyframes cardIn{0%,65%{clip-path:circle(0% at 50% 50%)}71%,96%{clip-path:circle(80% at 50% 50%);opacity:1}100%{clip-path:circle(80% at 50% 50%);opacity:0}}
-@keyframes cardPop{0%,68%{opacity:0;transform:translateY(40%)}72%,100%{opacity:1;transform:none}}
-@keyframes cardRule{0%,70%{transform:scaleY(0)}74%,100%{transform:scaleY(1)}}
-@keyframes cardFade{0%,72%{opacity:0;transform:translateY(6px)}76%,100%{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.anim *{animation:none!important}.card{display:none}}
+@keyframes greetOut{0%,51%{opacity:1;transform:none}56%,100%{opacity:0;transform:translateY(-6%)}}
+@keyframes wipe{0%,50%{transform:translateY(140%) skewY(-14deg)}57%,61%{transform:translateY(0) skewY(-14deg)}69%,100%{transform:translateY(-140%) skewY(-14deg)}}
+@keyframes cardIn{0%,59%{opacity:0}59.5%,96%{opacity:1}100%{opacity:0}}
+@keyframes slam{0%,64%{opacity:0;transform:scale(2.4);filter:blur(8px)}68%{opacity:1;transform:scale(.94);filter:blur(0)}70%,100%{opacity:1;transform:none;filter:blur(0)}}
+@keyframes cardFade{0%,71%{opacity:0;letter-spacing:.6em}77%,100%{opacity:1;letter-spacing:.14em}}
+@media (prefers-reduced-motion:reduce){.anim *{animation:none!important}.card,.wipe{display:none}}
 </style>
 
 <div class="wrap">
@@ -87,6 +87,7 @@ h2 .warm .ch:nth-child(4n+3){color:var(--brass)}   h2 .warm .ch:nth-child(4n){co
         <span class="fullname">officefurniture4sale</span>
       </div>
     </div>
+    <div class="wipe" aria-hidden="true"><i></i><i></i><i></i></div>
   </div>
   <button class="btn" id="replay" type="button">Replay</button>
 </div>
@@ -106,8 +107,8 @@ function maple(s){ctx.beginPath();for(let i=0;i<=10;i++){const ang=-Math.PI/2+i*
 function oval(s){ctx.beginPath();ctx.moveTo(0,-s);ctx.quadraticCurveTo(s*.7,0,0,s);ctx.quadraticCurveTo(-s*.7,0,0,-s);ctx.fill()}
 function draw(l){ctx.save();ctx.translate(l.x,l.y);ctx.rotate(l.a);ctx.scale(Math.cos(l.flip),1);ctx.globalAlpha=l.o;ctx.fillStyle=l.c;
   l.maple?maple(l.s):oval(l.s);ctx.restore()}
-function tick(now){ctx.clearRect(0,0,W,H);const p=((now-t0)%12000)/12000;
-  const gust=p>.6&&p<.7?2.2:1; // leaves sweep faster as the logo card opens
+function tick(now){ctx.clearRect(0,0,W,H);const p=((now-t0)%9000)/9000;
+  const gust=p>.48&&p<.62?2.6:1; // leaves sweep faster as the logo card opens
   for(const l of leaves){l.y+=l.v*gust;l.sw+=.02;l.x+=Math.sin(l.sw)*.6*gust;l.a+=l.r;l.flip+=.03;
     if(l.y>H+20)Object.assign(l,leaf(false));draw(l)}
   if(!reduce)requestAnimationFrame(tick)}
