@@ -303,6 +303,8 @@ Tools for everything below are in `reference/martinezcid/` (see its README). Sta
 
 Efficiency rules: one 4K render at a time (parallel 4K jobs ran out of memory); keep ≥10 GB disk free; keep the YouTube episode in sections and change the intro with `youtube_intro_splice.py` (keyframe cut, no full re-encode); don't re-transcribe an unchanged body (shift the old SRT/chapters instead). Review copies < 380 MB (2.4 Mbps); full masters go to Drive.
 
+**Closing a podcast: update the skill.** Write every lesson into this file, not only the ones from Joanne's notes. Go through every builder script used and turn each setting Claude chose on its own (lighting/colour grade, audio repair, framing, transitions, music levels) into a written rule here, with the values and the script it lives in. A setting that is only in code is easy to miss on the next podcast (this happened with the lighting correction).
+
 **How to talk to Joanne**: short bullets plus **one table** (# / video / version / what changed / what I need from you). Files named `<Client>_<##>_<Topic>_v<N>.mp4`; the number never changes, only vN. When she asks a question mid-render, answer first. If her message is ambiguous ("try"), state the reading and act on it.
 
 **Her CapCut cuts**: useful when she has already chosen the lines (it replaces the script step). Ask for exports with the **original audio untouched** (no auto-enhance/volume boost/noise reduction), highest quality, and no captions or music; or her cut points. Her audio still gets mapped to the clean master.
