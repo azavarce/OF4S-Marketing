@@ -63,6 +63,7 @@ Then propose a **topic list** for reels (one idea per reel), each with a 1-line 
 - **Never show the host looking down** (except the very opening). No auto face-crop.
 - Split screen (host top / guest bottom, navy seam) is good for reactions and for exchanges; no zoom inside split screens.
 - One framing per line; zoom steps (not smooth zooms) only on key lines.
+- **Lighting / exposure (check on day 1, before any edit).** Pull stills of both cameras (faces, skin, background) and check the exposure. If the footage is dark, correct it so faces look **bright, natural and well lit**: lift exposure, shadows and midtones gently; keep skin tones natural and warm; keep real blacks (no washed-out grey look); don't add visible noise or blow out highlights and windows. **Match both cameras** to each other and to the look of the earlier OF4S podcasts. Use **one correction per camera for the whole podcast** (same on every reel and the YouTube episode). Check a contact sheet of every shot before rendering, and again on each finished file. With the first delivery, send one **before/after still** of the correction.
 
 ## 6. Captions
 
@@ -292,7 +293,7 @@ Tools for everything below are in `reference/martinezcid/` (see its README). Sta
 | Day | Claude | Joanne |
 |---|---|---|
 | Before the shoot | Send George the shoot checklist (§20) | Forward it |
-| 1 | Download sources; **audio check + repair**; transcript (+ filler-aware transcript); speaker detection; head tracks; propose 8–10 clip topics as **one script document** (exact lines in order, hooks/openers, A/B/C music per clip, YouTube cold-open candidates, topic wording options) | Approve or adjust everything in one pass |
+| 1 | Download sources; **audio check + repair**; transcript (+ filler-aware transcript); speaker detection; head tracks; **lighting/exposure check + correction (§5)**; propose 8–10 clip topics as **one script document** (exact lines in order, hooks/openers, A/B/C music per clip, YouTube cold-open candidates, topic wording options) | Approve or adjust everything in one pass |
 | 2 | Build all reels + the YouTube episode with the saved tools, in one pass each; run the §19 gate on every file; upload previews to the **Video Desk** (`reference/martinezcid/video_desk.html`, one project doc per video) | — |
 | 3 | Render final versions from her Video Desk edits/notes; upload full quality to Drive | Review in the Video Desk: fix small things herself, leave notes for bigger ones, mark ready |
 
@@ -308,7 +309,7 @@ Nothing goes to Joanne until every line passes. If one fails, fix it first; neve
 - [ ] **Words**: transcript of the finished file read start to end; every first/last word at every cut complete; no stray word from a cut neighbour; no filler/stutter/cough she asked to remove.
 - [ ] **Captions**: spelling, names and brand exact (Martínez-Cid, OfficeFurniture4Sale, OF4S); punctuation/capitals right; no caption over a face or photo; gold words are the right ones; nothing on black/transition frames.
 - [ ] **Sound**: no clipping/breaking on the loudest lines (listen points + clipped-sample count), pause cuts smooth, true peak ≤ −1 dBTP, music under the voice and ducked after the question, SFX are the approved ones.
-- [ ] **Picture**: contact sheet of 8–10 frames: locked framing, same head height, no empty wall, no green/black flashes (check transitions frame by frame), lighting matches, end card present.
+- [ ] **Picture**: contact sheet of 8–10 frames: locked framing, same head height, no empty wall, no green/black flashes (check transitions frame by frame), lighting: faces bright and natural, no dark or washed-out shots, both cameras matching, end card present.
 - [ ] **Content**: every rule in §13–§17 and every note she gave for this video in this round — tick them off one by one against her message.
 - [ ] **Delivery**: correct name/version, file plays to the end, size < 380 MB, previous version kept.
 
@@ -316,5 +317,5 @@ Nothing goes to Joanne until every line passes. If one fails, fix it first; neve
 - **Audio**: set mic/receiver gain so the loudest laugh peaks around −12 dB (Martínez-Cid clipped and broke the voice). Record a **backup** (second camera or a 32-bit float recorder) with both lavs.
 - Spotless table and room; show OF4S furniture, hide clutter, cards, cups.
 - Don't read questions on camera; glance at notes off frame and look at the guest. Leave a beat before reacting (no talking over the guest).
-- Both cameras at eye level, steady; guest framed with headroom; same white balance; record 10 s of room silence at the start.
+- Both cameras at eye level, steady; guest framed with headroom; same white balance; **enough light on both faces** (add a soft light if the room is dim; footage that is too dark has to be brightened in the edit); record 10 s of room silence at the start.
 - Get the guest's exact name spelling and title on camera or in writing.
